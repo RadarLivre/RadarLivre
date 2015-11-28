@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" conent="NewsPaper">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Radar Livre </title>
+		<link rel="stylesheet" href="mdl/material.min.css">
+		<link rel="stylesheet" href="css/materialiconfont.css">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/popup.css">
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoBQcMnMYMQUPyorTXHqF1UjgpP4iflrg&sensor=true"></script>
+		<script src="mdl/material.min.js"></script>
+		<script src="js/popup.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/colorUtils.js"></script>
+		<script src="js/interpolator.js"></script>
+		
+	</head>
+	
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+			<!-- Barra superior -->
+			<header class="mdl-layout__header mdl-color--white mdl-color-text--grey-600">	
+				<div class="mdl-layout__header-row">
+					<span class="mdl-layout-title"> Radar Livre </span>
+					<div class="mdl-layout-spacer"></div>
+				</div>
+			</header>
+
+			<!-- Barra lateral -->
+			<div class="mdl-layout__drawer mdl-color--blue-grey-800">
+				<nav class="custon-nav mdl-navigation mdl-color--blue-grey-800">
+					
+					<a id="of-see-map" class="mdl-color-text--light-blue-300 custon-link-selected custon-link custon-content mdl-js-ripple-effect mdl-navigation__link" href="#">
+						<span class="mdl-ripple"></span>
+						<i class="mdl-color-text--light-blue-300 custom-icon material-icons" role="presentation">flight</i>Mapa
+					</a>
+
+					<a id="of-see-project" class="mdl-color-text--blue-grey-100 custon-link-unselected custon-link custon-content mdl-js-ripple-effect mdl-navigation__link" href="project.html">
+						<span class="mdl-ripple"></span>
+						<i class="mdl-color-text--blue-grey-100 custom-icon material-icons" role="presentation">work</i>Projeto
+					</a>
+
+					<a id="of-see-project" class="mdl-color-text--blue-grey-100 custon-link-unselected custon-link custon-content mdl-js-ripple-effect mdl-navigation__link" href="#">
+						<span class="mdl-ripple"></span>
+						<i class="mdl-color-text--blue-grey-100 custom-icon material-icons" role="presentation">smile</i>Participar
+					</a>
+
+					<div class="mdl-layout-spacer"></div>
+					
+					<a id="of-see-info" class="custon-link-unselected custon-link custon-content mdl-js-ripple-effect mdl-navigation__link" href="#">
+						<span class="mdl-ripple"></span>
+						<i class="mdl-color-text--blue-grey-100 custom-icon material-icons" role="presentation">info_outline</i><span class="visuallyhidden">Help</span>
+					</a>
+				</nav>
+			</div>
+
+			<!-- Main content -->
+			<main class="main-layout mdl-layout__content mdl-color--grey-100">
+				<div class="page-content-map">
+					<div id="map-canvas"></div>
+				</div>
+				<div id="loading-view" class="loading-view mdl-color--white">
+					<div class="spinner-div">
+						<div class="spinner-large mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+					</div>
+					<div class="reconnect-text-div">
+						<h4 class="reconnect-text mdl-color-text--blue-grey-800">Conectando...</h4>
+					</div>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>

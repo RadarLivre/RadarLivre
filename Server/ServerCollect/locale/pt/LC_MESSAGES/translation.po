@@ -1,0 +1,15 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ServerCollect\n"
+"Content-Type: text/plain; charset=cp1252\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Project" 
+msgstr ""
+"Software de coleta de mensagens ADS-B"
+
+msgid "Server started on port:" 
+msgstr "Servidor iniciado na porta:"
+
+msgid "Reading logs:" 
+msgstr "Lendo logs"

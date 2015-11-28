@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" conent="NewsPaper">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Radar Livre </title>
+		<link rel="stylesheet" href="mdl/material.min.css">
+		<link rel="stylesheet" href="css/materialiconfont.css">
+		<link rel="stylesheet" href="css/project.css">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="https://cdn.materialdesignicons.com/1.3.41/css/materialdesignicons.min.css">
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoBQcMnMYMQUPyorTXHqF1UjgpP4iflrg&sensor=true"></script>
+		<script src="mdl/material.min.js"></script>
+		<script src="js/project.js"></script>
+		<script src="js/colorUtils.js"></script>
+		<script src="js/interpolator.js"></script>
+		
+	</head>
+	
+	<body>
+		<div class="mdl-layout__container">
+			<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
+				<!-- Barra superior -->
+				<header class="mdl-layout__header mdl-color--white mdl-color-text--grey-600">	
+					<div class="mdl-layout__header-row">
+						<span class="mdl-layout-title"> Radar Livre </span>
+						<div class="mdl-layout-spacer"></div>
+					</div>
+				</header>
+
+				<!-- Barra lateral -->
+				<div class="mdl-layout__drawer mdl-color--blue-grey-800">
+					<nav class="custon-nav mdl-navigation mdl-color--blue-grey-800">
+						
+						<a id="of-see-map" class="mdl-color-text--blue-grey-100 custon-link-unselected custon-link custon-content mdl-js-ripple-effect mdl-navigation__link" href="index.html">
+							<span class="mdl-ripple"></span>
+							<i class="mdl-color-text--blue-grey-100 custom-icon material-icons" role="presentation">flight</i>Mapa
+						</a>
+
+						<a id="of-see-project" class="mdl-color-text--light-blue-300 custon-link-selected custon-link custon-content mdl-js-ripple-effect mdl-navigation__link" href="#">
+							<span class="mdl-ripple"></span>
+							<i class="mdl-color-text--light-blue-300 custom-icon material-icons" role="presentation">work</i>Projeto
+						</a>
+
+						<a id="of-see-project" class="mdl-color-text--blue-grey-100 custon-link-unselected custon-link custon-content mdl-js-ripple-effect mdl-navigation__link" href="#">
+							<span class="mdl-ripple"></span>
+							<i class="mdl-color-text--blue-grey-100 custom-icon material-icons" role="presentation">smile</i>Participar
+						</a>
+
+						<div class="mdl-layout-spacer"></div>
+						
+						<a id="of-see-info" class="custon-link-unselected custon-link custon-content mdl-js-ripple-effect mdl-navigation__link" href="#">
+							<span class="mdl-ripple"></span>
+							<i class="mdl-color-text--blue-grey-100 custom-icon material-icons" role="presentation">info_outline</i><span class="visuallyhidden">Help</span>
+						</a>
+					</nav>
+				</div>
+
+				<!-- Main content -->
+				<main class="mdl-layout__content mdl-color--grey-100">
+					<div class="page-content-project">
+						<div class="mdl-grid">
+							<div class="mdl-cell mdl-cell--2-col"></div>
+							<div class="mdl-cell mdl-cell--8-col mdl-shadow--2dp mdl-color--blue-grey-800 page-text-container page-text-container-top">
+								<div class="logo-image-div">
+									<img class="project-image-logo" src="img/logo.png"/>
+								</div>
+							</div>
+							<div class="mdl-cell mdl-cell--2-col"></div>
+
+							<div class="mdl-cell mdl-cell--2-col"></div>
+							<div class="mdl-cell mdl-cell--8-col mdl-shadow--2dp mdl-color--white page-text-container page-text-container-bottom">
+								<div class="mdl-tooltip mdl-tooltip--large" for="fab-git">Código fonte</div>
+								<a href="https://github.com/phellipeh/ADSB-Controllers">
+									<button id="fab-git" class="fab-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-color--light-blue">
+										<i class="mdi mdi-github-circle"></i>
+									</button>
+								</a>
+
+								<h4 class="mdl-color-text--grey-700">O Sistema Radar Livre</h4>
+								<p>O sistema de monitoramento aéreo Radar livre é uma solução mista de hadware e software baseada na tecnologia ADS-B. Seus principais componentes são: um aparelho receptor de mensagens ADS-B, um software capaz de interpretar os dados coletados, um servidor web que recebe os dados e armazena em um banco de dados, um software capaz de analisar as informações coletadas e detectar possíveis conflitos entre trajetórias de aeronaves e entre aeronaves e acidentes geográficos, além de um site que disponibiliza os dados publicamente.</p>
+
+								<h4 class="mdl-color-text--grey-700">Coleta de mensagens ADS-B</h4>
+								<p>O aparelho coletor de mensagens ADS-B é um componente simples, que pode ser instalado e configurado facilmente. É composto por uma antena pequena e um receptor que pode ser conectado a uma porta USB de qualquer computador. Para o tratamento das mensagens recebidas é necessário um software específico. As aplicações disponíveis atualmente para o reconhecimento das mensagens ADS-B são em sua maioria privadas e para o sistema operacional Windows, o que gera uma dependência da plataforma e um alto custo de instalação. O sistema Radar livre conta com seu próprio software de coleta, uma aplicação de código fonte aberto implementada sobre a plataforma linux pela equipe do projeto na UFC. A aplicação interpreta as mensagens e extrai informações como identificação, posicionamento, velocidade e altitude, armazenando-os em um banco de dados local. Posteriormente, os dados são enviados a um servidor web.</p>
+
+								<h4 class="mdl-color-text--grey-700">Servidor web e site</h4>
+								<p>Após serem coletados, os dados são enviados a um servidor web, que armazena-os em um banco de dados que pode ser acessado para análise das informações obtidas das aeronaves. Esses dados serão disponibilisados em um site de acesso livre e gratuito, onde aeronaves serão representadas graficamente, mostrando sua posição e outras informações. Essa interface web também foi implementada pela equipe do projeto na UFC em Quixadá e resultou num Trabalho de Conclusão de Curso (TCC)</p>
+
+								<h4 class="mdl-color-text--grey-700">Componentes em produção</h4>
+								<p>Encontram-se em desenvolvimento a versão do software coletor para Android e o Software de Análise de Colisão. O software coletor para Android permitirá o uso de plataformas mais leves e baratas para a implantação das estações coletoras e está sendo desenvolvido também na forma de um Trabalho de Conclusão de Curso. Já o Software de Análise de Colisão está sendo implementado pelo autor deste artigo como projeto de Iniciação Científica.</p>
+
+								<h4 class="mdl-color-text--grey-700">Software de Análise de Colisão</h4>
+								<p>Uma das principais falhas do sistema de monitoramento aéreo atual é o atraso na atualização do posicionamento das aeronaves que gera um grande intervalo entre a identificação da possível colisão e o alerta aos pilotos das aeronaves envolvidas. Além disso, o sistema não prevê possíveis colisões contra acidentes geográficos. A Tecnologia ADS-B diminui substancialmente o tempo de atualização do posicionamento dos aviões, tornando o sistema bem mais seguro e confiável.</p>
+
+								<p>Com o objetivo de otimizar a prevensão contra colisões, o sistema Radar Livre disponibilizará um software que utiliza os dados coletados em tempo real para análise e verificação de possíveis conflitos entre rotas de aeronaves e entre rotas de aeronaves e acidentes geográficos. A aplicação, que está em fase de desenvolvimento, funcionará na plataforma linux e terá código fonte aberto. Portanto, poderá ser utilizada livremente, especialmente por torres de controle para auxiliar no monitoramento aéreo.</p>
+
+								<h4 class="mdl-color-text--grey-700">Conclusão</h4>
+								<p>O projeto Radar Livre, com seus componentes simples e acessíveis, permitirá que o sistema de monitoramento aéreo brasileiro acompanhe as melhorias que estão acontecendo nos sistemas norte americanos com a adoção do método de monitoramento ADS-B. Apesar de ainda estar em fase de desenvolvimento, o sistema já disponibiliza as funcionalidades de coleta, armazenamento e apresentação em funciomaneto, e prevê uma versão do Software Coletor para a plataforma Android e um Software de Análise de Colisão. O site está disponível em www.radarlivre.com. Os softwares já produzidos estão disponíveis em http://github.com/phellipeh/ADSB-Controllers, e podem ser baixados e configurados facilmente em qualquer máquina com plataforma linux.</p>
+
+							</div>
+							<div class="mdl-cell mdl-cell--2-col"></div>
+						</div>
+
+						
+						<footer class="mdl-color--grey-700">
+							<div class="custom-bottom-links custom-clipper">
+								<div class="mdl-color--green mdl-js-ripple-effect custom-ripple-container">
+									<span class="mdl-ripple"></span>
+								</div>
+							</div>
+
+						</footer>
+
+						<footer class="mdl-mega-footer">
+							
+							<div class="mdl-mega-footer__middle-section">
+
+								<div class="mdl-mega-footer__drop-down-section">
+									<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+									<h1 class="mdl-mega-footer__heading">Projeto</h1>
+									<ul class="mdl-mega-footer__link-list">
+										<li><a href="projeto.html">Descrição</a></li>
+										<li><a href="#">Manual de instalação</a></li>
+										<li><a href="#">Código fonte</a></li>
+										<li><a href="#">Contato</a></li>
+									</ul>
+								</div>
+
+							</div>
+
+						</footer>
+
+
+					</div>
+				</main>
+			</div>
+		</div>
+	</body>
+</html>

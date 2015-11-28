@@ -1,0 +1,31 @@
+.custom-snack-bar {
+    margin: 30px;
+    width: 320px;
+    height: 72px;
+    right: 0;
+    z-index: 1000;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+   position: absolute;
+     -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+ -webkit-flex-direction: row;
+     -ms-flex-direction: row;
+         flex-direction: row;
+      -webkit-box-align: center;
+    -webkit-align-items: center;
+         -ms-flex-align: center;
+            align-items: center;
+}
+
+.popup-icon {
+    margin-right: 16px;
+}
+
+.custom-left-line {
+    margin-right: 20px;
+    height: 100%;
+    width: 10px;
+}
