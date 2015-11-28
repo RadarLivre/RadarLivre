@@ -1,3 +1,63 @@
+/* Info Drawer */
+
+.title-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.title-flight {
+    margin-left: 20px;
+}
+
+#label-flight-id {
+    font-size: 20px;
+}
+
+#label-airline {
+    font-size: 12px;
+}
+
+.drawer {
+    width: 320px;
+}
+
+.btn-back {
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.custom-card-square {
+    width: 90%;
+    margin: 5%;
+}
+
+.custom-table {
+    border: none;
+    width: 100%;
+}
+
+.table-cell {
+    padding-left: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 14px; 
+}
+
+.horizontal-line {
+    width: 100%;
+    height: 1px;
+}
+
+.vertical-line {
+    width: 1px;
+    padding: 0px !important;
+}
+
+.table-container {
+    width: 100% !important;
+}
+
 /* Map */
 
 .main-layout {

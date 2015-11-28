@@ -13,7 +13,7 @@ def report(module, type, msg):
     if not os.path.exists(DEFAULT_LOG_DIR):
         os.makedirs(DEFAULT_LOG_DIR)
     
-    f = file(DEFAULT_FILE_NAME_SERVER_REPORT, 'a')
+    f = file(os.path.join(DEFAULT_LOG_DIR, DEFAULT_FILE_NAME_SERVER_REPORT), 'a')
     now = datetime.now()
     f.write(str(now) + " - "+module+" - "+type+" - "+msg+"\n")
     f.close()

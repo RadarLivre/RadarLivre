@@ -8,13 +8,15 @@ from server.math_utils.crc_calc import *
 from server.math_utils.adsb_decoder_library import *
 from server.database.adsb_decoder_database import *
 
+from config import LATITUDE, LONGITUDE
+
 # Aircraft Type
 cs_tbl = ['@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
           'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', ' ', ' ', ' ', ' ',
           ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
           '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ', ' ', ' ', ' ', ' ', ' ']
 
-def ADSBDataDecoder(data, showStatus = True, dumpOnDatabase = True, latHome = -4.864790, lonHome = -39.580930):
+def ADSBDataDecoder(data, showStatus = True, dumpOnDatabase = True, latHome = LATITUDE, lonHome = LONGITUDE):
 
     if len(data) == 28:
        print "Pacote 112: Bits"

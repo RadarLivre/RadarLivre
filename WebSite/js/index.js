@@ -28,11 +28,12 @@ map = null;
 
 // This is the current route object
 currentRoutePolyLine = []
+currentHex = ""
 
 
 // Url of the server
-//var wsUri = "ws://" + document.location.host + ":9999/Radar-Livre/websocket";
-var wsUri = "ws://www.radarlivre.com:9999/Radar-Livre/websocket";
+var wsUri = "ws://" + document.location.host + ":9999/Radar-Livre/websocket";
+//var wsUri = "ws://www.radarlivre.com:9999/Radar-Livre/websocket";
 var webSocket;
 
 
@@ -43,6 +44,9 @@ var hasShow = false;
 // List of current airplanes markers
 var airplaneMarkers = [];
 
+
+
+// Initializing google maps view
 
 function doInitMap() {
 
@@ -84,42 +88,21 @@ function doInitMap() {
 
 	});	
 
+	map.addListener('click', function() {
+	    doRemoveCurrentRoute();
+	    doHideAirplaneInfo();
+	})
 
 }
 
 function doInitInterface() {
 	// ...
+
 }
 
-// The point contais the params: lat, lon and alt
-function doMakeRoute(points) {
-	smoothTheWay(
-		points,
-		function(smoothPoints){
-			for(var i = 0; i < smoothPoints.length - 1; i++) {
-				var p1 = smoothPoints[i];
-				var p2 = smoothPoints[i + 1];
-				var currentPoints = [
-					{lat: p1.lat, lng: p1.lng}, 
-					{lat: p2.lat, lng: p2.lng} 
-				];
-			  	var flightPath = new google.maps.Polyline({
-				    path: currentPoints,
-				    geodesic: true,
-				    strokeColor: getColorFromAlt(p1.alt),
-				    strokeOpacity: 1.0,
-				    strokeWeight: 2
-			  	});
 
-				flightPath.setMap(map);
-				currentRoutePolyLine.push(flightPath);
-			}
 
-		}, 
-		10.0
-	);
-	console.log("Route done");
-}
+// Initializing the web socket object
 
 function doInitWebSocket() {
 	try{
@@ -153,7 +136,7 @@ function onWebSocketError(event) {
 
 	doShowLoading();
 	if(!hasShow) {
-		showError("A conexão com o servidor foi perdida!", 5000, function() {});
+		showError("Sem conexão com o servidor!", 5000, function() {});
 		hasShow = true;
 	}
 }
@@ -182,52 +165,9 @@ function doReconectWebSocket() {
 	}, 3000);
 }
 
-function doShowLoading() {
-	document.getElementById("loading-view").style.display = 'block';
-}
 
-function doHideLoading() {
-	document.getElementById("loading-view").style.display = 'none';
-}
 
-function doCreateMarker(airplaneInfo) {
-
-	var icon = {
-	    path: "M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z",
-	    fillColor: md_indigo_900,
-	    fillOpacity: 1,
-	    strokeWeight: 0,
-	    scale: 1.0, 
-	    rotation: parseInt(airplaneInfo.head), 
-	  	origin: new google.maps.Point(0, 0),
-	  	anchor: new google.maps.Point(10, 10),
-	}
-
-	var myLatlng = new google.maps.LatLng(airplaneInfo.latitude, airplaneInfo.longitude);
-	var marker = new google.maps.Marker({
-	    position: myLatlng,
-	    title:"Clique para mais informações", 
-	    icon: icon, 
-	    map: map, 
-
-	    // Custon property
-	    hex: airplaneInfo.hex, 
-		icao: airplaneInfo.icao, 
-		lat: airplaneInfo.latitude, 
-		lon: airplaneInfo.longitude,  
-		alt: airplaneInfo.altitude, 
-		climb: airplaneInfo.altitude, 
-		head: airplaneInfo.head, 
-		velocity: airplaneInfo.velocidadegnd, 
-		utf: airplaneInfo.utf
-	});
-
-	google.maps.event.addListener(marker, 'click', function() {
-		doShowRouteTo(marker);
-	});
-
-	return marker;
-}
+// Handling updates
 
 function doInitGetAirplaneLoop() {
 	setInterval(doUpdateAirpoits, DEF_INTERVAL_UPDATE_AIRPLANES);
@@ -276,4 +216,141 @@ function onRouteReceived(mapPoints) {
 
 	doMakeRoute(points);
 }
+
+
+
+// Handling interface events
+
+function doShowLoading() {
+	document.getElementById("loading-view").style.display = 'block';
+}
+
+function doHideLoading() {
+	document.getElementById("loading-view").style.display = 'none';
+}
+
+function doShowAirplaneInfo(airplaneInfo) {
+	drawer = document.getElementById("drawer-info");
+	if(!drawer.classList.contains("is-visible")) {
+		drawer.classList.add("is-visible");
+		drawer.classList.add("drawer");
+	}
+
+	airLineData = identifyAirLineInformations(airplaneInfo.id);
+
+	if(airLineData != null) {
+
+		flightId = document.getElementById("label-flight-id");
+		flightId.innerHTML = airLineData.idVoo + "/" + airplaneInfo.id;
+
+		airline = document.getElementById("label-airline");
+		airline.innerHTML = airLineData.airline + " - " + airLineData.country;
+
+	} else {
+
+		flightId = document.getElementById("label-flight-id");
+		flightId.innerHTML = "Sem identificação";
+
+	}
+	
+	lat = document.getElementById("label-lat");
+	lat.innerHTML = airplaneInfo.latitude;
+	
+	lng = document.getElementById("label-lng");
+	lng.innerHTML = airplaneInfo.longitude;
+	
+	alt = document.getElementById("label-alt");
+	alt.innerHTML = airplaneInfo.altitude + " ft <br/> " + parseFloat(parseInt(airplaneInfo.altitude * 30.48))/100 + " m";
+	
+	spe = document.getElementById("label-spe");
+	spe.innerHTML = airplaneInfo.velocidadegnd + " knots <br/> " + parseFloat(parseInt(airplaneInfo.velocidadegnd * 185.2))/100 + "km/h";
+}
+
+function doHideAirplaneInfo() {
+	drawer = document.getElementById("drawer-info");
+	if(drawer.classList.contains("is-visible")) {
+		drawer.classList.remove("is-visible");
+		drawer.classList.remove("drawer");
+	}
+}
+
+function doMakeRoute(points) {
+	smoothTheWay(
+		points,
+		function(smoothPoints){
+			for(var i = 0; i < smoothPoints.length - 1; i++) {
+				var p1 = smoothPoints[i];
+				var p2 = smoothPoints[i + 1];
+				var currentPoints = [
+					{lat: p1.lat, lng: p1.lng}, 
+					{lat: p2.lat, lng: p2.lng} 
+				];
+			  	var flightPath = new google.maps.Polyline({
+				    path: currentPoints,
+				    geodesic: true,
+				    strokeColor: getColorFromAlt(p1.alt),
+				    strokeOpacity: 1.0,
+				    strokeWeight: 2
+			  	});
+
+				flightPath.setMap(map);
+				currentRoutePolyLine.push(flightPath);
+			}
+
+		}, 
+		3.0
+	);
+	console.log("Route done");
+}
+
+function doRemoveCurrentRoute() {
+	for(var i = 0; i < currentRoutePolyLine.length - 1; i++) {
+		currentRoutePolyLine[i].setMap(null);
+	}
+
+	currentRoutePolyLine = [];
+	currentHex = ""
+}
+
+function doCreateMarker(airplaneInfo) {
+
+	var icon = {
+	    path: "M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z",
+	    fillColor: md_indigo_900,
+	    fillOpacity: 1,
+	    strokeWeight: 0,
+	    scale: 1.0, 
+	    rotation: parseInt(airplaneInfo.head), 
+	  	origin: new google.maps.Point(0, 0),
+	  	anchor: new google.maps.Point(10, 10),
+	}
+
+	var myLatlng = new google.maps.LatLng(airplaneInfo.latitude, airplaneInfo.longitude);
+	var marker = new google.maps.Marker({
+	    position: myLatlng,
+	    title:"Clique para mais informações", 
+	    icon: icon, 
+
+	    // Custon property
+	    hex: airplaneInfo.hex, 
+		icao: airplaneInfo.icao, 
+		lat: airplaneInfo.latitude, 
+		lon: airplaneInfo.longitude,  
+		alt: airplaneInfo.altitude, 
+		climb: airplaneInfo.altitude, 
+		head: airplaneInfo.head, 
+		velocity: airplaneInfo.velocidadegnd, 
+		utf: airplaneInfo.utf
+	});
+
+	google.maps.event.addListener(marker, 'click', function() {
+		doRemoveCurrentRoute();
+		doShowRouteTo(marker);
+		doShowAirplaneInfo(airplaneInfo);
+	});
+
+	return marker;
+}
+
+
 

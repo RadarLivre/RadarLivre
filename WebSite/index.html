@@ -15,6 +15,7 @@
 		<script src="js/index.js"></script>
 		<script src="js/colorUtils.js"></script>
 		<script src="js/interpolator.js"></script>
+		<script src="js/airlinesInfo.js"></script>
 		
 	</head>
 	
@@ -39,12 +40,12 @@
 
 					<a id="of-see-project" class="mdl-color-text--blue-grey-100 custon-link-unselected custon-link custon-content mdl-js-ripple-effect mdl-navigation__link" href="project.html">
 						<span class="mdl-ripple"></span>
-						<i class="mdl-color-text--blue-grey-100 custom-icon material-icons" role="presentation">work</i>Projeto
+						<i class="mdl-color-text--blue-grey-100 custom-icon material-icons" role="presentation">library_books</i>Projeto
 					</a>
 
 					<a id="of-see-project" class="mdl-color-text--blue-grey-100 custon-link-unselected custon-link custon-content mdl-js-ripple-effect mdl-navigation__link" href="#">
 						<span class="mdl-ripple"></span>
-						<i class="mdl-color-text--blue-grey-100 custom-icon material-icons" role="presentation">smile</i>Participar
+						<i class="mdl-color-text--blue-grey-100 custom-icon material-icons" role="presentation">insert_emoticon</i>Participar
 					</a>
 
 					<div class="mdl-layout-spacer"></div>
@@ -71,5 +72,97 @@
 				</div>
 			</main>
 		</div>
+
+		<!-- Barra lateral de informações -->
+
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<!-- Barra lateral -->
+			<div id="drawer-info" class="mdl-layout__drawer">
+				<nav class="custon-nav mdl-navigation mdl-color--grey-200">
+					<div>
+						<button class="btn-back mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" onclick="doHideAirplaneInfo();">
+							<i class="material-icons">arrow_back</i>
+						</button>
+
+						<div class="custom-card-square mdl-card mdl-shadow--2dp">
+							<div class="title-container">
+								<b id="label-flight-id" class="title-flight mdl-color-text--grey-800"></b>
+								<br/>
+								<label id="label-airline" class="title-flight mdl-color-text--grey-800"></label>
+							</div>
+
+							<div class="horizontal-line mdl-color--grey-200"></div>
+
+							<div class="table-container">
+								
+								<table class="custom-table">
+								  	<tbody>
+								    	<tr>
+								      		<td class="table-cell mdl-data-table__cell--non-numeric">
+								      			<label class="mdl-color-text--grey-600">Latitude</label>
+								      			<br/>
+								      			<b id="label-lat" class="mdl-color-text--grey-900"></b>
+								      		</td>
+
+								    		<td class="vertical-line mdl-color--grey-100">
+								    		</td>
+
+								      		<td class="table-cell mdl-data-table__cell--non-numeric">
+								      			<label class="mdl-color-text--grey-600">Longitude</label>
+								      			<br/>
+								      			<b id="label-lng" class="mdl-color-text--grey-800"></b>
+								      		</td>
+
+								    	</tr>
+								    </tbody>
+								</table>
+								
+								<table class="custom-table">
+								    <tbody>
+								    	<tr>
+								    		<td>
+								    			<div class="horizontal-line mdl-color--grey-100"></div>
+								    		</td>
+								    	</tr>
+
+								    	<tr>
+								      		<td class="table-cell mdl-data-table__cell--non-numeric">
+								      			<label class="mdl-color-text--grey-600">Altitude</label>
+								      			<br/>
+								      			<b id="label-alt" class="mdl-color-text--grey-800"></b>
+								      		</td>
+
+								    	</tr>
+
+								    	<tr>
+								    		<td>
+								    			<div class="horizontal-line mdl-color--grey-100"></div>
+								    		</td>
+								    	</tr>
+
+								    	<tr>
+								      		<td class="table-cell mdl-data-table__cell--non-numeric">
+								      			<label class="mdl-color-text--grey-600">Velocidade</label>
+								      			<br/>
+								      			<b id="label-spe" class="mdl-color-text--grey-900"></b>
+								      		</td>
+
+								    	</tr>
+								  	</tbody>
+								</table>
+							</div>
+
+							<div class="mdl-card__menu">
+								<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+									<i class="material-icons mdl-color-text--grey-800">flight</i>
+								</button>
+							</div>
+						</div>
+
+					</div>
+				</nav>
+			</div>
+		</div>
+
 	</body>
 </html>

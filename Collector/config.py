@@ -1,0 +1,11 @@
+SERVER_ADDRESS 	= 'localhost'
+PORT 			= 5000
+COLLECTOR_ID 	= "RLC-0001A"
+DATA_FORMAT 	= 'ADSBHEXDATA'
+LATITUDE 		= 0
+LONGITUDE 		= 0
+
+DATABASE_DIR 	= "data"
+DATABASE_FILE 	= "local_database.db"
+
+COLLECTOR_ADDRESS = '/dev/ttyACM0'

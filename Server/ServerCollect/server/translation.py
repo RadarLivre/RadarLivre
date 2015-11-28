@@ -1,4 +1,4 @@
-import gettext
+# import gettext
 import os 
 from subprocess import call
 
@@ -20,6 +20,7 @@ MSG_READ_LOGS = "Reading logs"
 LANGUAGE = None
 
 def initLanguages():
+    '''
     try:
         for dirname, dirnames, filenames in os.walk(LOCALE_PATH):
             for filename in filenames:
@@ -36,6 +37,7 @@ def initLanguages():
     except:
         LANGUAGE = gettext
     
-    
+    '''
 def _(msg):
-    return LANGUAGE.gettext(msg)
+    #return LANGUAGE.gettext(msg)
+    return msg

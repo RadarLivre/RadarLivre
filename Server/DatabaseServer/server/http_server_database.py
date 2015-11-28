@@ -16,12 +16,6 @@ except Exception as ex:
 results = []
 hexIcao = []
 
-def findArray(zi):
-    for i in hexIcao:
-        if i == zi:
-            return True
-    return False
-
 def get_realtime_airplane_list():
     cur2.execute("SELECT * FROM HexDataBase AS A INNER JOIN (SELECT MAX(timestamp) as timestamp, hexicao FROM hexdatabase GROUP BY hexicao) AS B ON A.timestamp = B.timestamp AND A.hexicao = B.hexicao");
 
@@ -61,9 +55,9 @@ def get_airplane_track(planehex):
     	r1 = results[i];
     	r2 = results[i + 1];
 
-    	print (r2["timestamp"] - r1["timestamp"]), " ", 
-    	if r2["timestamp"] - r1["timestamp"] >= 60:
-    		index = i + 1;
+        if r2["timestamp"] - r1["timestamp"] >= 60:
+            #print (r2["timestamp"] - r1["timestamp"]), " "
+            index = i + 1;
 
     return json.dumps(results[index : len(results)], indent=2)
 

@@ -4,16 +4,19 @@
 	top: -26px;
 }
 
-.custom-clipper {
-	width: 120px;
-	height: 120px;
-	-webkit-clip-path: circle(60px at center);
-	clip-path: circle(60px at center);
+.custom-bottom-links {
+	width: 52px;
+	height: 52px;
+	margin: 20px;
 }
 
-.custom-bottom-links {
-	width: 120px;
-	height: 120px;
+.bottom-links-container {
+	margin: auto auto;
+	text-align: center;
+}
+
+.custom-bottom-links > i {
+	font-size: 32px;
 }
 
 .custom-ripple-container {
@@ -50,7 +53,10 @@
 }
 
 .page-text-container-bottom {
-	padding: 72px;
+	padding-top: 48px;
+	padding-left: 72px;
+	padding-right: 72px;
+	padding-bottom: 72px;
 	margin-bottom: 52px;
 	position: relative;
 }
