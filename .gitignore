@@ -1,0 +1,4 @@
+logs/
+Server/logs
+Server/.pids
+Server/nohup.out
