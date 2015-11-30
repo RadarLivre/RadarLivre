@@ -74,7 +74,7 @@ function doInitMap() {
 		mapTypeControl: true,
 	    mapTypeControlOptions: {
 	    	style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-	    	position: google.maps.ControlPosition.RIGHT_TOP,
+	    	position: google.maps.ControlPosition.TOP_RIGHT,
 	    	mapTypeIds: [
 	        	google.maps.MapTypeId.ROADMAP,
 	        	google.maps.MapTypeId.TERRAIN
@@ -84,8 +84,8 @@ function doInitMap() {
 	    zoomControlOptions: {
 	        position: google.maps.ControlPosition.RIGHT_CENTER
 	    },
-	    scaleControl: true
-
+	    scaleControl: true, 
+	    overviewMapControl: true
 	});	
 
 	map.addListener('click', function() {
@@ -96,8 +96,54 @@ function doInitMap() {
 }
 
 function doInitInterface() {
-	// ...
+	// Create the search box and link it to the UI element.
+	var input = document.getElementById('pac-input');
+	var inputContent = document.getElementById('search-box-container');
+	var searchBox = new google.maps.places.SearchBox(input);
+	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(inputContent);
 
+	// Bias the SearchBox results towards current map's viewport.
+	map.addListener('bounds_changed', function() {
+		searchBox.setBounds(map.getBounds());
+	});
+
+	var markers = [];
+	// Listen for the event fired when the user selects a prediction and retrieve
+	// more details for that place.
+	searchBox.addListener('places_changed', function() {
+		var places = searchBox.getPlaces();
+
+		if (places.length == 0) {
+			return;
+		}
+
+		// Clear out the old markers.
+		markers.forEach(function(marker) {
+			marker.setMap(null);
+		});
+		markers = [];
+
+		// For each place, get the icon, name and location.
+		var bounds = new google.maps.LatLngBounds();
+		places.forEach(function(place) {
+			
+
+			// Create a marker for each place.
+			markers.push(new google.maps.Marker({
+				map: map,
+				title: place.name,
+				position: place.geometry.location
+			}));
+
+			if (place.geometry.viewport) {
+				// Only geocodes have viewport.
+				bounds.union(place.geometry.viewport);
+			} else {
+				bounds.extend(place.geometry.location);
+			}
+		});
+		map.fitBounds(bounds);
+	});
 }
 
 
@@ -263,7 +309,7 @@ function doShowAirplaneInfo(airplaneInfo) {
 	alt.innerHTML = airplaneInfo.altitude + " ft <br/> " + parseFloat(parseInt(airplaneInfo.altitude * 30.48))/100 + " m";
 	
 	spe = document.getElementById("label-spe");
-	spe.innerHTML = airplaneInfo.velocidadegnd + " knots <br/> " + parseFloat(parseInt(airplaneInfo.velocidadegnd * 185.2))/100 + "km/h";
+	spe.innerHTML = airplaneInfo.velocidadegnd + " knots <br/> " + parseFloat(parseInt(airplaneInfo.velocidadegnd * 185.2))/100 + " km/h";
 }
 
 function doHideAirplaneInfo() {

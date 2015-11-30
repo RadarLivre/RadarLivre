@@ -60,6 +60,34 @@
 
 /* Map */
 
+.search-box-container {
+    margin-top: 10px;
+    height: 36px;
+    width: 200px;
+    border-radius: 2px;
+    position: relative;
+}
+
+.search-box {
+    position: absolute;
+    height: 24px;
+    width: 158px;
+    margin: 6px;
+    border: none;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.search-box:focus {
+    outline: 0;
+}
+
+.icon-search-box {
+    position: absolute;
+    left: 170px;
+    margin-top: 6px;
+}
+
 .main-layout {
     position: relative;
 }
@@ -74,6 +102,7 @@
 }
 
 #map-canvas {
+    position: relative;
     height: 100%;
 }
 

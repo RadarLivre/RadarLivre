@@ -9,7 +9,8 @@
 		<link rel="stylesheet" href="css/materialiconfont.css">
 		<link rel="stylesheet" href="css/index.css">
 		<link rel="stylesheet" href="css/popup.css">
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoBQcMnMYMQUPyorTXHqF1UjgpP4iflrg&sensor=true"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoBQcMnMYMQUPyorTXHqF1UjgpP4iflrg&libraries=places&callback=initAutocomplete"
+         async defer></script>
 		<script src="mdl/material.min.js"></script>
 		<script src="js/popup.js"></script>
 		<script src="js/index.js"></script>
@@ -19,7 +20,7 @@
 		
 	</head>
 	
-	<body>
+	<body onresize="doHideAirplaneInfo();">
 		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
 			<!-- Barra superior -->
 			<header class="mdl-layout__header mdl-color--white mdl-color-text--grey-600">	
@@ -60,6 +61,10 @@
 			<!-- Main content -->
 			<main class="main-layout mdl-layout__content mdl-color--grey-100">
 				<div class="page-content-map">
+					<div id="search-box-container" class="search-box-container mdl-shadow--2dp mdl-color--white">
+						<input id="pac-input" class="search-box controls " type="text" placeholder="Busque por lugares">
+						<i class="icon-search-box material-icons mdl-color-text--grey-700">search</i>
+					</div>
 					<div id="map-canvas"></div>
 				</div>
 				<div id="loading-view" class="loading-view mdl-color--white">

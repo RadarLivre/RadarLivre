@@ -1,7 +1,7 @@
 from simple_websocket_server import WebSocket, SimpleWebSocketServer
 from server.http_server_database import get_realtime_airplane_list, get_list_airports,\
     get_airplane_track, search_flight
-from server.translation import MSG_SERVER_INIT_ON_PORT, MSG_SERVER_INIT_ERROR,\
+from server.translation import _, MSG_SERVER_INIT_ON_PORT, MSG_SERVER_INIT_ERROR,\
     MSG_SERVER_ERROR, MSG_SERVER_CONNECTED_WITH, MSG_SERVER_DISCONNECTED_FROM
 
 class ADSBDataEcho(WebSocket):
