@@ -44,7 +44,19 @@ var hasShow = false;
 // List of current airplanes markers
 var airplaneMarkers = [];
 
+function getParam(param) {
+	var url = window.location.search.substring(1);
 
+	var vars = url.split('&');
+	for (var i=0; i<vars.length; i++) {
+	    var pair = vars[i].split("=");
+	    if (pair[0] == param) {
+	    	return pair[1];
+	    }
+	}
+
+	return null;
+} 
 
 // Initializing google maps view
 
@@ -66,10 +78,18 @@ function doInitMap() {
 		}
 	]
 
+	lat = getParam("lat");
+	lng = getParam("lng");
+	zoom = getParam("zoom");
+
+	if(lat == null) lat = -14.950841; else lat = parseFloat(lat);
+	if(lng == null) lng = -52.1189968; else lng = parseFloat(lng);
+	if(zoom == null) zoom = 4; else zoom = parseFloat(zoom);
+
 	map = new google.maps.Map(document.getElementById('map-canvas'), {
-		center: {lat: -4.850440, lng: -39.572829},
+		center: {lat: lat, lng: lng},
 		streetViewControl: false,
-		zoom: 7, 
+		zoom: zoom, 
 		styles: styleArray, 
 		mapTypeControl: true,
 	    mapTypeControlOptions: {
@@ -92,6 +112,17 @@ function doInitMap() {
 		currentHex = "";
 	    doRemoveCurrentRoute();
 	    doHideAirplaneInfo();
+	})
+
+	map.addListener('center_changed', function() {
+		// location.protocol + '//' + location.host + location.pathname + "?";
+		// ?q=asd&oq=asd&aqs=chrome
+
+		var lat = map.getCenter().lat();
+		var lng = map.getCenter().lng();
+		var zoom = map.getZoom();
+
+		window.history.pushState("", "", "?lat=" + lat + "&lng=" + lng + "&zoom=" + zoom);
 	})
 
 }
@@ -228,15 +259,16 @@ function doUpdateAirplains() {
 
 function onAirplanesReceived(airplanes) {
 	console.log("Updating airplanes: " + airplanes.length);
-	var exists = function(air) {
-		for(i = 0; i < airplaneMarkers.length; i++)
-			if(airplaneMarkers[i].hex == air.hex)
+	var exists = function(air, list) {
+		for(i = 0; i < list.length; i++)
+			if(list[i].hex == air.hex)
 				return i;
 		return -1;
-	}	
+	}
+
 	for(i = 0; i < airplanes.length; i++) {
 		air = airplanes[i];
-		var index = exists(air);
+		var index = exists(air, airplaneMarkers);
 
 		if(index != -1) {
 			var marker = airplaneMarkers[index];
@@ -247,6 +279,16 @@ function onAirplanesReceived(airplanes) {
 			airplaneMarkers.push(marker);
 		}
 	}
+
+	for(var i = 0; i < airplaneMarkers.length; i++) {
+		var airplane = airplaneMarkers[i];
+		var index = exists(airplane, airplanes);
+		if(index == -1) {
+			airplane.setMap(null);
+			airplaneMarkers.splice(index, 1);
+		}
+	}
+
 }
 
 function doShowRouteTo(hex) {
@@ -402,7 +444,8 @@ function doCreateMarker(airplaneInfo) {
 		climb: airplaneInfo.altitude, 
 		head: airplaneInfo.head, 
 		velocity: airplaneInfo.velocidadegnd, 
-		utf: airplaneInfo.utf
+		utf: airplaneInfo.utf, 
+		timestamp: airplaneInfo.timestamp
 	});
 
 	google.maps.event.addListener(marker, 'click', function() {
@@ -415,6 +458,3 @@ function doCreateMarker(airplaneInfo) {
 
 	return marker;
 }
-
-
-
