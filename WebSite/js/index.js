@@ -32,8 +32,8 @@ currentHex = ""
 
 
 // Url of the server
-var wsUri = "ws://" + document.location.host + ":9999/Radar-Livre/websocket";
-//var wsUri = "ws://www.radarlivre.com:9999/Radar-Livre/websocket";
+// var wsUri = "ws://" + document.location.host + ":9999/Radar-Livre/websocket";
+var wsUri = "ws://www.radarlivre.com:9999/Radar-Livre/websocket";
 var webSocket;
 
 
@@ -89,6 +89,7 @@ function doInitMap() {
 	});	
 
 	map.addListener('click', function() {
+		currentHex = "";
 	    doRemoveCurrentRoute();
 	    doHideAirplaneInfo();
 	})
@@ -126,8 +127,6 @@ function doInitInterface() {
 		// For each place, get the icon, name and location.
 		var bounds = new google.maps.LatLngBounds();
 		places.forEach(function(place) {
-			
-
 			// Create a marker for each place.
 			markers.push(new google.maps.Marker({
 				map: map,
@@ -216,12 +215,15 @@ function doReconectWebSocket() {
 // Handling updates
 
 function doInitGetAirplaneLoop() {
-	setInterval(doUpdateAirpoits, DEF_INTERVAL_UPDATE_AIRPLANES);
+	setInterval(doUpdateAirplains, DEF_INTERVAL_UPDATE_AIRPLANES);
 }
 
-function doUpdateAirpoits() {
+function doUpdateAirplains() {
 	console.log("send: " + REQUEST_GET_AIRPLANES);
 	webSocket.send(REQUEST_GET_AIRPLANES);
+
+	if(currentHex != "")
+		doShowRouteTo(currentHex);
 }
 
 function onAirplanesReceived(airplanes) {
@@ -247,8 +249,9 @@ function onAirplanesReceived(airplanes) {
 	}
 }
 
-function doShowRouteTo(marker) {
-	webSocket.send(REQUEST_GET_ROUTE + "(" + marker.hex + ")");
+function doShowRouteTo(hex) {
+	console.log("send: " + REQUEST_GET_ROUTE + "(" + hex + ")");
+	webSocket.send(REQUEST_GET_ROUTE + "(" + hex + ")");
 }
 
 function onRouteReceived(mapPoints) {
@@ -327,20 +330,24 @@ function doMakeRoute(points) {
 			for(var i = 0; i < smoothPoints.length - 1; i++) {
 				var p1 = smoothPoints[i];
 				var p2 = smoothPoints[i + 1];
-				var currentPoints = [
-					{lat: p1.lat, lng: p1.lng}, 
-					{lat: p2.lat, lng: p2.lng} 
-				];
-			  	var flightPath = new google.maps.Polyline({
-				    path: currentPoints,
-				    geodesic: true,
-				    strokeColor: getColorFromAlt(p1.alt),
-				    strokeOpacity: 1.0,
-				    strokeWeight: 2
-			  	});
 
-				flightPath.setMap(map);
-				currentRoutePolyLine.push(flightPath);
+				if(!existsPoly(p1)) {
+					var currentPoints = [
+						{lat: p1.lat, lng: p1.lng}, 
+						{lat: p2.lat, lng: p2.lng} 
+					];
+				  	var flightPath = new google.maps.Polyline({
+					    path: currentPoints,
+					    geodesic: true,
+					    strokeColor: getColorFromAlt(p1.alt),
+					    strokeOpacity: 1.0,
+					    strokeWeight: 2, 
+					    custonId: "" + p1.lat + ":" + p2.lat
+				  	});
+
+					flightPath.setMap(map);
+					currentRoutePolyLine.push(flightPath);
+				}
 			}
 
 		}, 
@@ -349,13 +356,22 @@ function doMakeRoute(points) {
 	console.log("Route done");
 }
 
+function existsPoly(p1) {
+	for(var i = 0; i < currentRoutePolyLine.length; i++) {
+		line = currentRoutePolyLine[i]
+		var custonId = "" + p1.lat + ":" + p1.lng;
+		if(line.custonId == custonId)
+			return true;
+	}
+	return false;
+}
+
 function doRemoveCurrentRoute() {
 	for(var i = 0; i < currentRoutePolyLine.length - 1; i++) {
 		currentRoutePolyLine[i].setMap(null);
 	}
 
 	currentRoutePolyLine = [];
-	currentHex = ""
 }
 
 function doCreateMarker(airplaneInfo) {
@@ -390,9 +406,11 @@ function doCreateMarker(airplaneInfo) {
 	});
 
 	google.maps.event.addListener(marker, 'click', function() {
+		currentHex = marker.hex;
 		doRemoveCurrentRoute();
-		doShowRouteTo(marker);
+		doShowRouteTo(marker.hex);
 		doShowAirplaneInfo(airplaneInfo);
+		map.panTo(marker.getPosition());
 	});
 
 	return marker;
