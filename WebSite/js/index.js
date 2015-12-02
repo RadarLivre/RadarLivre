@@ -142,15 +142,16 @@ function doInitInterface() {
 	searchBox.addListener('places_changed', function() {
 		var places = searchBox.getPlaces();
 
-		if (places.length == 0) {
-			return;
-		}
-
 		// Clear out the old markers.
 		markers.forEach(function(marker) {
 			marker.setMap(null);
 		});
+
 		markers = [];
+
+		if (places.length == 0) {
+			return;
+		}
 
 		// For each place, get the icon, name and location.
 		var bounds = new google.maps.LatLngBounds();

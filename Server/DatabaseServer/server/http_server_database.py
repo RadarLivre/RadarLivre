@@ -55,7 +55,7 @@ def get_airplane_track(planehex):
     	r1 = results[i];
     	r2 = results[i + 1];
 
-        if r2["timestamp"] - r1["timestamp"] >= 60:
+        if r2["timestamp"] - r1["timestamp"] >= 60 * 60:
             #print (r2["timestamp"] - r1["timestamp"]), " "
             index = i + 1;
 
