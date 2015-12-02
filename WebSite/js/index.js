@@ -284,6 +284,8 @@ function onAirplanesReceived(airplanes) {
 		if(index == -1) {
 			airplane.setMap(null);
 			airplaneMarkers.splice(index, 1);
+			if(airplane.hex == currentHex)
+				doRemoveCurrentRoute();
 		}
 	}
 
