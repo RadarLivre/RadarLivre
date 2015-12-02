@@ -27,7 +27,7 @@ def get_realtime_airplane_list():
     
     # Apenas as aeronaves atualizadas a menos de um minuto são retornadas
     currentTime = int(time.time());
-    results = filter(lambda x: x[1] >= (currentTime - 60), values)
+    results = filter(lambda x: x[1] >= (currentTime - 1000000000), values)
 
     s = [];
     for resultz in results:
