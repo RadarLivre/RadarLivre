@@ -115,12 +115,9 @@ function doInitMap() {
 	})
 
 	map.addListener('center_changed', function() {
-		// location.protocol + '//' + location.host + location.pathname + "?";
-		// ?q=asd&oq=asd&aqs=chrome
-
-		var lat = map.getCenter().lat();
-		var lng = map.getCenter().lng();
-		var zoom = map.getZoom();
+		var lat = parseFloat(parseInt(map.getCenter().lat() * 100)/100.0);
+		var lng = parseFloat(parseInt(map.getCenter().lng() * 100)/100.0);
+		var zoom = parseFloat(parseInt(map.getZoom() * 100)/100.0);
 
 		window.history.pushState("", "", "?lat=" + lat + "&lng=" + lng + "&zoom=" + zoom);
 	})
