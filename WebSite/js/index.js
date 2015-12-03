@@ -218,14 +218,14 @@ function onWebSocketMessage(event) {
 	var data = event.data;
 
 	if(data.search(RESPONSE_REQUEST_GET_AIRPLANES) != -1) {
-		console.log("Receive airplanes: " + data);
+		// console.log("Receive airplanes: " + data);
 		data = data.replace(RESPONSE_REQUEST_GET_AIRPLANES + ":", "");
 		if(data != "None") {
 			airplanes = JSON.parse(data);
 			onAirplanesReceived(airplanes);
 		}
 	} else if (data.search(RESPONSE_REQUEST_GET_ROUTE) != -1) {
-		console.log("Receive route: " + data);
+		// console.log("Receive route: " + data);
 		data = data.replace(RESPONSE_REQUEST_GET_ROUTE + ":", "");
 		if(data != "None") {
 			mapPoints = JSON.parse(data);
