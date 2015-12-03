@@ -109,7 +109,6 @@ function doInitMap() {
 	});	
 
 	map.addListener('click', function() {
-		currentHex = "";
 	    doRemoveCurrentRoute();
 	    doHideAirplaneInfo();
 	})
@@ -219,12 +218,14 @@ function onWebSocketMessage(event) {
 	var data = event.data;
 
 	if(data.search(RESPONSE_REQUEST_GET_AIRPLANES) != -1) {
+		console.log("Receive airplanes: " + data);
 		data = data.replace(RESPONSE_REQUEST_GET_AIRPLANES + ":", "");
 		if(data != "None") {
 			airplanes = JSON.parse(data);
 			onAirplanesReceived(airplanes);
 		}
 	} else if (data.search(RESPONSE_REQUEST_GET_ROUTE) != -1) {
+		console.log("Receive route: " + data);
 		data = data.replace(RESPONSE_REQUEST_GET_ROUTE + ":", "");
 		if(data != "None") {
 			mapPoints = JSON.parse(data);
@@ -258,14 +259,14 @@ function doUpdateAirplains() {
 function onAirplanesReceived(airplanes) {
 	console.log("Updating airplanes: " + airplanes.length);
 	var exists = function(air, list) {
-		for(i = 0; i < list.length; i++)
-			if(list[i].hex == air.hex)
-				return i;
+		for(var a = 0; a < list.length; a++)
+			if(list[a].hex == air.hex)
+				return a;
 		return -1;
 	}
 
-	for(i = 0; i < airplanes.length; i++) {
-		air = airplanes[i];
+	for(var b = 0; b < airplanes.length; b++) {
+		air = airplanes[b];
 		var index = exists(air, airplaneMarkers);
 
 		if(index != -1) {
@@ -278,34 +279,43 @@ function onAirplanesReceived(airplanes) {
 		}
 	}
 
-	for(var i = 0; i < airplaneMarkers.length; i++) {
-		var airplane = airplaneMarkers[i];
+	for(var c = 0; c < airplaneMarkers.length; c++) {
+		var airplane = airplaneMarkers[c];
 		var index = exists(airplane, airplanes);
 		if(index == -1) {
 			airplane.setMap(null);
 			airplaneMarkers.splice(index, 1);
 			if(airplane.hex == currentHex)
 				doRemoveCurrentRoute();
+
+			c--;
 		}
 	}
 
 }
 
 function doShowRouteTo(hex) {
+	currentHex = hex;
 	console.log("send: " + REQUEST_GET_ROUTE + "(" + hex + ")");
 	webSocket.send(REQUEST_GET_ROUTE + "(" + hex + ")");
 }
 
 function onRouteReceived(mapPoints) {
-	points = [];
-	for(key in mapPoints) {
-		mapPoint = mapPoints[key];
-		points.push({
-			lat: mapPoint.latitude, lng: mapPoint.longitude, alt: mapPoint.altitude
-		});
-	}
+	if(currentHex != ""
+		&& mapPoints.length > 0
+		&& mapPoints[0].hex == currentHex) {
+		
+		points = [];
+		for(key in mapPoints) {
+			mapPoint = mapPoints[key];
+			points.push({
+				lat: mapPoint.latitude, lng: mapPoint.longitude, alt: mapPoint.altitude
+			});
+		}
 
-	doMakeRoute(points);
+		doMakeRoute(points);
+
+	}
 }
 
 
@@ -409,7 +419,8 @@ function existsPoly(p1) {
 }
 
 function doRemoveCurrentRoute() {
-	for(var i = 0; i < currentRoutePolyLine.length - 1; i++) {
+	currentHex = "";
+	for(var i = 0; i < currentRoutePolyLine.length; i++) {
 		currentRoutePolyLine[i].setMap(null);
 	}
 
@@ -449,7 +460,6 @@ function doCreateMarker(airplaneInfo) {
 	});
 
 	google.maps.event.addListener(marker, 'click', function() {
-		currentHex = marker.hex;
 		doRemoveCurrentRoute();
 		doShowRouteTo(marker.hex);
 		doShowAirplaneInfo(airplaneInfo);
