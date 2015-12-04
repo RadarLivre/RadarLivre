@@ -18,7 +18,7 @@ def TryConnect():
         try:
             client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             client_socket.connect((SERVER_ADDRESS, PORT))
-            print "Connected!"
+            print "Connected with server", SERVER_ADDRESS
             while True:
                 cur.execute("SELECT * FROM HexDataBase")
                 con.commit()
@@ -56,7 +56,7 @@ def TryConnect():
                 client_socket.close()
             else:
                 print ex
-                print "Can't connect to server... try again in 5 sec..."
+                print "Can't connect to server", SERVER_ADDRESS, ", try again in 5 sec..."
                 time.sleep(5)
                 client_socket.close()
                 

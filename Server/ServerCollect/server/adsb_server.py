@@ -10,18 +10,19 @@ import select
 def start():
     CONNECTION_LIST = []
     RECV_BUFFER = 4096 
+    HOST = ''
     PORT = 5000
 
     try:
         server_socket = socket()
-        server_socket.bind(("localhost", PORT))
+        server_socket.bind((HOST, PORT))
         server_socket.listen(10)
         CONNECTION_LIST.append(server_socket)
         
         print _(MSG_SERVER_INIT_ON_PORT) + " " + str(PORT)
         
     except Exception as ex:
-        report('adsbServidor', '0', str(ex))
+        report('dasb_servidor', '0', str(ex))
         print _(MSG_SERVER_CANT_START_ON_PORT) + " " + str(PORT)
  
     while True:
@@ -51,14 +52,14 @@ def start():
                                         ADSBDataDecoder(z[0])
 
                                 if dp[3] == 'JSONDATA':
-                                    print "Nao implementado"
+                                    print "No implementation to JSONDATA"
                                         
                         except Exception as ex:
                             print ex
                             
                 except:
                     print "Client (%s, %s) is offline" % addr
-                    report('adsbServidor', '2', 'Queda de Conexao com Coletor - '+str(addr))
+                    report('dasb_servidor', '2', 'Disconnect from collector - '+str(addr))
                     sock.close()
                     CONNECTION_LIST.remove(sock)
                     continue
