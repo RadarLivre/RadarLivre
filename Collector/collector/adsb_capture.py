@@ -21,7 +21,9 @@ def start():
         s_com = serial.Serial(COLLECTOR_ADDRESS, 115200, parity=serial.PARITY_NONE, stopbits=1, bytesize=8, xonxoff=False, rtscts=False, dsrdtr=False)
     except Exception as ex:
         print ex
-        print "Can't connect ro receptor"
+        print "Can't connect to receptor"
+        if os.getuid() != 0:
+            print "Execute this script as root!"
         sys.exit(0)
 
     #Inicia Banco de Dados Temporario
