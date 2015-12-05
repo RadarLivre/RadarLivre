@@ -65,7 +65,7 @@ def search_flight(FlightName):
     cur2.execute("SELECT * FROM HexDataBase WHERE id_ = '"+str(FlightName)+"' ORDER BY timestamp DESC LIMIT 1")
 
     columns = (
-     'hex', 'latitude', 'longitude'
+        'hex', 'latitude', 'longitude'
     )
 
     results = []

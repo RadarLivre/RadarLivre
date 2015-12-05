@@ -11,13 +11,14 @@ from config import COLLECTOR_ADDRESS, DATABASE_DIR, DATABASE_FILE
 
 DATABASE_FILE_NAME = os.path.join(DATABASE_DIR, DATABASE_FILE)
 
-def start():
+s_com = None
 
-    if not os.path.exists(DATABASE_DIR):
-        os.makedirs(DATABASE_DIR)
-
+def connectCollector():
     #Inicia Serial
+    global s_com
+
     try:
+        print "Connecting to receptor..."
         s_com = serial.Serial(COLLECTOR_ADDRESS, 115200, parity=serial.PARITY_NONE, stopbits=1, bytesize=8, xonxoff=False, rtscts=False, dsrdtr=False)
     except Exception as ex:
         print ex
@@ -25,6 +26,12 @@ def start():
         if os.getuid() != 0:
             print "Execute this script as root!"
         sys.exit(0)
+
+def init():
+    connectCollector()
+
+    if not os.path.exists(DATABASE_DIR):
+        os.makedirs(DATABASE_DIR)
 
     #Inicia Banco de Dados Temporario
     try:
@@ -37,7 +44,7 @@ def start():
             print msg
             print "Error in insertion"
     except:
-        print "Can't connecto to local database"
+        print "Can't connect to local database"
         sys.exit(0)
 
 
@@ -55,15 +62,16 @@ def start():
 
     print "Capture mode has been initialized"
 
+def start():
     #Loop Captura e envio dos Dados
     while True:
         line = s_com.readline()
         line = line[14:][:-2]
-        print line
+        print "\n\nNew line: ", line
         try:
-         SalvaHex(line)  
+            SalvaHex(line)  
         except:
-         print "Error in save data"
+            print "Error in save data"
 
 
 def SalvaHex(HexData):

@@ -1,9 +1,14 @@
+import os
 import socket
 import time
 import sqlite3 as sql
 import json
 from config import SERVER_ADDRESS, PORT, COLLECTOR_ID, DATA_FORMAT, LATITUDE,\
     LONGITUDE
+
+from config import COLLECTOR_ADDRESS, DATABASE_DIR, DATABASE_FILE
+
+DATABASE_FILE_NAME = os.path.join(DATABASE_DIR, DATABASE_FILE)
 
 con = None
 cur = None
@@ -41,7 +46,7 @@ def TryConnect():
                             client_socket.close()
                             break
                 else:
-                    print "Waiting for data..."
+                    # print "Waiting for data..."
                     try:
                         client_socket.send('Online: ' + COLLECTOR_ID)
                     except:
@@ -62,14 +67,16 @@ def TryConnect():
                 
              
 def start():
+    time.sleep(1)
+
     global con, cur
-    con = sql.connect('datadumptemp.db')
+    con = sql.connect(DATABASE_FILE_NAME)
     try:
         cur = con.cursor()
         con.commit()
     except sql.OperationalError, msg:
         print msg
-        print "Erro in dabase insertion"
+        print "Cant open database"
         exit()
         
     TryConnect()
