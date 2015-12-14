@@ -65,6 +65,7 @@ def init():
 def start():
     #Loop Captura e envio dos Dados
     while True:
+        print "Waiting for receptor data..."
         line = s_com.readline()
         line = line[14:][:-2]
         print "\n\nNew line: ", line
