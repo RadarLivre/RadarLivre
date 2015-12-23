@@ -1,7 +1,7 @@
 // Handle the framework load event
 componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
 	doInitMap();  		
-	doInitInterface();  
+	doInitSearchBox();
     doInitWebSocket();	
     doInitGetAirplaneLoop();	
 });
@@ -120,10 +120,10 @@ function doInitMap() {
 
 		window.history.pushState("", "", "?lat=" + lat + "&lng=" + lng + "&zoom=" + zoom);
 	})
-
 }
 
-function doInitInterface() {
+function doInitSearchBox() {
+	console.log("Initializing searchBox");
 	// Create the search box and link it to the UI element.
 	var input = document.getElementById('pac-input');
 	var inputContent = document.getElementById('search-box-container');
