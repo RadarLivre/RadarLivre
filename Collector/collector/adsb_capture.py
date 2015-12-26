@@ -30,10 +30,11 @@ def connectCollector():
 def init():
     connectCollector()
 
+    # Create the database folder if not exists
     if not os.path.exists(DATABASE_DIR):
         os.makedirs(DATABASE_DIR)
 
-    #Inicia Banco de Dados Temporario
+    #Initializing the temporary database
     try:
         con = sql.connect(DATABASE_FILE_NAME)
         try:
@@ -63,19 +64,19 @@ def init():
     print "Capture mode has been initialized"
 
 def start():
-    #Loop Captura e envio dos Dados
+    #Loop to capture and send data
     while True:
         print "Waiting for receptor data..."
         line = s_com.readline()
         line = line[14:][:-2]
         print "\n\nNew line: ", line
         try:
-            SalvaHex(line)  
+            SaveHex(line)  
         except:
             print "Error in save data"
 
 
-def SalvaHex(HexData):
+def SaveHex(HexData):
     ts = time.time()
     cur.execute("INSERT INTO HexDataBase (Hex, DateTime) VALUES('"+HexData+"', '"+str(ts)+"')")
     con.commit()

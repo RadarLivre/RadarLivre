@@ -56,6 +56,7 @@ def start():
                                         
                         except Exception as ex:
                             print ex
+                            continue
                             
                 except:
                     print "Client (%s, %s) is offline" % addr
