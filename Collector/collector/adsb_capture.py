@@ -31,10 +31,30 @@ def connectCollector():
 
         
 
+<<<<<<< HEAD
 def init():
 
     # Connect to collector
     connectCollector()
+=======
+    # Create the database folder if not exists
+    if not os.path.exists(DATABASE_DIR):
+        os.makedirs(DATABASE_DIR)
+
+    #Initializing the temporary database
+    try:
+        con = sql.connect(DATABASE_FILE_NAME)
+        try:
+            cur = con.cursor()
+            cur.execute("CREATE TABLE IF NOT EXISTS HexDataBase (Hex TEXT, Data TEXT, DateTime BIGINT);")
+            con.commit()
+        except sql.OperationalError, msg:
+            print msg
+            print "Error in insertion"
+    except:
+        print "Can't connect to local database"
+        sys.exit(0)
+>>>>>>> 2324a42c9ae8a4383bafeb48ce3ae5ef64b0b492
 
     # Initialize database
     db.init()
@@ -53,6 +73,11 @@ def start():
 
     report.info("Capture mode has been initialized")
 
+<<<<<<< HEAD
+=======
+def start():
+    #Loop to capture and send data
+>>>>>>> 2324a42c9ae8a4383bafeb48ce3ae5ef64b0b492
     while True:
         
         flag = not flag
@@ -60,13 +85,28 @@ def start():
         report.info("Waiting for receptor data...")
         line = s_com.readline()
         line = line[14:][:-2]
+<<<<<<< HEAD
+=======
+        print "\n\nNew line: ", line
+        try:
+            SaveHex(line)  
+        except:
+            print "Error in save data"
+>>>>>>> 2324a42c9ae8a4383bafeb48ce3ae5ef64b0b492
 
         report.info("New data received: " + line)
 
+<<<<<<< HEAD
         db.save(line)  
 
         time.sleep(1)
     
+=======
+def SaveHex(HexData):
+    ts = time.time()
+    cur.execute("INSERT INTO HexDataBase (Hex, DateTime) VALUES('"+HexData+"', '"+str(ts)+"')")
+    con.commit()
+>>>>>>> 2324a42c9ae8a4383bafeb48ce3ae5ef64b0b492
 
 def handler(signum, frame):
 

@@ -24,7 +24,7 @@ def ADSBDataDecoder(data, showStatus = True, dumpOnDatabase = True, latHome = LA
           print "CRC - Invalido!"
           return False
        else:
-           print "CRC - Valido!"
+          print "CRC - Valido!"
         
        ICAO = data[2]+data[3]+data[4]+data[5]+data[6]+data[7] #Da pra reduzir
        DFCA = toHex(data[:2]) #Da pra reduzir
@@ -32,7 +32,7 @@ def ADSBDataDecoder(data, showStatus = True, dumpOnDatabase = True, latHome = LA
        DF = eval("0b" + DF) #Da pra reduzir
        CA = full_bit_zero(bin(eval(DFCA)))[5:] #Da pra reduzir
        b_TC = full_bit_zero(bin(eval(toHex(data[8]+data[9]))))[:5] #Da pra reduzir
-       TC = eval("0b"+b_TC)  #Da pra reduzir
+       TC = eval("0b" + b_TC)  #Da pra reduzir
        b_Mode = full_bit_zero(bin(eval(toHex(data[8]+data[9]))))[5:] #Tres bits para o mode
       
        if DF == 17:
