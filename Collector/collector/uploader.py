@@ -3,80 +3,104 @@ import socket
 import time
 import sqlite3 as sql
 import json
-from config import SERVER_ADDRESS, PORT, COLLECTOR_ID, DATA_FORMAT, LATITUDE,\
+import database as db
+import httplib, urllib2 as urllib
+import report
+from adsb import decoder
+
+from config import LATITUDE,\
     LONGITUDE
 
-from config import COLLECTOR_ADDRESS, DATABASE_DIR, DATABASE_FILE
+from config import COLLECTOR_ADDRESS, DATABASE_DIR, DATABASE_FILE, DECODE_BEFORE_SEND
 
+LOCALE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATABASE_DIR = os.path.join(LOCALE_PATH, DATABASE_DIR)
 DATABASE_FILE_NAME = os.path.join(DATABASE_DIR, DATABASE_FILE)
 
-con = None
-cur = None
+## New
 
-def LimpaHex(limiteTS):
-    cur.execute("DELETE FROM HexDataBase WHERE DateTime < '" +str(limiteTS)+"'")
-    con.commit()
+def sendJson(host, json):
+    resp = None
+    conn = None
 
-def TryConnect():
-    while(True):
-        lastid = 0
-        try:
-            client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            client_socket.connect((SERVER_ADDRESS, PORT))
-            print "Connected with server", SERVER_ADDRESS
-            while True:
-                cur.execute("SELECT * FROM HexDataBase")
-                con.commit()
-                recs = cur.fetchall()
-                if str(recs) != '[]':
-                    for k in recs:
-                        lastid = k[0]
-                    dt = time.time()
-                    array_send = [json.dumps(recs), dt, COLLECTOR_ID, DATA_FORMAT, LATITUDE, LONGITUDE]
-                    senddata = str(json.dumps(array_send))
-                    try:
-                        print "Sending data..."
-                        client_socket.send(senddata)
-                        LimpaHex(lastid)
-                    except Exception as ex:
-                        if "no such table:" not in str(ex):
-                            print ex
-                            break
-                        else:
-                            client_socket.close()
-                            break
-                else:
-                    # print "Waiting for data..."
-                    try:
-                        client_socket.send('Online: ' + COLLECTOR_ID)
-                    except:
-                        client_socket.close()
-                        break
-                time.sleep(0.5)
-                
-        except Exception as ex:
-            if "no such table:" in str(ex):
-                print "Error in DB: "+str(ex)
-                print "Connection finish"
-                client_socket.close()
-            else:
-                print ex
-                print "Can't connect to server", SERVER_ADDRESS, ", try again in 5 sec..."
-                time.sleep(5)
-                client_socket.close()
-                
-             
-def start():
-    time.sleep(1)
-
-    global con, cur
-    con = sql.connect(DATABASE_FILE_NAME)
     try:
-        cur = con.cursor()
-        con.commit()
-    except sql.OperationalError, msg:
-        print msg
-        print "Cant open database"
-        exit()
+
+        req = urllib.Request(host) 
+        req.add_header("Content-type", "application/json")
         
-    TryConnect()
+        resp = urllib.urlopen(req, json)
+
+    except Exception as e:
+
+        report.error("Error while send data to server: " + str(e))
+
+    finally:
+            
+        if conn:
+
+            conn.close()
+
+def sendMessagesToServer(messages):
+
+    report.info("Sending collected data to server: " + str(len(messages)) + " messages")
+
+    for m in messages:
+
+        if DECODE_BEFORE_SEND:
+
+            halfObservation = decoder.decodeMessage(m)
+            jsonMessage = json.dumps(halfObservation.serialize())
+
+            host = "http://localhost:8000/api/half_observation/"
+
+            sendJson(host, jsonMessage)            
+
+        else:
+
+            jsonMessage = json.dumps(m)
+
+            host = "http://localhost:8000/api/adsb_message/"
+
+            sendJson(host, jsonMessage)
+
+
+def start():
+
+    while True:
+
+        time.sleep(1)
+
+        rawMessages = db.getAll()
+
+        if not rawMessages:
+
+            # Nothing to sent
+            pass
+
+        elif len(rawMessages) == 0:
+
+            # Nothing to sent
+            pass
+
+        else:
+
+            messages = []
+
+            for m in rawMessages:
+
+                data = m[0]
+                
+                message = {
+                    "latitude": str(LATITUDE), 
+                    "longitude": str(LONGITUDE), 
+                    "data": str(data), 
+                }
+
+                messages.append(message)
+
+            sendMessagesToServer(messages)
+            for m in rawMessages:
+                db.removeFromTimestamp(m[1])
+
+
+## Old

@@ -1,85 +1,74 @@
 import sys
-import sqlite3 as sql
 import datetime
 import time
 import serial
 import json
 import signal
 import os
+import report
+import database as db
 
-from config import COLLECTOR_ADDRESS, DATABASE_DIR, DATABASE_FILE
-
-DATABASE_FILE_NAME = os.path.join(DATABASE_DIR, DATABASE_FILE)
+from config import COLLECTOR_ADDRESS
 
 s_com = None
 
 def connectCollector():
-    #Inicia Serial
+
+    report.info("Connecting to collector " + COLLECTOR_ADDRESS)
+
     global s_com
 
     try:
-        print "Connecting to receptor..."
+
         s_com = serial.Serial(COLLECTOR_ADDRESS, 115200, parity=serial.PARITY_NONE, stopbits=1, bytesize=8, xonxoff=False, rtscts=False, dsrdtr=False)
+        report.info("Conected with collector!")
+
     except Exception as ex:
-        print ex
-        print "Can't connect to receptor"
-        if os.getuid() != 0:
-            print "Execute this script as root!"
+
+        report.error("Can't connect to receptor: " + str(ex))
+
         sys.exit(0)
+
+        
 
 def init():
+
+    # Connect to collector
     connectCollector()
 
-    if not os.path.exists(DATABASE_DIR):
-        os.makedirs(DATABASE_DIR)
-
-    #Inicia Banco de Dados Temporario
-    try:
-        con = sql.connect(DATABASE_FILE_NAME)
-        try:
-            cur = con.cursor()
-            cur.execute("CREATE TABLE IF NOT EXISTS HexDataBase (Hex TEXT, Data TEXT, DateTime BIGINT);")
-            con.commit()
-        except sql.OperationalError, msg:
-            print msg
-            print "Error in insertion"
-    except:
-        print "Can't connect to local database"
-        sys.exit(0)
-
+    # Initialize database
+    db.init()
 
     signal.signal(signal.SIGINT, handler)
 
-    print("Getting receptor version")
+def start():
+    
     s_com.write("#00\r\n")
     k = s_com.readline()  
-    print "Return from Receptor: " + str(k)
+    report.info("Receptor version: \n" + str(k))
 
-    print("Initializing data receiving...")
     s_com.write("#43-02\r\n")
     k = s_com.readline()
-    print "Return from Receptor: "+str(k)
+    report.info("Initializing data receiving: \n" + str(k))
 
-    print "Capture mode has been initialized"
+    report.info("Capture mode has been initialized")
 
-def start():
-    #Loop Captura e envio dos Dados
     while True:
-        print "Waiting for receptor data..."
+        
+        flag = not flag
+
+        report.info("Waiting for receptor data...")
         line = s_com.readline()
         line = line[14:][:-2]
-        print "\n\nNew line: ", line
-        try:
-            SalvaHex(line)  
-        except:
-            print "Error in save data"
 
+        report.info("New data received: " + line)
 
-def SalvaHex(HexData):
-    ts = time.time()
-    cur.execute("INSERT INTO HexDataBase (Hex, DateTime) VALUES('"+HexData+"', '"+str(ts)+"')")
-    con.commit()
+        db.save(line)  
+
+        time.sleep(1)
+    
 
 def handler(signum, frame):
+
     serial.close()
 

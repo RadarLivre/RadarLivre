@@ -1,0 +1,1382 @@
+2015-12-25 18:36:21.545958 - Can't connect to receptor
+
+2015-12-25 18:45:10.850601 - Can't connect to receptor
+
+2015-12-25 18:45:13.246131 - Can't connect to receptor
+
+2015-12-25 18:45:39.227211 - Can't connect to receptor
+
+2015-12-25 18:45:40.126039 - Can't connect to receptor
+
+2015-12-25 18:45:41.640904 - Can't connect to receptor
+
+2015-12-25 18:46:37.135639 - Can't connect to receptor
+
+2015-12-25 18:46:49.903301 - Can't connect to receptor
+
+2015-12-25 18:46:50.978023 - Can't connect to receptor
+
+2015-12-25 18:46:52.774434 - Can't connect to receptor
+
+2015-12-25 18:47:52.641263 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-25 18:58:54.516912 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-25 19:00:41.793639 - Can't save data received
+
+2015-12-25 19:00:43.801789 - Can't save data received
+
+2015-12-25 19:00:45.812130 - Can't save data received
+
+2015-12-25 19:00:47.820526 - Can't save data received
+
+2015-12-25 19:00:49.829656 - Can't save data received
+
+2015-12-25 19:00:51.840147 - Can't save data received
+
+2015-12-25 19:00:53.849752 - Can't save data received
+
+2015-12-25 19:02:58.937750 - Can't connect to local database
+
+2015-12-25 19:03:01.645795 - Can't connect to local database
+
+2015-12-25 19:03:03.526460 - Can't connect to local database
+
+2015-12-25 19:05:31.333744 - Can't connect to local database
+
+2015-12-25 19:06:30.906358 - Can't connect to local database
+
+2015-12-25 19:07:32.107163 - Can't connect to local database
+
+2015-12-25 19:07:54.670538 - Can't connect to local database
+
+2015-12-25 19:12:39.137512 - Can't connect to local database
+
+2015-12-25 19:14:21.709744 - Can't save data: table ADSB_MESSAGE has no column named _TIMESTAMP
+
+2015-12-25 19:15:26.480368 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-25 19:36:06.134971 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 13] Permission denied: '/dev/ttyACM0'
+
+2015-12-25 21:21:53.622950 - Error while send data to server
+
+2015-12-25 21:23:13.656340 - Error while send data to server
+
+2015-12-25 21:24:00.764347 - Error while send data to server
+
+2015-12-25 21:24:02.774022 - Error while send data to server
+
+2015-12-25 21:24:04.784215 - Error while send data to server
+
+2015-12-25 21:24:06.794477 - Error while send data to server
+
+2015-12-25 21:24:08.802614 - Error while send data to server
+
+2015-12-25 21:24:10.812473 - Error while send data to server
+
+2015-12-25 21:24:12.822217 - Error while send data to server
+
+2015-12-25 21:24:14.831492 - Error while send data to server
+
+2015-12-25 21:24:16.842191 - Error while send data to server
+
+2015-12-25 21:24:18.849227 - Error while send data to server
+
+2015-12-25 21:24:45.331496 - Error while send data to server: global name 'http' is not defined
+
+2015-12-25 21:24:47.335273 - Error while send data to server: global name 'http' is not defined
+
+2015-12-25 21:25:51.064816 - Response error!
+
+2015-12-25 21:25:53.085895 - Response error!
+
+2015-12-25 21:25:55.105803 - Response error!
+
+2015-12-25 21:26:24.786587 - Response error!
+
+2015-12-25 21:26:26.806275 - Response error!
+
+2015-12-25 21:26:28.826701 - Response error!
+
+2015-12-25 21:26:30.840782 - Response error!
+
+2015-12-25 21:26:32.860476 - Response error!
+
+2015-12-25 21:26:34.890421 - Response error!
+
+2015-12-25 21:26:36.921059 - Response error!
+
+2015-12-25 21:26:38.936880 - Response error!
+
+2015-12-25 21:26:40.958877 - Response error!
+
+2015-12-25 21:26:42.978176 - Response error!
+
+2015-12-25 21:26:44.998344 - Response error!
+
+2015-12-25 21:26:47.017915 - Response error!
+
+2015-12-25 21:26:49.037478 - Response error!
+
+2015-12-25 21:26:51.057404 - Response error!
+
+2015-12-25 21:26:53.070970 - Response error!
+
+2015-12-25 21:26:55.091744 - Response error!
+
+2015-12-25 21:27:29.294501 - Response error!
+
+2015-12-25 21:27:31.330617 - Response error!
+
+2015-12-25 21:27:33.364551 - Response error!
+
+2015-12-25 21:27:36.930060 - Response error!
+
+2015-12-25 21:29:09.795743 - Response error!
+
+2015-12-25 21:29:11.829607 - Response error!
+
+2015-12-25 21:29:13.860592 - Response error!
+
+2015-12-25 21:29:15.891089 - Response error!
+
+2015-12-25 21:29:17.921724 - Response error!
+
+2015-12-25 21:30:08.697488 - Response error!<httplib.HTTPResponse instance at 0x7f83d66e7290>
+
+2015-12-25 21:30:10.727762 - Response error!<httplib.HTTPResponse instance at 0x7f83d66e7290>
+
+2015-12-25 21:30:12.761278 - Response error!<httplib.HTTPResponse instance at 0x7f83d66e7290>
+
+2015-12-25 21:30:24.213929 - Response error!<bound method HTTPResponse.read of <httplib.HTTPResponse instance at 0x7fb296392290>>
+
+2015-12-25 21:30:26.247004 - Response error!<bound method HTTPResponse.read of <httplib.HTTPResponse instance at 0x7fb296392290>>
+
+2015-12-25 21:30:28.276162 - Response error!<bound method HTTPResponse.read of <httplib.HTTPResponse instance at 0x7fb296392290>>
+
+2015-12-25 21:30:30.307794 - Response error!<bound method HTTPResponse.read of <httplib.HTTPResponse instance at 0x7fb296392290>>
+
+2015-12-25 21:30:32.785596 - Response error!
+
+2015-12-25 21:30:34.816536 - Response error!
+
+2015-12-25 21:30:36.847648 - Response error!
+
+2015-12-25 21:30:50.170348 - Response error!
+
+2015-12-25 21:30:52.201009 - Response error!
+
+2015-12-25 21:30:54.234029 - Response error!
+
+2015-12-25 21:31:54.817415 - Response error: 404 : Not Found
+
+2015-12-25 21:31:56.848040 - Response error: 404 : Not Found
+
+2015-12-25 21:31:58.878354 - Response error: 404 : Not Found
+
+2015-12-25 21:32:00.909488 - Response error: 404 : Not Found
+
+2015-12-25 21:32:02.941502 - Response error: 404 : Not Found
+
+2015-12-25 21:32:30.950780 - Response error: 400 : Bad Request
+
+2015-12-25 21:32:32.969652 - Response error: 400 : Bad Request
+
+2015-12-25 21:32:34.988454 - Response error: 400 : Bad Request
+
+2015-12-25 21:32:37.008332 - Response error: 400 : Bad Request
+
+2015-12-25 21:32:39.028713 - Response error: 400 : Bad Request
+
+2015-12-25 21:32:41.048590 - Response error: 400 : Bad Request
+
+2015-12-25 21:32:43.068577 - Response error: 400 : Bad Request
+
+2015-12-25 21:32:52.223424 - Response error: 400 : Bad Request
+
+2015-12-25 21:32:54.242258 - Response error: 400 : Bad Request
+
+2015-12-25 21:32:56.262866 - Response error: 400 : Bad Request
+
+2015-12-25 21:32:58.282236 - Response error: 400 : Bad Request
+
+2015-12-25 21:33:00.299369 - Response error: 400 : Bad Request
+
+2015-12-25 21:33:23.138393 - Response error: 400 : Bad Request
+
+2015-12-25 21:33:25.156157 - Response error: 400 : Bad Request
+
+2015-12-25 21:33:27.176049 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:16.137973 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:18.157607 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:20.178211 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:22.198637 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:24.218580 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:26.239759 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:28.259242 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:30.276829 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:32.296176 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:34.316793 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:36.338966 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:38.360714 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:40.381570 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:42.403180 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:44.424251 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:46.444872 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:48.466245 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:50.487010 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:52.506151 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:54.524380 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:56.544014 - Response error: 400 : Bad Request
+
+2015-12-25 21:40:58.564923 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:00.583750 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:02.602719 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:04.623309 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:06.642329 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:08.662417 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:10.685112 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:12.707557 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:14.728516 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:16.749083 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:18.769310 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:20.825020 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:22.843579 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:24.863879 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:26.883798 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:28.907208 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:30.927668 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:32.948696 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:34.968797 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:36.989293 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:39.009567 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:41.028442 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:43.048901 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:45.068735 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:47.088542 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:49.108913 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:51.127572 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:53.145300 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:55.165221 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:57.186372 - Response error: 400 : Bad Request
+
+2015-12-25 21:41:59.207695 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:01.230219 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:03.253551 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:05.274462 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:07.296892 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:09.315351 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:11.336695 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:13.358691 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:15.377688 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:17.398752 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:19.419479 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:21.440170 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:23.461355 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:25.482368 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:27.501697 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:29.521717 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:31.542382 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:33.562645 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:35.583396 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:37.604200 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:39.624158 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:41.642656 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:43.663468 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:45.683353 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:47.703291 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:49.725518 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:51.746262 - Response error: 400 : Bad Request
+
+2015-12-25 21:42:53.767229 - Response error: 400 : Bad Request
+
+2015-12-25 21:45:48.161051 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:45:50.171611 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:45:52.181782 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:45:54.191858 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:45:56.202124 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:45:58.212224 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:00.221273 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:02.229196 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:04.238570 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:06.248676 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:08.256502 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:10.266534 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:12.275699 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:14.286265 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:16.297517 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:18.307976 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:20.317508 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:22.326277 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:24.336826 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:26.346959 - Error while send data to server: 'module' object has no attribute 'Request'
+
+2015-12-25 21:46:28.568356 - Error while send data to server: unknown url type: localhost/api/adsb_message/
+
+2015-12-25 21:46:30.577940 - Error while send data to server: unknown url type: localhost/api/adsb_message/
+
+2015-12-25 21:46:32.588200 - Error while send data to server: unknown url type: localhost/api/adsb_message/
+
+2015-12-25 21:46:34.598648 - Error while send data to server: unknown url type: localhost/api/adsb_message/
+
+2015-12-25 21:46:36.609034 - Error while send data to server: unknown url type: localhost/api/adsb_message/
+
+2015-12-25 21:46:38.619840 - Error while send data to server: unknown url type: localhost/api/adsb_message/
+
+2015-12-25 21:47:09.388789 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:11.399017 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:13.410108 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:15.419989 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:17.430507 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:19.440848 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:21.451082 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:23.460297 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:25.471397 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:27.483063 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:29.494062 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:31.503681 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:33.512664 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:47:35.520563 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:10.947515 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:12.958322 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:14.969892 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:16.981724 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:18.993205 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:21.004405 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:23.015550 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:25.026585 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:27.037535 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:29.048701 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:31.058886 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:33.069139 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:35.080082 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:37.091179 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:39.101547 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:41.112543 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:43.124055 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:45.135869 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:47.146739 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:49.156718 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:51.168145 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:53.180460 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:55.192750 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:57.202148 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:48:59.212548 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:49:01.222702 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:49:03.233746 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:49:05.244639 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:49:07.254664 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:49:08.903432 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:49:10.913497 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-25 21:50:40.568144 - Error while send data to server: global name 'path' is not defined
+
+2015-12-25 21:50:42.576632 - Error while send data to server: global name 'path' is not defined
+
+2015-12-25 21:50:44.586695 - Error while send data to server: global name 'path' is not defined
+
+2015-12-25 21:50:46.596602 - Error while send data to server: global name 'path' is not defined
+
+2015-12-25 21:50:48.606495 - Error while send data to server: global name 'path' is not defined
+
+2015-12-25 21:52:57.190116 - Response error: <addinfourl at 139843970629712 whose fp = <socket._fileobject object at 0x7f2ffa0e91d0>>
+
+2015-12-25 21:52:59.470855 - Response error: <addinfourl at 139843970630288 whose fp = <socket._fileobject object at 0x7f2ffa0e9e50>>
+
+2015-12-25 21:53:01.740955 - Response error: <addinfourl at 139843970630864 whose fp = <socket._fileobject object at 0x7f2ffa0e91d0>>
+
+2015-12-25 21:53:04.032398 - Response error: <addinfourl at 139843970631512 whose fp = <socket._fileobject object at 0x7f2ffa0e9e50>>
+
+2015-12-25 21:53:06.324559 - Response error: <addinfourl at 139843970632232 whose fp = <socket._fileobject object at 0x7f2ffa0e91d0>>
+
+2015-12-25 21:53:08.626725 - Response error: <addinfourl at 139843970632952 whose fp = <socket._fileobject object at 0x7f2ffa0e9e50>>
+
+2015-12-25 21:53:10.909648 - Response error: <addinfourl at 139843970633672 whose fp = <socket._fileobject object at 0x7f2ffa0e91d0>>
+
+2015-12-25 21:53:13.233524 - Response error: <addinfourl at 139843970663128 whose fp = <socket._fileobject object at 0x7f2ffa0e9e50>>
+
+2015-12-25 21:53:15.547022 - Response error: <addinfourl at 139843970663848 whose fp = <socket._fileobject object at 0x7f2ffa0e91d0>>
+
+2015-12-25 21:53:17.827171 - Response error: <addinfourl at 139843970664568 whose fp = <socket._fileobject object at 0x7f2ffa0e9e50>>
+
+2015-12-25 21:53:20.231326 - Response error: <addinfourl at 139843970665288 whose fp = <socket._fileobject object at 0x7f2ffa0e91d0>>
+
+2015-12-25 21:53:22.546107 - Response error: <addinfourl at 139843970666008 whose fp = <socket._fileobject object at 0x7f2ffa0e9e50>>
+
+2015-12-25 21:53:24.826568 - Response error: <addinfourl at 139843970674984 whose fp = <socket._fileobject object at 0x7f2ffa0e91d0>>
+
+2015-12-25 21:53:27.274325 - Response error: <addinfourl at 139843970675704 whose fp = <socket._fileobject object at 0x7f2ffa0e9e50>>
+
+2015-12-25 21:53:29.663340 - Response error: <addinfourl at 139843970676424 whose fp = <socket._fileobject object at 0x7f2ffa0e91d0>>
+
+2015-12-25 21:53:31.932547 - Response error: <addinfourl at 139843970677144 whose fp = <socket._fileobject object at 0x7f2ffa0e9e50>>
+
+2015-12-25 21:53:34.224985 - Response error: <addinfourl at 139843970677864 whose fp = <socket._fileobject object at 0x7f2ffa0e91d0>>
+
+2015-12-25 21:53:36.606489 - Response error: <addinfourl at 139843970678584 whose fp = <socket._fileobject object at 0x7f2ffa0e9e50>>
+
+2015-12-25 21:53:38.888257 - Response error: <addinfourl at 139843970695752 whose fp = <socket._fileobject object at 0x7f2ffa0e91d0>>
+
+2015-12-25 21:55:08.721028 - Response: <addinfourl at 139888194322512 whose fp = <socket._fileobject object at 0x7f3a45fe91d0>>
+
+2015-12-25 21:55:10.887965 - Response: <addinfourl at 139888194323088 whose fp = <socket._fileobject object at 0x7f3a45fe9e50>>
+
+2015-12-25 21:55:13.055940 - Response: <addinfourl at 139888194323664 whose fp = <socket._fileobject object at 0x7f3a45fe91d0>>
+
+2015-12-25 21:55:15.212214 - Response: <addinfourl at 139888194324312 whose fp = <socket._fileobject object at 0x7f3a45fe9e50>>
+
+2015-12-25 21:55:17.370391 - Response: <addinfourl at 139888194325032 whose fp = <socket._fileobject object at 0x7f3a45fe91d0>>
+
+2015-12-25 21:55:19.527415 - Response: <addinfourl at 139888194325752 whose fp = <socket._fileobject object at 0x7f3a45fe9e50>>
+
+2015-12-25 21:55:21.685971 - Response: <addinfourl at 139888194326472 whose fp = <socket._fileobject object at 0x7f3a45fe91d0>>
+
+2015-12-25 21:55:23.843161 - Response: <addinfourl at 139888194355928 whose fp = <socket._fileobject object at 0x7f3a45fe9e50>>
+
+2015-12-25 21:55:25.999281 - Response: <addinfourl at 139888194356648 whose fp = <socket._fileobject object at 0x7f3a45fe91d0>>
+
+2015-12-25 21:56:56.852579 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 21:56:58.868583 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 21:57:00.884943 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 21:57:02.901116 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 21:57:04.919095 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:01:47.274624 - Error while send data to server: 1
+
+2015-12-25 22:01:49.419811 - Error while send data to server: 1
+
+2015-12-25 22:01:51.564757 - Error while send data to server: 1
+
+2015-12-25 22:01:53.722540 - Error while send data to server: 1
+
+2015-12-25 22:01:55.902237 - Error while send data to server: 1
+
+2015-12-25 22:01:58.059465 - Error while send data to server: 1
+
+2015-12-25 22:02:00.228978 - Error while send data to server: 1
+
+2015-12-25 22:02:02.363607 - Error while send data to server: 1
+
+2015-12-25 22:02:04.496163 - Error while send data to server: 1
+
+2015-12-25 22:02:06.642503 - Error while send data to server: 1
+
+2015-12-25 22:02:08.789599 - Error while send data to server: 1
+
+2015-12-25 22:02:10.956882 - Error while send data to server: 1
+
+2015-12-25 22:02:13.326388 - Error while send data to server: 1
+
+2015-12-25 22:02:15.481541 - Error while send data to server: 1
+
+2015-12-25 22:02:17.652118 - Error while send data to server: 1
+
+2015-12-25 22:02:19.796895 - Error while send data to server: 1
+
+2015-12-25 22:02:21.942981 - Error while send data to server: 1
+
+2015-12-25 22:02:24.088643 - Error while send data to server: 1
+
+2015-12-25 22:02:26.256193 - Error while send data to server: 1
+
+2015-12-25 22:02:28.403048 - Error while send data to server: 1
+
+2015-12-25 22:02:30.559281 - Error while send data to server: 1
+
+2015-12-25 22:02:32.716126 - Error while send data to server: 1
+
+2015-12-25 22:02:34.851696 - Error while send data to server: 1
+
+2015-12-25 22:02:36.997893 - Error while send data to server: 1
+
+2015-12-25 22:02:39.143770 - Error while send data to server: 1
+
+2015-12-25 22:02:41.291420 - Error while send data to server: 1
+
+2015-12-25 22:02:43.447629 - Error while send data to server: 1
+
+2015-12-25 22:02:45.603973 - Error while send data to server: 1
+
+2015-12-25 22:02:47.760966 - Error while send data to server: 1
+
+2015-12-25 22:02:49.895920 - Error while send data to server: 1
+
+2015-12-25 22:02:52.053282 - Error while send data to server: 1
+
+2015-12-25 22:02:54.211050 - Error while send data to server: 1
+
+2015-12-25 22:02:56.057249 - Error while send data to server: 1
+
+2015-12-25 22:02:58.216103 - Error while send data to server: 1
+
+2015-12-25 22:03:00.373042 - Error while send data to server: 1
+
+2015-12-25 22:03:02.529644 - Error while send data to server: 1
+
+2015-12-25 22:03:04.675076 - Error while send data to server: 1
+
+2015-12-25 22:04:14.767552 - Error while send data to server: 1
+
+2015-12-25 22:04:16.926618 - Error while send data to server: 1
+
+2015-12-25 22:04:19.071578 - Error while send data to server: 1
+
+2015-12-25 22:04:21.220272 - Error while send data to server: 1
+
+2015-12-25 22:04:48.744012 - Error while send data to server: 1
+
+2015-12-25 22:04:50.903224 - Error while send data to server: 1
+
+2015-12-25 22:04:53.059239 - Error while send data to server: 1
+
+2015-12-25 22:05:03.598465 - Error while send data to server: 1
+
+2015-12-25 22:05:30.249129 - Error while send data to server: 1
+
+2015-12-25 22:05:32.394017 - Error while send data to server: 1
+
+2015-12-25 22:05:34.551690 - Error while send data to server: 1
+
+2015-12-25 22:05:36.697314 - Error while send data to server: 1
+
+2015-12-25 22:06:30.352273 - Error while send data to server: 1
+
+2015-12-25 22:06:32.485849 - Error while send data to server: 1
+
+2015-12-25 22:06:34.653447 - Error while send data to server: 1
+
+2015-12-25 22:06:36.825676 - Error while send data to server: 1
+
+2015-12-25 22:06:41.305885 - Error while send data to server: 1
+
+2015-12-25 22:06:43.606860 - Error while send data to server: 1
+
+2015-12-25 22:06:45.763570 - Error while send data to server: 1
+
+2015-12-25 22:07:59.600069 - Error while send data to server: 1
+
+2015-12-25 22:08:01.747640 - Error while send data to server: 1
+
+2015-12-25 22:08:03.904970 - Error while send data to server: 1
+
+2015-12-25 22:08:06.051115 - Error while send data to server: 1
+
+2015-12-25 22:08:08.195470 - Error while send data to server: 1
+
+2015-12-25 22:08:10.340898 - Error while send data to server: 1
+
+2015-12-25 22:09:38.564856 - Database error!
+
+2015-12-25 22:09:40.573250 - Database error!
+
+2015-12-25 22:09:42.581271 - Database error!
+
+2015-12-25 22:09:44.589932 - Database error!
+
+2015-12-25 22:09:46.598349 - Database error!
+
+2015-12-25 22:09:48.606532 - Database error!
+
+2015-12-25 22:09:50.614107 - Database error!
+
+2015-12-25 22:09:53.066875 - Database error!
+
+2015-12-25 22:09:55.074359 - Database error!
+
+2015-12-25 22:10:07.658136 - Database error!
+
+2015-12-25 22:10:09.665748 - Database error!
+
+2015-12-25 22:10:11.674066 - Database error!
+
+2015-12-25 22:13:03.547392 - Database error!
+
+2015-12-25 22:13:05.555796 - Database error!
+
+2015-12-25 22:13:07.563844 - Database error!
+
+2015-12-25 22:13:42.050506 - Database error!
+
+2015-12-25 22:13:44.057959 - Database error!
+
+2015-12-25 22:13:46.065739 - Database error!
+
+2015-12-25 22:16:28.938887 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:16:30.958245 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:16:32.978993 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:16:34.998000 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:16:37.017128 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:16:39.039158 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:16:41.060399 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:17:16.313905 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:17:18.334238 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:18:10.376306 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:18:12.396883 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:19:29.225141 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-25 22:19:33.256533 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-25 22:19:38.615468 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-25 22:19:40.582220 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-25 22:19:42.079394 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-25 22:19:45.288844 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-25 22:22:28.307210 - Can't execute query: database is locked
+
+2015-12-25 22:22:33.322324 - Can't execute query: database is locked
+
+2015-12-25 22:23:58.766379 - Can't execute query: database is locked
+
+2015-12-25 22:24:03.781000 - Can't execute query: database is locked
+
+2015-12-25 22:24:11.693807 - Error while send data to server: 1
+
+2015-12-25 22:24:11.836387 - Can't execute query: disk I/O error
+
+2015-12-25 22:25:49.240490 - Can't connect to receptor: could not open port /dev/ttyACM1: [Errno 2] No such file or directory: '/dev/ttyACM1'
+
+2015-12-25 22:25:51.282509 - Can't connect to receptor: could not open port /dev/ttyACM1: [Errno 2] No such file or directory: '/dev/ttyACM1'
+
+2015-12-25 22:30:46.529866 - Can't execute query: database is locked
+
+2015-12-25 22:30:52.026740 - Can't execute query: database is locked
+
+2015-12-25 22:30:53.548432 - Can't execute query: database is locked
+
+2015-12-25 22:30:57.045015 - Can't execute query: database is locked
+
+2015-12-25 22:31:20.785721 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:31:52.152014 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:31:58.050424 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:32:04.459792 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:32:21.185631 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:32:26.200734 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:32:56.437683 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:32:58.843094 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:33:01.342078 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:33:03.831637 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:33:06.278128 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:33:08.710794 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-25 22:43:08.243746 - Can't execute query: disk I/O error
+
+2015-12-25 22:43:08.243837 - Can't execute query: disk I/O error
+
+2015-12-25 22:43:08.247065 - Can't execute query: disk I/O error
+
+2015-12-25 22:43:08.247186 - Can't execute query: disk I/O error
+
+2015-12-25 22:43:08.642463 - Can't execute query: disk I/O error
+
+2015-12-26 00:34:26.142181 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:26.144126 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:28.562867 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:28.565340 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:31.093246 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:31.094846 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:33.516263 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:33.517692 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:35.951551 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:35.953944 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:38.337625 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:38.339004 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:40.907919 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:40.910256 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:43.274392 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:43.276471 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:45.629445 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:45.631972 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:48.042660 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:48.044778 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:50.408664 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:50.411134 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:52.782845 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:52.784427 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:55.137838 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:55.139322 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:57.918362 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:34:57.920767 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:00.353574 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:00.355938 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:02.980692 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:02.982816 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:05.375420 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:05.378351 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:07.897104 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:07.899550 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:10.308926 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:10.310849 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:12.760245 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:12.763163 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:15.119085 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:15.121638 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:17.540251 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:17.542482 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:19.908108 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:19.910334 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:22.307135 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:22.309500 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:24.665335 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:24.668853 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:27.073551 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:27.075155 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:29.475397 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:29.477780 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:31.896000 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:31.897933 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:34.262747 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:34.264577 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:36.652361 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:36.654784 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:39.008417 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:39.010824 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:41.420368 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:41.422903 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:43.786020 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:43.788181 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:46.242011 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:46.251205 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:49.005315 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:49.008028 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:51.439533 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:51.441979 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:54.072597 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:54.075751 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:56.562369 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:56.565061 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:58.981742 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:35:58.983907 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:01.451330 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:01.453903 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:03.967341 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:03.968602 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:06.427934 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:06.430792 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:08.947266 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:08.949630 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:11.584714 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:11.588005 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:14.048343 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:14.051380 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:16.529479 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:16.531924 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:19.059183 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:19.061091 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:21.528778 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:21.531361 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:24.093893 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:24.096789 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:26.550406 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:26.553093 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:29.048712 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:29.050319 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:31.516792 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:31.519552 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:34.002170 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:34.003688 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:36.409866 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:36.414030 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:38.836439 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:38.837725 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:41.271786 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:41.274566 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:43.811713 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:43.814710 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:46.241956 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:46.244439 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:48.739588 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:48.742301 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:51.237778 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:51.239032 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:53.649968 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:53.652638 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:56.162392 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:56.164794 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:58.650532 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:36:58.653436 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:01.135818 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:01.137086 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:03.606212 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:03.608850 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:06.255015 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:06.256687 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:08.685830 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:08.687641 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:11.174259 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:11.176587 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:13.592839 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:37:13.594133 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:43:32.413782 - Can't execute query: database is locked
+
+2015-12-26 00:53:02.473963 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:53:02.475176 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:53:02.476633 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 00:58:31.120155 - Can't execute query: database is locked
+
+2015-12-26 00:58:46.364712 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 00:58:47.169219 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 00:58:50.109683 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:01:20.869254 - Error while send data to server: ''
+
+2015-12-26 01:01:24.280293 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:01:24.891732 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:01:25.578438 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:01:53.543252 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:01:54.212237 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:01:54.737024 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:01:55.434255 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:01:55.976775 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:04:10.280477 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:04:11.049267 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:07:09.940171 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:07:10.557477 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:09:33.108998 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:09:33.735363 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:09:34.262164 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:09:34.949354 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:10:29.579102 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:10:30.341559 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:10:33.290983 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:10:33.924860 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:10:34.507316 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:11:05.634289 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:11:06.269859 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:11:06.878328 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:11:07.525401 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:14:30.886821 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:14:34.814614 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:15:57.280597 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 01:27:48.473404 - Error while send data to server: ''
+
+2015-12-26 01:30:22.251843 - Error while send data to server: ''
+
+2015-12-26 01:30:22.253813 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:26:56.970172 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 02:26:57.082635 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 02:26:59.657238 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 02:26:59.764832 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 02:28:02.477480 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:02.486221 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:02.495254 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:02.502812 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:05.356423 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:05.368225 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:07.831840 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:07.848649 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:10.307261 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:10.315553 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:12.775334 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:12.795138 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:15.277344 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:15.290012 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:17.764255 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:17.781268 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:20.245660 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:28:20.256607 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:30:15.360977 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:30:15.374259 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:32:26.993586 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:32:29.828159 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:32:29.845629 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:32:52.678389 - Can't execute query: database is locked
+
+2015-12-26 02:32:58.177849 - Can't execute query: database is locked
+
+2015-12-26 02:32:59.695137 - Can't execute query: database is locked
+
+2015-12-26 02:33:08.977706 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:33:08.990474 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:33:11.440262 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:33:11.451650 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:34:07.952057 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:34:07.987675 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:35:24.269264 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:35:24.281642 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:35:24.292970 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:35:24.303253 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:35:57.158111 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:35:57.175761 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:35:57.187386 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:35:57.198838 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:39:46.081402 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:39:46.095422 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:39:46.107208 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 02:46:16.424931 - Error while send data to server: ''
+
+2015-12-26 02:46:16.429834 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:05.446691 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 02:48:05.653085 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 02:48:08.266283 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:08.270010 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:08.274166 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:10.965301 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:10.968340 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:13.445289 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:13.448907 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:15.961501 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:15.962996 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:18.625495 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:18.627911 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:21.366205 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 02:48:21.369128 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 03:02:16.738525 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-26 03:02:18.843818 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-26 03:11:04.700858 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-26 03:21:16.800741 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-26 03:23:19.577928 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 03:23:19.678348 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 03:23:19.678487 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 03:23:19.678595 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 03:23:19.678685 - Error while send data to server: HTTP Error 500: Internal Server Error
+
+2015-12-26 03:23:20.119910 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.121013 - Can't execute query: database is locked
+
+2015-12-26 03:23:19.678907 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 03:23:19.680006 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 03:23:19.800146 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 03:23:20.117684 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.118748 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.121656 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.122220 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.122327 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.123890 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.126672 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.127872 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.129392 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.132302 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.132651 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.130084 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.133668 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.136061 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:20.136880 - Can't execute query: disk I/O error
+
+2015-12-26 03:23:21.317572 - Can't execute query: disk I/O error
+
