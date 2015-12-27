@@ -32,7 +32,7 @@ def sendJson(host, json):
 
     except Exception as e:
 
-        report.error("Error while send data to server: " + str(e))
+        report.error("Error while send data to server: " + str(e) + "\n" + str(json))
 
     finally:
             
@@ -49,11 +49,13 @@ def sendMessagesToServer(messages):
         if DECODE_BEFORE_SEND:
 
             halfObservation = decoder.decodeMessage(m)
-            jsonMessage = json.dumps(halfObservation.serialize())
 
-            host = "http://localhost:8000/api/half_observation/"
+            if halfObservation:
+                jsonMessage = json.dumps(halfObservation.serialize())
 
-            sendJson(host, jsonMessage)            
+                host = "http://localhost:8000/api/half_observation/"
+
+                sendJson(host, jsonMessage)            
 
         else:
 

@@ -94,7 +94,7 @@ def decodeMessage(adsbMessage):
         if parity112(data) == False:
             
             # CRC invalido
-            return False
+            return None
         
         # CRC valido
         
@@ -133,6 +133,7 @@ def decodeMessage(adsbMessage):
                 obs.latitudeCollector = latHome
                 obs.longitudeCollector = lonHome
                 obs.timestamp = time.time()
+                obs.identityReceived = True
                 return obs
        
             elif TC >= 9 and TC <= 18: 
@@ -202,7 +203,7 @@ def decodeMessage(adsbMessage):
                     gnd_spd = math.floor(math.sqrt(numEastWest * numEastWest + numNorthSouth * numNorthSouth))
             
                     if (numEastWest == 0) and (numNorthSouth == 0):
-                        return False
+                        return None
                     else:
                         directionBitEastWest = float(directionBitEastWest)
                         directionBitNorthSouth = float(directionBitNorthSouth)
@@ -218,7 +219,7 @@ def decodeMessage(adsbMessage):
                         
                         if directionBitEastWest == 0 and directionBitNorthSouth == 1:
                             if numEastWest == 0:
-                                return 180
+                                trk = 180
                             else:
                                 trk = 90 + 180./math.pi*math.atan(numNorthSouth / numEastWest)
 

@@ -1380,3 +1380,193 @@
 
 2015-12-26 03:23:21.317572 - Can't execute query: disk I/O error
 
+2015-12-26 23:37:39.726048 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-26 23:48:18.761210 - Error while send data to server: ''
+
+2015-12-26 23:48:18.763434 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 23:48:18.764819 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+
+2015-12-26 23:55:38.439231 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:55:40.481398 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:19.498663 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:21.470115 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:21.483654 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:21.493956 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:21.506909 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:21.516336 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:23.882188 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:23.896342 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:26.580497 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:58.615044 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:58:58.626987 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:46.536686 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:46.850659 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:46.914855 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:47.161485 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:47.305117 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:47.318771 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:47.332382 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:51.327654 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:51.580700 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:51.593326 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:52.348973 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:55.890226 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-26 23:59:56.617083 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:00.127687 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:00.220643 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:00.238834 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:00.502929 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:00.981621 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:04.403021 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:04.706903 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:04.778889 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:04.793461 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:08.337458 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:08.351743 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:08.436136 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:08.728041 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:11.410307 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:11.421533 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:11.784534 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:14.548777 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:18.114795 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:21.771208 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:21.781732 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:21.791968 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:22.125852 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:22.138496 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:24.651029 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:26.688258 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:26.698285 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:29.817232 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:29.900724 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:30.203184 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:33.091817 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:33.103013 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:33.492076 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:34.070911 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:37.742409 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:38.481729 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:43.436382 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:43.448574 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:43.460760 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:47.687135 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:47.696421 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:47.705148 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:47.713132 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:47.722041 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:47.730914 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:50.934355 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:50.943784 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:50.952192 - Error while send data to server: HTTP Error 400: Bad Request
+
+2015-12-27 00:00:54.958037 - Error while send data to server: HTTP Error 400: Bad Request
+{"velocityReceived": true, "verticalVelocity": 0, "latitudeOdd": "0.0", "lastReceived": "", "longitudeEven": "0.0", "timestamp": 1451185254, "route": "", "altitude": 0, "horizontalVelocity": 427.0, "latitudeCollector": "0.0", "oddReceived": false, "longitudeOdd": "0.0", "evenReceived": false, "latitudeEven": "0.0", "angle": 28, "airplane": "E491A1", "longitudeCollector": "0.0", "id": null, "identityReceived": false}
+
+2015-12-27 00:00:54.970644 - Error while send data to server: HTTP Error 400: Bad Request
+{"velocityReceived": true, "verticalVelocity": 0, "latitudeOdd": "0.0", "lastReceived": "", "longitudeEven": "0.0", "timestamp": 1451185254, "route": "", "altitude": 0, "horizontalVelocity": 453.0, "latitudeCollector": "0.0", "oddReceived": false, "longitudeOdd": "0.0", "evenReceived": false, "latitudeEven": "0.0", "angle": 216, "airplane": "E0314B", "longitudeCollector": "0.0", "id": null, "identityReceived": false}
+
+2015-12-27 00:02:43.318716 - Error while send data to server: HTTP Error 400: Bad Request
+{"velocityReceived": false, "verticalVelocity": 0, "latitudeOdd": "0.0", "lastReceived": "", "longitudeEven": "0.0", "timestamp": 1451185363, "route": "MPH7761 ", "altitude": 0, "horizontalVelocity": 0, "latitudeCollector": "-4.65", "oddReceived": false, "longitudeOdd": "0.0", "evenReceived": false, "latitudeEven": "0.0", "angle": 0, "airplane": "4841C5", "longitudeCollector": "32.02", "id": null, "identityReceived": false}
+
+2015-12-27 00:02:43.338099 - Error while send data to server: HTTP Error 400: Bad Request
+{"velocityReceived": false, "verticalVelocity": 0, "latitudeOdd": "0.0", "lastReceived": "", "longitudeEven": "0.0", "timestamp": 1451185363, "route": "MPH7761 ", "altitude": 0, "horizontalVelocity": 0, "latitudeCollector": "-4.65", "oddReceived": false, "longitudeOdd": "0.0", "evenReceived": false, "latitudeEven": "0.0", "angle": 0, "airplane": "4841C5", "longitudeCollector": "32.02", "id": null, "identityReceived": false}
+
+2015-12-27 00:06:59.988125 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"velocityReceived": false, "verticalVelocity": 0, "latitudeOdd": "0.0", "lastReceived": "", "longitudeEven": "0.0", "timestamp": 1451185619, "route": "TAM9084 ", "altitude": 0, "horizontalVelocity": 0, "latitudeCollector": "-4.65", "oddReceived": false, "longitudeOdd": "0.0", "evenReceived": false, "latitudeEven": "0.0", "angle": 0, "airplane": "E491A1", "longitudeCollector": "32.02", "id": null, "identityReceived": false}
+
+2015-12-27 00:10:25.624445 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"velocityReceived": false, "verticalVelocity": 0, "latitudeOdd": "0.0", "lastReceived": "", "longitudeEven": "0.0", "timestamp": 1451185825, "route": "GLO9071 ", "altitude": 0, "horizontalVelocity": 0, "latitudeCollector": "-4.65", "oddReceived": false, "longitudeOdd": "0.0", "evenReceived": false, "latitudeEven": "0.0", "angle": 0, "airplane": "E48160", "longitudeCollector": "32.02", "id": null, "identityReceived": false}
+
+2015-12-27 00:20:41.373154 - Can't execute query: database is locked
+
+2015-12-27 00:20:46.867031 - Can't execute query: database is locked
+
+2015-12-27 00:20:47.388292 - Can't execute query: database is locked
+
+2015-12-27 00:20:51.985066 - Can't execute query: database is locked
+
+2015-12-27 00:20:53.403088 - Can't execute query: database is locked
+
+2015-12-27 00:20:57.100644 - Can't execute query: database is locked
+
+2015-12-27 00:23:17.664505 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 00:25:57.934348 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
