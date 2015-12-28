@@ -1570,3 +1570,2515 @@
 2015-12-27 00:25:57.934348 - Error while send data to server: HTTP Error 400: Bad Request
 {"latitude": "-4.65", "data": "", "longitude": "32.02"}
 
+2015-12-27 00:29:13.472245 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 00:29:33.617774 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 00:29:41.488735 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 00:40:34.702394 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 01:02:38.113824 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B200521F1C76C60EE4311", "longitude": "32.02"}
+
+2015-12-27 01:02:38.546097 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B990508AD6007523C5393", "longitude": "32.02"}
+
+2015-12-27 01:02:38.954791 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B60B98088DB06F1EA45AD", "longitude": "32.02"}
+
+2015-12-27 01:02:41.672257 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B60B984F2035F5E19512C", "longitude": "32.02"}
+
+2015-12-27 01:02:42.566256 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B99050AADC80751047491", "longitude": "32.02"}
+
+2015-12-27 01:02:47.759530 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B58B980B55116C324D1F3", "longitude": "32.02"}
+
+2015-12-27 01:02:48.451215 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B60B984975D3F22B7C65E", "longitude": "32.02"}
+
+2015-12-27 01:02:48.927122 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B99050AADE0055133B1B0", "longitude": "32.02"}
+
+2015-12-27 01:02:49.827042 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B60B98088DB06F1EA45AD", "longitude": "32.02"}
+
+2015-12-27 01:03:00.138443 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B99050AADC80B514C2E91", "longitude": "32.02"}
+
+2015-12-27 01:03:04.583127 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B60B98073C2FF6E945FDB", "longitude": "32.02"}
+
+2015-12-27 01:03:05.394423 - Error while send data to server: HTTP Error 500: Internal Server Error
+{"latitude": "-4.65", "data": "8DE0314B990508AD68075252F19B", "longitude": "32.02"}
+
+2015-12-27 01:06:05.773506 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 01:17:09.519270 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 01:19:47.736477 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 01:20:19.657549 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 01:22:48.096426 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE0314B60B984FCC36330B56C30", "longitude": "32.02"}
+
+2015-12-27 01:22:48.098033 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE0314B58B9848C793B4237891C", "longitude": "32.02"}
+
+2015-12-27 01:22:48.100673 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE4816058A3E07663228E9D1187", "longitude": "32.02"}
+
+2015-12-27 01:22:48.102567 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8C4841C520350237DF6C60538BA9", "longitude": "32.02"}
+
+2015-12-27 01:22:48.106169 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE491A19910C82F28983A3D0109", "longitude": "32.02"}
+
+2015-12-27 01:22:48.114234 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE0314B60B9848B5B3ADBE70603", "longitude": "32.02"}
+
+2015-12-27 01:26:07.201749 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 01:31:30.791611 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"velocityReceived": true, "verticalVelocity": 0, "latitudeOdd": "0.0", "lastReceived": "", "longitudeEven": "0.0", "timestamp": 1451190689, "route": "", "altitude": 0, "horizontalVelocity": 492.0, "latitudeCollector": "0.0", "oddReceived": false, "longitudeOdd": "0.0", "evenReceived": false, "latitudeEven": "0.0", "angle": 205, "airplane": "4841C5", "longitudeCollector": "0.0", "id": null, "identityReceived": false}
+
+2015-12-27 01:31:31.078787 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:31.080088 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:31.079497 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:31.080510 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:31.080858 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:31.082044 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:31.082694 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:31.087308 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:31.088143 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:31.089072 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:31.089426 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:32.134806 - Can't execute query: unable to open database file
+
+2015-12-27 01:31:32.134951 - Can't execute query: unable to open database file
+
+2015-12-27 01:31:32.135610 - Can't execute query: unable to open database file
+
+2015-12-27 01:31:32.142271 - Can't execute query: disk I/O error
+
+2015-12-27 01:31:32.143554 - Can't execute query: disk I/O error
+
+2015-12-27 10:30:07.996554 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE0314B58B980B55116C324D1F3", "longitude": "32.02"}
+
+2015-12-27 10:30:08.024937 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE0314B990508AD88075277714D", "longitude": "32.02"}
+
+2015-12-27 10:30:08.027388 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE0314B990508AD600552204893", "longitude": "32.02"}
+
+2015-12-27 10:30:08.029736 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE491A158B3807B710237605DA6", "longitude": "32.02"}
+
+2015-12-27 10:30:08.032338 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE0314B99050CAE200752C6870C", "longitude": "32.02"}
+
+2015-12-27 10:30:08.034718 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE0314B60A980839F0514636B30", "longitude": "32.02"}
+
+2015-12-27 10:31:11.780130 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE48C2F58A3353423228E7D6EB4", "longitude": "32.02"}
+
+2015-12-27 10:31:11.782565 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE4918058B59468AF32C3DF016B", "longitude": "32.02"}
+
+2015-12-27 10:31:11.784922 - Error while send data to server: <urlopen error [Errno 111] Connection refused>
+{"latitude": "-4.65", "data": "8DE48160587B54D09B6594DE0DAF", "longitude": "32.02"}
+
+2015-12-27 20:04:57.190848 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-27 20:05:58.631588 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-27 20:06:03.258553 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-27 20:06:40.142481 - Can't connect to receptor: could not open port /dev/ttyACM1: [Errno 2] No such file or directory: '/dev/ttyACM1'
+
+2015-12-27 20:06:46.136674 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-27 20:06:47.362465 - Can't connect to receptor: could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+2015-12-27 20:07:53.253309 - Can't connect to receptor: could not open port /dev/ttyACM2: [Errno 13] Permission denied: '/dev/ttyACM2'
+
+2015-12-27 20:08:07.620336 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4816058A51484E35A4AEC0E43", "longitude": "32.02"}
+
+2015-12-27 20:11:03.425349 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8FE485B1588F84AFD55E0E0887E8", "longitude": "32.02"}
+
+2015-12-27 20:11:06.337247 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990508AD88075277714D", "longitude": "32.02"}
+
+2015-12-27 20:11:06.981372 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "854841C59904D0B820054D6EA0D7", "longitude": "32.02"}
+
+2015-12-27 20:11:07.625557 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE481605897949C855DCFA4D2EE", "longitude": "32.02"}
+
+2015-12-27 20:11:08.304023 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE49180588D24B52947CC6320CA", "longitude": "32.02"}
+
+2015-12-27 20:11:08.936692 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B99050CAE200A537F2485", "longitude": "32.02"}
+
+2015-12-27 20:12:20.051972 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8FE485B199108732E8944813C6DB", "longitude": "32.02"}
+
+2015-12-27 20:12:23.133871 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B8A0094E301CA6", "longitude": "32.02"}
+
+2015-12-27 20:12:24.230459 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491A19911162FC820522291E1", "longitude": "32.02"}
+
+2015-12-27 20:12:24.885946 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE49180586B30E51720BE1307DB", "longitude": "32.02"}
+
+2015-12-27 20:12:25.593635 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8486915F4FF86D1B", "longitude": "32.02"}
+
+2015-12-27 20:12:26.430210 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4816099406F2D68803951034E", "longitude": "32.02"}
+
+2015-12-27 20:12:27.121526 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491A158B3807B710237605DA6", "longitude": "32.02"}
+
+2015-12-27 20:12:27.735909 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE49180586B10E5A120E42F94C6", "longitude": "32.02"}
+
+2015-12-27 20:12:28.352340 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B58B980E5FD2812E3E79F", "longitude": "32.02"}
+
+2015-12-27 20:12:32.754084 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84CE506F8AE26254", "longitude": "32.02"}
+
+2015-12-27 20:12:33.367624 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B8C8064D349E47", "longitude": "32.02"}
+
+2015-12-27 20:12:34.019604 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8097332EC0801D4E", "longitude": "32.02"}
+
+2015-12-27 20:12:34.663837 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491A19911162FC83052C249E1", "longitude": "32.02"}
+
+2015-12-27 20:12:35.313156 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904CFB7E8074D2EC7F2", "longitude": "32.02"}
+
+2015-12-27 20:12:35.927003 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "EF0861C5088C12A3732D4F72A081", "longitude": "32.02"}
+
+2015-12-27 20:12:36.541856 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B984875F397034F554", "longitude": "32.02"}
+
+2015-12-27 20:12:37.156577 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B984FCC36330B56C30", "longitude": "32.02"}
+
+2015-12-27 20:12:37.770179 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE481605897549D695DF14A09C7", "longitude": "32.02"}
+
+2015-12-27 20:12:38.694434 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4816099408435C8904E383637", "longitude": "32.02"}
+
+2015-12-27 20:12:39.418380 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60A980839F0514636B30", "longitude": "32.02"}
+
+2015-12-27 20:12:40.108106 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "ADE490A1587714E1595739E3AE60", "longitude": "32.02"}
+
+2015-12-27 20:12:40.843083 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE481609940702E08803BC35221", "longitude": "32.02"}
+
+2015-12-27 20:12:41.456819 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B58B9848C793B4237891C", "longitude": "32.02"}
+
+2015-12-27 20:12:42.018699 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE48160587980C5DB2E68E535B5", "longitude": "32.02"}
+
+2015-12-27 20:12:42.619830 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B8C8064D349E47", "longitude": "32.02"}
+
+2015-12-27 20:12:43.207641 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B984C27B4E78B5AC26", "longitude": "32.02"}
+
+2015-12-27 20:12:43.811464 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990508AD8805526B6A4D", "longitude": "32.02"}
+
+2015-12-27 20:12:44.426959 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4816099406F2DC88039FE7BCA", "longitude": "32.02"}
+
+2015-12-27 20:12:44.981090 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B980F07B2BCD5CCEC0", "longitude": "32.02"}
+
+2015-12-27 20:12:45.807801 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4816099407E33C88C4A9F15AE", "longitude": "32.02"}
+
+2015-12-27 20:12:46.225262 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491809940AF27489036C8876A", "longitude": "32.02"}
+
+2015-12-27 20:12:46.818854 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B984975D3F22B7C65E", "longitude": "32.02"}
+
+2015-12-27 20:12:47.397695 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990507AD680751BC7B93", "longitude": "32.02"}
+
+2015-12-27 20:12:48.046825 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B980B03714F20AAC80", "longitude": "32.02"}
+
+2015-12-27 20:12:56.552316 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84B245692AE5E12E", "longitude": "32.02"}
+
+2015-12-27 20:12:57.085379 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990508AD680B521AAB9B", "longitude": "32.02"}
+
+2015-12-27 20:12:57.944668 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B9848B5B3ADBE70603", "longitude": "32.02"}
+
+2015-12-27 20:12:59.086036 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B984B8E94B1165CAD8", "longitude": "32.02"}
+
+2015-12-27 20:12:59.877936 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B9905072D600752439385", "longitude": "32.02"}
+
+2015-12-27 20:13:00.861170 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE481609940702DE87C3A767F34", "longitude": "32.02"}
+
+2015-12-27 20:13:02.939464 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491A19911162FC820522291E1", "longitude": "32.02"}
+
+2015-12-27 20:13:03.564714 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B99050AADC80951503591", "longitude": "32.02"}
+
+2015-12-27 20:13:04.063968 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8FE485B19910883328944A49B976", "longitude": "32.02"}
+
+2015-12-27 20:13:05.315948 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B99050BADE80751420276", "longitude": "32.02"}
+
+2015-12-27 20:13:06.032846 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491A19910C92F889C3B56B14A", "longitude": "32.02"}
+
+2015-12-27 20:13:06.751340 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B58B980F1E52C4E7B2002", "longitude": "32.02"}
+
+2015-12-27 20:13:07.345253 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491A19910C330A8D0400843E8", "longitude": "32.02"}
+
+2015-12-27 20:13:08.182899 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D0B848054DCF86A4", "longitude": "32.02"}
+
+2015-12-27 20:13:08.974685 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE481609940722E28803C7FEBB0", "longitude": "32.02"}
+
+2015-12-27 20:13:09.880315 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491A19910C22E08943405CDDE", "longitude": "32.02"}
+
+2015-12-27 20:13:10.707894 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990500AD68075252F19B", "longitude": "32.02"}
+
+2015-12-27 20:13:11.397687 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B200521F1C76C60EE4311", "longitude": "32.02"}
+
+2015-12-27 20:13:12.052675 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4816099407F34088C4BD0E52F", "longitude": "32.02"}
+
+2015-12-27 20:13:13.610724 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE49180588DB0A4CD0F1554D4BE", "longitude": "32.02"}
+
+2015-12-27 20:13:14.124086 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491A19910C52EC89837DBB759", "longitude": "32.02"}
+
+2015-12-27 20:13:14.798086 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF809E7330603358AE", "longitude": "32.02"}
+
+2015-12-27 20:13:15.374663 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4918058B5646995330205670B", "longitude": "32.02"}
+
+2015-12-27 20:13:15.965186 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE485B120501373CB0DA0FFA081", "longitude": "32.02"}
+
+2015-12-27 20:13:16.579785 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491A19910C72F08983996F728", "longitude": "32.02"}
+
+2015-12-27 20:13:17.296599 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990508AD800951B27A57", "longitude": "32.02"}
+
+2015-12-27 20:13:17.842708 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491A19910C130A8D83F833834", "longitude": "32.02"}
+
+2015-12-27 20:13:18.496117 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4816099407D32C88C474E4BFC", "longitude": "32.02"}
+
+2015-12-27 20:13:19.163433 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491809940C02AA8804899B721", "longitude": "32.02"}
+
+2015-12-27 20:15:21.608519 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 20:20:12.524157 - Error while send data to server: HTTP Error 400: Bad Request
+{"latitude": "-4.65", "data": "", "longitude": "32.02"}
+
+2015-12-27 20:23:55.444765 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AD804063385353A470", "longitude": "32.02"}
+
+2015-12-27 20:25:17.086319 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84CEEF6FB4D37067", "longitude": "32.02"}
+
+2015-12-27 20:25:22.421615 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84CE506F8AE26254", "longitude": "32.02"}
+
+2015-12-27 20:25:23.218365 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B8A0094E301CA6", "longitude": "32.02"}
+
+2015-12-27 20:25:25.760503 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84B245692AE5E12E", "longitude": "32.02"}
+
+2015-12-27 20:25:26.477881 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D2B8C00B4EE69C8F", "longitude": "32.02"}
+
+2015-12-27 20:25:27.194390 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF809E7330603358AE", "longitude": "32.02"}
+
+2015-12-27 20:25:27.938940 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8097332EC0801D4E", "longitude": "32.02"}
+
+2015-12-27 20:25:28.628273 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84A33965D077748E", "longitude": "32.02"}
+
+2015-12-27 20:25:29.345182 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B8C8064D349E47", "longitude": "32.02"}
+
+2015-12-27 20:25:29.959787 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84A10B6554A42065", "longitude": "32.02"}
+
+2015-12-27 20:25:34.771720 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF808DBF2CA665BA0E", "longitude": "32.02"}
+
+2015-12-27 20:25:36.153151 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B888094DE42A95", "longitude": "32.02"}
+
+2015-12-27 20:25:36.959665 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D0B868054D8AFA8D", "longitude": "32.02"}
+
+2015-12-27 20:25:37.692277 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8089812BAC3A6002", "longitude": "32.02"}
+
+2015-12-27 20:25:38.469793 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D0B860074DF84385", "longitude": "32.02"}
+
+2015-12-27 20:25:54.470075 - Can't execute query: database is locked
+
+2015-12-27 20:25:59.979824 - Can't execute query: database is locked
+
+2015-12-27 20:26:00.488567 - Can't execute query: database is locked
+
+2015-12-27 20:26:11.534563 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84CE506F8AE26254", "longitude": "32.02"}
+
+2015-12-27 20:26:14.399446 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "EF0861C5088C12A3732D4F72A081", "longitude": "32.02"}
+
+2015-12-27 20:26:17.369522 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D2B8C00B4EE69C8F", "longitude": "32.02"}
+
+2015-12-27 20:26:20.531299 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8097332EC0801D4E", "longitude": "32.02"}
+
+2015-12-27 20:26:24.435182 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B8C8064D349E47", "longitude": "32.02"}
+
+2015-12-27 20:26:25.048937 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84A10B6554A42065", "longitude": "32.02"}
+
+2015-12-27 20:26:28.019558 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF808DBF2CA665BA0E", "longitude": "32.02"}
+
+2015-12-27 20:26:28.633073 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B888094DE42A95", "longitude": "32.02"}
+
+2015-12-27 20:26:31.705121 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8089812BAC3A6002", "longitude": "32.02"}
+
+2015-12-27 20:26:32.387165 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D0B860074DF84385", "longitude": "32.02"}
+
+2015-12-27 20:26:35.289854 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84951362A157D432", "longitude": "32.02"}
+
+2015-12-27 20:26:36.219587 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84925D61FEA25027", "longitude": "32.02"}
+
+2015-12-27 20:26:38.975347 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "854841C59904D0B820054D6EA0D7", "longitude": "32.02"}
+
+2015-12-27 20:26:39.589971 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF807FB7296CAF2253", "longitude": "32.02"}
+
+2015-12-27 20:26:42.763815 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF848D5D60E260D026", "longitude": "32.02"}
+
+2015-12-27 20:26:43.379948 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF807E072918F479AA", "longitude": "32.02"}
+
+2015-12-27 20:26:46.246747 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D0B808074D5965F6", "longitude": "32.02"}
+
+2015-12-27 20:26:49.114563 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8488A95FC8AE30B5", "longitude": "32.02"}
+
+2015-12-27 20:26:51.877688 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84874B5F771A7329", "longitude": "32.02"}
+
+2015-12-27 20:26:55.153685 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8486915F4FF86D1B", "longitude": "32.02"}
+
+2015-12-27 20:26:58.021031 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904CFB7E0054D5C7EFA", "longitude": "32.02"}
+
+2015-12-27 20:26:58.808757 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8485DB5F26865E83", "longitude": "32.02"}
+
+2015-12-27 20:27:01.708902 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904CFB7E0054D5C7EFA", "longitude": "32.02"}
+
+2015-12-27 20:27:02.322716 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8484FB5EFD1D2F7F", "longitude": "32.02"}
+
+2015-12-27 20:27:05.292251 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904CFB7E8074D2EC7F2", "longitude": "32.02"}
+
+2015-12-27 20:27:07.966677 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904CFB7C0054D1902D3", "longitude": "32.02"}
+
+2015-12-27 20:27:10.719856 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE485B19910913688445163E3D3", "longitude": "32.02"}
+
+2015-12-27 20:27:13.483968 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D6485B158A9905D311B3ED1F744", "longitude": "32.02"}
+
+2015-12-27 20:27:15.837471 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE485B199109136284451CC9B57", "longitude": "32.02"}
+
+2015-12-27 20:27:18.603871 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE485B199109136284451CC9B57", "longitude": "32.02"}
+
+2015-12-27 20:27:21.125899 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE485B158A9346FE753B5CB78A2", "longitude": "32.02"}
+
+2015-12-27 20:27:23.827132 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE485B1991090360844518AEDB0", "longitude": "32.02"}
+
+2015-12-27 20:27:26.225606 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE485B120501373CB0DA0FFA081", "longitude": "32.02"}
+
+2015-12-27 20:27:28.965419 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4918058B59468AF32C3DF016B", "longitude": "32.02"}
+
+2015-12-27 20:27:31.506514 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8FE485B19910883328944A49B976", "longitude": "32.02"}
+
+2015-12-27 20:27:34.169120 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8FE485B19910883328944A49B976", "longitude": "32.02"}
+
+2015-12-27 20:27:36.625605 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8FE485B19910883308944A0CC55F", "longitude": "32.02"}
+
+2015-12-27 20:27:39.289305 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8FE485B19910883308944A0CC55F", "longitude": "32.02"}
+
+2015-12-27 20:27:42.066100 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8FE485B199108732E8944813C6DB", "longitude": "32.02"}
+
+2015-12-27 20:27:44.647787 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4918058B120621AFCBDBF4EB9", "longitude": "32.02"}
+
+2015-12-27 20:27:47.404933 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE485B19910853268904877031A", "longitude": "32.02"}
+
+2015-12-27 20:27:50.063861 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491809940C82C68A04C276E7B", "longitude": "32.02"}
+
+2015-12-27 20:27:52.849880 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491809940C82C48884BD3EA7F", "longitude": "32.02"}
+
+2015-12-27 20:27:55.876542 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491809940C72C287C4B6E3E21", "longitude": "32.02"}
+
+2015-12-27 20:27:59.593543 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491809940C32B68784AFCDDFB", "longitude": "32.02"}
+
+2015-12-27 20:28:02.539023 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491809940C22B48784ABAAB1C", "longitude": "32.02"}
+
+2015-12-27 20:28:03.146392 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE49180588D24B52947CC6320CA", "longitude": "32.02"}
+
+2015-12-27 20:28:05.807953 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE49180588B00AAE310C3A099E9", "longitude": "32.02"}
+
+2015-12-27 20:28:06.219457 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491809940C02AA8804899B721", "longitude": "32.02"}
+
+2015-12-27 20:28:09.086210 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4918099C0AF27488037466C1C", "longitude": "32.02"}
+
+2015-12-27 20:28:12.520352 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE49180586B10E5A120E42F94C6", "longitude": "32.02"}
+
+2015-12-27 20:28:15.025046 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491809940AF27489037377363", "longitude": "32.02"}
+
+2015-12-27 20:28:15.640068 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE491809940AF27489036C8876A", "longitude": "32.02"}
+
+2015-12-27 20:28:19.123499 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE49180586774F70559E05192F0", "longitude": "32.02"}
+
+2015-12-27 20:28:21.723286 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE49180586314F80D5A28F9D5DC", "longitude": "32.02"}
+
+2015-12-27 20:28:22.277427 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4918099C0B127A88034BEC0EC", "longitude": "32.02"}
+
+2015-12-27 20:28:31.922440 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4816099408435E8904E7D4A1E", "longitude": "32.02"}
+
+2015-12-27 20:28:33.764397 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AD804063385353A470", "longitude": "32.02"}
+
+2015-12-27 20:28:36.965185 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B8600F4E74CD59", "longitude": "32.02"}
+
+2015-12-27 20:29:48.565585 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904CFB7E8054D32DCF2", "longitude": "32.02"}
+
+2015-12-27 20:30:32.563866 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE485B199109136284451CC9B57", "longitude": "32.02"}
+
+2015-12-27 20:32:30.760317 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4816099408435C8904E383637", "longitude": "32.02"}
+
+2015-12-27 20:32:37.680624 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE481609940833568904D6192CB", "longitude": "32.02"}
+
+2015-12-27 20:32:45.668535 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE4816058A544843B5A313031B2", "longitude": "32.02"}
+
+2015-12-27 20:34:23.764222 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990508AD8805526B6A4D", "longitude": "32.02"}
+
+2015-12-27 20:34:24.472437 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990508AD8805526B6A4D", "longitude": "32.02"}
+
+2015-12-27 20:34:29.434741 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B980B965183681BC14", "longitude": "32.02"}
+
+2015-12-27 20:34:30.759534 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B984C73B50280CA6D3", "longitude": "32.02"}
+
+2015-12-27 20:34:33.771918 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990508AD68075252F19B", "longitude": "32.02"}
+
+2015-12-27 20:34:36.286000 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990500AD68075252F19B", "longitude": "32.02"}
+
+2015-12-27 20:37:23.562772 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050BADE805515E1976", "longitude": "32.02"}
+
+2015-12-27 20:37:26.020584 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19911152FC00451B0B6A0", "longitude": "32.02"}
+
+2015-12-27 20:37:28.329049 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050BADE0055130BB7E", "longitude": "32.02"}
+
+2015-12-27 20:37:30.790867 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B60A980839F0514636B30", "longitude": "32.02"}
+
+2015-12-27 20:37:33.205779 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050BADE0055130BB7E", "longitude": "32.02"}
+
+2015-12-27 20:37:35.494329 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19911162FC820522291E1", "longitude": "32.02"}
+
+2015-12-27 20:37:37.786784 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19911162FC83052C249E1", "longitude": "32.02"}
+
+2015-12-27 20:37:40.228442 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B60B98491153CE542D0EA", "longitude": "32.02"}
+
+2015-12-27 20:37:42.684822 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A158B3807B710237605DA6", "longitude": "32.02"}
+
+2015-12-27 20:37:45.113589 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B58B9848C793B4237891C", "longitude": "32.02"}
+
+2015-12-27 20:37:47.374448 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050AADE0055133B1B0", "longitude": "32.02"}
+
+2015-12-27 20:37:49.650604 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B60B9848B5B3ADBE70603", "longitude": "32.02"}
+
+2015-12-27 20:37:51.962041 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B60B984887B39D5CC3F1E", "longitude": "32.02"}
+
+2015-12-27 20:37:54.362088 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050AADC80951503591", "longitude": "32.02"}
+
+2015-12-27 20:37:56.735037 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B60B984875F397034F554", "longitude": "32.02"}
+
+2015-12-27 20:37:58.919286 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050AADC80B514C2E91", "longitude": "32.02"}
+
+2015-12-27 20:38:01.318765 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B60B980781100F71AA851", "longitude": "32.02"}
+
+2015-12-27 20:38:03.600250 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050AADC007516AD699", "longitude": "32.02"}
+
+2015-12-27 20:38:05.879880 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B58B98076AB007816EF4C", "longitude": "32.02"}
+
+2015-12-27 20:38:08.135658 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050AADC80551186F91", "longitude": "32.02"}
+
+2015-12-27 20:38:10.457874 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B200521F1C76C60EE4311", "longitude": "32.02"}
+
+2015-12-27 20:38:12.724571 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050AADC80551186F91", "longitude": "32.02"}
+
+2015-12-27 20:38:14.957555 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B60B98073C2FF6E945FDB", "longitude": "32.02"}
+
+2015-12-27 20:38:17.268364 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050AADC0055176CD99", "longitude": "32.02"}
+
+2015-12-27 20:38:19.524126 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B60B984805536EF3007B7", "longitude": "32.02"}
+
+2015-12-27 20:38:21.869861 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE0314B99050AADC80751047491", "longitude": "32.02"}
+
+2015-12-27 20:38:24.125761 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A120505379CB8D2024C3AB", "longitude": "32.02"}
+
+2015-12-27 20:38:26.428423 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C03068EC41049245", "longitude": "32.02"}
+
+2015-12-27 20:38:28.769038 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A15881C4D10D5320E29384", "longitude": "32.02"}
+
+2015-12-27 20:38:31.032575 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C03088E440AE8A9A", "longitude": "32.02"}
+
+2015-12-27 20:38:33.288863 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1587FD0C5651BB1DCB9FD", "longitude": "32.02"}
+
+2015-12-27 20:38:35.544727 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C130A8D83F833834", "longitude": "32.02"}
+
+2015-12-27 20:38:37.796624 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C230A8D441CC8B2F", "longitude": "32.02"}
+
+2015-12-27 20:38:40.056159 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1587F74D3B953C6994310", "longitude": "32.02"}
+
+2015-12-27 20:38:42.315590 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1587F50C64D1BE9F2E0F4", "longitude": "32.02"}
+
+2015-12-27 20:38:44.580388 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C330A8D0400843E8", "longitude": "32.02"}
+
+2015-12-27 20:38:46.904173 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1587F10C7151C1EF2E401", "longitude": "32.02"}
+
+2015-12-27 20:38:49.157698 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C63088B43FC5E66C", "longitude": "32.02"}
+
+2015-12-27 20:38:51.444239 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1587D40C9911CB96910CA", "longitude": "32.02"}
+
+2015-12-27 20:38:52.973757 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C63088AC3F55526C", "longitude": "32.02"}
+
+2015-12-27 20:38:55.240784 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1587D30C9C31CC64B40EA", "longitude": "32.02"}
+
+2015-12-27 20:38:57.455223 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C63088A83E929065", "longitude": "32.02"}
+
+2015-12-27 20:38:59.717565 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C730689C3DAD5866", "longitude": "32.02"}
+
+2015-12-27 20:39:01.972609 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C830489C3C06B25C", "longitude": "32.02"}
+
+2015-12-27 20:39:04.205873 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1587B54DA3D556558DE83", "longitude": "32.02"}
+
+2015-12-27 20:39:06.493802 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1587964DD3D562A21549F", "longitude": "32.02"}
+
+2015-12-27 20:39:08.846390 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C92FC8983C1BAF3C", "longitude": "32.02"}
+
+2015-12-27 20:39:11.141100 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1587920D0311E6D629EF3", "longitude": "32.02"}
+
+2015-12-27 20:39:13.400731 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C92FA89C3CEC1D47", "longitude": "32.02"}
+
+2015-12-27 20:39:15.669074 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C92F889C3B56B14A", "longitude": "32.02"}
+
+2015-12-27 20:39:18.007116 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A120501379C38D2064C3AB", "longitude": "32.02"}
+
+2015-12-27 20:39:20.417566 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "ADE490A1587714E1595739E3AE60", "longitude": "32.02"}
+
+2015-12-27 20:39:22.836135 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A15875F0D4431F793FCABF", "longitude": "32.02"}
+
+2015-12-27 20:39:25.096099 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C82F489C3ACAB372", "longitude": "32.02"}
+
+2015-12-27 20:39:27.362483 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C82F28983A3D0109", "longitude": "32.02"}
+
+2015-12-27 20:39:29.628170 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C72F08983996F728", "longitude": "32.02"}
+
+2015-12-27 20:39:31.905667 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A120501379C38D2064C3AB", "longitude": "32.02"}
+
+2015-12-27 20:39:34.222367 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A15871B4E8B95922C3F66C", "longitude": "32.02"}
+
+2015-12-27 20:39:36.493540 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C52EC89837DBB759", "longitude": "32.02"}
+
+2015-12-27 20:39:38.778968 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C52EC89837DBB759", "longitude": "32.02"}
+
+2015-12-27 20:39:41.007201 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1587140DC9721A06417A2", "longitude": "32.02"}
+
+2015-12-27 20:39:43.349040 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C42EA898371739EC", "longitude": "32.02"}
+
+2015-12-27 20:39:45.630280 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C12E4898353D84D7", "longitude": "32.02"}
+
+2015-12-27 20:39:47.862287 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C22E28983408EBF7", "longitude": "32.02"}
+
+2015-12-27 20:39:50.098688 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C22E289835F71FFE", "longitude": "32.02"}
+
+2015-12-27 20:39:52.402229 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "80E18D3C586BC0E47923A4418C79", "longitude": "32.02"}
+
+2015-12-27 20:39:54.657084 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1586B70E57D23E9DFA19C", "longitude": "32.02"}
+
+2015-12-27 20:39:56.902238 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C22E08943405CDDE", "longitude": "32.02"}
+
+2015-12-27 20:39:59.168249 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1586B40E63124130EB028", "longitude": "32.02"}
+
+2015-12-27 20:40:01.422271 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C22E08943405CDDE", "longitude": "32.02"}
+
+2015-12-27 20:40:03.687517 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C12E08943400D28C", "longitude": "32.02"}
+
+2015-12-27 20:40:06.024762 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C12E089433FF02A8", "longitude": "32.02"}
+
+2015-12-27 20:40:08.425730 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A15869F4F4715C258DF395", "longitude": "32.02"}
+
+2015-12-27 20:40:10.682826 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910C12DE89433A6858B", "longitude": "32.02"}
+
+2015-12-27 20:40:13.029123 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A15867D0EABD2542779962", "longitude": "32.02"}
+
+2015-12-27 20:40:15.284531 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910BA2D08942EF25654", "longitude": "32.02"}
+
+2015-12-27 20:40:17.518825 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A120501379C38D2064C3AB", "longitude": "32.02"}
+
+2015-12-27 20:40:19.789209 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1585F6505BB60859CA18F", "longitude": "32.02"}
+
+2015-12-27 20:40:22.075092 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A1585DC0FAD5294E5B27A8", "longitude": "32.02"}
+
+2015-12-27 20:40:24.329647 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910B52BC89029BC217F", "longitude": "32.02"}
+
+2015-12-27 20:40:26.713601 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A19910B52BC89029BC217F", "longitude": "32.02"}
+
+2015-12-27 20:40:28.961457 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589F506D7B2123AC1FB2", "longitude": "32.02"}
+
+2015-12-27 20:40:31.184993 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589F006FBD2178B904CB", "longitude": "32.02"}
+
+2015-12-27 20:40:33.428786 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589DE47FA1596B6FE071", "longitude": "32.02"}
+
+2015-12-27 20:40:35.660775 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910742F28444AAECC30", "longitude": "32.02"}
+
+2015-12-27 20:40:37.894718 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589DE07099219ACE958A", "longitude": "32.02"}
+
+2015-12-27 20:40:40.261263 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910742F284449512422", "longitude": "32.02"}
+
+2015-12-27 20:40:42.510045 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589DD480415981AC436C", "longitude": "32.02"}
+
+2015-12-27 20:40:44.741338 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589DB071BB21C64A88F0", "longitude": "32.02"}
+
+2015-12-27 20:40:47.001270 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589DA4811D59A31B6A7A", "longitude": "32.02"}
+
+2015-12-27 20:40:49.246217 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910742F28444AAECC30", "longitude": "32.02"}
+
+2015-12-27 20:40:51.445807 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589DA4815759ABE4E8CE", "longitude": "32.02"}
+
+2015-12-27 20:40:53.690450 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589D9481DF59C0CC61E5", "longitude": "32.02"}
+
+2015-12-27 20:40:55.957554 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910742F28444AAECC30", "longitude": "32.02"}
+
+2015-12-27 20:40:58.212492 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589D8072E721F4680818", "longitude": "32.02"}
+
+2015-12-27 20:41:00.456938 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910742F28444AAECC30", "longitude": "32.02"}
+
+2015-12-27 20:41:02.724228 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910742F28444AAECC30", "longitude": "32.02"}
+
+2015-12-27 20:41:04.980114 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589D6073BB22117C5DE3", "longitude": "32.02"}
+
+2015-12-27 20:41:07.251083 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A220501373CF2D208EEEDB", "longitude": "32.02"}
+
+2015-12-27 20:41:09.508202 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910742F28404A96FA30", "longitude": "32.02"}
+
+2015-12-27 20:41:11.755059 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589D2484FD5A382A195C", "longitude": "32.02"}
+
+2015-12-27 20:41:14.057533 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910742F28404A96FA30", "longitude": "32.02"}
+
+2015-12-27 20:41:16.300539 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910732F283C498A6853", "longitude": "32.02"}
+
+2015-12-27 20:41:18.556584 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589BC0788F22CB2E260B", "longitude": "32.02"}
+
+2015-12-27 20:41:20.875946 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910732F084049255A61", "longitude": "32.02"}
+
+2015-12-27 20:41:23.123244 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589B8489755AE2ABA2C6", "longitude": "32.02"}
+
+2015-12-27 20:41:25.368505 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25899B48EC55BADBC0F4E", "longitude": "32.02"}
+
+2015-12-27 20:41:27.623535 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910722EC848491D3D03", "longitude": "32.02"}
+
+2015-12-27 20:41:29.878675 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25899B48F0B5BB7B5D9C3", "longitude": "32.02"}
+
+2015-12-27 20:41:32.166886 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25899B48F3D5BBEFE9C19", "longitude": "32.02"}
+
+2015-12-27 20:41:34.411744 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910722EA84849D2B978", "longitude": "32.02"}
+
+2015-12-27 20:41:36.679754 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910722EA84849D2B978", "longitude": "32.02"}
+
+2015-12-27 20:41:38.950088 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2589990813D2417CAE414", "longitude": "32.02"}
+
+2015-12-27 20:41:41.224201 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "80E1923F5893F08C7D25C89AE748", "longitude": "32.02"}
+
+2015-12-27 20:41:43.468577 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910712E08744811ECAE", "longitude": "32.02"}
+
+2015-12-27 20:41:45.734591 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25893D08CED25D8278904", "longitude": "32.02"}
+
+2015-12-27 20:41:47.990672 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910712DE87448486B8D", "longitude": "32.02"}
+
+2015-12-27 20:41:50.235340 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "80E192395893908DB925F742F445", "longitude": "32.02"}
+
+2015-12-27 20:41:52.490772 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910702DE874484B6143", "longitude": "32.02"}
+
+2015-12-27 20:41:54.733983 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910702DE874484B6143", "longitude": "32.02"}
+
+2015-12-27 20:41:56.991170 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25893249E255DFCF79B72", "longitude": "32.02"}
+
+2015-12-27 20:41:59.312230 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2588DD094B7270138FBC0", "longitude": "32.02"}
+
+2015-12-27 20:42:01.579794 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910712E68E8488FFAF1", "longitude": "32.02"}
+
+2015-12-27 20:42:03.833761 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910732F08E446259804", "longitude": "32.02"}
+
+2015-12-27 20:42:06.079947 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2588B24A6EB5F49545CAD", "longitude": "32.02"}
+
+2015-12-27 20:42:08.368882 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910732F48DC44018C44", "longitude": "32.02"}
+
+2015-12-27 20:42:10.672205 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2588B0098AB279702212A", "longitude": "32.02"}
+
+2015-12-27 20:42:12.922115 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910732F48D843C66A60", "longitude": "32.02"}
+
+2015-12-27 20:42:15.163539 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910732F88DC439EA09F", "longitude": "32.02"}
+
+2015-12-27 20:42:17.388082 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25887F4A99D5FAFE9F5D2", "longitude": "32.02"}
+
+2015-12-27 20:42:19.629356 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910732FA8D8421C1EBF", "longitude": "32.02"}
+
+2015-12-27 20:42:21.923186 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910742FC8D044AAE683", "longitude": "32.02"}
+
+2015-12-27 20:42:24.168546 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25887609BF728140CB16D", "longitude": "32.02"}
+
+2015-12-27 20:42:26.423812 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25887209CED28354B8B77", "longitude": "32.02"}
+
+2015-12-27 20:42:28.666593 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25883B4AEB760709CA7AB", "longitude": "32.02"}
+
+2015-12-27 20:42:30.907602 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2588390A0AD28C60B6D25", "longitude": "32.02"}
+
+2015-12-27 20:42:33.145904 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910753048D0417001DC", "longitude": "32.02"}
+
+2015-12-27 20:42:35.402416 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910753048D0417001DC", "longitude": "32.02"}
+
+2015-12-27 20:42:37.688890 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2588334AFFD609FC8DF71", "longitude": "32.02"}
+
+2015-12-27 20:42:39.946688 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910753068D4410D4BF5", "longitude": "32.02"}
+
+2015-12-27 20:42:42.188261 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A220501373CF2D208EEEDB", "longitude": "32.02"}
+
+2015-12-27 20:42:44.435982 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25881D4B0EB60C33AAD62", "longitude": "32.02"}
+
+2015-12-27 20:42:46.690971 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910773088A0404B08AD", "longitude": "32.02"}
+
+2015-12-27 20:42:48.934176 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A220501373CF2D208EEEDB", "longitude": "32.02"}
+
+2015-12-27 20:42:51.186156 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910763048A43E123ED5", "longitude": "32.02"}
+
+2015-12-27 20:42:53.418948 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2587F10A80529DE4C5E9E", "longitude": "32.02"}
+
+2015-12-27 20:42:55.651821 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2587DF4B6A3619D1862F0", "longitude": "32.02"}
+
+2015-12-27 20:42:57.900167 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910763048A83C5A78CE", "longitude": "32.02"}
+
+2015-12-27 20:43:00.140075 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910763048A83C5A78CE", "longitude": "32.02"}
+
+2015-12-27 20:43:02.377549 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2587D04B8E761F4E9C9C1", "longitude": "32.02"}
+
+2015-12-27 20:43:04.623391 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910763048A83FA590DC", "longitude": "32.02"}
+
+2015-12-27 20:43:06.891581 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2587B34BB87625821EEB2", "longitude": "32.02"}
+
+2015-12-27 20:43:09.135247 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910763028A83C95FCB5", "longitude": "32.02"}
+
+2015-12-27 20:43:11.369499 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2587934BE8562CAAC0C01", "longitude": "32.02"}
+
+2015-12-27 20:43:13.625360 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910763028AC3AADEE98", "longitude": "32.02"}
+
+2015-12-27 20:43:15.955008 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910763028B43BC2AE91", "longitude": "32.02"}
+
+2015-12-27 20:43:18.213003 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910763028B43A3D5A98", "longitude": "32.02"}
+
+2015-12-27 20:43:20.453867 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2587730B2FD2B7F408441", "longitude": "32.02"}
+
+2015-12-27 20:43:22.678537 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2587594C333637D87E875", "longitude": "32.02"}
+
+2015-12-27 20:43:24.934255 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25873C0B91D2C6AAEB467", "longitude": "32.02"}
+
+2015-12-27 20:43:27.177308 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25873B4C7856422FFAAEC", "longitude": "32.02"}
+
+2015-12-27 20:43:29.435717 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A29910742F685438C65271", "longitude": "32.02"}
+
+2015-12-27 20:43:31.633205 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2587354CA2764874F1E62", "longitude": "32.02"}
+
+2015-12-27 20:43:33.887420 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A25871C0C0192D76C98C4D", "longitude": "32.02"}
+
+2015-12-27 20:43:36.171496 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A299106F2CE84036A50EAA", "longitude": "32.02"}
+
+2015-12-27 20:43:38.406043 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2587154D1056590969FD7", "longitude": "32.02"}
+
+2015-12-27 20:43:40.661126 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2586FC4D4F16627B93544", "longitude": "32.02"}
+
+2015-12-27 20:43:43.031649 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2586F54D82566A08EDE7F", "longitude": "32.02"}
+
+2015-12-27 20:43:45.402600 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2586B20D86331182CE53F", "longitude": "32.02"}
+
+2015-12-27 20:43:47.650501 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A2586904ED3969C5DADB70", "longitude": "32.02"}
+
+2015-12-27 20:43:49.965219 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE491A299186528C84C23E6B2C4", "longitude": "32.02"}
+
+2015-12-27 20:43:52.380502 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8D6491A219106328488021CB56E0", "longitude": "32.02"}
+
+2015-12-27 20:43:54.651686 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA5899D492D9662BD08F2A", "longitude": "32.02"}
+
+2015-12-27 20:43:56.875676 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA99405D33A8504A28CF6C", "longitude": "32.02"}
+
+2015-12-27 20:43:59.120095 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA58992088C72F13E1FBAF", "longitude": "32.02"}
+
+2015-12-27 20:44:01.385587 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA589914980366BB501FE9", "longitude": "32.02"}
+
+2015-12-27 20:44:03.630733 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA99405C3388504A6EB98B", "longitude": "32.02"}
+
+2015-12-27 20:44:05.944043 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA5895C0922F3017FCB17C", "longitude": "32.02"}
+
+2015-12-27 20:44:08.187896 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA99405A32A84C495D6C47", "longitude": "32.02"}
+
+2015-12-27 20:44:10.441454 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA5895B092913022A17D91", "longitude": "32.02"}
+
+2015-12-27 20:44:12.687860 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA99405A32A84C495D6C47", "longitude": "32.02"}
+
+2015-12-27 20:44:14.911834 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA5895B4A18167C2808EBA", "longitude": "32.02"}
+
+2015-12-27 20:44:17.157116 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA99405A32884C4918106E", "longitude": "32.02"}
+
+2015-12-27 20:44:19.409572 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA99405A32884C4918106E", "longitude": "32.02"}
+
+2015-12-27 20:44:21.640758 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA589570945B3054F622A2", "longitude": "32.02"}
+
+2015-12-27 20:44:23.840851 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA589570949D305B458793", "longitude": "32.02"}
+
+2015-12-27 20:44:26.058887 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA99405A32884848DFD267", "longitude": "32.02"}
+
+2015-12-27 20:44:28.338759 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA99405932287448E373B8", "longitude": "32.02"}
+
+2015-12-27 20:44:30.577305 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA9940593228784954DDB1", "longitude": "32.02"}
+
+2015-12-27 20:44:32.830800 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA588FC4AE736927C318A8", "longitude": "32.02"}
+
+2015-12-27 20:44:35.088618 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA99405831688847FA78A6", "longitude": "32.02"}
+
+2015-12-27 20:44:37.345798 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA588FB4AEB1692ED48E10", "longitude": "32.02"}
+
+2015-12-27 20:44:39.601403 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA994058312888477080F4", "longitude": "32.02"}
+
+2015-12-27 20:44:41.863784 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA588DC0A3B731FCBEF1DC", "longitude": "32.02"}
+
+2015-12-27 20:44:44.089328 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA588D70A4F5321F3F8F1E", "longitude": "32.02"}
+
+2015-12-27 20:44:46.371035 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA588D34B42F69C77C536E", "longitude": "32.02"}
+
+2015-12-27 20:44:48.638196 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA588BB4B50969DFB853D8", "longitude": "32.02"}
+
+2015-12-27 20:44:50.952759 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA99405830C88C4546D76A", "longitude": "32.02"}
+
+2015-12-27 20:44:53.222048 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA587D20C31B355CFFC5F0", "longitude": "32.02"}
+
+2015-12-27 20:44:55.529158 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA587950C9A13611590890", "longitude": "32.02"}
+
+2015-12-27 20:44:57.940424 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE484FA9940502508843828D01B", "longitude": "32.02"}
+
+2015-12-27 20:45:00.221749 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117F22F8084FD19CFB", "longitude": "32.02"}
+
+2015-12-27 20:45:02.917694 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117F22F8084FD19CFB", "longitude": "32.02"}
+
+2015-12-27 20:45:05.185167 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B5008812E5746B9D2D", "longitude": "32.02"}
+
+2015-12-27 20:45:07.445697 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B5009264EC679CE096", "longitude": "32.02"}
+
+2015-12-27 20:45:09.703470 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117F2310044FF91976", "longitude": "32.02"}
+
+2015-12-27 20:45:12.013396 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B504A25F260C5BB7B0", "longitude": "32.02"}
+
+2015-12-27 20:45:14.337183 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E2305A579D70DA0488C8C", "longitude": "32.02"}
+
+2015-12-27 20:45:16.657579 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99917E22F0044F61A942", "longitude": "32.02"}
+
+2015-12-27 20:45:18.924795 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B50095ECEEC7D168FA", "longitude": "32.02"}
+
+2015-12-27 20:45:21.175010 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99917E22F80C4F7B674A", "longitude": "32.02"}
+
+2015-12-27 20:45:23.424414 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99917E22F80C4F7B674A", "longitude": "32.02"}
+
+2015-12-27 20:45:25.681139 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B5009770EFCBE66437", "longitude": "32.02"}
+
+2015-12-27 20:45:27.933220 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B500984EF061F3D42F", "longitude": "32.02"}
+
+2015-12-27 20:45:30.212903 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99917E22F0084F2DF342", "longitude": "32.02"}
+
+2015-12-27 20:45:32.458097 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917EEA1D7860013F889A0FF5", "longitude": "32.02"}
+
+2015-12-27 20:45:34.789769 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B500A242F714B522D7", "longitude": "32.02"}
+
+2015-12-27 20:45:37.055747 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117B22B8084F574F91", "longitude": "32.02"}
+
+2015-12-27 20:45:39.311189 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B500ABB8FD6D225E34", "longitude": "32.02"}
+
+2015-12-27 20:45:41.580628 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B504BA2536053CF68E", "longitude": "32.02"}
+
+2015-12-27 20:45:43.281853 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117B22B8084F574F91", "longitude": "32.02"}
+
+2015-12-27 20:45:45.547844 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B500AC58FDD82DC7CC", "longitude": "32.02"}
+
+2015-12-27 20:45:47.821894 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B504BAC1366ED3FDF2", "longitude": "32.02"}
+
+2015-12-27 20:45:50.066056 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117B22B0084F39ED99", "longitude": "32.02"}
+
+2015-12-27 20:45:52.312251 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99917A22B8204E8BAA29", "longitude": "32.02"}
+
+2015-12-27 20:45:54.577907 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B3F0AFDD00344E03FA", "longitude": "32.02"}
+
+2015-12-27 20:45:57.005910 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99917A22B83C4F232829", "longitude": "32.02"}
+
+2015-12-27 20:46:01.347925 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99917A22B8504F29BE32", "longitude": "32.02"}
+
+2015-12-27 20:46:03.723920 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B340B24B01D4EE4ADD", "longitude": "32.02"}
+
+2015-12-27 20:46:06.035075 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9911782278804FBBD018", "longitude": "32.02"}
+
+2015-12-27 20:46:08.281415 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B334C09F3A5B28E3CA", "longitude": "32.02"}
+
+2015-12-27 20:46:09.784315 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B310B2BD0220DFE283", "longitude": "32.02"}
+
+2015-12-27 20:46:12.068053 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E2305A579D70DA0488C8C", "longitude": "32.02"}
+
+2015-12-27 20:46:14.311145 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9911792298904E827609", "longitude": "32.02"}
+
+2015-12-27 20:46:16.579797 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B1C4C1A53B0B1F2F96", "longitude": "32.02"}
+
+2015-12-27 20:46:18.835618 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9911792298944EBA4009", "longitude": "32.02"}
+
+2015-12-27 20:46:21.091013 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B1A4C1E33B351BB12B", "longitude": "32.02"}
+
+2015-12-27 20:46:23.384490 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B170B435031C1A7D13", "longitude": "32.02"}
+
+2015-12-27 20:46:25.685280 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A2298A04E59F552", "longitude": "32.02"}
+
+2015-12-27 20:46:27.961737 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58B124C2EB3BE6880AB5", "longitude": "32.02"}
+
+2015-12-27 20:46:30.227820 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58AFF4C35B3C314D3B6C", "longitude": "32.02"}
+
+2015-12-27 20:46:32.518252 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58AF90B5F504499B635A", "longitude": "32.02"}
+
+2015-12-27 20:46:34.776459 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58AF64C4613CE13DA1F7", "longitude": "32.02"}
+
+2015-12-27 20:46:37.039840 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A22B8B44D3B8F69", "longitude": "32.02"}
+
+2015-12-27 20:46:39.306552 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A22B8B44D3B8F69", "longitude": "32.02"}
+
+2015-12-27 20:46:41.594531 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A22B8B44D3B8F69", "longitude": "32.02"}
+
+2015-12-27 20:46:43.873184 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58ADB4C5993DB1106016", "longitude": "32.02"}
+
+2015-12-27 20:46:46.128274 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E2305A579D70DA0488C8C", "longitude": "32.02"}
+
+2015-12-27 20:46:48.383919 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A22B8B04D03B969", "longitude": "32.02"}
+
+2015-12-27 20:46:50.649969 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A22B8B04D03B969", "longitude": "32.02"}
+
+2015-12-27 20:46:52.994580 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58AD70B82B05C38530E6", "longitude": "32.02"}
+
+2015-12-27 20:46:55.247083 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A2298B04D46C540", "longitude": "32.02"}
+
+2015-12-27 20:46:57.493810 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E2305A579D70DA0488C8C", "longitude": "32.02"}
+
+2015-12-27 20:46:59.954557 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58AD04C6E13E8D281C1B", "longitude": "32.02"}
+
+2015-12-27 20:47:02.318550 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58ABF0B9050657F879C2", "longitude": "32.02"}
+
+2015-12-27 20:47:04.556657 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A2298B04D46C540", "longitude": "32.02"}
+
+2015-12-27 20:47:06.801184 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58ABE4C7233EBA61F547", "longitude": "32.02"}
+
+2015-12-27 20:47:09.030376 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A2298B04D46C540", "longitude": "32.02"}
+
+2015-12-27 20:47:11.340709 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58ABE4C73B3EC92F5945", "longitude": "32.02"}
+
+2015-12-27 20:47:13.642471 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58ABB4C7913F04F20058", "longitude": "32.02"}
+
+2015-12-27 20:47:15.897190 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A2298B04CB93149", "longitude": "32.02"}
+
+2015-12-27 20:47:18.132290 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A2298B04CB93149", "longitude": "32.02"}
+
+2015-12-27 20:47:20.388085 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E99117A2298B04CB93149", "longitude": "32.02"}
+
+2015-12-27 20:47:22.669241 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58AB24C8993FB55CA230", "longitude": "32.02"}
+
+2015-12-27 20:47:24.913044 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917EE013AB00000000C6BCE4", "longitude": "32.02"}
+
+2015-12-27 20:47:27.168177 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E2305A579D70DA0488C8C", "longitude": "32.02"}
+
+2015-12-27 20:47:29.502146 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9911792298B04CBC2E1B", "longitude": "32.02"}
+
+2015-12-27 20:47:31.950862 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58A910BC9F08C1A179BB", "longitude": "32.02"}
+
+2015-12-27 20:47:34.190494 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9911792278B44B5E48E9", "longitude": "32.02"}
+
+2015-12-27 20:47:36.487777 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58A7E0BD0F090CC90D4C", "longitude": "32.02"}
+
+2015-12-27 20:47:38.747612 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E2305A579D70DA0488C8C", "longitude": "32.02"}
+
+2015-12-27 20:47:40.984575 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E5889E4E9E55323B8B008", "longitude": "32.02"}
+
+2015-12-27 20:47:43.285484 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E588920DE831BCAF5BFEE", "longitude": "32.02"}
+
+2015-12-27 20:47:45.621909 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E588914EC0F53C7809BC4", "longitude": "32.02"}
+
+2015-12-27 20:47:47.840365 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910DD2D989C3FA651C3", "longitude": "32.02"}
+
+2015-12-27 20:47:50.162443 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910DC2D58A03EAC95F2", "longitude": "32.02"}
+
+2015-12-27 20:47:52.627986 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910DB2D589C3E336791", "longitude": "32.02"}
+
+2015-12-27 20:47:54.857265 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E588360E64D1E1904F489", "longitude": "32.02"}
+
+2015-12-27 20:47:57.102752 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910DB2D18A03DD0B1D8", "longitude": "32.02"}
+
+2015-12-27 20:47:59.345446 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E588320E7011E4F3DF691", "longitude": "32.02"}
+
+2015-12-27 20:48:01.589979 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910DA2CF8A03DDDC693", "longitude": "32.02"}
+
+2015-12-27 20:48:03.836275 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E2305A579D70DA0488C8C", "longitude": "32.02"}
+
+2015-12-27 20:48:06.121765 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910DA2CF89C3CB4F493", "longitude": "32.02"}
+
+2015-12-27 20:48:08.369067 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4913E588180E8AF1ECE55B99E", "longitude": "32.02"}
+
+2015-12-27 20:48:10.612278 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E588170E8CB1ED7BBDDF5", "longitude": "32.02"}
+
+2015-12-27 20:48:12.879900 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E2305A579D70DA0488C8C", "longitude": "32.02"}
+
+2015-12-27 20:48:15.120516 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E588150E9231EF1BBBE25", "longitude": "32.02"}
+
+2015-12-27 20:48:17.424196 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910D92CD89C3CF497E8", "longitude": "32.02"}
+
+2015-12-27 20:48:19.690235 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E588144F67D56DF538AD1", "longitude": "32.02"}
+
+2015-12-27 20:48:21.957018 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "C9E4917E588044F69B56E95BF6C4", "longitude": "32.02"}
+
+2015-12-27 20:48:24.198004 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910D92CD89C3CF497E8", "longitude": "32.02"}
+
+2015-12-27 20:48:26.445539 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E588114F70B570A41F5C8", "longitude": "32.02"}
+
+2015-12-27 20:48:28.722340 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DC4917E1910D92CD89C3B0B47CC", "longitude": "32.02"}
+
+2015-12-27 20:48:30.967292 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910D92CD89C3B0B47CC", "longitude": "32.02"}
+
+2015-12-27 20:48:33.235776 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E2305A579D70DA0488C8C", "longitude": "32.02"}
+
+2015-12-27 20:48:35.513389 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E587DF4FA0B57ED14F7A0", "longitude": "32.02"}
+
+2015-12-27 20:48:37.821697 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910D82C98A03AEB8750", "longitude": "32.02"}
+
+2015-12-27 20:48:40.118579 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E587D90EDFF206197E289", "longitude": "32.02"}
+
+2015-12-27 20:48:42.373979 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910D72C98A03AFAE54A", "longitude": "32.02"}
+
+2015-12-27 20:48:44.629182 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E23058579D70DA0488C8C", "longitude": "32.02"}
+
+2015-12-27 20:48:46.887301 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E587D44FBED587B409B3F", "longitude": "32.02"}
+
+2015-12-27 20:48:49.133616 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E587D44FC095883846CF0", "longitude": "32.02"}
+
+2015-12-27 20:48:51.378539 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910D52C98A0390318C4", "longitude": "32.02"}
+
+2015-12-27 20:48:53.647706 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E587D04FC9758AD3251B2", "longitude": "32.02"}
+
+2015-12-27 20:48:55.971574 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E587BE0EFE720F1D996F8", "longitude": "32.02"}
+
+2015-12-27 20:48:58.196803 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E587BB4FD5F58E8FE1317", "longitude": "32.02"}
+
+2015-12-27 20:49:00.457499 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E587B40F197216F3EFBD3", "longitude": "32.02"}
+
+2015-12-27 20:49:02.701590 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910D42C58A03960EEF5", "longitude": "32.02"}
+
+2015-12-27 20:49:04.946886 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9910CE2AF89C2E708062", "longitude": "32.02"}
+
+2015-12-27 20:49:07.191719 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917EEA0F9860013F08ADFC19", "longitude": "32.02"}
+
+2015-12-27 20:49:09.425993 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E58637110D90AA36C179B", "longitude": "32.02"}
+
+2015-12-27 20:49:11.657840 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E5863251E29628EC06F8F", "longitude": "32.02"}
+
+2015-12-27 20:49:13.925348 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE4917E9900CD2A589C2B252B8B", "longitude": "32.02"}
+
+2015-12-27 20:49:16.193403 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "BE6008BCD903DFEB9EF482135B3E", "longitude": "32.02"}
+
+2015-12-27 20:49:18.457931 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BF0457134B6ECF5C1B", "longitude": "32.02"}
+
+2015-12-27 20:49:20.712604 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BF0458774BA240A8B6", "longitude": "32.02"}
+
+2015-12-27 20:49:22.975846 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638000450E2DDE8", "longitude": "32.02"}
+
+2015-12-27 20:49:25.224275 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BF045B1D4C05551666", "longitude": "32.02"}
+
+2015-12-27 20:49:27.469816 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638000450E2DDE8", "longitude": "32.02"}
+
+2015-12-27 20:49:29.724785 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BF004E11145BD4048D", "longitude": "32.02"}
+
+2015-12-27 20:49:31.979804 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638000450E2DDE8", "longitude": "32.02"}
+
+2015-12-27 20:49:34.247047 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BF045F274C9CEFB3E4", "longitude": "32.02"}
+
+2015-12-27 20:49:36.491390 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638000450E2DDE8", "longitude": "32.02"}
+
+2015-12-27 20:49:38.757782 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638000450E2DDE8", "longitude": "32.02"}
+
+2015-12-27 20:49:41.002119 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BF04613F4CEA396DD6", "longitude": "32.02"}
+
+2015-12-27 20:49:43.245510 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BF04644F4D5D585FAE", "longitude": "32.02"}
+
+2015-12-27 20:49:45.534644 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638280450C903C9", "longitude": "32.02"}
+
+2015-12-27 20:49:47.793501 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BF0059B1160EF7F31C", "longitude": "32.02"}
+
+2015-12-27 20:49:50.046339 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78201CC3F1E33C20EA26B3", "longitude": "32.02"}
+
+2015-12-27 20:49:52.335905 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638200450A7A1C1", "longitude": "32.02"}
+
+2015-12-27 20:49:54.601626 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638200450A7A1C1", "longitude": "32.02"}
+
+2015-12-27 20:49:56.857992 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78994086380804508C7FE0", "longitude": "32.02"}
+
+2015-12-27 20:49:59.125601 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BDF46BFD4E7C52692D", "longitude": "32.02"}
+
+2015-12-27 20:50:01.370308 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638080850C425E0", "longitude": "32.02"}
+
+2015-12-27 20:50:03.635897 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638080C5103E7E9", "longitude": "32.02"}
+
+2015-12-27 20:50:05.880981 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BDF05D3D1693EFC63E", "longitude": "32.02"}
+
+2015-12-27 20:50:08.126363 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78994086380814519353E9", "longitude": "32.02"}
+
+2015-12-27 20:50:10.370136 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BDF46CF74EA10F4835", "longitude": "32.02"}
+
+2015-12-27 20:50:12.635649 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BDE46D854EB6E24193", "longitude": "32.02"}
+
+2015-12-27 20:50:14.924770 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78994086380824514DCFE0", "longitude": "32.02"}
+
+2015-12-27 20:50:17.182442 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BDD46DCD4EC05568CC", "longitude": "32.02"}
+
+2015-12-27 20:50:19.459976 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408638082C513DA3E0", "longitude": "32.02"}
+
+2015-12-27 20:50:21.702933 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408637E83451FB7B1E", "longitude": "32.02"}
+
+2015-12-27 20:50:23.204518 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BDD05EA916C80E7274", "longitude": "32.02"}
+
+2015-12-27 20:50:25.462827 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BDC46E5B4ED5FD5605", "longitude": "32.02"}
+
+2015-12-27 20:50:27.692823 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408637E84051615905", "longitude": "32.02"}
+
+2015-12-27 20:50:29.980451 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408637E85051818105", "longitude": "32.02"}
+
+2015-12-27 20:50:32.222302 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858BD70610F1722D15F04", "longitude": "32.02"}
+
+2015-12-27 20:50:34.501639 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408637C868516A0D25", "longitude": "32.02"}
+
+2015-12-27 20:50:36.758089 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858B9B47739501F151638", "longitude": "32.02"}
+
+2015-12-27 20:50:39.036529 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408437A8A4516E5EF4", "longitude": "32.02"}
+
+2015-12-27 20:50:41.312790 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408437A8AC511E32F4", "longitude": "32.02"}
+
+2015-12-27 20:50:43.565915 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858B96068F11846A3C952", "longitude": "32.02"}
+
+2015-12-27 20:50:45.813457 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408437A8B0524958E6", "longitude": "32.02"}
+
+2015-12-27 20:50:48.080306 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78201CC3F1E33C20EA26B3", "longitude": "32.02"}
+
+2015-12-27 20:50:50.344300 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858B7F06A111870F2A14D", "longitude": "32.02"}
+
+2015-12-27 20:50:52.577166 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858B7606BE518B4584BA3", "longitude": "32.02"}
+
+2015-12-27 20:50:54.831967 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408537C8B850F5A648", "longitude": "32.02"}
+
+2015-12-27 20:50:57.055586 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "CDE48E782018C3F1E33C20EA24B3", "longitude": "32.02"}
+
+2015-12-27 20:50:59.320591 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858B5E06D4F18E9E9C288", "longitude": "32.02"}
+
+2015-12-27 20:51:01.568179 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408537E8BC5088EC61", "longitude": "32.02"}
+
+2015-12-27 20:51:03.822228 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408637E8C051984921", "longitude": "32.02"}
+
+2015-12-27 20:51:06.078185 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858B5206F93193DE8038A", "longitude": "32.02"}
+
+2015-12-27 20:51:08.383892 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408637E8C05067BD28", "longitude": "32.02"}
+
+2015-12-27 20:51:10.683950 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940863808C05031D1D6", "longitude": "32.02"}
+
+2015-12-27 20:51:12.962053 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858B3548113518E704394", "longitude": "32.02"}
+
+2015-12-27 20:51:15.216970 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858B32481A351A290B04A", "longitude": "32.02"}
+
+2015-12-27 20:51:17.470571 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858B190741B19E70B6A1C", "longitude": "32.02"}
+
+2015-12-27 20:51:19.832013 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940863828C44FB3DB6F", "longitude": "32.02"}
+
+2015-12-27 20:51:22.247988 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858B15074AD19FC12F721", "longitude": "32.02"}
+
+2015-12-27 20:51:24.521155 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940863828C44FB3DB6F", "longitude": "32.02"}
+
+2015-12-27 20:51:26.798801 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858AFC48567522F8B6C21", "longitude": "32.02"}
+
+2015-12-27 20:51:29.045749 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858AF04896F52C5572D1A", "longitude": "32.02"}
+
+2015-12-27 20:51:31.279703 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899408537884C4FE32CB5", "longitude": "32.02"}
+
+2015-12-27 20:51:33.533216 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940853788544F7398B5", "longitude": "32.02"}
+
+2015-12-27 20:51:35.791786 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940843728A04FBCD8C0", "longitude": "32.02"}
+
+2015-12-27 20:51:38.034857 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858AD507D451B3DE50D12", "longitude": "32.02"}
+
+2015-12-27 20:51:40.290216 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858AD248CB95340C042FE", "longitude": "32.02"}
+
+2015-12-27 20:51:42.563726 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940843728B84F2C6CC0", "longitude": "32.02"}
+
+2015-12-27 20:51:44.816110 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858AD148CDD534596AE9E", "longitude": "32.02"}
+
+2015-12-27 20:51:47.061332 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940843728C44E39D6D2", "longitude": "32.02"}
+
+2015-12-27 20:51:49.339291 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940853748C44D0AB075", "longitude": "32.02"}
+
+2015-12-27 20:51:51.673953 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940853748C84F42F66E", "longitude": "32.02"}
+
+2015-12-27 20:51:53.914716 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858A93082FF1C13F3EAEB", "longitude": "32.02"}
+
+2015-12-27 20:51:56.166860 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940843748D44DE962BB", "longitude": "32.02"}
+
+2015-12-27 20:51:58.389876 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940853748D44C159C7C", "longitude": "32.02"}
+
+2015-12-27 20:52:00.627023 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78201CC3F1E33C20EA26B3", "longitude": "32.02"}
+
+2015-12-27 20:52:02.878995 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858A734951B547A1821F7", "longitude": "32.02"}
+
+2015-12-27 20:52:05.146741 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940853748784D656658", "longitude": "32.02"}
+
+2015-12-27 20:52:07.424799 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858A5D088051CD0D64485", "longitude": "32.02"}
+
+2015-12-27 20:52:09.695155 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940833688844CC8F366", "longitude": "32.02"}
+
+2015-12-27 20:52:11.945279 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940833688844B372342", "longitude": "32.02"}
+
+2015-12-27 20:52:14.202777 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858A5208AEB1D3DFB4511", "longitude": "32.02"}
+
+2015-12-27 20:52:16.445992 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940823668884CA6237E", "longitude": "32.02"}
+
+2015-12-27 20:52:18.668844 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940813628944C81467E", "longitude": "32.02"}
+
+2015-12-27 20:52:21.135803 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7858A3608DEF1DADE47B43", "longitude": "32.02"}
+
+2015-12-27 20:52:23.401796 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78588B84C2C35B2AF39713", "longitude": "32.02"}
+
+2015-12-27 20:52:25.669454 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78588B70B50923673EBDA5", "longitude": "32.02"}
+
+2015-12-27 20:52:27.936206 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78201CC3F1E33C20EA26B3", "longitude": "32.02"}
+
+2015-12-27 20:52:30.201883 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78201CC3F1E33C20EA26B3", "longitude": "32.02"}
+
+2015-12-27 20:52:32.447656 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899407932A89441CA8815", "longitude": "32.02"}
+
+2015-12-27 20:52:34.731362 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78588784CA015C35802D01", "longitude": "32.02"}
+
+2015-12-27 20:52:37.150690 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899407832A8903FF34292", "longitude": "32.02"}
+
+2015-12-27 20:52:39.386181 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E785885D0BEB124CC5EA7D9", "longitude": "32.02"}
+
+2015-12-27 20:52:41.707183 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78201CC3F1E33C20EA26B3", "longitude": "32.02"}
+
+2015-12-27 20:52:43.978758 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E785885B0BF1324DA62A439", "longitude": "32.02"}
+
+2015-12-27 20:52:46.292495 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E785883A0C2E12566634FD5", "longitude": "32.02"}
+
+2015-12-27 20:52:48.613130 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899407631E8903D17C9FA", "longitude": "32.02"}
+
+2015-12-27 20:52:50.891467 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78588344D21F5D619EE3F8", "longitude": "32.02"}
+
+2015-12-27 20:52:53.170076 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899407731A88C3D36B966", "longitude": "32.02"}
+
+2015-12-27 20:52:55.426867 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78588304D31D5D8696919D", "longitude": "32.02"}
+
+2015-12-27 20:52:57.692602 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E785881F0C5A525CD13EC79", "longitude": "32.02"}
+
+2015-12-27 20:52:59.969475 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78588150C7E72621D9960C", "longitude": "32.02"}
+
+2015-12-27 20:53:02.214166 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940763168903C02395E", "longitude": "32.02"}
+
+2015-12-27 20:53:04.469446 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78588124D62F5DF8E71E9D", "longitude": "32.02"}
+
+2015-12-27 20:53:06.725857 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78588114D68F5E060E7530", "longitude": "32.02"}
+
+2015-12-27 20:53:08.967854 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78587DA4DB8D5EC04CF503", "longitude": "32.02"}
+
+2015-12-27 20:53:11.213706 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78587D80CE3B270D63CFB5", "longitude": "32.02"}
+
+2015-12-27 20:53:13.469750 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78587D24DD3F5EFF597CD6", "longitude": "32.02"}
+
+2015-12-27 20:53:15.714367 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899C07430A88C3A764C3C", "longitude": "32.02"}
+
+2015-12-27 20:53:17.956811 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78587BF0D051275B905056", "longitude": "32.02"}
+
+2015-12-27 20:53:20.201122 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940732FE888376FE82B", "longitude": "32.02"}
+
+2015-12-27 20:53:22.435523 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8FE48E785E75A4E9A160CE9DA6D1", "longitude": "32.02"}
+
+2015-12-27 20:53:24.681871 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8FE48E785E75A4E9BF60D3FDE5C4", "longitude": "32.02"}
+
+2015-12-27 20:53:26.934183 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78587364ECE1615F9A412A", "longitude": "32.02"}
+
+2015-12-27 20:53:29.202262 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899409A2E490835DD9075", "longitude": "32.02"}
+
+2015-12-27 20:53:31.458201 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899409B2E691435336492", "longitude": "32.02"}
+
+2015-12-27 20:53:33.712758 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78587114EF2F61D6BA9D86", "longitude": "32.02"}
+
+2015-12-27 20:53:35.961659 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899409F2F493432905AFD", "longitude": "32.02"}
+
+2015-12-27 20:53:38.249164 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78586BC4F2EF629BC982F7", "longitude": "32.02"}
+
+2015-12-27 20:53:40.540688 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940A02FC92030E23B71", "longitude": "32.02"}
+
+2015-12-27 20:53:42.815777 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940A33008902F9EE523", "longitude": "32.02"}
+
+2015-12-27 20:53:45.083177 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940A22FA8582EF4B255", "longitude": "32.02"}
+
+2015-12-27 20:53:47.363995 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E785867B0EBB32C2B3FF49C", "longitude": "32.02"}
+
+2015-12-27 20:53:49.629180 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E789940A12F484C2E0CC3D1", "longitude": "32.02"}
+
+2015-12-27 20:53:51.907006 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E78586710EFBB2D01EAC956", "longitude": "32.02"}
+
+2015-12-27 20:53:54.173655 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48E7899409B2DE8842DB1EB1B", "longitude": "32.02"}
+
+2015-12-27 20:53:56.437464 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE9990C334C00C49C0B50D", "longitude": "32.02"}
+
+2015-12-27 20:53:58.710810 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE9990AE35C004492FB998", "longitude": "32.02"}
+
+2015-12-27 20:54:00.954733 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE99109137000C49B98384", "longitude": "32.02"}
+
+2015-12-27 20:54:03.228680 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE58AB04C6950FC6DC52B3", "longitude": "32.02"}
+
+2015-12-27 20:54:05.495950 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE99108E37200C49DD3157", "longitude": "32.02"}
+
+2015-12-27 20:54:07.763702 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE58AB10B8E8D6B627374B", "longitude": "32.02"}
+
+2015-12-27 20:54:10.023852 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE99108A37400C491E9E14", "longitude": "32.02"}
+
+2015-12-27 20:54:12.327989 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE58AB00B942D6C2E48EC8", "longitude": "32.02"}
+
+2015-12-27 20:54:14.594259 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE99107F37A00849E5DC9D", "longitude": "32.02"}
+
+2015-12-27 20:54:16.869649 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE99107937C00849206642", "longitude": "32.02"}
+
+2015-12-27 20:54:19.217692 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE58AB14C8530FFF064F5C", "longitude": "32.02"}
+
+2015-12-27 20:54:21.591957 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE58AB00BF3CD73847DFF8", "longitude": "32.02"}
+
+2015-12-27 20:54:23.847244 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE58AB00DE4ED99BB77AC8", "longitude": "32.02"}
+
+2015-12-27 20:54:26.127215 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE58AB10E07AD9D94C9E61", "longitude": "32.02"}
+
+2015-12-27 20:54:28.407902 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE99106939400049EA8574", "longitude": "32.02"}
+
+2015-12-27 20:54:30.729106 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE58AB04EED713053E951F", "longitude": "32.02"}
+
+2015-12-27 20:54:33.029395 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE99106B392804494DB69B", "longitude": "32.02"}
+
+2015-12-27 20:54:35.284645 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE58AB04F08B1337D63F72", "longitude": "32.02"}
+
+2015-12-27 20:54:37.551769 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE99106B392804494DB69B", "longitude": "32.02"}
+
+2015-12-27 20:54:39.812833 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE99106E38E004496734C9", "longitude": "32.02"}
+
+2015-12-27 20:54:42.083956 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48FCE99106E38E004496734C9", "longitude": "32.02"}
+
+2015-12-27 20:54:44.339993 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "CDE48DF49944DD34000443A78D96", "longitude": "32.02"}
+
+2015-12-27 20:54:46.608278 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DFB3E00453517DF8", "longitude": "32.02"}
+
+2015-12-27 20:54:48.895845 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B980CF753048CDEF28", "longitude": "32.02"}
+
+2015-12-27 20:54:51.150600 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984DB336762C024F6", "longitude": "32.02"}
+
+2015-12-27 20:54:53.407717 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DEB38004539DF34D", "longitude": "32.02"}
+
+2015-12-27 20:54:55.684543 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984CC33637294C9BC", "longitude": "32.02"}
+
+2015-12-27 20:54:57.939234 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984BEC75FEA5D6166", "longitude": "32.02"}
+
+2015-12-27 20:55:00.239379 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B980AE8327A082BD2F", "longitude": "32.02"}
+
+2015-12-27 20:55:02.541073 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DDB36004524298C0", "longitude": "32.02"}
+
+2015-12-27 20:55:04.810132 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DDB36004524298C0", "longitude": "32.02"}
+
+2015-12-27 20:55:07.048838 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984BA6F5EC5C322DE", "longitude": "32.02"}
+
+2015-12-27 20:55:09.324617 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DCB360085209C80E", "longitude": "32.02"}
+
+2015-12-27 20:55:11.592036 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984B8035E22F83B3B", "longitude": "32.02"}
+
+2015-12-27 20:55:13.881432 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984B5D75D9042E96D", "longitude": "32.02"}
+
+2015-12-27 20:55:16.144668 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DDB36004524298C0", "longitude": "32.02"}
+
+2015-12-27 20:55:18.413463 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE485F558B984B5755D770CAD5F", "longitude": "32.02"}
+
+2015-12-27 20:55:20.658151 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984B42D5D211D09D3", "longitude": "32.02"}
+
+2015-12-27 20:55:22.925245 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DDB36004524298C0", "longitude": "32.02"}
+
+2015-12-27 20:55:25.166963 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9809D83232701F54A", "longitude": "32.02"}
+
+2015-12-27 20:55:27.392145 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DCB340045204EE27", "longitude": "32.02"}
+
+2015-12-27 20:55:29.624004 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984A6C9599BD99653", "longitude": "32.02"}
+
+2015-12-27 20:55:31.922412 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984A41B58E7249B4A", "longitude": "32.02"}
+
+2015-12-27 20:55:34.192945 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8FE40DF59944DCB360445241920E", "longitude": "32.02"}
+
+2015-12-27 20:55:36.436850 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98092592039A8091E", "longitude": "32.02"}
+
+2015-12-27 20:55:38.660607 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DCB340045204EE27", "longitude": "32.02"}
+
+2015-12-27 20:55:40.902669 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF520501378C36D608080A2", "longitude": "32.02"}
+
+2015-12-27 20:55:43.102822 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984955155058C343E", "longitude": "32.02"}
+
+2015-12-27 20:55:45.301581 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DCB3200452CB6A5C", "longitude": "32.02"}
+
+2015-12-27 20:55:47.558379 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF520501378C36D608080A2", "longitude": "32.02"}
+
+2015-12-27 20:55:49.805190 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98085651CD1960BCC", "longitude": "32.02"}
+
+2015-12-27 20:55:52.080327 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98493EB54A77BDB21", "longitude": "32.02"}
+
+2015-12-27 20:55:54.366991 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98084BF1CA68836D6", "longitude": "32.02"}
+
+2015-12-27 20:55:56.610334 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DCB3200452CB6A5C", "longitude": "32.02"}
+
+2015-12-27 20:55:58.848327 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9807ECD1B15644796", "longitude": "32.02"}
+
+2015-12-27 20:56:01.913752 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DCB3080452E0B47D", "longitude": "32.02"}
+
+2015-12-27 20:56:04.284322 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DCB30004528E1675", "longitude": "32.02"}
+
+2015-12-27 20:56:06.566539 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DCB30004528E1675", "longitude": "32.02"}
+
+2015-12-27 20:56:08.826335 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9848A85522E1E8198", "longitude": "32.02"}
+
+2015-12-27 20:56:11.090032 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984893F51D8722616", "longitude": "32.02"}
+
+2015-12-27 20:56:13.338392 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98488BD51B6AA61FB", "longitude": "32.02"}
+
+2015-12-27 20:56:15.706206 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984885D519C8E4CEA", "longitude": "32.02"}
+
+2015-12-27 20:56:17.974398 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98077B519378E009C", "longitude": "32.02"}
+
+2015-12-27 20:56:20.252066 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984853150C6312F5C", "longitude": "32.02"}
+
+2015-12-27 20:56:22.524724 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:56:24.785806 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9807563189ABFCDF0", "longitude": "32.02"}
+
+2015-12-27 20:56:27.084872 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9806F77170BBFAB69", "longitude": "32.02"}
+
+2015-12-27 20:56:29.363629 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:56:31.611550 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9847E5B4EF9DCB24D", "longitude": "32.02"}
+
+2015-12-27 20:56:33.877492 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9847B314E2419ED88", "longitude": "32.02"}
+
+2015-12-27 20:56:36.145187 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:56:38.445874 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9847AEF4E133302F6", "longitude": "32.02"}
+
+2015-12-27 20:56:40.675241 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9847A8F4DFA145078", "longitude": "32.02"}
+
+2015-12-27 20:56:42.937460 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:56:45.190850 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9806A0D159F47ACB9", "longitude": "32.02"}
+
+2015-12-27 20:56:47.447717 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98479094D94ACBC37", "longitude": "32.02"}
+
+2015-12-27 20:56:49.712174 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E80452E7FD92", "longitude": "32.02"}
+
+2015-12-27 20:56:51.969029 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B980673914E03FDCCA", "longitude": "32.02"}
+
+2015-12-27 20:56:54.201810 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF520501378C36D608080A2", "longitude": "32.02"}
+
+2015-12-27 20:56:56.473091 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98474194C47A06E43", "longitude": "32.02"}
+
+2015-12-27 20:56:58.740147 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB3080852A1DA17", "longitude": "32.02"}
+
+2015-12-27 20:57:01.018831 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98472734BD8308988", "longitude": "32.02"}
+
+2015-12-27 20:57:03.363496 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF520501378C36D608080A2", "longitude": "32.02"}
+
+2015-12-27 20:57:05.696390 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984710D4B7BE53AFA", "longitude": "32.02"}
+
+2015-12-27 20:57:08.006386 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B980614B13511D48E8", "longitude": "32.02"}
+
+2015-12-27 20:57:10.275098 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB3080452E98017", "longitude": "32.02"}
+
+2015-12-27 20:57:12.540805 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB3080452E98017", "longitude": "32.02"}
+
+2015-12-27 20:57:14.838764 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9846EE74AE9706226", "longitude": "32.02"}
+
+2015-12-27 20:57:17.129803 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9846E854AD05AEBD2", "longitude": "32.02"}
+
+2015-12-27 20:57:19.419350 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:57:21.707860 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9846DE34AA538FFED", "longitude": "32.02"}
+
+2015-12-27 20:57:24.189859 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:57:26.435653 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9805E11127883F529", "longitude": "32.02"}
+
+2015-12-27 20:57:28.675604 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:57:30.918544 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9805D6D124CB5D8E5", "longitude": "32.02"}
+
+2015-12-27 20:57:33.163650 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9846C9F4A50A2592E", "longitude": "32.02"}
+
+2015-12-27 20:57:35.402883 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:57:37.644282 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E0045176B788", "longitude": "32.02"}
+
+2015-12-27 20:57:39.891717 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9805BE111E4EA8132", "longitude": "32.02"}
+
+2015-12-27 20:57:42.150691 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9846B1949E95CE3F1", "longitude": "32.02"}
+
+2015-12-27 20:57:44.414110 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9846AB949CFD983BB", "longitude": "32.02"}
+
+2015-12-27 20:57:46.669580 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:57:48.913414 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF520501378C36D608080A2", "longitude": "32.02"}
+
+2015-12-27 20:57:51.161792 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:57:53.429829 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00452895F9A", "longitude": "32.02"}
+
+2015-12-27 20:57:55.706876 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98054490FE313FEB2", "longitude": "32.02"}
+
+2015-12-27 20:57:58.000491 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98053210F9563AC59", "longitude": "32.02"}
+
+2015-12-27 20:58:00.244942 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B984629D47AD5DAFCC", "longitude": "32.02"}
+
+2015-12-27 20:58:02.469340 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98461194747F9D5F7", "longitude": "32.02"}
+
+2015-12-27 20:58:04.706412 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E00852C1059A", "longitude": "32.02"}
+
+2015-12-27 20:58:07.008058 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9846037470BD6C439", "longitude": "32.02"}
+
+2015-12-27 20:58:09.246839 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B9845E3046A57F19AC", "longitude": "32.02"}
+
+2015-12-27 20:58:11.501404 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF558B98451674324537DA4", "longitude": "32.02"}
+
+2015-12-27 20:58:13.769221 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48DF59944DBB2E0045176B788", "longitude": "32.02"}
+
+2015-12-27 20:58:16.060689 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF80D003306EF9FDAD", "longitude": "32.02"}
+
+2015-12-27 20:58:18.373718 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF84DCE767D5A723DE", "longitude": "32.02"}
+
+2015-12-27 20:58:20.660045 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF84DB7D6775305C20", "longitude": "32.02"}
+
+2015-12-27 20:58:22.918035 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E9B648044CFE1E45", "longitude": "32.02"}
+
+2015-12-27 20:58:25.185215 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914EAB668044CBE7D3E", "longitude": "32.02"}
+
+2015-12-27 20:58:27.440892 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF70C3832D256376E9", "longitude": "32.02"}
+
+2015-12-27 20:58:29.739603 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E7B620044C4D50E2", "longitude": "32.02"}
+
+2015-12-27 20:58:31.995380 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E7B5C0044C14D7C1", "longitude": "32.02"}
+
+2015-12-27 20:58:34.314801 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF74BFA160243BDEFF", "longitude": "32.02"}
+
+2015-12-27 20:58:36.562332 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF84BD8F5F99FF9D25", "longitude": "32.02"}
+
+2015-12-27 20:58:38.857078 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF80AE652799B28A84", "longitude": "32.02"}
+
+2015-12-27 20:58:41.312445 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E6B5C8044C797F07", "longitude": "32.02"}
+
+2015-12-27 20:58:43.535148 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF80A01723D627E63E", "longitude": "32.02"}
+
+2015-12-27 20:58:45.800379 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF809DC323394C5277", "longitude": "32.02"}
+
+2015-12-27 20:58:48.057244 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E5B560084CF5E0D9", "longitude": "32.02"}
+
+2015-12-27 20:58:50.304005 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF84A4EF591F273C5A", "longitude": "32.02"}
+
+2015-12-27 20:58:52.534868 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E6B540044B020986", "longitude": "32.02"}
+
+2015-12-27 20:58:54.780295 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E5B548084B21EEDC", "longitude": "32.02"}
+
+2015-12-27 20:58:57.037664 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF8092D5205821A390", "longitude": "32.02"}
+
+2015-12-27 20:58:59.314279 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E5B548044B69B4DC", "longitude": "32.02"}
+
+2015-12-27 20:59:01.560277 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DA878DE9914E5B540044B071694", "longitude": "32.02"}
+
+2015-12-27 20:59:03.819596 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF708CD51EC55D292B", "longitude": "32.02"}
+
+2015-12-27 20:59:06.096829 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B520084B83C261", "longitude": "32.02"}
+
+2015-12-27 20:59:08.361558 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF8491AB540E987136", "longitude": "32.02"}
+
+2015-12-27 20:59:10.618887 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF848F43536C1CF5F3", "longitude": "32.02"}
+
+2015-12-27 20:59:12.873263 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B528044BA53A69", "longitude": "32.02"}
+
+2015-12-27 20:59:15.185905 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B528044BA53A69", "longitude": "32.02"}
+
+2015-12-27 20:59:17.440781 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF807FB31B50248589", "longitude": "32.02"}
+
+2015-12-27 20:59:19.706536 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF748DB5530474D500", "longitude": "32.02"}
+
+2015-12-27 20:59:21.965198 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B508084BA81C40", "longitude": "32.02"}
+
+2015-12-27 20:59:24.278523 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B508044BE04640", "longitude": "32.02"}
+
+2015-12-27 20:59:26.537539 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF707CA51A824A9EA0", "longitude": "32.02"}
+
+2015-12-27 20:59:28.781915 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B508044BE04640", "longitude": "32.02"}
+
+2015-12-27 20:59:31.212844 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF748A5952212B546C", "longitude": "32.02"}
+
+2015-12-27 20:59:33.467514 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B508084BA81C40", "longitude": "32.02"}
+
+2015-12-27 20:59:35.735591 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B508084BA81C40", "longitude": "32.02"}
+
+2015-12-27 20:59:37.968224 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF7489C151F918B2B8", "longitude": "32.02"}
+
+2015-12-27 20:59:40.240315 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B508044BE04640", "longitude": "32.02"}
+
+2015-12-27 20:59:42.661875 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DAA78DE58AF74896551E1800B8C", "longitude": "32.02"}
+
+2015-12-27 21:02:05.716490 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B4E8044BEE3BC5", "longitude": "32.02"}
+
+2015-12-27 21:02:07.322187 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DAA78DE9914E4B4E0044B8099CD", "longitude": "32.02"}
+
+2015-12-27 21:02:24.639609 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DAA78DE58AF8486E551380BD7BD", "longitude": "32.02"}
+
+2015-12-27 21:02:25.313138 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DAA78DE9914E3B4C0084B848B8E", "longitude": "32.02"}
+
+2015-12-27 21:02:27.677910 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DAA78DE9914E3B4C0044BCCD18E", "longitude": "32.02"}
+
+2015-12-27 21:02:28.540726 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DAA78DE58AF8070831752871783", "longitude": "32.02"}
+
+2015-12-27 21:02:30.065820 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DAA78DE9914E2B4A8044B6EFD33", "longitude": "32.02"}
+
+2015-12-27 21:02:31.089467 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DAA78DE9914E2B4A8044B6EFD33", "longitude": "32.02"}
+
+2015-12-27 21:10:06.354423 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D2B8C00B4EE69C8F", "longitude": "32.02"}
+
+2015-12-27 21:10:33.694490 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B8C8064D349E47", "longitude": "32.02"}
+
+2015-12-27 21:10:34.384134 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84A10B6554A42065", "longitude": "32.02"}
+
+2015-12-27 21:10:35.778860 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8C4841C520350237DF6C60538BA9", "longitude": "32.02"}
+
+2015-12-27 21:10:36.576773 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF808DBF2CA665BA0E", "longitude": "32.02"}
+
+2015-12-27 21:10:37.483957 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D1B888094DE42A95", "longitude": "32.02"}
+
+2015-12-27 21:10:38.199231 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D0B868054D8AFA8D", "longitude": "32.02"}
+
+2015-12-27 21:10:39.838424 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF8089812BAC3A6002", "longitude": "32.02"}
+
+2015-12-27 21:10:41.374348 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D0B860074DF84385", "longitude": "32.02"}
+
+2015-12-27 21:10:46.693781 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84951362A157D432", "longitude": "32.02"}
+
+2015-12-27 21:10:47.400696 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF84925D61FEA25027", "longitude": "32.02"}
+
+2015-12-27 21:10:48.028195 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C458AF8490216184BC5799", "longitude": "32.02"}
+
+2015-12-27 21:10:48.570047 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "854841C59904D0B820054D6EA0D7", "longitude": "32.02"}
+
+2015-12-27 21:10:49.145332 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF807FB7296CAF2253", "longitude": "32.02"}
+
+2015-12-27 21:10:53.046144 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF848D5D60E260D026", "longitude": "32.02"}
+
+2015-12-27 21:10:53.658550 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C558AF807E072918F479AA", "longitude": "32.02"}
+
+2015-12-27 21:10:56.348301 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8D4841C59904D0B808074D5965F6", "longitude": "32.02"}
+
+2015-12-27 21:21:55.870420 - Error while send data to server: <urlopen error [Errno 101] Network is unreachable>
+{"latitude": "-4.65", "data": "8DE48C2F9945A594E06C4A537DDD", "longitude": "32.02"}
+
+2015-12-27 21:22:03.446654 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990508AD6007523C5393", "longitude": "32.02"}
+
+2015-12-27 21:22:04.244596 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B980ABAB13542B0CA3", "longitude": "32.02"}
+
+2015-12-27 21:22:05.728783 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B9905072D600752439385", "longitude": "32.02"}
+
+2015-12-27 21:22:06.445156 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B990507AD6007522D3189", "longitude": "32.02"}
+
+2015-12-27 21:22:07.241365 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B980AB17131FFCD825", "longitude": "32.02"}
+
+2015-12-27 21:22:07.857413 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE48C2F9945A594E0544B0279DD", "longitude": "32.02"}
+
+2015-12-27 21:22:08.390392 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B200521F1C76C60EE4311", "longitude": "32.02"}
+
+2015-12-27 21:22:09.079875 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B980AAF91315B09259", "longitude": "32.02"}
+
+2015-12-27 21:22:09.633365 - Error while send data to server: HTTP Error 404: Not Found
+{"latitude": "-4.65", "data": "8DE0314B60B984B8E94B1165CAD8", "longitude": "32.02"}
+

@@ -6,6 +6,6 @@ DATABASE_FILE 	= "local_database.db"
 
 LOG_DIR 	= "log"
 
-COLLECTOR_ADDRESS = '/dev/ttyACM0'
+COLLECTOR_ADDRESS = '/dev/ttyACM2'
 
 DECODE_BEFORE_SEND = False

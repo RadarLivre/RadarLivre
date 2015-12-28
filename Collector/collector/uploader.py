@@ -44,6 +44,8 @@ def sendMessagesToServer(messages):
 
     report.info("Sending collected data to server: " + str(len(messages)) + " messages")
 
+    host = "http://52.27.151.5/api/"
+
     for m in messages:
 
         if DECODE_BEFORE_SEND:
@@ -53,7 +55,7 @@ def sendMessagesToServer(messages):
             if halfObservation:
                 jsonMessage = json.dumps(halfObservation.serialize())
 
-                host = "http://localhost:8000/api/half_observation/"
+                host += "half_observation/"
 
                 sendJson(host, jsonMessage)            
 
@@ -61,7 +63,7 @@ def sendMessagesToServer(messages):
 
             jsonMessage = json.dumps(m)
 
-            host = "http://localhost:8000/api/adsb_message/"
+            host += "adsb_message/"
 
             sendJson(host, jsonMessage)
 

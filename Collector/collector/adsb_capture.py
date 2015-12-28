@@ -7,7 +7,6 @@ import signal
 import os
 import report
 import database as db
-from random import randint
 
 from config import COLLECTOR_ADDRESS
 
@@ -56,20 +55,22 @@ def start():
     msgs = open("msg.txt", "r")
     msgs = msgs.read()
     msgs = msgs.split("\n\n")
+    index = 0
 
-    while True:
+    while index < len(msgs):
 
         report.info("Waiting for receptor data...")
-        # line = s_com.readline()
-        # line = line[14:][:-2]
+        #line = s_com.readline()
+        #line = line[14:][:-2]
 
-        line = msgs[randint(0, len(msgs) - 1)]
+        line = msgs[index]
+        index += 1
         
         report.info("New data received: " + line)
 
         db.save(line)  
 
-        time.sleep(.1)
+        time.sleep(2)
 
 def handler(signum, frame):
 
