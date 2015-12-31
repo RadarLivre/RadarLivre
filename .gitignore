@@ -2,3 +2,5 @@ Server/log
 Server/ServerCollect/log
 Server/.pids
 Server/nohup.out
+*.db
+*.pyc
