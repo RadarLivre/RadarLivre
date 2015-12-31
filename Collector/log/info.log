@@ -81097,3 +81097,69 @@
 
 2015-12-27 21:22:10.787699 - Saving data received
 
+2015-12-27 21:34:23.606560 - Waiting for receptor data...
+
+2015-12-27 21:34:23.606803 - Waiting for receptor data...
+
+2015-12-27 21:34:23.606956 - Waiting for receptor data...
+
+2015-12-27 21:34:23.606965 - Waiting for receptor data...
+
+2015-12-27 21:34:23.607075 - Waiting for receptor data...
+
+2015-12-27 21:34:23.607252 - Waiting for receptor data...
+
+2015-12-27 21:34:23.607402 - Waiting for receptor data...
+
+2015-12-27 21:34:27.202503 - Sending collected data to server: 125 messages
+
+2015-12-27 21:34:27.204721 - Sending collected data to server: 125 messages
+
+2015-12-27 21:34:27.540487 - Sending collected data to server: 125 messages
+
+2015-12-27 21:34:28.549576 - Sending collected data to server: 125 messages
+
+2015-12-27 21:34:28.549582 - Sending collected data to server: 125 messages
+
+2015-12-28 11:28:47.067981 - Connecting to collector /dev/ttyACM2
+
+2015-12-28 11:29:18.052483 - Connecting to collector /dev/ttyACM0
+
+2015-12-28 11:29:52.258476 - Connecting to collector /dev/ttyACM1
+
+2015-12-28 11:29:55.989261 - Connecting to collector /dev/ttyACM0
+
+2015-12-28 11:29:55.990488 - Conected with collector!
+
+2015-12-28 11:29:55.991163 - Opening local database
+
+2015-12-28 11:29:57.025959 - Sending collected data to server: 125 messages
+
+2015-12-28 11:30:01.454284 - Connecting to collector /dev/ttyACM0
+
+2015-12-28 11:30:01.455353 - Conected with collector!
+
+2015-12-28 11:30:01.456022 - Opening local database
+
+2015-12-28 11:30:15.298716 - Connecting to collector /dev/ttyACM0
+
+2015-12-28 11:30:15.299819 - Conected with collector!
+
+2015-12-28 11:30:15.300628 - Opening local database
+
+2015-12-28 11:30:15.544497 - Receptor version: 
+#00-00-0E-04-00-00-00-00-00-00-00-00-00-00-00-00-
+
+
+2015-12-28 11:30:15.681942 - Initializing data receiving: 
+#43-DB-00-00-00-00-00-00-00-00-00-00-00-00-00-00-
+
+
+2015-12-28 11:30:15.693996 - Capture mode has been initialized
+
+2015-12-28 11:30:15.716915 - Waiting for receptor data...
+
+2015-12-28 11:41:41.911272 - Receptor version: 
+#00-00-0E-04-00-00-00-00-00-00-00-00-00-00-00-00-
+
+

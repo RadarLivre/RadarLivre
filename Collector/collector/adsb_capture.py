@@ -60,11 +60,11 @@ def start():
     while index < len(msgs):
 
         report.info("Waiting for receptor data...")
-        #line = s_com.readline()
-        #line = line[14:][:-2]
+        line = s_com.readline()
+        line = line[14:][:-2]
 
-        line = msgs[index]
-        index += 1
+        #line = msgs[index]
+        #index += 1
         
         report.info("New data received: " + line)
 
