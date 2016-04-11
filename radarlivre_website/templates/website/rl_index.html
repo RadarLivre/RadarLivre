@@ -1,0 +1,97 @@
+{% extends 'website/base/rl_base.html' %}
+{% load staticfiles %}
+
+{% block header %}
+
+		<link rel="stylesheet" href="{% static 'website/css/index.css' %}" /> 
+		
+{% endblock %}
+
+{% block body-class-list %} rl-map mdl-color--grey-200 {% endblock %}
+
+{% block mdl-layout-class-list %} mdl-layout--fixed-header {% endblock %}
+
+{% block mdl-layout-header %}
+
+		<header class="rl-header rl-header-floating mdl-layout__header mdl-cell--6-col mdl-cell--6-col-tablet mdl-cell--4-col-phone mdl-color--white mdl-color-text--blue-grey-600">
+			
+			<div class="mdl-layout__header-row rl-header-floating__top-row">
+				<span class="mdl-layout-title rl-header-floating__title">Radar Livre</span>
+				
+				<div class="mdl-layout-spacer"></div>
+				
+				<div class="rl-header__search-box-container">
+
+					<div class="rl-header__search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+						<label class="rl-header__search-icon mdl-button mdl-js-button mdl-button--icon mdl-color--white" for="rl-place-searchbox">
+							<i class="material-icons">search</i>
+						</label>
+
+						<div class="mdl-textfield__expandable-holder">
+							<input class="mdl-textfield__input mdl-color--white" type="text" id="rl-place-searchbox" >
+							<label class="mdl-textfield__label" for="rl-place-searchbox "></label>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- button id="rl-menu-right" class="rl-header__menu-btn mdl-button mdl-js-button mdl-button--icon" -->
+					<!-- i class="material-icons">more_vert</i -->
+				<!-- /button -->
+
+				<!-- ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="rl-menu-right" -->
+					<!-- li id="rl-map__dialog-config" class="mdl-menu__item">Opções do mapa</li --->
+				<!-- /ul -->
+				
+
+			</div>
+
+		</header>
+		
+		<div class="rl-map-drawer mdl-layout__drawer">
+		
+			<div class="mdl-card__menu">
+				
+				<button class="rl-map-drawer__close-button mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+					
+					<i class="material-icons">close</i>
+				
+				</button>
+				
+			</div>
+			
+			<h4 class="rl-map-drawer__title mdl-color-text--grey-700">Title</h4>
+			<h8 class="rl-map-drawer__subtitle mdl-color-text--grey-700">Subtitle</h8>
+			<h8 class="rl-map-drawer__date mdl-color-text--grey-500">Last update</h8>
+			
+			<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Latitude</h8>
+			<h7 class="rl-map-drawer__lat rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
+			
+			<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Longitude</h8>
+			<h7 class="rl-map-drawer__lng rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
+			
+			<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Altitude</h8>
+			<h7 class="rl-map-drawer__alt rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
+			
+			<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Velocidade</h8>
+			<h7 class="rl-map-drawer__speed rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
+		
+		</div>
+
+{% endblock %}
+
+{% block mdl-layout-main-style %} display: none; {% endblock %}
+
+{% block body-content %}
+
+	<div id="map" class="rl-map__container"></div>
+	
+{% endblock %}
+
+{% block body-end %}
+
+	<script src="{% static 'website/js/index.js' %}"></script>	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoBQcMnMYMQUPyorTXHqF1UjgpP4iflrg&libraries=places&callback=rl_map.doInitMap" async defer></script>
+
+{% endblock %}
+

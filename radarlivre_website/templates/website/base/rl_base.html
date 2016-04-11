@@ -1,0 +1,133 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Radar Livre</title>
+
+		<meta charset="UTF-8">
+		<meta name="description" conent="Radar Livre Website">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="{% static 'website/font/icons.css' %}">
+		<link rel="stylesheet" href="{% static 'website/css/mdl.min.css' %}" /> 
+		<link rel="stylesheet" href="{% static 'website/css/radar_livre.css' %}" /> 
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" type="text/css">
+		<link rel="shortcut icon" href="{% static 'website/img/icon.ico' %}">
+		
+		{% block header %}{% endblock %}
+		
+	</head>
+	
+	<body class=" {% block body-class-list %}{% endblock %} " >
+				
+		<div style="{% block mdl-layout-style %}{% endblock %}" class="mdl-layout mdl-js-layout {% block mdl-layout-class-list %}{% endblock %} ">
+		
+			{% block mdl-layout-header %}{% endblock %}
+			
+			<div class="mdl-layout__drawer">
+			
+				<span class="mdl-layout-title">Radar Livre</span>
+			    <nav class="mdl-navigation">
+			    	
+			    	<a class="mdl-navigation__link mdl-list__item " href="{% url 'page_index' %}">	
+						<span class="mdl-list__item-primary-content {% if page_index %} mdl-color-text--light-blue {% endif %} ">
+							<i class="material-icons mdl-list__item-icon {% if page_index %} mdl-color-text--light-blue {% endif %} ">map</i>
+							Mapa
+						</span>
+					</a>
+	
+					<a class="mdl-navigation__link mdl-list__item" href="{% url 'page_contrib' %}">	
+						<span class="mdl-list__item-primary-content {% if page_contrib %} mdl-color-text--light-blue {% endif %} ">
+							<i class="material-icons mdl-list__item-icon {% if page_contrib %} mdl-color-text--light-blue {% endif %} ">star</i>
+							Contribuintes
+						</span>
+					</a>
+						
+					<a class="mdl-navigation__link mdl-list__item" href="{% url 'page_about_index' %}">	
+						<span class="mdl-list__item-primary-content {% if page_about %} mdl-color-text--light-blue {% endif %} ">
+							<i class="material-icons mdl-list__item-icon {% if page_about %} mdl-color-text--light-blue {% endif %} ">info_outline</i>
+							Sobre
+						</span>
+					</a>				
+	
+			    </nav>
+	
+			</div>
+			
+			<main class="rl-main mdl-layout__content {% block mdl-layout-main-class-list %}{% endblock %}" style="{% block mdl-layout-main-style %}{% endblock %}">
+				
+				{% block mdl-layout-main %}{% endblock %}
+				
+				{% if has_footer %}
+					<footer class="mdl-mega-footer">
+						<div class="mdl-mega-footer__middle-section">
+			
+							<div class="mdl-mega-footer__drop-down-section">
+								<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+								<h1 class="mdl-mega-footer__heading">Radar Livre</h1>
+								<ul class="mdl-mega-footer__link-list">
+									<li><a href="{% url 'page_index' %}">Mapa</a></li>
+									<li><a href="https://docs.google.com/document/d/1ipKDKALwp97XyFSJrwYT17DriH22y-IMSrwTwS7odJA/edit?usp=sharing">Manual de Instruções</a></li>
+									<li><a href="https://github.com/FelipePinhoUFC/RadarLivre">Código fonte</a></li>
+									<li><a href="https://play.google.com">Aplicaivo Android</a></li>
+								</ul>
+							</div>
+			
+							<div class="mdl-mega-footer__drop-down-section">
+								<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+								<h1 class="mdl-mega-footer__heading">Contato</h1>
+								<ul class="mdl-mega-footer__link-list">
+									<li><a href="#">felipe76857685@gmail.com</a></li>
+								</ul>
+							</div>
+						
+						</div>
+			
+					</footer>
+					
+				{% endif %}
+				
+			</main>
+										
+		</div>
+		
+		{% block body-content %}{% endblock %}
+		
+		<div id="rl-snackbar" class="mdl-js-snackbar mdl-snackbar mdl-color--white mdl-shadow--2dp">
+		
+			<div class="mdl-snackbar__text mdl-color-text--grey-700"></div>
+			<button class="mdl-snackbar__action" type="button"></button>
+		
+		</div>	
+		
+		<dialog class="mdl-dialog">
+			<div class="mdl-dialog__content">
+				
+				<span class="mdl-typography--title">Tempo de atualização</span>
+				<input class="mdl-slider mdl-js-slider" type="range" min="1" max="60" value="0" tabindex="0"/>
+	
+				<div class="rl-horizontal-line mdl-color--grey-200"></div>
+	
+				<span class="mdl-typography--title">Timestamp mínimo</span>
+				<input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0">
+	
+	
+			</div>
+			<div class="mdl-dialog__actions">
+				<button type="button" class="rl-dialog__ok mdl-button mdl-js-button mdl-ripple-effect">Aplicar</button>
+			</div>
+		</dialog>
+		
+		<div class="rl-foreground"></div>
+		
+		<script src="{% static 'website/js/jquery.min.js' %}"></script>
+		<script src="{% static 'website/js/mdl.min.js' %}"></script>
+		<script src="{% static 'website/js/stellar.min.js' %}"></script>
+		<script src="{% static 'website/js/radar_livre.js' %}"></script>
+		
+		{% block body-end %}{% endblock %}
+		
+	</body>
+	
+</html>

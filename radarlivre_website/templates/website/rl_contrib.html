@@ -1,0 +1,86 @@
+{% extends 'website/base/rl_base.html' %}
+{% load staticfiles %}
+
+{% block header %}
+
+		<link rel="stylesheet" href="{% static 'website/css/document.css' %}" /> 
+		
+{% endblock %}
+
+{% block body-class-list %} rl-parallax-background mdl-color--grey-200 {% endblock %}
+
+{% block mdl-layout-style %} background: url({% static 'website/img/img.png' %}); {% endblock %}
+
+{% block mdl-layout-class-list %} mdl-layout--fixed-header rl-header-image__background mdl-color--grey-200 {% endblock %}
+
+{% block mdl-layout-header %}
+		
+		<header class="rl-header mdl-layout__header">
+			
+			<div class="mdl-layout__header-row">
+				<span class="mdl-layout-title">Radar Livre</span>				
+			</div>
+
+		</header>
+
+{% endblock %}
+
+{% block mdl-layout-main %}
+
+    	<div class="rl-main__content mdl-grid">
+    		
+    		<div class="rl-header-image__frame mdl-cell mdl-cell-12-col"></div>
+
+    		<div class="rl-document__grid mdl-grid mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mdl-cell--4-col-tablet">
+
+	    		<div class="rl-no-bottom-space rl-document__page mdl-card mdl-shadow--2dp mdl-cell--12-col">
+	    			    			
+	    			<div>
+		    			<a href="{% url 'page_index' %}" class="rl-document__bread-crumbs mdl-button mdl-js-button mdl-js-ripple-effect">Início /</a>
+		    			<a class="rl-document__bread-crumbs mdl-button mdl-js-button mdl-js-ripple-effect">Contribuintes /</a>
+	    			</div>
+	    			
+	    			<span class="rl-document__title">Contribuintes</span>
+	    			<span class="rl-document__subtitle"><i>Coletores em funcionamento</i></span>
+	    			    			 
+					
+	    		</div>
+	    		
+	    		<table class="rl-to-front rl-no-top-space rl-document__page mdl-shadow--2dp mdl-cell--12-col mdl-data-table mdl-js-data-table mdl-color--grey-200">
+	    		
+	    			<thead>
+	    			
+	    				<tr>
+	    				
+	    					<th class="mdl-data-table__cell--non-numeric">IP do coletor</th>
+	    					<th class="mdl-layout--large-screen-only">Latitude</th>
+	    					<th class="mdl-layout--large-screen-only">Longitude</th>
+	    					<th class="mdl-data-table__cell--non-numeric">Última atualização</th>
+	    				
+	    				</tr>
+	    			
+	    			</thead>
+	    			
+	    			<tbody class="mdl-color--grey-300">
+	    			
+	    				{% for c in contribs %}
+		    				<tr>
+		    				
+		    					<td class="mdl-data-table__cell--non-numeric">{{c.ip}}</td>
+		    					<td class="mdl-layout--large-screen-only">{{c.latitude}}</td>
+		    					<td class="mdl-layout--large-screen-only">{{c.longitude}}</td>
+		    					<td class="mdl-data-table__cell--non-numeric">{{c.getDate}}</td>
+		    				
+		    				</tr>
+	    				{% endfor %}
+	    			
+	    			</tbody>
+	    		
+	    		</table>
+
+    		</div>
+
+    	</div>
+
+{% endblock %}
+

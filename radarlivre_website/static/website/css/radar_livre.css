@@ -1,0 +1,283 @@
+
+/*
+ * MAIN
+ */
+
+.rl-main {
+
+}
+
+.rl-main__content {
+
+	
+
+}
+
+
+/*
+ * FOREGROUND
+ */
+
+.rl-foreground {
+
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #fff;
+	z-index: 1000;
+
+}
+
+.rl-foreground__logo-text {
+
+	color: #b3d4fc;
+	text-align: center;
+	padding-top: 50px;
+
+}
+
+
+/*
+ * DRAWER
+ */
+.mdl-layout__drawer-button {
+
+	background-color: rgba(0, 0, 0, 0) !important;
+
+}
+
+/*
+ * HEADER
+ */
+
+.rl-header {
+	
+} 
+
+
+.rl-header-floating {
+	margin: 10px;
+	border-radius: 2px;
+}
+
+.rl-header-floating .mdl-layout__drawer-button {
+	top: 10px;
+	left: 10px;
+}
+
+.rl-header-floating .mdl-layout__drawer-button .material-icons {
+
+	color: #000;
+
+}
+
+.rl-header-floating__top-row {
+	position: relative;
+}
+
+.rl-header-floating__title {
+	position: absolute;
+	top: 50%;
+	-ms-transform: translate(0px, -10px); /* IE 9 */
+   	-webkit-transform: translate(0px, -10px); /* Safari */
+    transform: translate(0px, -10px)
+}
+
+.rl-header__search-box {
+	
+}
+
+.rl-header__search-box-container {	
+
+}
+
+.rl-header__search-icon {
+	box-shadow: -10px 0px 20px #fff;
+}
+
+
+.rl-header__menu-btn {
+	margin-left: 20px;
+}
+
+.rl-header__fab {
+	position: absolute;
+	bottom: -28px;
+	right: 56px;
+}
+
+/*
+ * HEADER IMAGE
+ */
+
+.rl-header-image__background {
+	
+	background-repeat: no-repeat !important;
+    background-size: 100% auto !important;
+
+}
+
+
+/*
+ * MAP
+ */
+
+.rl-map__container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+#rl-map__top-spacer {
+	height: 66px;
+	width: 100%;
+}
+
+.rl-info-window-item {
+	padding: 6px !important;
+	height: 42px;
+}
+
+
+/*
+ * DOCUMENT
+ */
+
+.rl-document__grid {
+
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.rl-document__page {
+
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	padding: 40px;
+	overflow: visible;
+	
+}
+
+.rl-document__title {
+	margin-top: 40px;
+	font-size: 32px;
+	font-family: 'Roboto';
+	font-weight: 400;
+	color: #555;
+	line-height: 100%;
+}
+
+.rl-document__subtitle {
+	margin-bottom: 20px;
+	margin-top: 10px;
+	font-size: 20px;
+	font-family: 'Roboto';
+	font-weight: 400;
+	color: #666;
+}
+
+.rl-document__paragraph {
+	margin-top: 10px;
+	text-indent: 40px;
+	text-align: justify;
+	font-size: 20px;
+	color: #444;
+	font-family: 'Roboto';
+	font-weight: 300;
+	
+}
+
+.rl-document__fab {
+	
+	position: absolute;
+	top: -28px;
+	right: 56px;
+	
+}
+
+.rl-document__bread-crumbs {
+	padding: 0px !important;
+	color: #555;
+}
+
+/*
+ * DIALOG
+ */
+
+.rl-horizontal-line {
+	width: 100%;
+	height: 1px;
+	z-index: 1000;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.rl-no-top-space {
+	margin-top: 0px;
+}
+
+.rl-no-bottom-space {
+	margin-bottom: 0px;
+}
+
+.rl-to-front {
+	z-index: 1000;
+}
+
+.rl-center-horizontal {
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+/*
+ * POLYFILL
+ */
+
+dialog {
+  position: absolute;
+  left: 0; right: 0;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  margin: auto;
+  border: solid;
+  padding: 1em;
+  background: white;
+  color: black;
+  display: none;
+}
+
+dialog[open] {
+  display: block;
+}
+
+dialog + .backdrop {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(0,0,0,0.1);
+}
+
+/* for small devices, modal dialogs go full-screen */
+@media screen and (max-width: 540px) {
+  dialog[_polyfill_modal] {  /* TODO: implement */
+    top: 0;
+    width: auto;
+    margin: 1em;
+  }
+}
+
+._dialog_overlay {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
