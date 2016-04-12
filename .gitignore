@@ -1,4 +1,5 @@
 media
 static
 log
+radarlivre_setup/venvs
 *.pyc

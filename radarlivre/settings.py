@@ -82,11 +82,8 @@ WSGI_APPLICATION = 'radarlivre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'radarlivre',
-        'USER': 'Felipe',
-        'PASSWORD': '76857685',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(os.path.join(BASE_DIR, 'database'), 'radarlivre.db'),
     }
 }
 

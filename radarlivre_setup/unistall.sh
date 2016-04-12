@@ -5,3 +5,4 @@ rm -r venvs
 rm -r ../log
 rm -r ../static
 rm -r ../media
+rm -r ../database
