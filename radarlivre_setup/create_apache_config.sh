@@ -33,6 +33,6 @@ WSGIProcessGroup radarlivre.com
 </VirtualHost>
 ";
 
-sudo mv /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.bak
-sudo echo "$text" > /etc/apache2/sites-available/000-default.conf
-sudo service apache2 restart
+sudo mv /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.bak ;
+sudo echo "$text" > /etc/apache2/sites-available/000-default.conf ;
+sudo service apache2 restart ;

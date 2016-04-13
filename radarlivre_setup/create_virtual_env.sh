@@ -1,6 +1,6 @@
 BASEDIR=$(dirname "$0")
 cd "$BASEDIR"
 
-sudo apt-get install python-virtualenv
+sudo apt-get install python-virtualenv ;
 
 virtualenv venvs/django
