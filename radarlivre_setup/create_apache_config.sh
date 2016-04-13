@@ -1,3 +1,7 @@
+echo "***************************************
+* Criando configuração do Apache
+***************************************";
+
 BASEDIR=$(dirname "$0")
 cd "$BASEDIR"
 cd ..
@@ -5,7 +9,6 @@ cd ..
 BASEDIR=$(pwd)
 
 text="
-
 WSGIDaemonProcess radarlivre.com python-path=$BASEDIR:$BASEDIR/radarlivre_setup/venvs/django/lib/python2.7/site-packages
 WSGIProcessGroup radarlivre.com
 
@@ -33,6 +36,6 @@ WSGIProcessGroup radarlivre.com
 </VirtualHost>
 ";
 
-sudo mv /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.bak ;
+sudo rm /etc/apache2/sites-available/000-default.conf ;
 sudo echo "$text" > /etc/apache2/sites-available/000-default.conf ;
-sudo service apache2 restart ;
+sudo a2enmod wsgi && sudo invoke-rc.d apache2 restart

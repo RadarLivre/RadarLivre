@@ -1,8 +1,9 @@
 BASEDIR=$(dirname "$0")
-cd "$BASEDIR"
+cd "$BASEDIR";
 
-chmod +x *.sh
+sudo chmod +x *.sh;
 
+sudo ./unistal.sh
 sudo ./radarlivre_setup/install_dependencies.sh;
 sudo ./radarlivre_setup/create_virtual_env.sh;
 sudo ./radarlivre_setup/install_requeriments.sh;

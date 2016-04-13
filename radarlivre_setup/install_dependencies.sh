@@ -1,3 +1,7 @@
+echo "***************************************
+* Instalando dependencias django
+***************************************";
+
 sudo apt-get update ;
 sudo apt-get -y install apache2 libapache2-mod-wsgi ;
 

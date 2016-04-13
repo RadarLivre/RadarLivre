@@ -24,7 +24,7 @@ var rl_api = function() {
 	var BASE_REMOTE_URL = "http://www.radarlivre.com/api/";
 	var BASE_LOCAL_URL = "http://localhost/api/";
 	var BASE_LOCAL_DJANGO_URL = "http://localhost:8000/api/";
-	var baseURL = BASE_LOCAL_DJANGO_URL;
+	var baseURL = BASE_LOCAL_URL;
 
 	var updatingAirplanes = false;
 
