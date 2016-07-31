@@ -24,7 +24,7 @@ var rl_api = function() {
 	var BASE_REMOTE_URL = "http://www.radarlivre.com/api/";
 	var BASE_LOCAL_URL = "http://localhost/api/";
 	var BASE_LOCAL_DJANGO_URL = "http://localhost:8000/api/";
-	var baseURL = BASE_LOCAL_URL;
+	var baseURL = BASE_REMOTE_URL;
 
 	var updatingAirplanes = false;
 
@@ -34,7 +34,7 @@ var rl_api = function() {
 	var timerUpdater = null;
 
 	// Valor do intervalo de atualização em milisegundos
-	var DEFAULT_UPDATE_INTERVAL_TIME = 2 * 1000;
+	var DEFAULT_UPDATE_INTERVAL_TIME = 5 * 1000;
 	var updateIntervalTime = DEFAULT_UPDATE_INTERVAL_TIME;
 
 	// Atual lista de aeronaves
@@ -500,6 +500,10 @@ var rl_map = function() {
 		airplaneInfo = marker.airplaneInfo;
 		
 		var windowWidth = $(window).width();
+
+		var timestampToDate = function(t) {
+			return DateFormat.format.prettyDate(new Date(t));
+		}
 		
 		if(windowWidth <= 480) {
 
@@ -509,7 +513,7 @@ var rl_map = function() {
 				'		<span class="">' + 
 				'			<span class="mdl-typography--title">' + airplaneInfo.flight + '</span><br/>' + 
 				'			<span class="mdl-typography--title">' + airplaneInfo.airline + " - " + airplaneInfo.airlineCountry + '</span><br/>' + 
-				'			<span class="mdl-typography--subheading mdl-color-text--grey-700">' + (new Date(airplaneInfo.timestamp)) + '</span>' + 
+				'			<span class="mdl-typography--subheading mdl-color-text--grey-700">Atualizado ' + timestampToDate(airplaneInfo.timestamp) + '</span>' + 
 				'		</span>' + 
 				'	</li>' + 
 				'	<div class="rl-horizontal-line mdl-color--grey-300"></div>' + 
@@ -556,7 +560,7 @@ var rl_map = function() {
 			$(".rl-map-drawer__title").text(airplaneInfo.flight);
 			$(".rl-map-drawer__subtitle").text(airplaneInfo.airline + " - " + airplaneInfo.airlineCountry);
 			
-			$(".rl-map-drawer__date").text(new Date(airplaneInfo.timestamp));
+			$(".rl-map-drawer__date").text("Atualizado " + timestampToDate(airplaneInfo.timestamp));
 			$(".rl-map-drawer__lat").text(airplaneInfo.latitude);
 			$(".rl-map-drawer__lng").text(airplaneInfo.longitude);
 			$(".rl-map-drawer__alt").text(airplaneInfo.altitude + ' ft / ' + parseFloat(parseInt(airplaneInfo.altitude * 30.48))/100 + ' m');
