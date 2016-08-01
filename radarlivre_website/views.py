@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 import time
 from django.shortcuts import render, get_object_or_404
 from radarlivre_api.models import About, Software, Contrib

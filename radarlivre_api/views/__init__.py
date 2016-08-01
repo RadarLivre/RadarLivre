@@ -6,7 +6,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from radarlivre_api.models import Airplane, Airport, Flight, Observation, ADSBMessage, HalfObservation, AirplaneInfo,\
     About, Notify, Contrib
 from radarlivre_api.models.serializers import AirplaneSerializer, AirportSerializer, FlightSerializer, ObservationSerializer, ADSBMessageSerializer, AirplaneInfoSerializer, HalfObservationSerializer,\
-    AboutSerializer, NotifySerializer
+    AboutSerializer, NotifySerializer, ContribSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -14,7 +14,7 @@ from radarlivre_api.adsb import decoder
 from radarlivre_api.utils import airline_info
 from radarlivre_api.views.filters import ObservationPrecisionFilter,\
     ObservationFlightFilter, AirplaneInfoAtualFilter, MapBoundsFilter,\
-    ObservationLastTimestampFilter
+    ObservationLastTimestampFilter, ContribAtualFilter
 
 import logging
 
@@ -254,3 +254,13 @@ class NotifyList(ListCreateAPIView):
 class NotifyDetail(RetrieveUpdateDestroyAPIView):
     queryset = Notify.objects.all()
     serializer_class = NotifySerializer
+
+class ContribList(ListCreateAPIView):
+    queryset = Contrib.objects.all()
+    serializer_class = ContribSerializer
+    filter_backends = (DjangoFilterBackend, ContribAtualFilter)
+
+class ContribDetail(RetrieveUpdateDestroyAPIView):
+    queryset = Contrib.objects.all()
+    serializer_class = ContribSerializer
+    

@@ -2,34 +2,44 @@
 
 from rest_framework.filters import BaseFilterBackend
 import time
-import datetime
-from radarlivre_api.models import AirplaneInfo
-
 import logging
+
+
 logger = logging.getLogger("radarlivre.debug")
 
+
+# Filtro responsável por pegar apenas as aeronaves mais recentes
 class AirplaneInfoAtualFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
-        now = (time.time()) * 1000
+
+        # Pega o timestamp atual em milisegundos
+        now = int((time.time()) * 1000)
+        # Valor padrão o intervalo: 1 min
+        maxUpdateDelay = parseParam(request, "max_update_delay", 60 * 1000)
+        return queryset.filter(timestamp__gte = (now - maxUpdateDelay))
+
+
+# Filtro responsável por pegar apenas os contribuintes mais recentes
+class ContribAtualFilter(BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+
+        # Pega o timestamp atual em milisegundos
+        now = int((time.time()) * 1000)
+        # Valor padrão o intervalo: 1 min
+        maxUpdateDelay = parseParam(request, "max_update_delay", 3600 * 1000)
         
-        flightinterval = 60 * 1000
-        
-        paramValue = clearNumericParam(request, "timestampinterval");
-        if paramValue != None and paramValue >= 0:
-                flightinterval = paramValue
-        
-        infos = queryset.filter(timestamp__gte = (now - flightinterval))
-        
-        return infos
+        return queryset.filter(timestamp__gte = (now - maxUpdateDelay))
+
+
 
 # Filtro responsável por pegar apenas as observações do vôo atual da aeronave
 class ObservationFlightFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
-        flightinterval = 60 * 60 * 1000
-        
-        paramValue = clearNumericParam(request, "timestampinterval");
-        if paramValue != None and paramValue >= 0:
-            flightinterval = paramValue
+
+        # 1 hora
+        flightInterval = 3600 * 1000
+        # 1 dia
+        baseFlightInterval = 24 * 3600 * 1000
         
         objects = queryset.order_by('timestamp')
         objectsFiltered = []
@@ -38,7 +48,7 @@ class ObservationFlightFilter(BaseFilterBackend):
         for o in reversed(objects):
             if last:
                 interval = last.timestamp - o.timestamp
-                if interval > flightinterval:
+                if interval > flightInterval:
                     break
                 else:
                     objectsFiltered.append(o.pk)
@@ -50,16 +60,14 @@ class ObservationFlightFilter(BaseFilterBackend):
         return queryset.filter(pk__in=objectsFiltered).order_by('timestamp')
 
 
+# Pega todas as observações apartir de um determinado timestamp
 class ObservationLastTimestampFilter(BaseFilterBackend):
-    def filter_queryset(self, request, queryset, view):
-        lastTimestamp = 0
-        
-        paramValue = clearNumericParam(request, "lasttimestamp");
-        if paramValue != None and paramValue >= 0:
-            lastTimestamp = paramValue
-        
 
-        return queryset.filter(timestamp__gt = lastTimestamp)
+    def filter_queryset(self, request, queryset, view): 
+
+        firstTimestamp = parseParam(request, "first_timestamp", 0);
+        return queryset.filter(timestamp__gt = firstTimestamp)
+
 
 # Filtro responsável por pegar informações com um "espaçamento temporal" entre elas
 # Por exemplo, pega informações de 5 em 5 minutos descartando as demais, assim retorna
@@ -68,11 +76,7 @@ class ObservationPrecisionFilter(BaseFilterBackend):
     
     def filter_queryset(self, request, queryset, view):
         
-        interval = 0
-                
-        paramValue = clearNumericParam(request, "precision");
-        if paramValue != None and paramValue >= 0:
-                interval = paramValue
+        interval = parseParam(request, "interval", 0);
         
         if interval == 0:
             return queryset.all()
@@ -100,49 +104,45 @@ class ObservationPrecisionFilter(BaseFilterBackend):
         return queryset.filter(pk__in=objectsFiltered).order_by('timestamp')
     
 
+# Pega apenas as aeronaves em um pedaço do mapa
 class MapBoundsFilter(BaseFilterBackend):
     
     def filter_queryset(self, request, queryset, view):
         
-        topLat = clearNumericParam(request, "top");
-        bottomLat = clearNumericParam(request, "bottom");
-        leftLng = clearNumericParam(request, "left");
-        rightLng = clearNumericParam(request, "right");
+        topLat = parseParam(request, "top", 90);
+        bottomLat = parseParam(request, "bottom", -90);
+        leftLng = parseParam(request, "left", -180);
+        rightLng = parseParam(request, "right", 180);
+
+        infos = queryset.all()
+
+        for info in infos:
+            if info.longitude > 180:
+                info.longitude -= 360
+            info.save() 
         
-        if topLat != None and bottomLat != None and leftLng != None and rightLng != None:            
-            infos = queryset.all()
-            for info in infos:
-                if info.latitude > 180:
-                    info.latitude -= 360
-                if info.longitude > 180:
-                    info.longitude -= 360
-                info.save() 
+        if bottomLat < -90:
+            bottomLat = -90
+        
+        if topLat > 90:
+            topLat = 90
             
-            if bottomLat > 180:
-                bottomLat -= 360
+        if leftLng < -180:
+            leftLng = -180
             
-            if topLat > 180:
-                topLat -= 360
-                
-            if leftLng > 180:
-                leftLng -= 360
-                
-            if rightLng > 180:
-                rightLng -= 360
-            
-            infos = queryset\
-                .filter(latitude__gte = bottomLat)\
-                .filter(latitude__lte = topLat)\
-                .filter(longitude__gte = leftLng)\
-                .filter(longitude__lte = rightLng)
-            
-            return infos;
-            
-        else:
-            return queryset
+        if rightLng > 180:
+            rightLng = 180
+        
+        infos = queryset\
+            .filter(latitude__gte = bottomLat)\
+            .filter(latitude__lte = topLat)\
+            .filter(longitude__gte = leftLng)\
+            .filter(longitude__lte = rightLng)
+        
+        return infos;
     
     
-def clearNumericParam(request, param):
+def parseParam(request, param, defaultValue):
     param = request.GET.get(param)
     
     if param:
@@ -151,6 +151,6 @@ def clearNumericParam(request, param):
         except:
             pass
             
-    return None
+    return defaultValue
     
     

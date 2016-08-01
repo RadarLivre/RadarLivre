@@ -1,8 +1,8 @@
-# -*- coding=utf-8 -*-
+# -*- coding:utf-8 -*-
 
 from rest_framework.serializers import ModelSerializer
 from radarlivre_api.models import Airplane, Airport, Flight, Observation, ADSBMessage,\
-    AirplaneInfo, HalfObservation, About, Notify
+    AirplaneInfo, HalfObservation, About, Notify, Contrib
 from rest_framework.fields import ImageField
 
 class AirplaneSerializer(ModelSerializer):
@@ -51,4 +51,9 @@ class AboutSerializer(ModelSerializer):
 class NotifySerializer(ModelSerializer):
     class Meta:
         model = Notify 
+        fields = '__all__'
+
+class ContribSerializer(ModelSerializer):
+    class Meta:
+        model = Contrib
         fields = '__all__'

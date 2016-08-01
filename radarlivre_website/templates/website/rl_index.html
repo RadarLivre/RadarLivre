@@ -91,8 +91,10 @@
 {% block body-end %}
 
 	<script src="{% static 'website/js/date_format.js' %}"></script>	
+	<script src="{% static 'website/js/radarlivre_api.js' %}"></script>	
+	<script src="{% static 'website/js/maps_api.js' %}"></script>	
 	<script src="{% static 'website/js/index.js' %}"></script>	
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoBQcMnMYMQUPyorTXHqF1UjgpP4iflrg&libraries=places&callback=rl_map.doInitMap" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoBQcMnMYMQUPyorTXHqF1UjgpP4iflrg&libraries=places&callback=initMap" async defer></script>
 
 {% endblock %}
 

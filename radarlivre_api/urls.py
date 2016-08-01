@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 from django.conf.urls import url
 from radarlivre_api import views
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -37,6 +39,10 @@ urlpatterns = [
     # Urls to manage notifies
     url(r'^api/notify/$', views.NotifyList.as_view()),
     url(r'^api/notify/(?P<pk>[0-9]+)/$', views.NotifyDetail.as_view()),
+
+    # Urls to manage contributors
+    url(r'^api/contrib/$', views.ContribList.as_view()),
+    url(r'^api/contrib/(?P<pk>[0-9]+)/$', views.ContribDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
