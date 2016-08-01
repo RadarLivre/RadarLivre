@@ -1,0 +1,49 @@
+.rl-map-drawer__title {
+	
+	font-family: 'Roboto';
+	font-weight: 500;
+	margin-top: 52px;
+	margin-left: 20px;
+	margin-bottom: 0px;
+	
+}
+
+.rl-map-drawer__subtitle {
+	
+	font-family: 'Roboto';
+	font-weight: 400;
+	margin-top: 0px;
+	margin-left: 20px;
+	margin-bottom: 0px;
+	
+}
+
+.rl-map-drawer__date {
+	
+	font-family: 'Roboto';
+	font-weight: 500;
+	margin-top: 0px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	
+}
+
+.rl-map-drawer__item-title {
+	
+	font-family: 'Roboto';
+	font-weight: 400;
+	margin-top: 0px;
+	margin-left: 20px;
+	margin-bottom: 0px;
+	
+}
+
+.rl-map-drawer__item-value {
+	
+	font-family: 'Roboto';
+	font-weight: 500;
+	margin-top: 0px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	
+}
