@@ -1,5 +1,6 @@
-media
-log
-radarlivre_setup/venvs
+/media
+/static
+/log
+/radarlivre_setup/venvs
 *.pyc
-*/migrations/*
+migrations

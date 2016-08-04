@@ -6,25 +6,26 @@ var radarlivre_api = function() {
 	
 	var BASE_REMOTE_URL = "http://www.radarlivre.com/api/";
     var BASE_LOCAL_URL = "http://localhost:8000/api/";
-	var baseURL = BASE_LOCAL_URL;
+	var baseURL = BASE_REMOTE_URL;
 	
 	var getJSON = function (url, params, callbackSucess, callbackError, callbackFinal) {
         params["format"] = "jsonp";
+        
+        $.jsonp({
+            url: url,
+            callbackParameter: "callback", 
+            data: params, 
+            success: function( data ) {
 
-		$.getJSON( url, params )
-		.done(function( data ) {
+                callbackSucess(data);
 
-			callbackSucess(data);
+            }, 
+            error: function( d, error ) {
 
-		}).fail(function( jqxhr, textStatus, error ) {
+                callbackError(error);
 
-		    callbackError(textStatus + ", " + error);
-
-		}).always(function() {
-
-			callbackFinal();
-
-		});
+            }
+        });
 
 	}
 
@@ -42,7 +43,7 @@ var radarlivre_api = function() {
         
         doGetAirplaneInfos : function(maxUpdateDelay, mapBounds, onReceived, onFailed) {
             mapBounds = mapBounds === null? {}: mapBounds;
-            getJSON(baseURL + "airplane_info/?callback=?", {
+            getJSON(baseURL + "airplane_info/", {
                 max_update_delay: maxUpdateDelay, 
                 top: mapBounds.top, 
                 bottom: mapBounds.bottom, 
@@ -58,7 +59,7 @@ var radarlivre_api = function() {
         }, 
         
         doGetAirplaneRoute : function(airplane, interval, onReceived, onFailed) {
-            getJSON(baseURL + "observation/?callback=?", {
+            getJSON(baseURL + "observation/", {
                 airplane: airplane, 
                 interval: interval
             }, function(data) {
@@ -71,7 +72,7 @@ var radarlivre_api = function() {
         }, 
         
         doGetContribs : function(max_update_delay, onReceived, onFailed) {
-            getJSON(baseURL + "contrib/?callback=?", {
+            getJSON(baseURL + "contrib/", {
                 max_update_delay: max_update_delay
             }, function(data) {
                 onReceived(data);
@@ -80,6 +81,10 @@ var radarlivre_api = function() {
             }, function() {
 
             });
+        }, 
+        
+        jsonpCallBack : function(data) {
+            log("Jsonp recebido");
         }
 
 	};

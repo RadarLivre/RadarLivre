@@ -18,11 +18,12 @@ var maps_api = function() {
     var _setMarker = function(setts) {
         var marker = _getMarkerById(setts.id);
         if(marker) {
-            marker.setPosition(setts.position);
-            marker.setIcon(setts.icon);
+            marker.setOptions(setts);
         } else {
-            _createMarker(setts);
+            marker = _createMarker(setts);
         }
+        
+        return marker;
     }
     
     var _createMarker = function(setts) {
@@ -34,6 +35,8 @@ var maps_api = function() {
         google.maps.event.addListener(marker, 'click', function() {
             _onMarkerClicked(marker);
         }); 
+        
+        return marker;
     }
     
     var _getMarkerById = function(id) {
@@ -44,12 +47,21 @@ var maps_api = function() {
     }
     
     var _removeMarker = function(marker) {
-        marker.setMap(null);
-        for(k in _markers)
-            if(_markers[k].id === marker.id) {
-                _markers.slice(k);
-                break;
+        if(marker) {
+            for(var i = 0; i < _markers.length; i++)
+                if(_markers[i].id === marker.id) {
+                    _markers.splice(i, 1);
+                    break;
+                }
+
+            _removePolyLine(marker);
+            _hideMarkerInfo(marker);
+            marker.setMap(null);
+
+            if(_lastClickedMarker && _lastClickedMarker.id == marker.id) {
+                _unselectMarker();
             }
+        }
     }
     
     var _onMarkerClicked = function(marker) {
@@ -58,28 +70,34 @@ var maps_api = function() {
 
     var _selectMarker = function(marker) {
         _unselectMarker();
-        _onMarkerSelectedListener(marker);
         _lastClickedMarker = marker;
+        _onMarkerSelectedListener(marker);
     }
     
     var _unselectMarker = function() {
-        _onMarkerUnselectedListener(_lastClickedMarker);
-        _lastClickedMarker = null;
+        if(_lastClickedMarker) {
+            var tmp = _lastClickedMarker;
+            _lastClickedMarker = null;
+            _onMarkerUnselectedListener(tmp);
+        }
     }
     
     var _showMarkerInfo = function(marker, content) {
-        _hideMarkerInfo(marker);
-        marker._infoWindow = new google.maps.InfoWindow({
-            content: content
-        });
+        if(marker._infoWindow) {
+            marker._infoWindow.setContent(content);
+        } else {
+            marker._infoWindow = new google.maps.InfoWindow({
+                content: content
+            });
+            google.maps.event.addListener(marker._infoWindow, 'closeclick', function(){
+                _onInfoClosedListener(marker);
+            });
+        }
         marker._infoWindow.open(_map, marker);
-        google.maps.event.addListener(marker._infoWindow, 'closeclick', function(){
-            _onInfoClosedListener(marker);
-        });
     }
     
     var _hideMarkerInfo = function(marker) {
-        if(marker._infoWindow)
+        if(marker && marker._infoWindow)
             marker._infoWindow.close();
     }
     
@@ -89,25 +107,24 @@ var maps_api = function() {
     }
     
     var _setMarkerPolyLine = function(marker, setts) {
-        var polyLine = _getPolyLineById(marker, setts.id);
+        marker = _getMarkerById(marker.id);
         
-        if(polyLine) {
-            // ...
-        } else {
-            _createPolyLine(marker, setts);
+        if(marker) {
+            var polyLine = _getPolyLineById(marker, setts.id);
+
+            if(polyLine) {
+                polyLine.setOptions(setts);
+            } else {
+                _createPolyLine(marker, setts);
+            }
         }
     }
     
     var _createPolyLine = function(marker, setts) {
-        var line = new google.maps.Polyline({
-            id: setts.id, 
-            path: setts.path,
-            geodesic: true,
-            strokeColor: setts.color,
-            strokeOpacity: 1.0,
-            strokeWeight: 2
-        });
-
+        if(!setts.geodesic) setts["geodesic"] = true;
+        if(!setts.strokeOpacity) setts["strokeOpacity"] = 1.0;
+        if(!setts.strokeWeight) setts["strokeWeight"] = 2;
+        var line = new google.maps.Polyline(setts);
         line.setMap(_map);
         marker._polyLines.push(line);
     }
@@ -121,10 +138,12 @@ var maps_api = function() {
     }
     
     var _removePolyLine = function(marker) {
-        for(k in marker._polyLines) {
-            marker._polyLines[k].setMap(null);
+        if(marker && marker._polyLines) {
+            for(k in marker._polyLines) {
+                marker._polyLines[k].setMap(null);
+            }
+            marker._polyLines = [];
         }
-        marker._polyLines = [];
     }
 
 	/*
@@ -264,8 +283,20 @@ var maps_api = function() {
             return _map;
         }, 
         
+        getMarker : function(id) {
+            return _getMarkerById(id);
+        },
+        
+        getSelectedMarker : function() {
+            return _lastClickedMarker;
+        },
+        
+        getMarkers : function() {
+            return _markers;
+        },
+        
         doSetMarker : function(setts) {            
-            _setMarker(setts);
+            return _setMarker(setts);
         },
         
         doRemoveMarker : function(marker) {            

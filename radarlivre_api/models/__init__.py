@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.db.models.fields import CharField, DecimalField, IntegerField, BigIntegerField,\
-    BooleanField, TextField, DateTimeField, DateField, URLField
+    BooleanField, TextField, DateTimeField, DateField, URLField, EmailField
 from django.db.models.fields.related import ForeignKey,\
     OneToOneField
 from django.db.models.fields.files import ImageField, FileField
@@ -272,7 +272,9 @@ class Software(models.Model):
 
 class Contrib(models.Model):
     
-    ip = CharField(max_length=15, blank=True, primary_key=True)
+    userName = CharField(max_length=256, blank=True, default="", null=True)
+    email = EmailField(max_length=256, null=True)
+    ip = CharField(max_length=15, blank=True)
     latitude  = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     timestamp = BigIntegerField(default=0)

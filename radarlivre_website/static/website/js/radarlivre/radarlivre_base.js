@@ -1,3 +1,11 @@
+DEBUG = true
+
+var log;
+if(DEBUG)
+    log = console.log.bind(console, "DEBUG:");
+else
+    log = function() {}
+
 $(function() {
 
 	componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
