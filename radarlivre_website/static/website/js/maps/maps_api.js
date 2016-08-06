@@ -113,10 +113,10 @@ var maps_api = function() {
             var polyLine = _getPolyLineById(marker, setts.id);
 
             if(polyLine) {
-                log("Atualizando linha: " + marker.id + ", " + marker._polyLines.length);
+                
                 polyLine.setOptions(setts);
             } else {
-                log("Criando linhas: " + marker.id + ", " + marker._polyLines.length);
+                
                 _createPolyLine(marker, setts);
             }
         }
@@ -140,14 +140,14 @@ var maps_api = function() {
     }
     
     var _removePolyLine = function(marker) {
-        log("Removendo linhas: " + marker.id + ", " + marker._polyLines.length);
+        
         if(marker && marker._polyLines) {
             for(k in marker._polyLines) {
                 marker._polyLines[k].setMap(null);
             }
             marker._polyLines = [];
         }
-        log("Removendo linhas: " + marker.id + ", " + marker._polyLines.length);
+        
     }
 
 	/*

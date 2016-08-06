@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//radarlivre_api/models/__init__.py=utf-8
+encoding//radarlivre_api/models/serializers.py=utf-8
+encoding//radarlivre_api/urls.py=utf-8
+encoding//radarlivre_api/utils/airline_info.py=utf-8
+encoding//radarlivre_api/views/__init__.py=utf-8
+encoding//radarlivre_api/views/filters.py=utf-8
+encoding//radarlivre_website/views.py=utf-8

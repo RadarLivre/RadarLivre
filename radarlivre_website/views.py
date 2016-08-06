@@ -2,7 +2,7 @@
 
 import time
 from django.shortcuts import render, get_object_or_404
-from radarlivre_api.models import About, Software, Contrib
+from radarlivre_api.models import About, Software, Collector
 
 
 def index(request):
@@ -20,7 +20,7 @@ def downloads_index(request):
 
 def contrib(request):
     now = (time.time()) * 1000
-    contribs = Contrib.objects.all().filter(
+    contribs = Collector.objects.all().filter(
         timestamp__gte=now - 60 * 60 * 1000
     )
     return render(

@@ -8,28 +8,15 @@ import logging
 logger = logging.getLogger("radarlivre.debug")
 
 
-# Filtro responsável por pegar apenas as aeronaves mais recentes
-class AirplaneInfoAtualFilter(BaseFilterBackend):
+# Filtro responsável por pegar apenas os itens mais recentes
+class MaxUpdateDelayFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
 
         # Pega o timestamp atual em milisegundos
         now = int((time.time()) * 1000)
         # Valor padrão o intervalo: 1 min
-        maxUpdateDelay = parseParam(request, "max_update_delay", 60 * 1000)
+        maxUpdateDelay = parseParam(request, "max_update_delay", 5 * 60 * 1000)
         return queryset.filter(timestamp__gte = (now - maxUpdateDelay))
-
-
-# Filtro responsável por pegar apenas os contribuintes mais recentes
-class ContribAtualFilter(BaseFilterBackend):
-    def filter_queryset(self, request, queryset, view):
-
-        # Pega o timestamp atual em milisegundos
-        now = int((time.time()) * 1000)
-        # Valor padrão o intervalo: 1 min
-        maxUpdateDelay = parseParam(request, "max_update_delay", 3600 * 1000)
-        
-        return queryset.filter(timestamp__gte = (now - maxUpdateDelay))
-
 
 
 # Filtro responsável por pegar apenas as observações do vôo atual da aeronave
@@ -38,8 +25,6 @@ class ObservationFlightFilter(BaseFilterBackend):
 
         # 1 hora
         flightInterval = 3600 * 1000
-        # 1 dia
-        baseFlightInterval = 24 * 3600 * 1000
         
         objects = queryset.order_by('timestamp')
         objectsFiltered = []

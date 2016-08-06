@@ -4,7 +4,7 @@ MAP_LOADED = false;
 var DataType = {
     AIRPLANE: "AIRPLANE", 
     ROUTE: "ROUTE", 
-    CONTRIB: "CONTRIB"
+    COLLECTOR: "COLLECTOR"
 };
 
 componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
@@ -52,16 +52,16 @@ function initMap() {
         
     }
     
-    var getContrib = function() {
-        if(radarlivre_updater.doBeginConnection(DataType.CONTRIB)) {
+    var getCollectors = function() {
+        if(radarlivre_updater.doBeginConnection(DataType.COLLECTOR)) {
             // log("Begin get contribs...");
-            radarlivre_api.doGetContribs(
-                null, 
+            radarlivre_api.doGetCollectors(
+                10000000000000000, 
                 function(data) {
-                    radarlivre_updater.doEndConnection(DataType.CONTRIB, data);
+                    radarlivre_updater.doEndConnection(DataType.COLLECTOR, data);
                 }, 
                 function(error) {
-                    radarlivre_updater.doCancelConnection(DataType.CONTRIB);
+                    radarlivre_updater.doCancelConnection(DataType.COLLECTOR);
                     log("Get contrib error: " + error);
                 }
             );
@@ -99,7 +99,7 @@ function initMap() {
         log("Updating...");
         
         getAirplanes();
-        getContrib();
+        getCollectors();
         getRoute();
     }
     
@@ -116,7 +116,7 @@ function initMap() {
                     icon: createIcon("M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z", "#000", o.angle, 10, 10)
                 });
             }
-        } else if(connectionType == DataType.CONTRIB) {
+        } else if(connectionType == DataType.COLLECTOR) {
             for(o of objects) {
                 maps_api.doSetMarker({
                     id: o.id, 
@@ -163,7 +163,7 @@ function initMap() {
                     icon: createIcon("M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z", "#000", o.angle, 10, 10)
                 });
             }
-        } else if(connectionType == DataType.CONTRIB) {
+        } else if(connectionType == DataType.COLLECTOR) {
             for(o of objects) {
                 maps_api.doSetMarker({
                     id: o.id, 
@@ -222,6 +222,7 @@ function initMap() {
     maps_api.doSetOnInfoWindowCloseListener(function(marker) {
         hideInfo(marker);
         maps_api.doRemovePolyLine(marker);
+        maps_api.doUnselectMarker();
     });
 
     maps_api.doInit("#map", -5.4047339, -39.2927587, 7, function() {
@@ -270,10 +271,15 @@ function showInfoTo(object) {
             $(".rl-map-drawer__lng").text(clear(info.longitude));
             $(".rl-map-drawer__alt").text(clear(info.altitude) + ' ft / ' + clear(parseFloat(parseInt(info.altitude * 30.48))/100) + ' m');
             $(".rl-map-drawer__speed").text(clear(info.horizontalVelocity) + ' knots / ' + clear(parseFloat(parseInt(info.horizontalVelocity * 185.2))/100) + ' km/h');
-        } else if(dataType == DataType.CONTRIB) {  
+        } else if(dataType == DataType.COLLECTOR) {  
             maps_api.doShowMarkerInfo(
                 marker,
-                "<span><strong>Coletor: " + data.ip + "</strong></span><br><span>Enviou informações " + timestampToDate(data.timestamp) + "</span>"
+                "<span>" +
+                	"<strong>Usuário " + data.user.first_name + " " + data.user.last_name + "</strong>" +
+    			"</span><br>" +
+    			"<span>" +
+    				"Enviou informações " + timestampToDate(data.timestampData) +
+				"</span>"
             );
         }
 

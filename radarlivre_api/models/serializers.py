@@ -1,9 +1,26 @@
 # -*- coding:utf-8 -*-
 
-from rest_framework.serializers import ModelSerializer
-from radarlivre_api.models import Airplane, Airport, Flight, Observation, ADSBMessage,\
-    AirplaneInfo, HalfObservation, About, Notify, Contrib
+from django.contrib.auth.models import User
 from rest_framework.fields import ImageField
+from rest_framework.serializers import ModelSerializer
+
+from radarlivre_api.models import Airplane, Airport, Flight, Observation, \
+    AirplaneInfo, About, Notify, Collector
+from rest_framework import serializers
+
+
+class UserSerializer(ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email')
+
+class CollectorSerializer(ModelSerializer):
+    user = UserSerializer(read_only=True)
+    id = serializers.UUIDField(format='hex_verbose', write_only=True)
+    class Meta:
+        model = Collector
+        fields = '__all__'
 
 class AirplaneSerializer(ModelSerializer):
     class Meta:
@@ -24,20 +41,10 @@ class FlightSerializer(ModelSerializer):
     class Meta:
         model = Flight
         fields = '__all__'
-        
+         
 class ObservationSerializer(ModelSerializer):
     class Meta:
         model = Observation
-        fields = '__all__'
-        
-class HalfObservationSerializer(ModelSerializer):
-    class Meta:
-        model = HalfObservation
-        fields = '__all__'
-        
-class ADSBMessageSerializer(ModelSerializer):
-    class Meta:
-        model = ADSBMessage 
         fields = '__all__'
         
 class AboutSerializer(ModelSerializer):
@@ -51,9 +58,4 @@ class AboutSerializer(ModelSerializer):
 class NotifySerializer(ModelSerializer):
     class Meta:
         model = Notify 
-        fields = '__all__'
-
-class ContribSerializer(ModelSerializer):
-    class Meta:
-        model = Contrib
         fields = '__all__'
