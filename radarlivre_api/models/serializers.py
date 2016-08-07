@@ -43,10 +43,11 @@ class FlightSerializer(ModelSerializer):
         fields = '__all__'
          
 class ObservationSerializer(ModelSerializer):
+
     class Meta:
         model = Observation
         fields = '__all__'
-        
+
 class AboutSerializer(ModelSerializer):
     smallImage = ImageField()
     mediumImage = ImageField()

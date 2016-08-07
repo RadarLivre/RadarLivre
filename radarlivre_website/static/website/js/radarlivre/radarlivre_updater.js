@@ -2,16 +2,33 @@
 var radarlivre_updater = function() {
     
     var _ConnectionState = {
-        RUNNING: 0, 
-        STOPED: 1
+        CREATED: 0, 
+        RUNNING: 1,
+        FINISHED: 2
     }
     
+    var _connectionSerial = 0
     var _connectionSet = {}
     
     var _currentObjects = []
     var _onObjectsCreated = function(objects, conn) {}
     var _onObjectsUpdated = function(objects, conn) {}
     var _onObjectsRemoved = function(objects, conn) {}
+    
+    var _execConnection = function() {
+        for(k in _connectionSet) {
+            if(_connectionSet[k]._connections.length > 0) {
+                var conn = _connectionSet[k]._connections[0];
+                if(conn.state === _ConnectionState.CREATED) {
+                    conn.state = _ConnectionState.RUNNING;
+                    conn.func(conn.id);
+                } else if (conn.state === _ConnectionState.FINISHED) {
+                    _connectionSet[k]._connections.splice(0, 1);
+                }
+            }
+            
+        }
+    }
     
     var _getObject = function(dataType, id) {
         return _currentObjects.filter(function(o) {
@@ -37,76 +54,95 @@ var radarlivre_updater = function() {
             _removeObject(o);
     }
     
-    var _getConnection = function(connectionType) {
-        if(!_connectionSet[connectionType]) {
-            _connectionSet[connectionType] = {
-                requestTimestamp: 0, 
-                state: _ConnectionState.STOPED, 
-                responseTimestamp: 0
+    var _getConnection = function(connId, connectionType) {
+        if(_connectionSet[connectionType]) {
+            for(k in _connectionSet[connectionType]._connections) {
+                if(_connectionSet[connectionType]._connections[k].id = connId)
+                    return _connectionSet[connectionType]._connections[k];
             }
         }
-        return _connectionSet[connectionType];
+        
+        return null;
     }
     
-    var _beginConnection = function(connectionType) {
-        var conn = _getConnection(connectionType);
-        if(conn.state === _ConnectionState.STOPED) {
-            conn.requestTimestamp = new Date().getTime();
-            conn.state = _ConnectionState.RUNNING;
-            return true;
-        } 
-        return false;
+    var _createConnection = function(connectionType) {
+        var conn = {
+            id: _connectionSerial++, 
+            requestTimestamp: 0, 
+            responseTimestamp: 0, 
+            state: _ConnectionState.CREATED
+        }
+        
+        if(!_connectionSet[connectionType])
+            _connectionSet[connectionType] = []
+            
+        if(!_connectionSet[connectionType]._connections)
+            _connectionSet[connectionType]["_connections"] = [];
+        
+        _connectionSet[connectionType]._connections.push(conn);
+        return conn;
     }
     
-    var _endConnection = function(connectionType, data, attrId) {
+    var _beginConnection = function(connectionType, connFunc) {
+        var conn = _createConnection(connectionType);
+        conn["func"] = connFunc;
+    }
+    
+    var _endConnection = function(id, connectionType, data, attrId) {
         if(!attrId)
             attrId = "id";
-        var conn = _getConnection(connectionType);
-        conn.state = _ConnectionState.STOPED;
-        conn.responseTimestamp = new Date().getTime();
-        
-        var created = []
-        var updated = []
-        var removed = []
-        for(o of data) {
-            old = _getObject(connectionType, o[attrId]);
-            if(old) {
-                old.data = o;
-                old.timestamp = conn.responseTimestamp;
-                updated.push(o);
-            } else {
-                _addObject({
-                    dataType: connectionType, 
-                    id: o[attrId], 
-                    data: o, 
-                    timestamp: conn.responseTimestamp
-                });
-                created.push(o);
+        var conn = _getConnection(id, connectionType);
+        if(conn) {
+            conn.state = _ConnectionState.FINISHED;
+            conn.responseTimestamp = new Date().getTime();
+
+            var created = []
+            var updated = []
+            var removed = []
+            for(o of data) {
+                old = _getObject(connectionType, o[attrId]);
+                if(old) {
+                    old.data = o;
+                    old.timestamp = conn.responseTimestamp;
+                    updated.push(o);
+                } else {
+                    _addObject({
+                        dataType: connectionType, 
+                        id: o[attrId], 
+                        data: o, 
+                        timestamp: conn.responseTimestamp
+                    });
+                    created.push(o);
+                }
             }
+
+            removed = _currentObjects.filter(function(o) {
+                return o.dataType === connectionType && o.timestamp < conn.responseTimestamp;
+            }).map(function(o) {
+                return o.data;
+            });
+
+            _onObjectsCreated(created, connectionType, conn);
+            _onObjectsUpdated(updated, connectionType, conn);
+            _onObjectsRemoved(removed, connectionType, conn);
+
+            _removeObjects(removed);
+        } else {
+            log("Can't end connection: " + connectionType);
         }
-        
-        removed = _currentObjects.filter(function(o) {
-            return o.dataType === connectionType && o.timestamp < conn.responseTimestamp;
-        }).map(function(o) {
-            return o.data;
-        });
-        
-        _onObjectsCreated(created, connectionType, conn);
-        _onObjectsUpdated(updated, connectionType, conn);
-        _onObjectsRemoved(removed, connectionType, conn);
-        
-        _removeObjects(removed);
     }
     
     var _cancelConnection = function(connectionType) {
         var conn = _getConnection(connectionType);
-        conn.state = _ConnectionState.STOPED;
+        conn.state = _ConnectionState.FINISHED;
         conn.responseTimestamp = new Date().getTime();
     }
     
     return {
         doInit : function() {
-            
+            setInterval(function() {
+                _execConnection();
+            }, 100);
         }, 
         
         doGetObject : function(dataType, id) {
@@ -129,16 +165,16 @@ var radarlivre_updater = function() {
             _onObjectsRemoved = litener;
         },
         
-        doBeginConnection : function(connectionType) {
-            return _beginConnection(connectionType);
+        doBeginConnection : function(connectionType, connFunc) {
+            return _beginConnection(connectionType, connFunc);
         }, 
         
-        doEndConnection : function(connectionType, data, attrId) {
-            _endConnection(connectionType, data, attrId);
+        doEndConnection : function(connId, connectionType, data, attrId) {
+            _endConnection(connId, connectionType, data, attrId);
         }, 
         
-        doCancelConnection : function(connectionType) {
-            _cancelConnection(connectionType);
+        doCancelConnection : function(connId, connectionType) {
+            _cancelConnection(connId, connectionType);
         }
         
     }

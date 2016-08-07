@@ -15,6 +15,9 @@ var maps_api = function() {
     var _onMarkerUnselectedListener = function(m) {};
     var _onInfoClosedListener = function(m) {};
     
+    var _onBoundsChangedListener = function(b) {}
+    var _onZoomChangedListener = function(b) {}
+    
     var _setMarker = function(setts) {
         var marker = _getMarkerById(setts.id);
         if(marker) {
@@ -216,6 +219,15 @@ var maps_api = function() {
                 _isMapLoaded = true;
             });
             
+            _map.addListener('bounds_changed', function() {
+				_onBoundsChangedListener(_map.getBounds());
+			});
+            
+            _map.addListener('zoom_changed', function() {
+				_onZoomChangedListener(_map.getZoom());
+			});
+            
+            
         }, 
         
         doInitMapSearchBox : function(searchInputElement) {
@@ -337,7 +349,16 @@ var maps_api = function() {
         
         doSetOnInfoWindowCloseListener : function(listener) {
             _onInfoClosedListener = listener;
+        }, 
+        
+        doSetOnMapBoundsChangeListener : function(listener) {
+            _onBoundsChangedListener = listener;
+        }, 
+        
+        doSetOnMapZoomChangeListener : function(listener) {
+            _onZoomChangedListener = listener;
         }
+
 
 	};
 

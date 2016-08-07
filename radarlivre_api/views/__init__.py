@@ -18,7 +18,7 @@ from radarlivre_api.models.serializers import AirplaneSerializer, AirportSeriali
 from radarlivre_api.utils import airline_info
 from radarlivre_api.views.filters import ObservationPrecisionFilter, \
     ObservationFlightFilter, MapBoundsFilter, \
-    ObservationLastTimestampFilter, MaxUpdateDelayFilter
+    ObservationLastTimestampFilter, MaxUpdateDelayFilter, AirportTypeZoomFilter
 from django.http.response import Http404
 from time import time
 
@@ -30,7 +30,7 @@ class CollectorList(ListCreateAPIView):
     queryset = Collector.objects.all()
     serializer_class = CollectorSerializer
     filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter)
-    permission_classes = (permissions.DjangoModelPermissions,)
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     
 
 class CollectorDetail(APIView):
@@ -56,7 +56,7 @@ class CollectorDetail(APIView):
 class AirplaneList(ListCreateAPIView):
     queryset = Airplane.objects.all()
     serializer_class = AirplaneSerializer
-    permission_classes = (permissions.DjangoModelPermissions,)
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     
 class AirplaneDetail(RetrieveUpdateDestroyAPIView):
     queryset = Airplane.objects.all()
@@ -69,7 +69,7 @@ class AirplaneInfoList(ListCreateAPIView):
     serializer_class = AirplaneInfoSerializer
     filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter, MapBoundsFilter)
     filter_fields = ('airplane', 'flight')
-    permission_classes = (permissions.DjangoModelPermissions,)
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     
 class AirplaneInfoDetail(RetrieveUpdateDestroyAPIView):
     queryset = AirplaneInfo.objects.all()
@@ -80,9 +80,9 @@ class AirplaneInfoDetail(RetrieveUpdateDestroyAPIView):
 class AirportList(ListCreateAPIView):
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
-    filter_backends = (DjangoFilterBackend, )
-    filter_fields = ('prefix', 'name', 'country', 'state', 'city', 'latitude', 'longitude', 'altitude')
-    permission_classes = (permissions.DjangoModelPermissions,)
+    filter_backends = (DjangoFilterBackend, MapBoundsFilter, AirportTypeZoomFilter)
+    filter_fields = ('prefix', 'name', 'country', 'state', 'city', 'latitude', 'longitude', 'type')
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     
 class AirportDetail(RetrieveUpdateDestroyAPIView):
     queryset = Airport.objects.all()
@@ -95,7 +95,7 @@ class FlightList(ListCreateAPIView):
     serializer_class = FlightSerializer
     filter_backends = (DjangoFilterBackend, )
     filter_fields = ('airplane', 'origin', 'destine')
-    permission_classes = (permissions.DjangoModelPermissions,)
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     
 class FlightDetail(RetrieveUpdateDestroyAPIView):
     queryset = Flight.objects.all()
@@ -103,7 +103,7 @@ class FlightDetail(RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAdminUser,)
 
 
-class ObservationList(ListCreateAPIView):
+class ObservationList(APIView):
     queryset = Observation.objects.all()
     serializer_class = ObservationSerializer
     filter_backends = (
@@ -116,7 +116,51 @@ class ObservationList(ListCreateAPIView):
     
     filter_fields = ('airplane', 'flight')
     ordering_fields = '__all__'
-    permission_classes = (permissions.DjangoModelPermissions,)
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
+
+    def get(self, request, format=None):
+        snippets = Observation.objects.all()
+        serializer = ObservationSerializer(snippets, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = ObservationSerializer(data=request.data)
+
+        # If the airplane or the flight no exists, will be created
+        icao = request.data["airplane"]
+        callsign = request.data["flight"]
+
+        try:
+            Airplane.objects.get(icao=icao)
+        except Airplane.DoesNotExist:
+            airplane = Airplane(icao=icao)
+            airplane.save()
+
+        try:
+            Flight.objects.get(callsign=callsign)
+        except Flight.DoesNotExist:
+            flight = Flight(callsign=callsign)
+            flight.save()
+
+        if serializer.is_valid():
+            observation = serializer.save()
+
+            # Updating timestamp to the server time
+            delay = observation.timestampSent - observation.timestamp
+            observation.timestamp = int(time()* 1000) - delay
+            observation.timestampSent = observation.timestamp
+
+            # Set a correct longitude
+            if observation.longitude > 180:
+                observation.longitude -= 360
+            observation.save()
+
+            observation.generateAirplaneInfo()
+
+            observation.collector.timestampData = observation.timestamp
+            observation.collector.save()
+
+        return Response(serializer.data)
     
 class ObservationDetail(RetrieveUpdateDestroyAPIView):
     queryset = Observation.objects.all()
@@ -127,7 +171,7 @@ class ObservationDetail(RetrieveUpdateDestroyAPIView):
 class AboutList(ListCreateAPIView):
     queryset = About.objects.all()
     serializer_class = AboutSerializer
-    permission_classes = (permissions.DjangoModelPermissions, )
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly, )
     
 class AboutDetail(RetrieveUpdateDestroyAPIView):
     queryset = About.objects.all()
@@ -138,7 +182,7 @@ class AboutDetail(RetrieveUpdateDestroyAPIView):
 class NotifyList(ListCreateAPIView):
     queryset = Notify.objects.all()
     serializer_class = NotifySerializer
-    permission_classes = (permissions.DjangoModelPermissions,)
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     
 class NotifyDetail(RetrieveUpdateDestroyAPIView):
     queryset = Notify.objects.all()

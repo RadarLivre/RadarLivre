@@ -99,32 +99,28 @@ class MapBoundsFilter(BaseFilterBackend):
         leftLng = parseParam(request, "left", -180);
         rightLng = parseParam(request, "right", 180);
 
-        infos = queryset.all()
-
-        for info in infos:
-            if info.longitude > 180:
-                info.longitude -= 360
-            info.save() 
-        
-        if bottomLat < -90:
-            bottomLat = -90
-        
-        if topLat > 90:
-            topLat = 90
-            
-        if leftLng < -180:
-            leftLng = -180
-            
-        if rightLng > 180:
-            rightLng = 180
-        
-        infos = queryset\
+        return queryset\
             .filter(latitude__gte = bottomLat)\
             .filter(latitude__lte = topLat)\
             .filter(longitude__gte = leftLng)\
             .filter(longitude__lte = rightLng)
-        
-        return infos;
+
+class AirportTypeZoomFilter(BaseFilterBackend):
+
+    def filter_queryset(self, request, queryset, view):
+
+        zoom = parseParam(request, "zoom", 0)
+
+        if zoom <= 4:
+            return queryset.none()
+        elif zoom <= 5:
+            return queryset.filter(type__in=["large_airport"])
+        elif zoom <= 12:
+            return queryset.filter(type__in=["large_airport", "medium_airport"])
+        elif zoom <= 14: 
+            return queryset.filter(type__in=["large_airport", "medium_airport", "small_airport"])
+        else:
+            return queryset
     
     
 def parseParam(request, param, defaultValue):

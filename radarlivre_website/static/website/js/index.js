@@ -4,7 +4,8 @@ MAP_LOADED = false;
 var DataType = {
     AIRPLANE: "AIRPLANE", 
     ROUTE: "ROUTE", 
-    COLLECTOR: "COLLECTOR"
+    COLLECTOR: "COLLECTOR", 
+    AIRPORT: "AIRPORT"
 };
 
 componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
@@ -27,71 +28,95 @@ function initMap() {
     initColors(routeColors);
     
     var getAirplanes = function() {
-        if(radarlivre_updater.doBeginConnection(DataType.AIRPLANE)) {
-            // log("Begin get airplanes...");
-            var map = maps_api.getMap();
-            var mapsBounds = {
-                top: map.getBounds().getNorthEast().lat(), 
-                bottom: map.getBounds().getSouthWest().lat(), 
-                left: map.getBounds().getSouthWest().lng(), 
-                right: map.getBounds().getNorthEast().lng()
-            };
-            radarlivre_api.doGetAirplaneInfos(
-                null, mapsBounds, 
-                function(data) {
-                    radarlivre_updater.doEndConnection(DataType.AIRPLANE, data, "airplane");
-                }, 
-                function(error) {
-                    radarlivre_updater.doCancelConnection(DataType.AIRPLANE);
-                    log("Get airplanes error: " + error);
-                }
-            );
-        } else {
-            log("Can't get airplanes. Request already sended!");
-        }
+        radarlivre_updater.doBeginConnection(DataType.AIRPLANE,
+            function(connId) {
+                // log("Begin get airplanes...");
+                var map = maps_api.getMap();
+                var mapsBounds = {
+                    top: map.getBounds().getNorthEast().lat(), 
+                    bottom: map.getBounds().getSouthWest().lat(), 
+                    left: map.getBounds().getSouthWest().lng(), 
+                    right: map.getBounds().getNorthEast().lng()
+                };
+                radarlivre_api.doGetAirplaneInfos(
+                    null, mapsBounds, 
+                    function(data) {
+                        radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE, data, "airplane");
+                    }, 
+                    function(error) {
+                        radarlivre_updater.doCancelConnection(connId, DataType.AIRPLANE);
+                        log("Get airplanes error: " + error);
+                    }
+                );
+            }
+        );
+    }
+    
+    var getAirports = function() {
+        radarlivre_updater.doBeginConnection(DataType.AIRPORT,
+           function(connId) {
+                var map = maps_api.getMap();
+                var mapsBounds = {
+                    top: map.getBounds().getNorthEast().lat(), 
+                    bottom: map.getBounds().getSouthWest().lat(), 
+                    left: map.getBounds().getSouthWest().lng(), 
+                    right: map.getBounds().getNorthEast().lng()
+                };
+                var zoom = map.getZoom();
+                log("Begin get airports: " + zoom);
+                radarlivre_api.doGetAirports(
+                    zoom, mapsBounds, 
+                    function(data) {
+                        radarlivre_updater.doEndConnection(connId, DataType.AIRPORT, data, "prefix");
+                    }, 
+                    function(error) {
+                        radarlivre_updater.doCancelConnection(connId, DataType.AIRPORT);
+                        log("Get airport error: " + error);
+                    }
+                );
+            }
+        );
         
     }
     
     var getCollectors = function() {
-        if(radarlivre_updater.doBeginConnection(DataType.COLLECTOR)) {
-            // log("Begin get contribs...");
-            radarlivre_api.doGetCollectors(
-                10000000000000000, 
-                function(data) {
-                    radarlivre_updater.doEndConnection(DataType.COLLECTOR, data);
-                }, 
-                function(error) {
-                    radarlivre_updater.doCancelConnection(DataType.COLLECTOR);
-                    log("Get contrib error: " + error);
-                }
-            );
-        } else {
-            log("Can't get contrib. Request already sended!");
-        }
-        
+        radarlivre_updater.doBeginConnection(DataType.COLLECTOR,
+            function(connId) {
+                // log("Begin get contribs...");
+                radarlivre_api.doGetCollectors(
+                    null,
+                    function(data) {
+                        radarlivre_updater.doEndConnection(connId, DataType.COLLECTOR, data);
+                    }, 
+                    function(error) {
+                        radarlivre_updater.doCancelConnection(connId, DataType.COLLECTOR);
+                        log("Get contrib error: " + error);
+                    }
+                );
+            }
+        );        
     }
     
     var getRoute = function() {
         var marker = maps_api.getSelectedMarker();
-        if(marker && marker.dataType === DataType.AIRPLANE) {
-            if(radarlivre_updater.doBeginConnection(DataType.ROUTE)) {
-                // log("Begin get route to: " + marker.id);
-                radarlivre_api.doGetAirplaneRoute(
-                    marker.id, 
-                    null, 
-                    function(data) {
-                        radarlivre_updater.doEndConnection(DataType.ROUTE, data);
-                    }, 
-                    function(error) {
-                        radarlivre_updater.doCancelConnection(DataType.ROUTE);
-                        log("Get route error: " + error);
-                    }
-                );
-                
-            } else {
-                log("Can't get route. Request already sended!");
-            }
-        }
+        if(marker && marker.dataType === DataType.AIRPLANE, function() {
+            radarlivre_updater.doBeginConnection(DataType.ROUTE,
+                function(connId) {
+                    // log("Begin get route to: " + marker.id);
+                    radarlivre_api.doGetAirplaneRoute(
+                        marker.id, 
+                        null, 
+                        function(data) {
+                            radarlivre_updater.doEndConnection(connId, DataType.ROUTE, data);
+                        }, 
+                        function(error) {
+                            radarlivre_updater.doCancelConnection(connId, DataType.ROUTE);
+                            log("Get route error: " + error);
+                        }
+                    );
+                }
+            );
+        });
     }
     
     
@@ -145,6 +170,17 @@ function initMap() {
                     }
                 }
             }
+        } else if(connectionType == DataType.AIRPORT) {
+            log("Creating airports: " + objects.length);
+            for(o of objects) {
+                maps_api.doSetMarker({
+                    id: o.prefix, 
+                    dataType: connectionType, 
+                    data: o, 
+                    position: new google.maps.LatLng(o.latitude, o.longitude), 
+                    icon: createIcon("M12 5c-3.87 0-7 3.13-7 7h2c0-2.76 2.24-5 5-5s5 2.24 5 5h2c0-3.87-3.13-7-7-7zm1 9.29c.88-.39 1.5-1.26 1.5-2.29 0-1.38-1.12-2.5-2.5-2.5S9.5 10.62 9.5 12c0 1.02.62 1.9 1.5 2.29v3.3L7.59 21 9 22.41l3-3 3 3L16.41 21 13 17.59v-3.3zM12 1C5.93 1 1 5.93 1 12h2c0-4.97 4.03-9 9-9s9 4.03 9 9h2c0-6.07-4.93-11-11-11z", "#00f", 0, 10, 10)
+                });
+            }
         }
     });
     
@@ -192,6 +228,17 @@ function initMap() {
                     }
                 }
             }
+        } else if(connectionType == DataType.AIRPORT) {
+            log("Updating airports: " + objects.length);
+            for(o of objects) {
+                maps_api.doSetMarker({
+                    id: o.prefix, 
+                    dataType: connectionType, 
+                    data: o, 
+                    position: new google.maps.LatLng(o.latitude, o.longitude), 
+                    icon: createIcon("M12 5c-3.87 0-7 3.13-7 7h2c0-2.76 2.24-5 5-5s5 2.24 5 5h2c0-3.87-3.13-7-7-7zm1 9.29c.88-.39 1.5-1.26 1.5-2.29 0-1.38-1.12-2.5-2.5-2.5S9.5 10.62 9.5 12c0 1.02.62 1.9 1.5 2.29v3.3L7.59 21 9 22.41l3-3 3 3L16.41 21 13 17.59v-3.3zM12 1C5.93 1 1 5.93 1 12h2c0-4.97 4.03-9 9-9s9 4.03 9 9h2c0-6.07-4.93-11-11-11z", "#00f", 0, 10, 10)
+                });
+            }
         }
     });
     
@@ -201,6 +248,11 @@ function initMap() {
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
                 maps_api.doRemoveMarker( maps_api.getMarker(o.airplane) );
+            }
+        } else if(connectionType == DataType.AIRPORT) {
+            log("Removing airports: " + objects.length);
+            for(o of objects) {
+                maps_api.doRemoveMarker( maps_api.getMarker(o.prefix) );
             }
         } else {
             for(o of objects) {
@@ -224,11 +276,22 @@ function initMap() {
         maps_api.doRemovePolyLine(marker);
         maps_api.doUnselectMarker();
     });
+    
+    maps_api.doSetOnMapZoomChangeListener(function() {
+        getAirports();
+    });
+    
+    maps_api.doSetOnMapBoundsChangeListener(function() {
+        getAirports();
+    });
 
     maps_api.doInit("#map", -5.4047339, -39.2927587, 7, function() {
         update();
+        getAirports();
         setInterval(update, 5000);
     });
+    
+    radarlivre_updater.doInit();
 
 }
 
@@ -259,6 +322,10 @@ function showInfoTo(object) {
             return text? text: "--";
         }
 
+        var formateNumber = function(n) {
+            return parseFloat(parseInt(n*100))/100;
+        }
+
         if(dataType == DataType.AIRPLANE) {  
             var info = data;
             $(".rl-map-drawer").addClass("is-visible");
@@ -267,10 +334,10 @@ function showInfoTo(object) {
             $(".rl-map-drawer__subtitle").text(clear(info.airline) + " - " + clear(info.airlineCountry));
 
             $(".rl-map-drawer__date").text("Atualizado " + clear(timestampToDate(info.timestamp)));
-            $(".rl-map-drawer__lat").text(clear(info.latitude));
-            $(".rl-map-drawer__lng").text(clear(info.longitude));
-            $(".rl-map-drawer__alt").text(clear(info.altitude) + ' ft / ' + clear(parseFloat(parseInt(info.altitude * 30.48))/100) + ' m');
-            $(".rl-map-drawer__speed").text(clear(info.horizontalVelocity) + ' knots / ' + clear(parseFloat(parseInt(info.horizontalVelocity * 185.2))/100) + ' km/h');
+            $(".rl-map-drawer__lat").text(clear(formateNumber(info.latitude)));
+            $(".rl-map-drawer__lng").text(clear(formateNumber(info.longitude)));
+            $(".rl-map-drawer__alt").text(clear(formateNumber(info.altitude)) + ' ft / ' + clear(parseFloat(parseInt(info.altitude * 30.48))/100) + ' m');
+            $(".rl-map-drawer__speed").text(clear(formateNumber(info.horizontalVelocity)) + ' knots / ' + clear(parseFloat(parseInt(info.horizontalVelocity * 185.2))/100) + ' km/h');
         } else if(dataType == DataType.COLLECTOR) {  
             maps_api.doShowMarkerInfo(
                 marker,

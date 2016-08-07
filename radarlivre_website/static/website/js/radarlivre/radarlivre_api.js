@@ -56,7 +56,24 @@ var radarlivre_api = function() {
             }, function() {
 
             });
-        }, 
+        },
+        
+        doGetAirports : function(zoom, mapBounds, onReceived, onFailed) {
+            mapBounds = mapBounds === null? {}: mapBounds;
+            getJSON(baseURL + "airport/", {
+                zoom: zoom, 
+                top: mapBounds.top, 
+                bottom: mapBounds.bottom, 
+                left: mapBounds.left, 
+                right: mapBounds.right
+            }, function(data) {
+                onReceived(data);
+            }, function(error) {
+                onFailed(error);
+            }, function() {
+
+            });
+        },
         
         doGetAirplaneRoute : function(airplane, interval, onReceived, onFailed) {
             getJSON(baseURL + "observation/", {
