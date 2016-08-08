@@ -113,11 +113,11 @@ class AirportTypeZoomFilter(BaseFilterBackend):
 
         if zoom <= 4:
             return queryset.none()
-        elif zoom <= 5:
+        elif zoom <= 7:
             return queryset.filter(type__in=["large_airport"])
-        elif zoom <= 12:
+        elif zoom <= 10:
             return queryset.filter(type__in=["large_airport", "medium_airport"])
-        elif zoom <= 14: 
+        elif zoom <= 13: 
             return queryset.filter(type__in=["large_airport", "medium_airport", "small_airport"])
         else:
             return queryset

@@ -68,7 +68,10 @@ var maps_api = function() {
     }
     
     var _onMarkerClicked = function(marker) {
-        _selectMarker(marker);
+        if(marker && _lastClickedMarker && _lastClickedMarker.id === marker.id) 
+            _unselectMarker(marker)
+        else
+            _selectMarker(marker);
     }
 
     var _selectMarker = function(marker) {
@@ -189,6 +192,14 @@ var maps_api = function() {
                     "elementType": "geometry.fill",
                     "stylers": [
                         { "color": "#90A4AE" }
+                    ]
+                }, {
+                    "featureType": "transit.station.airport",
+                    "elementType": "all",
+                    "stylers": [
+                        { 
+                            "visibility": "off"
+                        }
                     ]
                 }
             ]

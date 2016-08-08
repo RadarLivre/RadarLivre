@@ -57,8 +57,9 @@ var radarlivre_updater = function() {
     var _getConnection = function(connId, connectionType) {
         if(_connectionSet[connectionType]) {
             for(k in _connectionSet[connectionType]._connections) {
-                if(_connectionSet[connectionType]._connections[k].id = connId)
+                if(_connectionSet[connectionType]._connections[k].id === connId) {
                     return _connectionSet[connectionType]._connections[k];
+                }
             }
         }
         
@@ -74,7 +75,7 @@ var radarlivre_updater = function() {
         }
         
         if(!_connectionSet[connectionType])
-            _connectionSet[connectionType] = []
+            _connectionSet[connectionType] = {}
             
         if(!_connectionSet[connectionType]._connections)
             _connectionSet[connectionType]["_connections"] = [];

@@ -5,7 +5,7 @@ from rest_framework.fields import ImageField
 from rest_framework.serializers import ModelSerializer
 
 from radarlivre_api.models import Airplane, Airport, Flight, Observation, \
-    AirplaneInfo, About, Notify, Collector
+    AirplaneInfo, About, Notify, Collector, Airline, ADSBInfo
 from rest_framework import serializers
 
 
@@ -22,26 +22,32 @@ class CollectorSerializer(ModelSerializer):
         model = Collector
         fields = '__all__'
 
-class AirplaneSerializer(ModelSerializer):
+class AirlineSerializer(ModelSerializer):
     class Meta:
-        model = Airplane
+        model = Airline
         fields = '__all__'
         
 class AirplaneInfoSerializer(ModelSerializer):
     class Meta:
         model = AirplaneInfo
         fields = '__all__'
-        
-class AirportSerializer(ModelSerializer):
-    class Meta:
-        model = Airport
-        fields = '__all__'
-        
+
 class FlightSerializer(ModelSerializer):
     class Meta:
         model = Flight
         fields = '__all__'
-         
+
+class AirportSerializer(ModelSerializer):
+    class Meta:
+        model = Airport
+        fields = '__all__'
+
+class ADSBInfoSerializer(ModelSerializer):
+
+    class Meta:
+        model = ADSBInfo
+        fields = '__all__'
+
 class ObservationSerializer(ModelSerializer):
 
     class Meta:

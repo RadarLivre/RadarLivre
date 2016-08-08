@@ -938,21 +938,41 @@ AIRLINES = [
     ["HB", "AAQ", "Asia Atlantic Airlines", "Thailand"] 
 ]
 
-def identifyAirLineInformation(airCode):
-    if airCode:
-        icaoAirCode = airCode[:3]
-        numAirCode =  airCode[3:7]
-        nomeLinhaAerea = ""
-        icaoRotaVoo = ""
-        paisLinhaAerea = ""
+def identifyAirLineInformation(airplaneCallsign):
+    if airplaneCallsign:
+        airlineCode = airplaneCallsign[:3]
+        flightNumber = airplaneCallsign[3:7]
         
         for i in range(0, len(AIRLINES)):
-            if icaoAirCode == AIRLINES[i][1]:
+            if airlineCode == AIRLINES[i][1]:
                 nomeLinhaAerea = AIRLINES[i][2];
-                icaoRotaVoo =  AIRLINES[i][0] + numAirCode;
+                icaoRotaVoo =  AIRLINES[i][0] + flightNumber;
                 paisLinhaAerea = AIRLINES[i][3];
                 
                 retorno = {"flight": icaoRotaVoo, "airline": nomeLinhaAerea, "country": paisLinhaAerea};
                 return retorno;
         
     return None;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
