@@ -3,21 +3,21 @@
 import logging
 from time import time
 
+from django.db.models.aggregates import Max
 from django.http.response import Http404
-from rest_framework import permissions
+from rest_framework import permissions, status
 from rest_framework.filters import DjangoFilterBackend, OrderingFilter
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from radarlivre_api.models import Airport, Flight, Observation, About, Notify, Collector, Airline, ADSBInfo
+from radarlivre_api.models import Airport, Flight, Observation, About, Notify, Collector, Airline, ADSBInfo, FlightInfo
 from radarlivre_api.models.serializers import AirportSerializer, FlightSerializer, ObservationSerializer,  \
     AboutSerializer, NotifySerializer, CollectorSerializer, \
-    AirlineSerializer, ADSBInfoSerializer
+    AirlineSerializer, ADSBInfoSerializer, FlightInfoSerializer
 from radarlivre_api.views.filters import ObservationPrecisionFilter, \
     ObservationFlightFilter, MapBoundsFilter, \
-    ObservationLastTimestampFilter, MaxUpdateDelayFilter, AirportTypeZoomFilter
-
+    MaxUpdateDelayFilter, AirportTypeZoomFilter, FlightFilter
 
 logger = logging.getLogger("radarlivre.log")
 
@@ -64,7 +64,7 @@ class AirportList(ListCreateAPIView):
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
     filter_backends = (DjangoFilterBackend, MapBoundsFilter, AirportTypeZoomFilter)
-    filter_fields = ('prefix', 'name', 'country', 'state', 'city', 'latitude', 'longitude', 'type')
+    filter_fields = ('code', 'name', 'country', 'state', 'city', 'latitude', 'longitude', 'type')
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     
 class AirportDetail(RetrieveUpdateDestroyAPIView):
@@ -73,13 +73,22 @@ class AirportDetail(RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAdminUser,)
 
 
-class FlightList(ListCreateAPIView):
+class FlightList(ListAPIView):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
-    filter_backends = (DjangoFilterBackend, )
-    filter_fields = ('airline', 'origin', 'destine')
+    filter_backends = (DjangoFilterBackend, FlightFilter)
+    filter_fields = ('code', 'airline')
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
-    
+
+
+class FlightInfoList(ListAPIView):
+    queryset = FlightInfo.objects.all()
+    serializer_class = FlightInfoSerializer
+    filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter)
+    filter_fields = ('airline',)
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
+
+
 class FlightDetail(RetrieveUpdateDestroyAPIView):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
@@ -90,14 +99,10 @@ class ADSBInfoList(APIView):
     queryset = ADSBInfo.objects.all()
     serializer_class = ADSBInfoSerializer
     filter_backends = (
-        DjangoFilterBackend,
-        OrderingFilter,   
-        ObservationPrecisionFilter,
-        ObservationFlightFilter, 
-        ObservationLastTimestampFilter
+        DjangoFilterBackend
     )
     
-    filter_fields = ('callsign')
+    filter_fields = ('observation')
     ordering_fields = '__all__'
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
@@ -114,7 +119,8 @@ class ADSBInfoList(APIView):
 
             # Generating a observation based in ADS-B info and updating collector
             # timestamp ...
-            Observation.generateFromADSBInfo(adsbInfo)
+            obs = Observation.generateFromADSBInfo(adsbInfo)
+            FlightInfo.generateFromFlight(obs.flight)
 
         return Response(serializer.data)
     
@@ -127,11 +133,10 @@ class ObservationList(ListCreateAPIView):
         DjangoFilterBackend,
         OrderingFilter,
         ObservationPrecisionFilter,
-        ObservationFlightFilter,
-        ObservationLastTimestampFilter
+        ObservationFlightFilter
     )
 
-    filter_fields = ('callsign')
+    filter_fields = ('flight',)
     ordering_fields = '__all__'
 
 class ObservationDetail(RetrieveUpdateDestroyAPIView):

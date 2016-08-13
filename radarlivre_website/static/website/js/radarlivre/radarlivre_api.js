@@ -11,21 +11,25 @@ var radarlivre_api = function() {
 	var getJSON = function (url, params, callbackSucess, callbackError, callbackFinal) {
         params["format"] = "jsonp";
         
-        $.jsonp({
-            url: url,
-            callbackParameter: "callback", 
-            data: params, 
-            success: function( data ) {
+        try {
+            $.jsonp({
+                url: url,
+                callbackParameter: "callback", 
+                data: params, 
+                success: function( data ) {
 
-                callbackSucess(data);
+                    callbackSucess(data);
 
-            }, 
-            error: function( d, error ) {
+                }, 
+                error: function( d, error ) {
 
-                callbackError(error);
+                    callbackError(error);
 
-            }
-        });
+                }
+            });
+        } catch(error) {
+            callbackError(error);
+        }
 
 	}
 
@@ -43,7 +47,7 @@ var radarlivre_api = function() {
         
         doGetAirplaneInfos : function(maxUpdateDelay, mapBounds, onReceived, onFailed) {
             mapBounds = mapBounds === null? {}: mapBounds;
-            getJSON(baseURL + "airplane_info/", {
+            getJSON(baseURL + "flight_info/", {
                 max_update_delay: maxUpdateDelay, 
                 top: mapBounds.top, 
                 bottom: mapBounds.bottom, 
@@ -75,9 +79,9 @@ var radarlivre_api = function() {
             });
         },
         
-        doGetAirplaneRoute : function(airplane, interval, onReceived, onFailed) {
+        doGetAirplaneRoute : function(flight, interval, onReceived, onFailed) {
             getJSON(baseURL + "observation/", {
-                airplane: airplane, 
+                flight: flight, 
                 interval: interval
             }, function(data) {
                 onReceived(data);

@@ -48,7 +48,7 @@ function initMap() {
                 radarlivre_api.doGetAirplaneInfos(
                     null, mapsBounds, 
                     function(data) {
-                        radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE, data, "airplane");
+                        radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE, data);
                     }, 
                     function(error) {
                         radarlivre_updater.doCancelConnection(connId, DataType.AIRPLANE);
@@ -74,7 +74,7 @@ function initMap() {
                 radarlivre_api.doGetAirports(
                     zoom, mapsBounds, 
                     function(data) {
-                        radarlivre_updater.doEndConnection(connId, DataType.AIRPORT, data, "prefix");
+                        radarlivre_updater.doEndConnection(connId, DataType.AIRPORT, data);
                     }, 
                     function(error) {
                         radarlivre_updater.doCancelConnection(connId, DataType.AIRPORT);
@@ -132,11 +132,11 @@ function initMap() {
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
                 maps_api.doSetMarker({
-                    id: o.airplane, 
+                    id: o.flight.id, 
                     dataType: connectionType, 
                     data: o, 
-                    position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(AIRPLANE_ICON_PATH, "#000", parseInt(o.groundTrackHeading), 10, 10)
+                    position: new google.maps.LatLng(o.lastObservation.latitude, o.lastObservation.longitude), 
+                    icon: createIcon(AIRPLANE_ICON_PATH, "#000", parseInt(o.lastObservation.groundTrackHeading), 10, 10)
                 });
             }
         } else if(connectionType == DataType.COLLECTOR) {
@@ -153,7 +153,7 @@ function initMap() {
             if(objects.length > 0) {
                 marker = maps_api.getSelectedMarker();
                 
-                if(marker && marker.id == objects[0].airplane) {
+                if(marker && marker.id == objects[0].flight) {
                     for(var i = 0; i < objects.length - 1; i++) {
                         var o1 = objects[i];
                         var o2 = objects[i + 1];
@@ -171,7 +171,7 @@ function initMap() {
         } else if(connectionType == DataType.AIRPORT) {
             for(o of objects) {
                 maps_api.doSetMarker({
-                    id: o.prefix, 
+                    id: o.id, 
                     dataType: connectionType, 
                     data: o, 
                     position: new google.maps.LatLng(o.latitude, o.longitude), 
@@ -189,11 +189,11 @@ function initMap() {
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
                 maps_api.doSetMarker({
-                    id: o.airplane, 
+                    id: o.flight.id, 
                     dataType: connectionType, 
                     data: o, 
-                    position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(AIRPLANE_ICON_PATH, "#000", parseInt(o.groundTrackHeading), 10, 10)
+                    position: new google.maps.LatLng(o.lastObservation.latitude, o.lastObservation.longitude), 
+                    icon: createIcon(AIRPLANE_ICON_PATH, "#000", parseInt(o.lastObservation.groundTrackHeading), 10, 10)
                 });
             }
         } else if(connectionType == DataType.COLLECTOR) {
@@ -210,7 +210,7 @@ function initMap() {
             if(objects.length > 0) {
                 marker = maps_api.getSelectedMarker();
                 
-                if(marker && marker.id == objects[0].airplane) {
+                if(marker && marker.id == objects[0].flight) {
                     for(var i = 0; i < objects.length - 1; i++) {
                         var o1 = objects[i];
                         var o2 = objects[i + 1];
@@ -228,7 +228,7 @@ function initMap() {
         } else if(connectionType == DataType.AIRPORT) {
             for(o of objects) {
                 maps_api.doSetMarker({
-                    id: o.prefix, 
+                    id: o.id, 
                     dataType: connectionType, 
                     data: o, 
                     position: new google.maps.LatLng(o.latitude, o.longitude), 
@@ -243,11 +243,11 @@ function initMap() {
         
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
-                maps_api.doRemoveMarker( maps_api.getMarker(o.airplane) );
+                maps_api.doRemoveMarker( maps_api.getMarker(o.flight.id) );
             }
         } else if(connectionType == DataType.AIRPORT) {
             for(o of objects) {
-                maps_api.doRemoveMarker( maps_api.getMarker(o.prefix) );
+                maps_api.doRemoveMarker( maps_api.getMarker(o.id) );
             }
         } else {
             for(o of objects) {
@@ -355,19 +355,19 @@ function showInfoTo(object) {
             var info = data;
             $(".rl-map-drawer").addClass("is-visible");
 
-            $(".rl-map-drawer__title").text(clear(info.flight));
-            $(".rl-map-drawer__subtitle").text(clear(info.airline) + " - " + clear(info.airlineCountry));
+            $(".rl-map-drawer__title").text(clear(info.flight.code));
+            $(".rl-map-drawer__subtitle").text(clear(info.airline? info.airline.name: "") + " - " + clear(info.airline? info.airline.country: ""));
 
-            $(".rl-map-drawer__date").text("Atualizado " + clear(timestampToDate(info.timestamp)));
-            $(".rl-map-drawer__lat").text(clear(formateNumber(info.latitude)));
-            $(".rl-map-drawer__lng").text(clear(formateNumber(info.longitude)));
-            $(".rl-map-drawer__alt").text(clear(formateNumber(info.altitude)) + ' ft / ' + clear(parseFloat(parseInt(info.altitude * 30.48))/100) + ' m');
-            $(".rl-map-drawer__speed").text(clear(formateNumber(info.horizontalVelocity)) + ' knots / ' + clear(parseFloat(parseInt(info.horizontalVelocity * 185.2))/100) + ' km/h');
+            $(".rl-map-drawer__date").text("Atualizado " + clear(timestampToDate(info.lastObservation.timestamp)));
+            $(".rl-map-drawer__lat").text(clear(formateNumber(info.lastObservation.latitude)));
+            $(".rl-map-drawer__lng").text(clear(formateNumber(info.lastObservation.longitude)));
+            $(".rl-map-drawer__alt").text(clear(formateNumber(info.lastObservation.altitude)) + ' ft / ' + clear(parseFloat(parseInt(info.lastObservation.altitude * 30.48))/100) + ' m');
+            $(".rl-map-drawer__speed").text(clear(formateNumber(info.lastObservation.horizontalVelocity)) + ' knots / ' + clear(parseFloat(parseInt(info.lastObservation.horizontalVelocity * 185.2))/100) + ' km/h');
         } else if(dataType == DataType.COLLECTOR) {  
             maps_api.doShowMarkerInfo(
                 marker,
                 "<span>" +
-                	"<strong>Usuário " + data.user.first_name + " " + data.user.last_name + "</strong>" +
+                	"<strong>Usuário " + clear(data.user.first_name) + " " + clear(data.user.last_name) + "</strong>" +
     			"</span><br>" +
     			"<span>" +
     				"Enviou informações " + timestampToDate(data.timestampData) +
@@ -377,7 +377,7 @@ function showInfoTo(object) {
             maps_api.doShowMarkerInfo(
                 marker,
                 "<span>" +
-                	clearAirportType(clear(data.type)) + "<br>" + clear(data.name) + " - <strong>" + clear(data.prefix) + "</strong>" +
+                	clearAirportType(clear(data.type)) + "<br>" + clear(data.name) + " - <strong>" + clear(data.code) + "</strong>" +
     			"</span><br>" +
     			"<span>" +
     				clear(data.city) + ", " + clear(data.state) + "<br>" + clear(data.country) + 

@@ -10,7 +10,7 @@ var radarlivre_updater = function() {
     var _connectionSerial = 0
     var _connectionSet = {}
     
-    var _currentObjects = []
+    var _currentObjects = {}
     var _onObjectsCreated = function(objects, conn) {}
     var _onObjectsUpdated = function(objects, conn) {}
     var _onObjectsRemoved = function(objects, conn) {}
@@ -31,27 +31,27 @@ var radarlivre_updater = function() {
     }
     
     var _getObject = function(dataType, id) {
-        return _currentObjects.filter(function(o) {
-            return o.dataType === dataType && o.id === id;
+        return _currentObjects[dataType].filter(function(o) {
+            return o.id === id;
         })[0];
     }
     
-    var _addObject = function(object) {
-        _currentObjects.push(object);
+    var _addObject = function(dataType, object) {
+        _currentObjects[dataType].push(object);
         return object;
     }
     
-    var _removeObject = function(object) {
-        for(var i = 0; i < _currentObjects.length; i++)
-            if(_currentObjects[i].id === object.id) {
-                _currentObjects.splice(i, 1);
+    var _removeObject = function(dataType, object) {
+        for(var i = 0; i < _currentObjects[dataType].length; i++)
+            if(_currentObjects[dataType][i].id === object.id) {
+                _currentObjects[dataType].splice(i, 1);
                 break;
             }
     }
     
-    var _removeObjects = function(objects) {
+    var _removeObjects = function(dataType, objects) {
         for(o of objects)
-            _removeObject(o);
+            _removeObject(dataType, o);
     }
     
     var _getConnection = function(connId, connectionType) {
@@ -80,6 +80,9 @@ var radarlivre_updater = function() {
         if(!_connectionSet[connectionType]._connections)
             _connectionSet[connectionType]["_connections"] = [];
         
+        if(!_currentObjects[connectionType])
+            _currentObjects[connectionType] = []
+        
         _connectionSet[connectionType]._connections.push(conn);
         return conn;
     }
@@ -107,7 +110,7 @@ var radarlivre_updater = function() {
                     old.timestamp = conn.responseTimestamp;
                     updated.push(o);
                 } else {
-                    _addObject({
+                    _addObject(connectionType, {
                         dataType: connectionType, 
                         id: o[attrId], 
                         data: o, 
@@ -117,7 +120,7 @@ var radarlivre_updater = function() {
                 }
             }
 
-            removed = _currentObjects.filter(function(o) {
+            removed = _currentObjects[connectionType].filter(function(o) {
                 return o.dataType === connectionType && o.timestamp < conn.responseTimestamp;
             }).map(function(o) {
                 return o.data;
@@ -127,7 +130,7 @@ var radarlivre_updater = function() {
             _onObjectsUpdated(updated, connectionType, conn);
             _onObjectsRemoved(removed, connectionType, conn);
 
-            _removeObjects(removed);
+            _removeObjects(connectionType, removed);
         } else {
             log("Can't end connection: " + connectionType);
         }

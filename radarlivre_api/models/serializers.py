@@ -1,11 +1,12 @@
 # -*- coding:utf-8 -*-
 
 from django.contrib.auth.models import User
+from django.db.models.aggregates import Max
 from rest_framework.fields import ImageField
 from rest_framework.serializers import ModelSerializer
 
-from radarlivre_api.models import Airplane, Airport, Flight, Observation, \
-    AirplaneInfo, About, Notify, Collector, Airline, ADSBInfo
+from radarlivre_api.models import Airport, Flight, Observation, \
+    About, Notify, Collector, Airline, ADSBInfo, FlightInfo
 from rest_framework import serializers
 
 
@@ -26,16 +27,26 @@ class AirlineSerializer(ModelSerializer):
     class Meta:
         model = Airline
         fields = '__all__'
-        
-class AirplaneInfoSerializer(ModelSerializer):
+
+class ObservationSerializer(ModelSerializer):
     class Meta:
-        model = AirplaneInfo
+        model = Observation
         fields = '__all__'
+
 
 class FlightSerializer(ModelSerializer):
     class Meta:
         model = Flight
         fields = '__all__'
+
+class FlightInfoSerializer(ModelSerializer):
+    airline = AirlineSerializer(read_only=True)
+    lastObservation = ObservationSerializer(read_only=True)
+    flight = FlightSerializer(read_only=True)
+    class Meta:
+        model = FlightInfo
+        fields = '__all__'
+
 
 class AirportSerializer(ModelSerializer):
     class Meta:
@@ -48,11 +59,6 @@ class ADSBInfoSerializer(ModelSerializer):
         model = ADSBInfo
         fields = '__all__'
 
-class ObservationSerializer(ModelSerializer):
-
-    class Meta:
-        model = Observation
-        fields = '__all__'
 
 class AboutSerializer(ModelSerializer):
     smallImage = ImageField()

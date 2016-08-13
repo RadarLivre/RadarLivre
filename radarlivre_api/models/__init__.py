@@ -6,11 +6,12 @@ from curses.ascii import NL
 import datetime
 import logging
 
-import time
+from time import time
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models.aggregates import Max
 from django.db.models.fields import CharField, DecimalField, IntegerField, BigIntegerField, \
-    BooleanField, TextField, DateTimeField, DateField, URLField, EmailField, UUIDField
+    BooleanField, TextField, DateTimeField, DateField, URLField
 from django.db.models.fields.files import ImageField, FileField
 from django.db.models.fields.related import ForeignKey, \
     OneToOneField
@@ -42,7 +43,7 @@ class Collector(models.Model):
 
 class Airline(models.Model):
 
-    nane = CharField(max_length=255, blank=True, null=True, default="")
+    name = CharField(max_length=255, blank=True, null=True, default="")
     alias = CharField(max_length=255, blank=True, null=True, default="")
     iata = CharField(max_length=4, blank=True, null=True, default="")
     icao = CharField(max_length=8, blank=True, null=True, default="")
@@ -59,12 +60,15 @@ class Flight(models.Model):
 
     def __unicode__(self):
         return "Flight " + str(self.code)
+
+
+
     
 class Airport(models.Model):
     
     # Airport identification
-    prefix    = CharField(max_length=100, primary_key=True)
-    name      = CharField(max_length=100, blank=True, default='', null=True)
+    code = CharField(max_length=100, blank=True, default='', null=True)
+    name = CharField(max_length=100, blank=True, default='', null=True)
     
     # Airport location
     country   = CharField(max_length=100, blank=True, default='', null=True)
@@ -138,16 +142,16 @@ class Observation(models.Model):
         callsign = info.callsign
         airlineICAO = callsign[:3]
         airline = None
+        flight = None
         try:
             airline = Airline.objects.get(icao=airlineICAO)
-        except Airline.DoesNotExist:
+        except:
             pass
 
         try:
-            Flight.objects.get(code=callsign)
+            flight = Flight.objects.get(code=callsign)
         except Flight.DoesNotExist:
-            flight = Flight(code=callsign)
-            flight.airline = airline
+            flight = Flight(code=callsign, airline=airline)
             flight.save()
 
         delay = info.timestampSent - info.timestamp
@@ -161,14 +165,39 @@ class Observation(models.Model):
         info.collector.timestampData = timestamp
         info.collector.save()
 
-        return Observation(
+        obs = Observation(
             flight=flight,
             adsbInfo=info,
             timestamp=timestamp,
             latitude=info.latitude, longitude=info.longitude, altitude=info.altitude,
             verticalVelocity=info.verticalVelocity, horizontalVelocity=info.horizontalVelocity,
             groundTrackHeading=info.groundTrackHeading
-        ).save()
+        )
+        obs.save()
+        return obs
+
+
+class FlightInfo(models.Model):
+    # Flight identification
+    flight = OneToOneField(Flight, null=True)
+    airline = ForeignKey(Airline, null=True)
+    lastObservation = OneToOneField(Observation, null=True)
+    timestamp = BigIntegerField(default=0)
+
+    @staticmethod
+    def generateFromFlight(flight):
+
+        timestampMax = Observation.objects.filter(flight=flight).aggregate(Max("timestamp"))["timestamp__max"]
+        obs = Observation.objects.filter(flight=flight).get(timestamp=timestampMax)
+        info = None
+        try:
+            info = FlightInfo.objects.get(flight=flight)
+            info.lastObservation = obs
+            info.timestamp=timestampMax
+        except FlightInfo.DoesNotExist:
+            info = FlightInfo(flight=flight, airline=flight.airline, lastObservation=obs, timestamp=timestampMax)
+
+        info.save()
 
 
 # Used to store project informations

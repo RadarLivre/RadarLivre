@@ -1,9 +1,10 @@
 # -*- coding:utf-8 -*-
-
+from django.db.models.aggregates import Max
 from rest_framework.filters import BaseFilterBackend
 import time
 import logging
 
+from radarlivre_api.models import Observation
 
 logger = logging.getLogger("radarlivre.debug")
 
@@ -17,7 +18,6 @@ class MaxUpdateDelayFilter(BaseFilterBackend):
         # Valor padrão o intervalo: 1 min
         maxUpdateDelay = parseParam(request, "max_update_delay", 5 * 60 * 1000)
         return queryset.filter(timestamp__gte = (now - maxUpdateDelay))
-
 
 # Filtro responsável por pegar apenas as observações do vôo atual da aeronave
 class ObservationFlightFilter(BaseFilterBackend):
@@ -45,13 +45,12 @@ class ObservationFlightFilter(BaseFilterBackend):
         return queryset.filter(pk__in=objectsFiltered).order_by('timestamp')
 
 
-# Pega todas as observações apartir de um determinado timestamp
-class ObservationLastTimestampFilter(BaseFilterBackend):
+# Pega os voos e suas últimas observações
+class LastFlightObservationFilter(BaseFilterBackend):
 
     def filter_queryset(self, request, queryset, view): 
 
-        firstTimestamp = parseParam(request, "first_timestamp", 0);
-        return queryset.filter(timestamp__gt = firstTimestamp)
+        pass
 
 
 # Filtro responsável por pegar informações com um "espaçamento temporal" entre elas
@@ -121,7 +120,12 @@ class AirportTypeZoomFilter(BaseFilterBackend):
             return queryset.filter(type__in=["large_airport", "medium_airport", "small_airport"])
         else:
             return queryset
-    
+
+class FlightFilter(BaseFilterBackend):
+
+    def filter_queryset(self, request, queryset, view):
+
+        return queryset
     
 def parseParam(request, param, defaultValue):
     param = request.GET.get(param)
