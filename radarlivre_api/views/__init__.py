@@ -84,7 +84,7 @@ class FlightList(ListAPIView):
 class FlightInfoList(ListAPIView):
     queryset = FlightInfo.objects.all()
     serializer_class = FlightInfoSerializer
-    filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter)
+    filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter, MapBoundsFilter)
     filter_fields = ('airline',)
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
@@ -112,17 +112,20 @@ class ADSBInfoList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = ADSBInfoSerializer(data=request.data)
+        serializer = ADSBInfoSerializer(data=request.data, many=True)
 
         if serializer.is_valid():
-            adsbInfo = serializer.save()
+            infos = serializer.save()
 
             # Generating a observation based in ADS-B info and updating collector
             # timestamp ...
-            obs = Observation.generateFromADSBInfo(adsbInfo)
-            FlightInfo.generateFromFlight(obs.flight)
+            for info in infos:
+                obs = Observation.generateFromADSBInfo(info)
+                FlightInfo.generateFromFlight(obs.flight)
 
-        return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
 class ObservationList(ListCreateAPIView):

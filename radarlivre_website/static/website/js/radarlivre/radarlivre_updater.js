@@ -89,6 +89,7 @@ var radarlivre_updater = function() {
     
     var _beginConnection = function(connectionType, connFunc) {
         var conn = _createConnection(connectionType);
+        conn.requestTimestamp = new Date().getTime();
         conn["func"] = connFunc;
     }
     

@@ -127,7 +127,7 @@ function initMap() {
     }
     
     radarlivre_updater.doSetOnObjectCreatedListener(function(objects, connectionType, conn) {
-        // log(objects.length + " " + connectionType + " objects created in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
+        log(objects.length + " " + connectionType + " objects created in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
         
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
@@ -135,8 +135,8 @@ function initMap() {
                     id: o.flight.id, 
                     dataType: connectionType, 
                     data: o, 
-                    position: new google.maps.LatLng(o.lastObservation.latitude, o.lastObservation.longitude), 
-                    icon: createIcon(AIRPLANE_ICON_PATH, "#000", parseInt(o.lastObservation.groundTrackHeading), 10, 10)
+                    position: new google.maps.LatLng(o.latitude, o.longitude), 
+                    icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, 1, 1)
                 });
             }
         } else if(connectionType == DataType.COLLECTOR) {
@@ -146,7 +146,7 @@ function initMap() {
                     dataType: connectionType, 
                     data: o, 
                     position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(COLLECTOR_ICON_PATH, "#00f", o.angle, 10, 10, .9)
+                    icon: createIcon(COLLECTOR_ICON_PATH, "#00f", o.angle, 10, 10, .9, 0)
                 });
             }
         } else if(connectionType == DataType.ROUTE) {
@@ -175,14 +175,14 @@ function initMap() {
                     dataType: connectionType, 
                     data: o, 
                     position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(AIRPORT_ICON_PATH, "#555", 0, 10, 10, .7)
+                    icon: createIcon(AIRPORT_ICON_PATH, "#555", 0, 10, 10, .7, 0)
                 });
             }
         }
     });
     
     radarlivre_updater.doSetOnObjectUpdatedListener(function(objects, connectionType, conn) {
-        //log(objects.length + " " + connectionType + " objects updated in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
+        log(objects.length + " " + connectionType + " objects updated in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
         
         showInfoTo(maps_api.getSelectedMarker());
         
@@ -192,8 +192,8 @@ function initMap() {
                     id: o.flight.id, 
                     dataType: connectionType, 
                     data: o, 
-                    position: new google.maps.LatLng(o.lastObservation.latitude, o.lastObservation.longitude), 
-                    icon: createIcon(AIRPLANE_ICON_PATH, "#000", parseInt(o.lastObservation.groundTrackHeading), 10, 10)
+                    position: new google.maps.LatLng(o.latitude, o.longitude), 
+                    icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, 1, 1)
                 });
             }
         } else if(connectionType == DataType.COLLECTOR) {
@@ -203,7 +203,7 @@ function initMap() {
                     dataType: connectionType, 
                     data: o, 
                     position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(COLLECTOR_ICON_PATH, "#00f", o.angle, 10, 10, .9)
+                    icon: createIcon(COLLECTOR_ICON_PATH, "#00f", o.angle, 10, 10, .9, 0)
                 });
             }
         } else if(connectionType == DataType.ROUTE) {
@@ -232,14 +232,14 @@ function initMap() {
                     dataType: connectionType, 
                     data: o, 
                     position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(AIRPORT_ICON_PATH, "#555", 0, 10, 10, .7)
+                    icon: createIcon(AIRPORT_ICON_PATH, "#555", 0, 10, 10, .7, 0)
                 });
             }
         }
     });
     
     radarlivre_updater.doSetOnObjectRemovedListener(function(objects, connectionType, conn) {
-        //log(objects.length + " " + connectionType + " objects removed in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
+        log(objects.length + " " + connectionType + " objects removed in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
         
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
@@ -294,17 +294,20 @@ function initMap() {
             }
         }, 1000);
     });
+
+    maps_api.doInitMapSearchBox("#rl-place-searchbox");
     
     radarlivre_updater.doInit();
 
 }
 
-function createIcon(path, color, angle, offsetX, offsetY, scale) {
+function createIcon(path, color, angle, offsetX, offsetY, scale, strokeWeight) {
     return {
         path: path,
         fillColor: color,
         fillOpacity: 1,
-        strokeWeight: 0,
+        strokeWeight: strokeWeight,
+        strokeColor: "#FF5722", 
         scale: scale? scale: 1, 
         rotation: angle, 
         origin: new google.maps.Point(0, 0),
@@ -358,11 +361,11 @@ function showInfoTo(object) {
             $(".rl-map-drawer__title").text(clear(info.flight.code));
             $(".rl-map-drawer__subtitle").text(clear(info.airline? info.airline.name: "") + " - " + clear(info.airline? info.airline.country: ""));
 
-            $(".rl-map-drawer__date").text("Atualizado " + clear(timestampToDate(info.lastObservation.timestamp)));
-            $(".rl-map-drawer__lat").text(clear(formateNumber(info.lastObservation.latitude)));
-            $(".rl-map-drawer__lng").text(clear(formateNumber(info.lastObservation.longitude)));
-            $(".rl-map-drawer__alt").text(clear(formateNumber(info.lastObservation.altitude)) + ' ft / ' + clear(parseFloat(parseInt(info.lastObservation.altitude * 30.48))/100) + ' m');
-            $(".rl-map-drawer__speed").text(clear(formateNumber(info.lastObservation.horizontalVelocity)) + ' knots / ' + clear(parseFloat(parseInt(info.lastObservation.horizontalVelocity * 185.2))/100) + ' km/h');
+            $(".rl-map-drawer__date").text("Atualizado " + clear(timestampToDate(info.timestamp)));
+            $(".rl-map-drawer__lat").text(clear(formateNumber(info.latitude)));
+            $(".rl-map-drawer__lng").text(clear(formateNumber(info.longitude)));
+            $(".rl-map-drawer__alt").text(clear(formateNumber(info.altitude)) + ' ft / ' + clear(parseFloat(parseInt(info.altitude * 30.48))/100) + ' m');
+            $(".rl-map-drawer__speed").text(clear(formateNumber(info.horizontalVelocity)) + ' knots / ' + clear(parseFloat(parseInt(info.horizontalVelocity * 185.2))/100) + ' km/h');
         } else if(dataType == DataType.COLLECTOR) {  
             maps_api.doShowMarkerInfo(
                 marker,
