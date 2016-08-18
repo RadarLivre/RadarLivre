@@ -7,6 +7,8 @@ import datetime
 import logging
 
 from time import time
+
+import sys
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.aggregates import Max
@@ -23,6 +25,9 @@ import uuid
 
 logger = logging.getLogger("radarlivre.log")
 
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 class Collector(models.Model):
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -37,6 +42,12 @@ class Collector(models.Model):
         return datetime.datetime.fromtimestamp(
             int(self.timestamp/1000)
         ).strftime('%d/%m/%Y %H:%M:%S')
+
+    def getStrLatitude(self):
+        return "%.8f" % self.latitude
+
+    def getStrLongitude(self):
+        return "%.8f" % self.longitude
     
     def __unicode__(self):
         return "Active collector from " + self.user.username

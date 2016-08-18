@@ -22,7 +22,7 @@ def contrib(request):
     now = (time.time()) * 1000
     contribs = Collector.objects.all().filter(
         timestamp__gte=now - 60 * 60 * 1000
-    )
+    ).order_by('user')
     return render(
         request,
         'website/rl_contrib.html',

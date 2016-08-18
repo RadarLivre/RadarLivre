@@ -52,7 +52,7 @@
 	    			
 	    				<tr>
 	    				
-	    					<th class="mdl-data-table__cell--non-numeric">IP do coletor</th>
+	    					<th class="mdl-data-table__cell--non-numeric">Usuário</th>
 	    					<th class="mdl-layout--large-screen-only">Latitude</th>
 	    					<th class="mdl-layout--large-screen-only">Longitude</th>
 	    					<th class="mdl-data-table__cell--non-numeric">Última atualização</th>
@@ -66,9 +66,9 @@
 	    				{% for c in contribs %}
 		    				<tr>
 		    				
-		    					<td class="mdl-data-table__cell--non-numeric">{{c.ip}}</td>
-		    					<td class="mdl-layout--large-screen-only">{{c.latitude}}</td>
-		    					<td class="mdl-layout--large-screen-only">{{c.longitude}}</td>
+		    					<td class="mdl-data-table__cell--non-numeric">{{c.user.first_name}} {{c.user.last_name}}</td>
+		    					<td class="mdl-layout--large-screen-only">{{c.getStrLatitude}}</td>
+		    					<td class="mdl-layout--large-screen-only">{{c.getStrLongitude}}</td>
 		    					<td class="mdl-data-table__cell--non-numeric">{{c.getDate}}</td>
 		    				
 		    				</tr>
