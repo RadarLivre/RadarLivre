@@ -39,14 +39,15 @@ function initMap() {
             function(connId) {
                 // log("Begin get airplanes...");
                 var map = maps_api.getMap();
-                var mapsBounds = {
-                    top: map.getBounds().getNorthEast().lat(), 
-                    bottom: map.getBounds().getSouthWest().lat(), 
-                    left: map.getBounds().getSouthWest().lng(), 
-                    right: map.getBounds().getNorthEast().lng()
-                };
                 radarlivre_api.doGetAirplaneInfos(
-                    null, mapsBounds, 
+                    {
+                        top: map.getBounds().getNorthEast().lat(), 
+                        bottom: map.getBounds().getSouthWest().lat(), 
+                        left: map.getBounds().getSouthWest().lng(), 
+                        right: map.getBounds().getNorthEast().lng(), 
+                        map_height: $("#map").height(), 
+                        map_zoom: map.getZoom()
+                    }, 
                     function(data) {
                         radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE, data);
                     }, 
@@ -70,7 +71,7 @@ function initMap() {
                     right: map.getBounds().getNorthEast().lng()
                 };
                 var zoom = map.getZoom();
-                log("Begin get airports: " + zoom);
+                // log("Begin get airports: " + zoom);
                 radarlivre_api.doGetAirports(
                     zoom, mapsBounds, 
                     function(data) {
@@ -127,7 +128,7 @@ function initMap() {
     }
     
     radarlivre_updater.doSetOnObjectCreatedListener(function(objects, connectionType, conn) {
-        log(objects.length + " " + connectionType + " objects created in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
+        // log(objects.length + " " + connectionType + " objects created in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
         
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
@@ -139,6 +140,8 @@ function initMap() {
                     icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, 1, 1)
                 });
             }
+            
+            // maps_api.doClusterizeMarkers();
         } else if(connectionType == DataType.COLLECTOR) {
             for(o of objects) {
                 maps_api.doSetMarker({
@@ -182,7 +185,7 @@ function initMap() {
     });
     
     radarlivre_updater.doSetOnObjectUpdatedListener(function(objects, connectionType, conn) {
-        log(objects.length + " " + connectionType + " objects updated in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
+        // log(objects.length + " " + connectionType + " objects updated in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
         
         showInfoTo(maps_api.getSelectedMarker());
         
@@ -239,7 +242,7 @@ function initMap() {
     });
     
     radarlivre_updater.doSetOnObjectRemovedListener(function(objects, connectionType, conn) {
-        log(objects.length + " " + connectionType + " objects removed in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
+        //log(objects.length + " " + connectionType + " objects removed in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
         
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {

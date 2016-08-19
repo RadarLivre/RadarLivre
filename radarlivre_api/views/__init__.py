@@ -17,7 +17,7 @@ from radarlivre_api.models.serializers import AirportSerializer, FlightSerialize
     AirlineSerializer, ADSBInfoSerializer, FlightInfoSerializer
 from radarlivre_api.views.filters import ObservationPrecisionFilter, \
     ObservationFlightFilter, MapBoundsFilter, \
-    MaxUpdateDelayFilter, AirportTypeZoomFilter, FlightFilter
+    MaxUpdateDelayFilter, AirportTypeZoomFilter, FlightFilter, FlightClusteringFilter
 
 logger = logging.getLogger("radarlivre.log")
 
@@ -39,7 +39,7 @@ class CollectorDetail(APIView):
             return Collector.objects.get(pk=pk)
         except Collector.DoesNotExist:
             raise Http404
-    
+
     def put(self, request, pk, format=None):
         collector = self.get_object(pk)
         serializer = CollectorSerializer(collector, data=request.data)
@@ -84,7 +84,7 @@ class FlightList(ListAPIView):
 class FlightInfoList(ListAPIView):
     queryset = FlightInfo.objects.all()
     serializer_class = FlightInfoSerializer
-    filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter, MapBoundsFilter)
+    filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter, MapBoundsFilter, FlightClusteringFilter)
     filter_fields = ('airline',)
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 

@@ -18,7 +18,10 @@ var maps_api = function() {
     var _onBoundsChangedListener = function(b) {}
     var _onZoomChangedListener = function(b) {}
     
+    var _clusterizeMarkers = function() {}
+    
     var _setMarker = function(setts) {
+        
         var marker = _getMarkerById(setts.id);
         if(marker) {
             marker.setOptions(setts);
@@ -238,6 +241,12 @@ var maps_api = function() {
 				_onZoomChangedListener(_map.getZoom());
 			});
             
+            _clusterizeMarkers = function(){
+                log("Culsterizing: "+ _markers.length);
+                maps_marker_clustering.doCluster(_markers, _map, $(mapElement).height(), _map.getZoom());
+                log("Culsterize finished!");
+            }
+            
             
         }, 
         
@@ -368,9 +377,12 @@ var maps_api = function() {
         
         doSetOnMapZoomChangeListener : function(listener) {
             _onZoomChangedListener = listener;
+        }, 
+        
+        doClusterizeMarkers : function() {
+            _clusterizeMarkers();
         }
-
-
+        
 	};
 
 } ();
