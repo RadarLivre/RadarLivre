@@ -120,9 +120,9 @@ class ADSBInfoList(APIView):
             # Generating a observation based in ADS-B info and updating collector
             # timestamp ...
             for info in infos:
-                logging.info("Views: ADSBInfo received [id=%d, collector=%s]" % (obs.id, str(obs.collector)))
                 obs = Observation.generateFromADSBInfo(info)
                 FlightInfo.generateFromFlight(obs.flight)
+                logging.info("Views: ADSBInfo received [id=%d, collector=%s]" % (info.id, str(info.collector)))
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
