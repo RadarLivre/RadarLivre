@@ -3,4 +3,4 @@
 /log
 /radarlivre_setup/venvs
 *.pyc
-migrations
+/radarlivre_api/migrations/*
