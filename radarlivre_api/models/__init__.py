@@ -216,7 +216,12 @@ class FlightInfo(models.Model):
         info = None
         try:
             info = FlightInfo.objects.get(flight=flight)
-            info.lastObservation = obs
+            info.latitude = obs.latitude
+            info.longitude = obs.longitude
+            info.altitude = obs.altitude
+            info.verticalVelocity = obs.verticalVelocity
+            info.horizontalVelocity = obs.horizontalVelocity
+            info.groundTrackHeading = obs.groundTrackHeading
             info.timestamp=timestampMax
         except FlightInfo.DoesNotExist:
             info = FlightInfo(
