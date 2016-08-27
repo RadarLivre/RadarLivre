@@ -23,7 +23,7 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'l&4#e$r=%%@ljc0%*61w5eb(c$hg*ewxgrx!nq^8j0b)3a$na2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -86,8 +86,8 @@ DATABASES = {
         #'NAME': os.path.join(os.path.join(BASE_DIR, 'database'), 'radarlivre.db'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'radarlivre_v4',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'USER': 'felipe',
+        'PASSWORD': 'NSKlrpt1',
         'HOST': 'localhost',
 
     }
