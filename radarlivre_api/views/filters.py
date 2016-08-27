@@ -46,14 +46,6 @@ class ObservationFlightFilter(BaseFilterBackend):
         return queryset.filter(pk__in=objectsFiltered).order_by('timestamp')
 
 
-# Pega os voos e suas últimas observações
-class LastFlightObservationFilter(BaseFilterBackend):
-
-    def filter_queryset(self, request, queryset, view): 
-
-        pass
-
-
 # Filtro responsável por pegar informações com um "espaçamento temporal" entre elas
 # Por exemplo, pega informações de 5 em 5 minutos descartando as demais, assim retorna
 # uma resposta menor
