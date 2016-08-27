@@ -2,5 +2,5 @@
 /static
 /log
 /radarlivre_setup/venvs
-/radarlivre_api/migrations/*
+*migrations/*
 *.pyc
