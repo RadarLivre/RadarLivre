@@ -1,6 +1,8 @@
 MDL_LOADED = false;
 MAP_LOADED = false;
 
+ROUTE_PROPAGATION_ENABLED = false;
+
 var DataType = {
     AIRPLANE: "AIRPLANE", 
     AIRPLANE_PROPAGATED: "AIRPLANE_PROPAGATED", 
@@ -20,6 +22,19 @@ componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
     log("MDL Loaded");
     if(MAP_LOADED)
         initMap();
+
+    var settsDialog = rl_base.doAddDialog({
+        button: "#rl-map__dialog-config__trigger",
+        dialog: "#rl-map__dialog-config"
+    });
+
+    $("#rl-map__dialog-config__close").click(function() {
+        settsDialog.close();
+    });
+
+    $("#rl-map__switch-enable-propagated-route").change(function() {
+        ROUTE_PROPAGATION_ENABLED = $(this).is(":checked");
+    });
     
 });
 
@@ -158,7 +173,8 @@ function initMap() {
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
                 
-                getAirplanesPropagated(o.flight.id);
+                if(ROUTE_PROPAGATION_ENABLED)
+                    getAirplanesPropagated(o.flight.id);
                 
                 maps_api.doSetMarker({
                     id: o.flight.id, 

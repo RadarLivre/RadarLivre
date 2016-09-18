@@ -35,13 +35,41 @@
 
 				</div>
 
-				<!-- button id="rl-menu-right" class="rl-header__menu-btn mdl-button mdl-js-button mdl-button--icon" -->
-					<!-- i class="material-icons">more_vert</i -->
-				<!-- /button -->
+				<button id="rl-menu-right" class="rl-header__menu-btn mdl-button mdl-js-button mdl-button--icon">
+					<i class="material-icons">more_vert</i>
+				</button>
 
-				<!-- ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="rl-menu-right" -->
-					<!-- li id="rl-map__dialog-config" class="mdl-menu__item">Opções do mapa</li --->
-				<!-- /ul -->
+				<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="rl-menu-right">
+					<li id="rl-map__dialog-config__trigger" class="mdl-menu__item">Opções do mapa</li>
+				</ul>
+
+				<dialog id="rl-map__dialog-config" class="mdl-dialog">
+
+					<div class="mdl-card__supporting-text">
+
+						<div class="mdl-grid">
+							<div class="mdl-cell mdl-cell--9-col valign-wrapper left-align">
+								Habilitar propagação de rota
+							</div>
+
+							<div class="mdl-cell mdl-cell--3-col valign-wrapper">
+								<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="rl-map__switch-enable-propagated-route">
+									<input type="checkbox" id="rl-map__switch-enable-propagated-route" class="mdl-switch__input">
+									<span class="mdl-switch__label"></span>
+								</label>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div id="rl-map__dialog-config__close" class="mdl-card__actions mdl-card--border right-align">
+						<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+							OK
+						</a>
+					</div>
+
+				</dialog>
 				
 
 			</div>

@@ -80,6 +80,23 @@ var rl_base = function() {
 				
 			}
 			
+		}, 
+
+		doAddDialog : function(setts) {
+			setts = setts || {};
+
+			var button = $(setts.button);
+			var dialog = $(setts.dialog)[0];
+
+			if (!dialog.showModal) {
+				dialogPolyfill.registerDialog(dialog);
+			}
+
+			button.click(function() {
+				dialog.showModal();
+			});
+
+			return dialog;
 		}
 
 	};
