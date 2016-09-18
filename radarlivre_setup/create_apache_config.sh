@@ -12,6 +12,8 @@ text="
 WSGIDaemonProcess radarlivre.com python-path=$BASEDIR:$BASEDIR/radarlivre_setup/venvs/django/lib/python2.7/site-packages
 WSGIProcessGroup radarlivre.com
 
+WSGIPassAuthorization On
+
 <VirtualHost *:80>
     ServerName radarlivre.com
     WSGIScriptAlias / $BASEDIR/radarlivre/wsgi.py

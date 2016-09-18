@@ -7,4 +7,5 @@ cd "$BASEDIR"
 
 sudo apt-get install python-virtualenv ;
 
+export LC_ALL=C
 virtualenv venvs/django
