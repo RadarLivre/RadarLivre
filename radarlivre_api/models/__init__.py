@@ -33,7 +33,7 @@ sys.setdefaultencoding("utf-8")
 
 class Collector(models.Model):
 
-    key = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    key = models.UUIDField(default=uuid.uuid4, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="collectors", null=True)
     
     latitude  = DecimalField(max_digits=20, decimal_places=10, default=0.0)

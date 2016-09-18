@@ -63,7 +63,7 @@ function initMap() {
                         right: map.getBounds().getNorthEast().lng(), 
                         map_height: $("#map").height(), 
                         map_zoom: map.getZoom(), 
-                        min_airplane_distance: 0
+                        min_airplane_distance: 50
                     }, 
                     function(data) {
                         radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE, data);
