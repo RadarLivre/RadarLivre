@@ -204,7 +204,6 @@ function initMap() {
                 
             }
             
-            // maps_api.doClusterizeMarkers();
         } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
             if(objects.length > 0) {
                 marker = maps_api.getSelectedMarker();
@@ -219,7 +218,7 @@ function initMap() {
                                 {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
                             ], 
-                            color: "#FF5722"
+                            strokeColor: "#FF5722"
                         });
                     }
                 }
@@ -249,7 +248,7 @@ function initMap() {
                                 {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
                             ], 
-                            color: "#3F51B5"
+                            strokeColor: "#3F51B5"
                         })
                     }
                 }
@@ -299,7 +298,7 @@ function initMap() {
                                 {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
                             ], 
-                            color: "#FF5722"
+                            strokeColor: "#FF5722"
                         });
                     }
                 }
@@ -329,7 +328,7 @@ function initMap() {
                                 {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
                             ], 
-                            color: "#3F51B5"
+                            strokeColor: "#3F51B5"
                         });
                     }
                 }
