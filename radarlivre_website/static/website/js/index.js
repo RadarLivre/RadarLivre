@@ -34,6 +34,14 @@ componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
 
     $("#rl-map__switch-enable-propagated-route").change(function() {
         ROUTE_PROPAGATION_ENABLED = $(this).is(":checked");
+
+        for(k in maps_api.getMarkers()) {
+            if(k.startsWith(DataType.AIRPLANE_PROPAGATED)) {
+                toRemove = maps_api.getMarkers()[k];
+                for(r in toRemove)
+                    maps_api.doRemoveMarker(toRemove[r]);
+            }
+        }
     });
     
 });
@@ -327,8 +335,8 @@ function initMap() {
                         toRemove = maps_api.getMarkers()[k].filter(function(marker) {
                             return marker.data.flight === o.flight.id;
                         });
-                        for(k in toRemove)
-                            maps_api.doRemoveMarker(toRemove[k]);
+                        for(r in toRemove)
+                            maps_api.doRemoveMarker(toRemove[r]);
                     }
                 }
                 
