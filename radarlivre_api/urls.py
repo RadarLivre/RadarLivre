@@ -21,6 +21,7 @@ urlpatterns = [
 
 
     url(r'^api/flight_info/$', views.FlightInfoList.as_view()),
+    url(r'^api/flight_propagated_trajectory/$', views.FlightPropagatedTrajectoryList.as_view()),
     
 
     url(r'^api/observation/$', views.ObservationList.as_view()),
@@ -39,7 +40,7 @@ urlpatterns = [
 
 
     url(r'^api/collector/$', views.CollectorList.as_view()),
-    url(r'^api/collector/(?P<pk>[a-zA-Z0-9\-]+)/$', views.CollectorDetail.as_view()),
+    url(r'^api/collector/(?P<key>[a-zA-Z0-9\-]+)/$', views.CollectorDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

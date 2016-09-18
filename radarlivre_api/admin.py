@@ -4,7 +4,7 @@ from radarlivre_api.models import About, Notify, Software, Collector
 # Register your models here.
 
 class CollectorAdmin(admin.ModelAdmin):
-    list_display = ('id', 'latitude', 'longitude')
+    list_display = ('key', 'latitude', 'longitude')
 
 admin.site.register(About)
 admin.site.register(Notify)

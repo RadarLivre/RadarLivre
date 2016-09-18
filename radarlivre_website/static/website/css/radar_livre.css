@@ -281,3 +281,43 @@ dialog + .backdrop {
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
 }
+
+
+
+/*
+ * HELPERS
+ */
+
+
+.valign-wrapper {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.center {
+    float: center;
+}

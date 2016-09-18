@@ -18,7 +18,7 @@ class UserSerializer(ModelSerializer):
 
 class CollectorSerializer(ModelSerializer):
     user = UserSerializer(read_only=True)
-    id = serializers.UUIDField(format='hex_verbose', write_only=True)
+    key = serializers.UUIDField(format='hex_verbose', write_only=True)
     class Meta:
         model = Collector
         fields = '__all__'

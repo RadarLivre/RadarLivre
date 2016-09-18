@@ -7,7 +7,7 @@ var maps_api = function() {
     var _map;
     var _isMapLoaded = false;
 
-    var _markers = [];	
+    var _markers = {};	
     
     var _lastClickedMarker = null;
     
@@ -22,7 +22,7 @@ var maps_api = function() {
     
     var _setMarker = function(setts) {
         
-        var marker = _getMarkerById(setts.id);
+        var marker = _getMarkerById(setts.id, setts.dataType);
         if(marker) {
             marker.setOptions(setts);
         } else {
@@ -36,8 +36,11 @@ var maps_api = function() {
         var marker = new google.maps.Marker(setts);
         marker._polyLines = [];
         marker.setMap(_map);
-        _markers.push(marker);
-
+        
+        if(!_markers[setts.dataType])
+            _markers[setts.dataType] = []
+        _markers[setts.dataType].push(marker);
+        
         google.maps.event.addListener(marker, 'click', function() {
             _onMarkerClicked(marker);
         }); 
@@ -45,18 +48,18 @@ var maps_api = function() {
         return marker;
     }
     
-    var _getMarkerById = function(id) {
-        for(k in _markers)
-            if(_markers[k].id === id)
-                return _markers[k];
+    var _getMarkerById = function(id, dataType) {
+        for(k in _markers[dataType])
+            if(_markers[dataType][k].id === id)
+                return _markers[dataType][k];
         return null;
     }
     
     var _removeMarker = function(marker) {
-        if(marker) {
-            for(var i = 0; i < _markers.length; i++)
-                if(_markers[i].id === marker.id) {
-                    _markers.splice(i, 1);
+        if(marker && _markers[marker.dataType]) {
+            for(var i = 0; i < _markers[marker.dataType].length; i++)
+                if(_markers[marker.dataType][i].id === marker.id) {
+                    _markers[marker.dataType].splice(i, 1);
                     break;
                 }
 
@@ -64,14 +67,20 @@ var maps_api = function() {
             _hideMarkerInfo(marker);
             marker.setMap(null);
 
-            if(_lastClickedMarker && _lastClickedMarker.id == marker.id) {
+            if(_lastClickedMarker && _lastClickedMarker.id == marker.id && _lastClickedMarker.dataType == marker.dataType) {
                 _unselectMarker();
             }
         }
+                
+    }
+    
+    var _removeByType = function(dataType) {
+        for(; _markers[dataType].length > 0;)
+            _removeMarker(_markers[dataType][0])
     }
     
     var _onMarkerClicked = function(marker) {
-        if(marker && _lastClickedMarker && _lastClickedMarker.id === marker.id) 
+        if(marker && _lastClickedMarker && _lastClickedMarker.id === marker.id && _lastClickedMarker.dataType == marker.dataType) 
             _unselectMarker(marker)
         else
             _selectMarker(marker);
@@ -116,7 +125,7 @@ var maps_api = function() {
     }
     
     var _setMarkerPolyLine = function(marker, setts) {
-        marker = _getMarkerById(marker.id);
+        marker = _getMarkerById(marker.id, marker.dataType);
         
         if(marker) {
             var polyLine = _getPolyLineById(marker, setts.id);
@@ -319,8 +328,8 @@ var maps_api = function() {
             return _map;
         }, 
         
-        getMarker : function(id) {
-            return _getMarkerById(id);
+        getMarker : function(id, dataType) {
+            return _getMarkerById(id, dataType);
         },
         
         getSelectedMarker : function() {
@@ -338,6 +347,11 @@ var maps_api = function() {
         doRemoveMarker : function(marker) {            
             _removeMarker(marker);
         },
+        
+        doRemoveMarkerNyType : function(dataType) {            
+            _removeByType(dataType);
+        },
+        
         
         doUnselectMarker : function() {            
             _unselectMarker();

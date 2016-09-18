@@ -6,7 +6,7 @@ var radarlivre_api = function() {
 	
 	var BASE_REMOTE_URL = "http://www.radarlivre.com/api/";
     var BASE_LOCAL_URL = "http://localhost:8000/api/";
-	var baseURL = BASE_REMOTE_URL;
+	var baseURL = BASE_LOCAL_URL;
 	
 	var getJSON = function (url, params, callbackSucess, callbackError, callbackFinal) {
         params["format"] = "jsonp";
@@ -56,6 +56,17 @@ var radarlivre_api = function() {
             });
         },
         
+        doGetFlightPropagation : function(params, onReceived, onFailed) {
+            getJSON(baseURL + "flight_propagated_trajectory/", params
+            , function(data) {
+                onReceived(data);
+            }, function(error) {
+                onFailed(error);
+            }, function() {
+
+            });
+        },
+        
         doGetAirports : function(zoom, mapBounds, onReceived, onFailed) {
             mapBounds = mapBounds === null? {}: mapBounds;
             getJSON(baseURL + "airport/", {
@@ -96,8 +107,8 @@ var radarlivre_api = function() {
             }, function() {
 
             });
-        }, 
-        
+        },
+                
         jsonpCallBack : function(data) {
             log("Jsonp recebido");
         }

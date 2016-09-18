@@ -15,6 +15,7 @@ from radarlivre_api.models import Airport, Flight, Observation, About, Notify, C
 from radarlivre_api.models.serializers import AirportSerializer, FlightSerializer, ObservationSerializer,  \
     AboutSerializer, NotifySerializer, CollectorSerializer, \
     AirlineSerializer, ADSBInfoSerializer, FlightInfoSerializer
+from radarlivre_api.utils import Util
 from radarlivre_api.views.filters import ObservationPrecisionFilter, \
     ObservationFlightFilter, MapBoundsFilter, \
     MaxUpdateDelayFilter, AirportTypeZoomFilter, FlightFilter, FlightClusteringFilter
@@ -34,19 +35,18 @@ class CollectorDetail(APIView):
     serializer_class = CollectorSerializer
     permission_classes = (permissions.DjangoModelPermissions,)
     
-    def get_object(self, pk):
+    def get_object(self, key):
         try:
-            return Collector.objects.get(pk=pk)
+            return Collector.objects.get(key=key)
         except Collector.DoesNotExist:
             raise Http404
 
-    def put(self, request, pk, format=None):
-        collector = self.get_object(pk)
+    def put(self, request, key, format=None):
+        collector = self.get_object(key)
         serializer = CollectorSerializer(collector, data=request.data)
-        if serializer.is_valid():
-            collector.timestamp = int(time() * 1000)
-            collector.save()
-        return Response(serializer.data)
+        collector.timestamp = int(time() * 1000)
+        collector.save()
+        return Response("", status=status.HTTP_200_OK)
 
 
 class AirlineList(ListCreateAPIView):
@@ -94,6 +94,21 @@ class FlightDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = FlightSerializer
     permission_classes = (permissions.IsAdminUser,)
 
+class FlightPropagatedTrajectoryList(APIView):
+
+    def get(self, request, format=None):
+        propCount = Util.parseParam(request, "propagation_count", 60)
+        propInterval = Util.parseParam(request, "propagation_interval", 1000)
+        flight = int(Util.parseParam(request, "flight", -1))
+        try:
+            info = FlightInfo.objects.get(flight=flight)
+            obs = info.generatePropagatedTrajectory(propCount, propInterval)
+            serializer = ObservationSerializer(obs, many=True)
+            return Response(serializer.data)
+        except FlightInfo.DoesNotExist as err:
+            print str(err)
+
+        return Response(ObservationSerializer([], many=True).data)
 
 class ADSBInfoList(APIView):
     queryset = ADSBInfo.objects.all()
@@ -121,8 +136,11 @@ class ADSBInfoList(APIView):
             # timestamp ...
             for info in infos:
                 obs = Observation.generateFromADSBInfo(info)
-                FlightInfo.generateFromFlight(obs.flight)
-                logging.info("Views: ADSBInfo received [id=%d, collector=%s]" % (info.id, str(info.collector)))
+                if obs:
+                    FlightInfo.generateFromFlight(obs.flight, obs)
+                    logging.info("Views: ADSBInfo received [id=%d, collector=%s]" % (info.id, str(info.collectorKey)))
+                else:
+                    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -130,7 +148,7 @@ class ADSBInfoList(APIView):
     
 
 class ObservationList(ListCreateAPIView):
-    queryset = Observation.objects.all()
+    queryset = Observation.objects.filter(simulated=False)
     serializer_class = ObservationSerializer
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     filter_backends = (
@@ -144,7 +162,7 @@ class ObservationList(ListCreateAPIView):
     ordering_fields = '__all__'
 
 class ObservationDetail(RetrieveUpdateDestroyAPIView):
-    queryset = Observation.objects.all()
+    queryset = Observation.objects.filter(simulated=False)
     serializer_class = ObservationSerializer
     permission_classes = (permissions.IsAdminUser,)
 
@@ -169,4 +187,4 @@ class NotifyDetail(RetrieveUpdateDestroyAPIView):
     queryset = Notify.objects.all()
     serializer_class = NotifySerializer
     permission_classes = (permissions.IsAdminUser,)
-    
+
