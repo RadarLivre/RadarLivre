@@ -205,15 +205,23 @@ function initMap() {
             
             // maps_api.doClusterizeMarkers();
         } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
-            for(o of objects) {    
+            if(objects.length > 0) {
+                marker = maps_api.getSelectedMarker();
                 
-                maps_api.doSetMarker({
-                    id: o.id, 
-                    dataType: connectionType, 
-                    data: o, 
-                    position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, .5, 1)
-                });
+                if(marker && marker.id == objects[0].flight) {
+                    for(var i = 0; i < objects.length - 1; i++) {
+                        var o1 = objects[i];
+                        var o2 = objects[i + 1];
+                        maps_api.doSetPolyLine(marker, {
+                            id: o1.timestamp, 
+                            path: [
+                                {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
+                                {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
+                            ], 
+                            color: "#FF5722"
+                        })
+                    }
+                }
             }
             
         } else if(connectionType == DataType.COLLECTOR) {
@@ -240,7 +248,7 @@ function initMap() {
                                 {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
                             ], 
-                            color: "#000"
+                            color: "#3F51B5"
                         })
                     }
                 }
@@ -277,14 +285,23 @@ function initMap() {
             }
         } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
             
-            for(o of objects) {    
-                maps_api.doSetMarker({
-                    id: o.id, 
-                    dataType: connectionType, 
-                    data: o, 
-                    position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, .5, 1)
-                });
+            if(objects.length > 0) {
+                marker = maps_api.getSelectedMarker();
+                
+                if(marker && marker.id == objects[0].flight) {
+                    for(var i = 0; i < objects.length - 1; i++) {
+                        var o1 = objects[i];
+                        var o2 = objects[i + 1];
+                        maps_api.doSetPolyLine(marker, {
+                            id: o1.timestamp, 
+                            path: [
+                                {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
+                                {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
+                            ], 
+                            color: "#FF5722"
+                        })
+                    }
+                }
             }
             
         } else if(connectionType == DataType.COLLECTOR) {
@@ -311,7 +328,7 @@ function initMap() {
                                 {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
                             ], 
-                            color: "#000"
+                            color: "#3F51B5"
                         })
                     }
                 }
