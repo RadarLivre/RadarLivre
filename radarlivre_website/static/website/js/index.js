@@ -195,7 +195,7 @@ function initMap() {
             }
             
             // maps_api.doClusterizeMarkers();
-        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
+        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED) && ROUTE_PROPAGATION_ENABLED) {
             for(o of objects) {    
                 
                 maps_api.doSetMarker({
@@ -268,7 +268,7 @@ function initMap() {
                 if(ROUTE_PROPAGATION_ENABLED)
                     getAirplanesPropagated(o.flight.id);
             }
-        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
+        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED) && ROUTE_PROPAGATION_ENABLED) {
             
             for(o of objects) {    
                 maps_api.doSetMarker({
@@ -330,18 +330,19 @@ function initMap() {
             for(o of objects) {
                 maps_api.doRemoveMarker( maps_api.getMarker(o.flight.id, connectionType) );
                 
-                for(k in maps_api.getMarkers()) {
-                    if(k.startsWith(DataType.AIRPLANE_PROPAGATED)) {
-                        toRemove = maps_api.getMarkers()[k].filter(function(marker) {
-                            return marker.data.flight === o.flight.id;
-                        });
-                        for(r in toRemove)
-                            maps_api.doRemoveMarker(toRemove[r]);
+                if(ROUTE_PROPAGATION_ENABLED)
+                    for(k in maps_api.getMarkers()) {
+                        if(k.startsWith(DataType.AIRPLANE_PROPAGATED)) {
+                            toRemove = maps_api.getMarkers()[k].filter(function(marker) {
+                                return marker.data.flight === o.flight.id;
+                            });
+                            for(r in toRemove)
+                                maps_api.doRemoveMarker(toRemove[r]);
+                        }
                     }
-                }
                 
             }
-        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
+        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED) && ROUTE_PROPAGATION_ENABLED) {
             for(o of objects) {
                 maps_api.doRemoveMarker( maps_api.getMarker(o.id, connectionType) );
             }
