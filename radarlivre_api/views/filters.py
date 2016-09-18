@@ -18,7 +18,7 @@ class MaxUpdateDelayFilter(BaseFilterBackend):
         # Pega o timestamp atual em milisegundos
         now = int((time.time()) * 1000)
         # Valor padrão o intervalo: 1 min
-        maxUpdateDelay = Util.parseParam(request, "max_update_delay", 1 * 5 * 1000)
+        maxUpdateDelay = Util.parseParam(request, "max_update_delay", 1 * 60 * 1000)
         return queryset.filter(timestamp__gte = (now - maxUpdateDelay))
 
 # Filtro responsável por pegar apenas as observações do vôo atual da aeronave

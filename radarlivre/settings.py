@@ -86,8 +86,8 @@ DATABASES = {
         #'NAME': os.path.join(os.path.join(BASE_DIR, 'database'), 'radarlivre.db'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'radarlivre_v4',
-        'USER': 'felipe',
-        'PASSWORD': 'NSKlrpt1',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
 
     }
