@@ -88,25 +88,28 @@ function initMap() {
     }
     
     var getAirplanesPropagated = function(flight) {
-        radarlivre_updater.doBeginConnection(DataType.AIRPLANE_PROPAGATED + "_" + flight,
-            function(connId) {
-                // log("Begin get airplane propagation to " + flight);
-                radarlivre_api.doGetFlightPropagation(
-                    {
-                        flight: flight, 
-                        propagation_count: 12,
-                        propagation_interval: 5000
-                    }, 
-                    function(data) {
-                        radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + flight, data);
-                    }, 
-                    function(error) {
-                        radarlivre_updater.doCancelConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + flight);
-                        log("Get airplanes propagated error: " + error);
-                    }
-                );
-            }
-        );
+        if(ROUTE_PROPAGATION_ENABLED)
+            radarlivre_updater.doBeginConnection(DataType.AIRPLANE_PROPAGATED + "_" + flight,
+                function(connId) {
+                    // log("Begin get airplane propagation to " + flight);
+                    radarlivre_api.doGetFlightPropagation(
+                        {
+                            flight: flight, 
+                            propagation_count: 12,
+                            propagation_interval: 5000
+                        }, 
+                        function(data) {
+                            if(ROUTE_PROPAGATION_ENABLED)
+                                radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + flight, data);
+                        }, 
+                        function(error) {
+                            if(ROUTE_PROPAGATION_ENABLED)
+                                radarlivre_updater.doCancelConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + flight);
+                            log("Get airplanes propagated error: " + error);
+                        }
+                    );
+                }
+            );
     }
     
     var getAirports = function() {
@@ -191,13 +194,12 @@ function initMap() {
                     icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, 1, 1)
                 });
 
-                if(ROUTE_PROPAGATION_ENABLED)
-                    getAirplanesPropagated(o.flight.id);
+                getAirplanesPropagated(o.flight.id);
                 
             }
             
             // maps_api.doClusterizeMarkers();
-        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED) && ROUTE_PROPAGATION_ENABLED) {
+        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
             for(o of objects) {    
                 
                 maps_api.doSetMarker({
@@ -267,10 +269,8 @@ function initMap() {
                     icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, 1, 1)
                 });
                 
-                if(ROUTE_PROPAGATION_ENABLED)
-                    getAirplanesPropagated(o.flight.id);
             }
-        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED) && ROUTE_PROPAGATION_ENABLED) {
+        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
             
             for(o of objects) {    
                 maps_api.doSetMarker({
@@ -332,19 +332,18 @@ function initMap() {
             for(o of objects) {
                 maps_api.doRemoveMarker( maps_api.getMarker(o.flight.id, connectionType) );
                 
-                if(ROUTE_PROPAGATION_ENABLED)
-                    for(k in maps_api.getMarkers()) {
-                        if(k.startsWith(DataType.AIRPLANE_PROPAGATED)) {
-                            toRemove = maps_api.getMarkers()[k].filter(function(marker) {
-                                return marker.data.flight === o.flight.id;
-                            });
-                            for(r in toRemove)
-                                maps_api.doRemoveMarker(toRemove[r]);
-                        }
+                for(k in maps_api.getMarkers()) {
+                    if(k.startsWith(DataType.AIRPLANE_PROPAGATED)) {
+                        toRemove = maps_api.getMarkers()[k].filter(function(marker) {
+                            return marker.data.flight === o.flight.id;
+                        });
+                        for(r in toRemove)
+                            maps_api.doRemoveMarker(toRemove[r]);
                     }
+                }
                 
             }
-        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED) && ROUTE_PROPAGATION_ENABLED) {
+        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
             for(o of objects) {
                 maps_api.doRemoveMarker( maps_api.getMarker(o.id, connectionType) );
             }
