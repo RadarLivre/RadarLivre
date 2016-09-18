@@ -173,9 +173,6 @@ function initMap() {
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
                 
-                if(ROUTE_PROPAGATION_ENABLED)
-                    getAirplanesPropagated(o.flight.id);
-                
                 maps_api.doSetMarker({
                     id: o.flight.id, 
                     dataType: connectionType, 
@@ -183,6 +180,10 @@ function initMap() {
                     position: new google.maps.LatLng(o.latitude, o.longitude), 
                     icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, 1, 1)
                 });
+
+                if(ROUTE_PROPAGATION_ENABLED)
+                    getAirplanesPropagated(o.flight.id);
+                
             }
             
             // maps_api.doClusterizeMarkers();
@@ -256,7 +257,8 @@ function initMap() {
                     icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, 1, 1)
                 });
                 
-                getAirplanesPropagated(o.flight.id);
+                if(ROUTE_PROPAGATION_ENABLED)
+                    getAirplanesPropagated(o.flight.id);
             }
         } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
             
