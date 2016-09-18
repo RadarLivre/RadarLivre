@@ -41,7 +41,14 @@ componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
                     maps_api.doRemoveMarkerByType(k);
                 }
             }
+        } else {
+            for(k in maps_api.getMarkers()) {
+                if(k == DataType.AIRPLANE) {
+                    getAirplanesPropagated(maps_api.getMarkers()[k].id);
+                }
+            }
         }
+
     });
     
 });
