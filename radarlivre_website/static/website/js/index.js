@@ -22,6 +22,15 @@ componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
     log("MDL Loaded");
     if(MAP_LOADED)
         initMap();
+    
+});
+
+function initMap() {
+
+    MAP_LOADED = true;
+
+    if(!MDL_LOADED) return;
+    log("MAP Loaded");
 
     var settsDialog = rl_base.doAddDialog({
         button: "#rl-map__dialog-config__trigger",
@@ -31,7 +40,7 @@ componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
     $("#rl-map__dialog-config__close").click(function() {
         settsDialog.close();
     });
-
+    
     $("#rl-map__switch-enable-propagated-route").change(function() {
         ROUTE_PROPAGATION_ENABLED = $(this).is(":checked");
 
@@ -50,15 +59,6 @@ componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
         }
 
     });
-    
-});
-
-function initMap() {
-
-    MAP_LOADED = true;
-
-    if(!MDL_LOADED) return;
-    log("MAP Loaded");
 
     var routeColors = [];
     initColors(routeColors);
