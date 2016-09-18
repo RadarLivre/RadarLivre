@@ -50,14 +50,7 @@ function initMap() {
                     maps_api.doRemoveMarkerByType(k);
                 }
             }
-        } else {
-            for(k in maps_api.getMarkers()) {
-                if(k === DataType.AIRPLANE) {
-                    for(a in maps_api.getMarkers()[k])
-                        getAirplanesPropagated(maps_api.getMarkers()[k][a].id);
-                }
-            }
-        }
+        } 
 
     });
 
