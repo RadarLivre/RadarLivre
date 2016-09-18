@@ -107,11 +107,11 @@ function initMap() {
                         }, 
                         function(data) {
                             if(ROUTE_PROPAGATION_ENABLED)
-                                radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + flight, data);
+                                radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + marker.id, data);
                         }, 
                         function(error) {
                             if(ROUTE_PROPAGATION_ENABLED)
-                                radarlivre_updater.doCancelConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + flight);
+                                radarlivre_updater.doCancelConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + marker.id);
                             log("Get airplanes propagated error: " + error);
                         }
                     );
