@@ -348,7 +348,7 @@ var maps_api = function() {
             _removeMarker(marker);
         },
         
-        doRemoveMarkerNyType : function(dataType) {            
+        doRemoveMarkerByType : function(dataType) {            
             _removeByType(dataType);
         },
         

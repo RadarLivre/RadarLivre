@@ -38,9 +38,7 @@ componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
         if(!ROUTE_PROPAGATION_ENABLED) {
             for(k in maps_api.getMarkers()) {
                 if(k.startsWith(DataType.AIRPLANE_PROPAGATED)) {
-                    toRemove = maps_api.getMarkers()[k];
-                    for(r in toRemove)
-                        maps_api.doRemoveMarker(toRemove[r]);
+                    maps_api.doRemoveMarkerByType(k);
                 }
             }
         }
@@ -88,28 +86,27 @@ function initMap() {
     }
     
     var getAirplanesPropagated = function(flight) {
-        if(ROUTE_PROPAGATION_ENABLED)
-            radarlivre_updater.doBeginConnection(DataType.AIRPLANE_PROPAGATED + "_" + flight,
-                function(connId) {
-                    // log("Begin get airplane propagation to " + flight);
-                    radarlivre_api.doGetFlightPropagation(
-                        {
-                            flight: flight, 
-                            propagation_count: 12,
-                            propagation_interval: 5000
-                        }, 
-                        function(data) {
-                            if(ROUTE_PROPAGATION_ENABLED)
-                                radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + flight, data);
-                        }, 
-                        function(error) {
-                            if(ROUTE_PROPAGATION_ENABLED)
-                                radarlivre_updater.doCancelConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + flight);
-                            log("Get airplanes propagated error: " + error);
-                        }
-                    );
-                }
-            );
+        radarlivre_updater.doBeginConnection(DataType.AIRPLANE_PROPAGATED + "_" + flight,
+            function(connId) {
+                // log("Begin get airplane propagation to " + flight);
+                radarlivre_api.doGetFlightPropagation(
+                    {
+                        flight: flight, 
+                        propagation_count: 12,
+                        propagation_interval: 5000
+                    }, 
+                    function(data) {
+                        if(ROUTE_PROPAGATION_ENABLED)
+                            radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + flight, data);
+                    }, 
+                    function(error) {
+                        if(ROUTE_PROPAGATION_ENABLED)
+                            radarlivre_updater.doCancelConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + flight);
+                        log("Get airplanes propagated error: " + error);
+                    }
+                );
+            }
+        );
     }
     
     var getAirports = function() {
