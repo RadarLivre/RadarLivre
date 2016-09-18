@@ -35,11 +35,13 @@ componentHandler.registerUpgradedCallback("MaterialLayout", function(elem) {
     $("#rl-map__switch-enable-propagated-route").change(function() {
         ROUTE_PROPAGATION_ENABLED = $(this).is(":checked");
 
-        for(k in maps_api.getMarkers()) {
-            if(k.startsWith(DataType.AIRPLANE_PROPAGATED)) {
-                toRemove = maps_api.getMarkers()[k];
-                for(r in toRemove)
-                    maps_api.doRemoveMarker(toRemove[r]);
+        if(!ROUTE_PROPAGATION_ENABLED) {
+            for(k in maps_api.getMarkers()) {
+                if(k.startsWith(DataType.AIRPLANE_PROPAGATED)) {
+                    toRemove = maps_api.getMarkers()[k];
+                    for(r in toRemove)
+                        maps_api.doRemoveMarker(toRemove[r]);
+                }
             }
         }
     });
