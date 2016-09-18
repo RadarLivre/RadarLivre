@@ -40,7 +40,7 @@ function initMap() {
     $("#rl-map__dialog-config__close").click(function() {
         settsDialog.close();
     });
-    
+
     $("#rl-map__switch-enable-propagated-route").change(function() {
         ROUTE_PROPAGATION_ENABLED = $(this).is(":checked");
 
@@ -52,8 +52,9 @@ function initMap() {
             }
         } else {
             for(k in maps_api.getMarkers()) {
-                if(k == DataType.AIRPLANE) {
-                    getAirplanesPropagated(maps_api.getMarkers()[k].id);
+                if(k === DataType.AIRPLANE) {
+                    for(a in maps_api.getMarkers()[k])
+                        getAirplanesPropagated(maps_api.getMarkers()[k][a].id);
                 }
             }
         }
