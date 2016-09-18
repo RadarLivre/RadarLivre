@@ -117,6 +117,7 @@ function initMap() {
                     );
                 }
             );
+        }
     }
     
     var getAirports = function() {
@@ -219,7 +220,7 @@ function initMap() {
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
                             ], 
                             color: "#FF5722"
-                        })
+                        });
                     }
                 }
             }
@@ -299,7 +300,7 @@ function initMap() {
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
                             ], 
                             color: "#FF5722"
-                        })
+                        });
                     }
                 }
             }
@@ -329,7 +330,7 @@ function initMap() {
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
                             ], 
                             color: "#3F51B5"
-                        })
+                        });
                     }
                 }
             }
