@@ -93,14 +93,15 @@ function initMap() {
         );
     }
     
-    var getAirplanesPropagated = function(flight) {
-        if(ROUTE_PROPAGATION_ENABLED)
-            radarlivre_updater.doBeginConnection(DataType.AIRPLANE_PROPAGATED + "_" + flight,
+    var getAirplanesPropagated = function() {
+        var marker = maps_api.getSelectedMarker();
+        if(marker && marker.dataType === DataType.AIRPLANE && ROUTE_PROPAGATION_ENABLED) {
+            radarlivre_updater.doBeginConnection(DataType.AIRPLANE_PROPAGATED + "_" + marker.id,
                 function(connId) {
                     // log("Begin get airplane propagation to " + flight);
                     radarlivre_api.doGetFlightPropagation(
                         {
-                            flight: flight, 
+                            flight: marker.id, 
                             propagation_count: 12,
                             propagation_interval: 5000
                         }, 
@@ -199,8 +200,6 @@ function initMap() {
                     position: new google.maps.LatLng(o.latitude, o.longitude), 
                     icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, 1, 1)
                 });
-
-                getAirplanesPropagated(o.flight.id);
                 
             }
             
