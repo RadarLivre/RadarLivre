@@ -384,6 +384,7 @@ function initMap() {
     maps_api.doSetOnMarkerSelectListener(function(marker) {
         showInfoTo(marker);
         getRoute();
+        getAirplanesPropagated();
     });
 
     maps_api.doSetOnMarkerUnselectListener(function(marker) {
@@ -411,6 +412,7 @@ function initMap() {
         getCollectors();    
         setInterval(getAirplanes, 5000);
         setInterval(getRoute, 5000);
+        setInterval(getAirplanesPropagated, 5000);
         setInterval(getCollectors, 5000);
         setInterval(function() {
             if(updateAirports) {
