@@ -99,12 +99,10 @@ function initMap() {
                             propagation_interval: 5000
                         }, 
                         function(data) {
-                            if(ROUTE_PROPAGATION_ENABLED)
-                                radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + marker.id, data);
+                            radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + marker.id, data);
                         }, 
                         function(error) {
-                            if(ROUTE_PROPAGATION_ENABLED)
-                                radarlivre_updater.doCancelConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + marker.id);
+                            radarlivre_updater.doCancelConnection(connId, DataType.AIRPLANE_PROPAGATED + "_" + marker.id);
                             log("Get airplanes propagated error: " + error);
                         }
                     );
@@ -198,7 +196,7 @@ function initMap() {
             }
             
         } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
-            if(objects.length > 0) {
+            if(ROUTE_PROPAGATION_ENABLED && objects.length > 0) {
                 marker = maps_api.getSelectedMarker();
                 
                 if(marker && marker.id == objects[0].flight) {
@@ -278,7 +276,7 @@ function initMap() {
             }
         } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
             
-            if(objects.length > 0) {
+            if(ROUTE_PROPAGATION_ENABLED && objects.length > 0) {
                 marker = maps_api.getSelectedMarker();
                 
                 if(marker && marker.id == objects[0].flight) {
