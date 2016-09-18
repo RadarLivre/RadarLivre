@@ -157,13 +157,23 @@ var maps_api = function() {
         return null;
     }
     
-    var _removePolyLine = function(marker) {
-        
+    var _removePolyLine = function(marker, id) {
+
         if(marker && marker._polyLines) {
-            for(k in marker._polyLines) {
-                marker._polyLines[k].setMap(null);
+            if(id) {
+                for(k in marker._polyLines) {
+                    if(marker._polyLines[k].id === id) {
+                        marker._polyLines[k].setMap(null);
+                        splice(k, 1);
+                        break;
+                    }
+                }
+            } else {
+                for(k in marker._polyLines) {
+                    marker._polyLines[k].setMap(null);
+                }
+                marker._polyLines = [];
             }
-            marker._polyLines = [];
         }
         
     }
@@ -361,8 +371,8 @@ var maps_api = function() {
             _setMarkerPolyLine(marker, setts);
         },
         
-        doRemovePolyLine : function(marker) {            
-            _removePolyLine(marker);
+        doRemovePolyLine : function(marker, id) {
+            _removePolyLine(marker, id);
         },
         
         doShowMarkerInfo : function(marker, content) {

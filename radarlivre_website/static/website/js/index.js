@@ -343,18 +343,7 @@ function initMap() {
         
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
-                maps_api.doRemoveMarker( maps_api.getMarker(o.flight.id, connectionType) );
-                
-                for(k in maps_api.getMarkers()) {
-                    if(k.startsWith(DataType.AIRPLANE_PROPAGATED)) {
-                        toRemove = maps_api.getMarkers()[k].filter(function(marker) {
-                            return marker.data.flight === o.flight.id;
-                        });
-                        for(r in toRemove)
-                            maps_api.doRemoveMarker(toRemove[r]);
-                    }
-                }
-                
+                maps_api.doRemoveMarker( maps_api.getMarker(o.flight.id, connectionType) );                
             }
         } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
             for(o of objects) {
