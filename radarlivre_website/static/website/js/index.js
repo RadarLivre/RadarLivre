@@ -385,7 +385,7 @@ function initMap() {
         updateAirports = true;
     });
 
-    maps_api.doInit("#map", 0.001, 0.001, 7, function() {
+    maps_api.doInit("#map", function() {
         getAirplanes();
         getAirports();
         getCollectors();    

@@ -4,6 +4,10 @@ var maps_api = function() {
 	 * PRIVADO
 	 */
     
+    var _DEFAULT_MAP_CENTER_LAT = -14.950841;
+    var _DEFAULT_MAP_CENTER_LNG = -52.1189968;
+    var _DEFAULT_MAP_CENTER_ZOOM = 4;
+    
     var _map;
     var _isMapLoaded = false;
 
@@ -177,6 +181,20 @@ var maps_api = function() {
         }
         
     }
+    
+    var _saveMapState = function() {
+        Cookies.set("maps_api_map_zoom", _map.getZoom());
+        Cookies.set("maps_api_map_lat", _map.getCenter().lat());
+        Cookies.set("maps_api_map_lng", _map.getCenter().lng());
+    }
+    
+    var _getSavedMapState = function() {
+        return {
+            zoom: parseFloat(Cookies.get("maps_api_map_zoom")) || _DEFAULT_MAP_CENTER_ZOOM, 
+            lat: parseFloat(Cookies.get("maps_api_map_lat")) || _DEFAULT_MAP_CENTER_LAT, 
+            lng: parseFloat(Cookies.get("maps_api_map_lng")) || _DEFAULT_MAP_CENTER_LNG
+        };
+    }
 
 	/*
 	 * PÚBLICO
@@ -184,7 +202,7 @@ var maps_api = function() {
 
 	return {
 
-		doInit : function(mapElement, lat, lng, zoom, onFinish, onFailed) {
+		doInit : function(mapElement, onFinish, onFailed) {
 
 			try {
 				
@@ -197,10 +215,9 @@ var maps_api = function() {
 				return;
 				
 			}
-
-            if(!lat) lat = -14.950841;
-            if(!lng) lng = -52.1189968;
-            if(!zoom) zoom = 4;
+            
+            // Loading from cookies
+            var savedMap = _getSavedMapState();            
 
             var styleArray = [
                 {
@@ -228,8 +245,8 @@ var maps_api = function() {
 
             _map = new google.maps.Map($(mapElement)[0], {
 
-                center: {lat: lat, lng: lng},
-                zoom: zoom, 
+                center: {lat: savedMap.lat, lng: savedMap.lng},
+                zoom: savedMap.zoom, 
                 mapTypeControl: false,
                 mapTypeControlOptions: {
                     style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
@@ -254,6 +271,7 @@ var maps_api = function() {
             
             _map.addListener('bounds_changed', function() {
 				_onBoundsChangedListener(_map.getBounds());
+                _saveMapState();
 			});
             
             _map.addListener('zoom_changed', function() {
