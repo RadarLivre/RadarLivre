@@ -250,6 +250,7 @@ class FlightInfo(models.Model):
 
     def generatePropagatedTrajectory(self, propCount, propInterval):
 
+
         observations = Observation.objects.filter(flight=self.flight).filter(simulated=True)
         for o in observations:
             o.delete()
@@ -266,7 +267,7 @@ class FlightInfo(models.Model):
             infoB = obs[len(obs) - 1]
 
             turnRateInterval = (float(infoB.timestamp) - float(infoA.timestamp))/1000.0
-            turnRate = 0 if turnRateInterval== 0 \
+            turnRate = 0 if turnRateInterval == 0 \
                 else propInterval * (float(infoB.groundTrackHeading) - float(infoA.groundTrackHeading))/turnRateInterval
             groundTrackHeading = float(infoB.groundTrackHeading) + turnRate
             distance = Math.knotsToMetres(float(infoB.horizontalVelocity)) * propInterval

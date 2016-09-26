@@ -29,7 +29,7 @@
 
 						<div class="mdl-textfield__expandable-holder">
 							<input class="mdl-textfield__input mdl-color--white" type="text" id="rl-place-searchbox" >
-							<label class="mdl-textfield__label" for="rl-place-searchbox "></label>
+							<label class="mdl-textfield__label" for="rl-place-searchbox"></label>
 						</div>
 					</div>
 
@@ -77,33 +77,58 @@
 		</header>
 		
 		<div class="rl-map-drawer mdl-layout__drawer">
-		
-			<div class="mdl-card__menu">
-				
-				<button class="rl-map-drawer__close-button mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-					
-					<i class="material-icons">close</i>
-				
-				</button>
-				
+
+			<div class="mdl-card mdl-shadow--2dp">
+				<div class="mdl-card__title mdl-color--blue-grey">
+					<div>
+						<h4 class="rl-map-drawer__title mdl-color-text--white">Title</h4>
+						<h8 class="rl-map-drawer__subtitle mdl-color-text--white">Subtitle</h8>
+						<h8 class="rl-map-drawer__date mdl-color-text--grey-100">Last update</h8>
+					</div>
+
+					<div class="rl-map__aircraft-track mdl-shadow--2dp mdl-color--white">
+						<i class="material-icons mdl-color-text--cyan">flight</i>
+					</div>
+				</div>
+
+				<div class="mdl-card__supporting-text">
+					<div class="mdl-grid mdl-grid--no-spacing">
+						<div class="mdl-cell--6-col">
+							<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Latitude</h8>
+							<h7 class="rl-map-drawer__lat rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
+						</div>
+
+						<div class="mdl-cell--6-col">
+							<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Longitude</h8>
+							<h7 class="rl-map-drawer__lng rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
+						</div>
+
+						<div class="mdl-cell--6-col">
+							<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Altitude</h8>
+							<h7 class="rl-map-drawer__alt rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
+						</div>
+
+						<div class="mdl-cell--6-col">
+							<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Velocidade</h8>
+							<h7 class="rl-map-drawer__speed rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
+						</div>
+
+						<div class="mdl-cell--6-col">
+							<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Curso</h8>
+							<h7 class="rl-map-drawer__track rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
+						</div>
+					</div>
+				</div>
+
+				<div class="mdl-card__menu">
+					<button class="rl-map-drawer__close-button mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+						<i class="material-icons mdl-color-text--white">close</i>
+					</button>
+
+				</div>
+
 			</div>
-			
-			<h4 class="rl-map-drawer__title mdl-color-text--grey-700">Title</h4>
-			<h8 class="rl-map-drawer__subtitle mdl-color-text--grey-700">Subtitle</h8>
-			<h8 class="rl-map-drawer__date mdl-color-text--grey-500">Last update</h8>
-			
-			<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Latitude</h8>
-			<h7 class="rl-map-drawer__lat rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
-			
-			<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Longitude</h8>
-			<h7 class="rl-map-drawer__lng rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
-			
-			<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Altitude</h8>
-			<h7 class="rl-map-drawer__alt rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
-			
-			<h8 class="rl-map-drawer__item-title mdl-color-text--grey-700">Velocidade</h8>
-			<h7 class="rl-map-drawer__speed rl-map-drawer__item-value mdl-color-text--grey-700">-2.234234234</h7>
-		
+
 		</div>
 
 {% endblock %}
@@ -122,7 +147,8 @@
 	<script src="{% static 'website/js/radarlivre/radarlivre_api.js' %}"></script>	
 	<script src="{% static 'website/js/radarlivre/radarlivre_updater.js' %}"></script>	
     <script src="{% static 'website/js/maps/maps_distance_based_clustering.js' %}"></script>	
-	<script src="{% static 'website/js/maps/maps_api.js' %}"></script>	
+	<script src="{% static 'website/js/maps/maps_api.js' %}"></script>
+	<script src="{% static 'website/js/jquery/jquery_rotate.js' %}"></script>
 	<script src="{% static 'website/js/index.js' %}"></script>	
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoBQcMnMYMQUPyorTXHqF1UjgpP4iflrg&libraries=places&callback=initMap" async defer></script>
 

@@ -90,35 +90,19 @@
 				{% endif %}
 				
 			</main>
+
+			<div class="rl-snackbar__wrapper">
+				<div id="rl-snackbar" class="mdl-js-snackbar mdl-snackbar mdl-color--white mdl-shadow--2dp">
+
+					<div class="mdl-snackbar__text mdl-color-text--grey-700"></div>
+					<button class="mdl-snackbar__action" type="button"></button>
+
+				</div>
+			</div>
 										
 		</div>
 		
 		{% block body-content %}{% endblock %}
-		
-		<div id="rl-snackbar" class="mdl-js-snackbar mdl-snackbar mdl-color--white mdl-shadow--2dp">
-		
-			<div class="mdl-snackbar__text mdl-color-text--grey-700"></div>
-			<button class="mdl-snackbar__action" type="button"></button>
-		
-		</div>	
-		
-		<dialog class="mdl-dialog">
-			<div class="mdl-dialog__content">
-				
-				<span class="mdl-typography--title">Tempo de atualização</span>
-				<input class="mdl-slider mdl-js-slider" type="range" min="1" max="60" value="0" tabindex="0"/>
-	
-				<div class="rl-horizontal-line mdl-color--grey-200"></div>
-	
-				<span class="mdl-typography--title">Timestamp mínimo</span>
-				<input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0">
-	
-	
-			</div>
-			<div class="mdl-dialog__actions">
-				<button type="button" class="rl-dialog__ok mdl-button mdl-js-button mdl-ripple-effect">Aplicar</button>
-			</div>
-		</dialog>
 		
 		<div class="rl-foreground"></div>
 		

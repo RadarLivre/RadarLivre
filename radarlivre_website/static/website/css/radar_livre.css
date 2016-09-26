@@ -42,6 +42,7 @@
 /*
  * DRAWER
  */
+
 .mdl-layout__drawer-button {
 
 	background-color: rgba(0, 0, 0, 0) !important;
@@ -236,6 +237,24 @@
 	margin-right: auto;
 	
 }
+
+
+/*
+ * Snackbar
+ */
+
+@media (min-width: 480px) {
+
+    .mdl-snackbar {
+        -webkit-transform: translate(-50%,80px);
+        transform: translate(-50%,80px);
+    }
+    .mdl-snackbar--active {
+        -webkit-transform: translate(-50%,0);
+        transform: translate(-50%,0);
+    }
+}
+
 
 /*
  * POLYFILL

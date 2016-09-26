@@ -2,39 +2,32 @@
 	
 	font-family: 'Roboto';
 	font-weight: 500;
-	margin-top: 52px;
-	margin-left: 20px;
-	margin-bottom: 0px;
-	
+	display: block;
+
 }
 
 .rl-map-drawer__subtitle {
 	
 	font-family: 'Roboto';
 	font-weight: 400;
-	margin-top: 0px;
-	margin-left: 20px;
-	margin-bottom: 0px;
-	
+	display: block;
+
 }
 
 .rl-map-drawer__date {
 	
 	font-family: 'Roboto';
 	font-weight: 500;
-	margin-top: 0px;
-	margin-left: 20px;
-	margin-bottom: 20px;
-	
+	display: block;
+
 }
 
 .rl-map-drawer__item-title {
 	
 	font-family: 'Roboto';
 	font-weight: 400;
-	margin-top: 0px;
-	margin-left: 20px;
-	margin-bottom: 0px;
+	font-size: 12px;
+	display: block;
 	
 }
 
@@ -42,8 +35,67 @@
 	
 	font-family: 'Roboto';
 	font-weight: 500;
-	margin-top: 0px;
-	margin-left: 20px;
-	margin-bottom: 10px;
+	font-size: 14px;
+	display: block;
 	
+}
+
+.rl-map-drawer {
+    width: 0px;
+    margin-left: 8px;
+    background: none;
+    border: none !important;
+    box-shadow: none;
+    overflow: visible;
+
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    transform: translateX(-360px) !important;
+
+}
+
+.rl-map-drawer.is-visible {
+    transform: translateX(0) !important;
+}
+
+.rl-map-drawer .mdl-card {
+    width: calc(360px - 26px);
+    margin-left: 50%;
+}
+
+.rl-map-drawer .mdl-grid > * {
+    margin-bottom: 8px;
+}
+
+.rl-map-drawer .mdl-card__title {
+    position: relative;
+}
+
+.rl-map__aircraft-track {
+    position: absolute;
+    right: 16px;
+    bottom: -28px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+}
+
+.rl-map__aircraft-track > i {
+    line-height: 56px;
+    width: 56px;
+    text-align: center;
+    font-size: 36px;
 }

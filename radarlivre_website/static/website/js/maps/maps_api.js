@@ -168,7 +168,7 @@ var maps_api = function() {
                 for(k in marker._polyLines) {
                     if(marker._polyLines[k].id === id) {
                         marker._polyLines[k].setMap(null);
-                        splice(k, 1);
+                        marker._polyLines.splice(k, 1);
                         break;
                     }
                 }

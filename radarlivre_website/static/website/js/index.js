@@ -72,7 +72,7 @@ function initMap() {
                         right: map.getBounds().getNorthEast().lng(), 
                         map_height: $("#map").height(), 
                         map_zoom: map.getZoom(), 
-                        min_airplane_distance: 50
+                        min_airplane_distance: 0
                     }, 
                     function(data) {
                         radarlivre_updater.doEndConnection(connId, DataType.AIRPLANE, data);
@@ -177,68 +177,102 @@ function initMap() {
             );
         }
     }
-    
-    radarlivre_updater.doSetOnObjectCreatedListener(function(objects, connectionType, conn) {
-        //if(objects.length > 0)
-        //    log(objects.length + " " + connectionType + " objects created in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
-        
+
+    var manageUpdate = function(objects, connectionType, conn) {
+
         if(connectionType == DataType.AIRPLANE) {
+            var skipped = 0;
             for(o of objects) {
-                
+                old = maps_api.getMarker(o.flight.id, connectionType);
+
+                if(old && old.data.timestamp == o.timestamp) {
+                    skipped += 1;
+                    continue;
+                }
+
                 maps_api.doSetMarker({
-                    id: o.flight.id, 
-                    dataType: connectionType, 
-                    data: o, 
-                    position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, 1, 1)
+                    id: o.flight.id,
+                    dataType: connectionType,
+                    data: o,
+                    position: new google.maps.LatLng(o.latitude, o.longitude),
+                    icon: {
+                        path: AIRPLANE_ICON_PATH,
+                        fillColor: "#FFEB3B",
+                        fillColorNormal: "#FFEB3B",
+                        fillColorSelected: "#FF5722",
+                        fillOpacity: 1,
+                        strokeWeight: 1,
+                        strokeColor: "#FF5722",
+                        scale: 1.0,
+                        scaleDefault: 1.0,
+                        rotation: parseInt(o.groundTrackHeading),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(11.5, 11.5),
+                    }
                 });
-                
+
             }
-            
+
+            if(skipped > 0)
+                console.log("Skipping " + skipped + " updates...");
+
         } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
             if(ROUTE_PROPAGATION_ENABLED && objects.length > 0) {
                 marker = maps_api.getSelectedMarker();
-                
+
                 if(marker && marker.id == objects[0].flight) {
                     for(var i = 0; i < objects.length - 1; i++) {
                         var o1 = objects[i];
                         var o2 = objects[i + 1];
                         maps_api.doSetPolyLine(marker, {
-                            id: o1.timestamp, 
+                            id: o1.timestamp,
                             path: [
-                                {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
+                                {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)},
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
-                            ], 
+                            ],
                             strokeColor: "#FF5722"
                         });
                     }
                 }
             }
-            
+
         } else if(connectionType == DataType.COLLECTOR) {
             for(o of objects) {
                 maps_api.doSetMarker({
-                    id: o.id, 
-                    dataType: connectionType, 
-                    data: o, 
-                    position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(COLLECTOR_ICON_PATH, "#00f", o.angle, 10, 10, .9, 0)
+                    id: o.id,
+                    dataType: connectionType,
+                    data: o,
+                    position: new google.maps.LatLng(o.latitude, o.longitude),
+                    icon: {
+                        path: COLLECTOR_ICON_PATH,
+                        fillColor: "#3F51B5",
+                        fillColorNormal: "#3F51B5",
+                        fillColorSelected: "#1A237E",
+                        fillOpacity: 1,
+                        strokeWeight: 0,
+                        strokeColor: "#000",
+                        scale: 0.9,
+                        scaleDefault: 0.9,
+                        rotation: parseInt(o.angle),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(10, 10),
+                    }
                 });
             }
         } else if(connectionType == DataType.ROUTE) {
             if(objects.length > 0) {
                 marker = maps_api.getSelectedMarker();
-                
+
                 if(marker && marker.id == objects[0].flight) {
                     for(var i = 0; i < objects.length - 1; i++) {
                         var o1 = objects[i];
                         var o2 = objects[i + 1];
                         maps_api.doSetPolyLine(marker, {
-                            id: o1.timestamp, 
+                            id: o1.timestamp,
                             path: [
-                                {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
+                                {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)},
                                 {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
-                            ], 
+                            ],
                             strokeColor: "#3F51B5"
                         })
                     }
@@ -247,95 +281,39 @@ function initMap() {
         } else if(connectionType == DataType.AIRPORT) {
             for(o of objects) {
                 maps_api.doSetMarker({
-                    id: o.id, 
-                    dataType: connectionType, 
-                    data: o, 
-                    position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(AIRPORT_ICON_PATH, "#555", 0, 10, 10, .7, 0)
+                    id: o.id,
+                    dataType: connectionType,
+                    data: o,
+                    position: new google.maps.LatLng(o.latitude, o.longitude),
+                    icon: {
+                        path: AIRPORT_ICON_PATH,
+                        fillColor: "#607D8B",
+                        fillColorNormal: "#607D8B",
+                        fillColorSelected: "#263238",
+                        fillOpacity: 1,
+                        strokeWeight: 0,
+                        strokeColor: "#000",
+                        scale: 0.6,
+                        scaleDefault: 0.7,
+                        rotation: parseInt(o.angle),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(10, 10),
+                    }
                 });
             }
         }
-    });
+
+        setTimeout(function() {
+            showInfoTo(maps_api.getSelectedMarker());
+            selectMarker(maps_api.getSelectedMarker());
+            scaleIcons();
+        }, 0);
+
+    }
+
+    radarlivre_updater.doSetOnObjectCreatedListener(manageUpdate);
     
-    radarlivre_updater.doSetOnObjectUpdatedListener(function(objects, connectionType, conn) {
-        //if(objects.length > 0)
-            //log(objects.length + " " + connectionType + " objects updated in a delay of " + (conn.responseTimestamp - conn.requestTimestamp) + " milliseconds");
-        
-        showInfoTo(maps_api.getSelectedMarker());
-        
-        if(connectionType == DataType.AIRPLANE) {
-            for(o of objects) {
-                maps_api.doSetMarker({
-                    id: o.flight.id, 
-                    dataType: connectionType, 
-                    data: o, 
-                    position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(AIRPLANE_ICON_PATH, "#FFEB3B", parseInt(o.groundTrackHeading), 10, 10, 1, 1)
-                });
-                
-            }
-        } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
-            
-            if(ROUTE_PROPAGATION_ENABLED && objects.length > 0) {
-                marker = maps_api.getSelectedMarker();
-                
-                if(marker && marker.id == objects[0].flight) {
-                    for(var i = 0; i < objects.length - 1; i++) {
-                        var o1 = objects[i];
-                        var o2 = objects[i + 1];
-                        maps_api.doSetPolyLine(marker, {
-                            id: o1.timestamp, 
-                            path: [
-                                {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
-                                {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
-                            ], 
-                            strokeColor: "#FF5722"
-                        });
-                    }
-                }
-            }
-            
-        } else if(connectionType == DataType.COLLECTOR) {
-            for(o of objects) {
-                maps_api.doSetMarker({
-                    id: o.id, 
-                    dataType: connectionType, 
-                    data: o, 
-                    position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(COLLECTOR_ICON_PATH, "#00f", o.angle, 10, 10, .9, 0)
-                });
-            }
-        } else if(connectionType == DataType.ROUTE) {
-            if(objects.length > 0) {
-                marker = maps_api.getSelectedMarker();
-                
-                if(marker && marker.id == objects[0].flight) {
-                    for(var i = 0; i < objects.length - 1; i++) {
-                        var o1 = objects[i];
-                        var o2 = objects[i + 1];
-                        maps_api.doSetPolyLine(marker, {
-                            id: o1.timestamp, 
-                            path: [
-                                {lat: parseFloat(o1.latitude), lng: parseFloat(o1.longitude)}, 
-                                {lat: parseFloat(o2.latitude), lng: parseFloat(o2.longitude)}
-                            ], 
-                            strokeColor: "#3F51B5"
-                        });
-                    }
-                }
-            }
-        } else if(connectionType == DataType.AIRPORT) {
-            for(o of objects) {
-                maps_api.doSetMarker({
-                    id: o.id, 
-                    dataType: connectionType, 
-                    data: o, 
-                    position: new google.maps.LatLng(o.latitude, o.longitude), 
-                    icon: createIcon(AIRPORT_ICON_PATH, "#555", 0, 10, 10, .7, 0)
-                });
-            }
-        }
-    });
+    radarlivre_updater.doSetOnObjectUpdatedListener(manageUpdate);
     
     radarlivre_updater.doSetOnObjectRemovedListener(function(objects, connectionType, conn) {
         //if(objects.length > 0)
@@ -343,11 +321,15 @@ function initMap() {
         
         if(connectionType == DataType.AIRPLANE) {
             for(o of objects) {
+                var sMarker = maps_api.getSelectedMarker();
+                if(sMarker && sMarker.id === o.flight.id)
+                    rl_base.doShowSnackbar("Perdemos contato com a aeronave selecionada!", 5000);
+
                 maps_api.doRemoveMarker( maps_api.getMarker(o.flight.id, connectionType) );                
             }
         } else if(connectionType.startsWith(DataType.AIRPLANE_PROPAGATED)) {
             for(o of objects) {
-                maps_api.doRemoveMarker( maps_api.getMarker(o.id, connectionType) );
+                maps_api.doRemovePolyLine( maps_api.getSelectedMarker(), o.timestamp);
             }
         } else if(connectionType == DataType.AIRPORT) {
             for(o of objects) {
@@ -364,11 +346,13 @@ function initMap() {
         showInfoTo(marker);
         getRoute();
         getAirplanesPropagated();
+        selectMarker(marker);
     });
 
     maps_api.doSetOnMarkerUnselectListener(function(marker) {
         hideInfo(marker);
         maps_api.doRemovePolyLine(marker);
+        unselectMarker(marker);
     });
 
     maps_api.doSetOnInfoWindowCloseListener(function(marker) {
@@ -383,13 +367,14 @@ function initMap() {
     
     maps_api.doSetOnMapBoundsChangeListener(function() {
         updateAirports = true;
+        scaleIcons();
     });
 
     maps_api.doInit("#map", function() {
         getAirplanes();
         getAirports();
         getCollectors();    
-        setInterval(getAirplanes, 5000);
+        setInterval(getAirplanes, 10000);
         setInterval(getRoute, 5000);
         setInterval(getAirplanesPropagated, 5000);
         setInterval(getCollectors, 5000);
@@ -407,18 +392,46 @@ function initMap() {
 
 }
 
-function createIcon(path, color, angle, offsetX, offsetY, scale, strokeWeight) {
-    return {
-        path: path,
-        fillColor: color,
-        fillOpacity: 1,
-        strokeWeight: strokeWeight,
-        strokeColor: "#FF5722", 
-        scale: scale? scale: 1, 
-        rotation: angle, 
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(offsetX, offsetY),
+var selectMarker = function(marker) {
+    if(marker) {
+        var icon = marker.getIcon();
+        icon.fillColor = icon.fillColorSelected;
+        icon.strokeWeight = 0;
+        marker.setIcon(icon);
     }
+}
+
+var unselectMarker = function(marker) {
+    if(marker) {
+        var icon = marker.getIcon();
+        icon.fillColor = icon.fillColorNormal;
+        icon.strokeWeight = 1;
+        marker.setIcon(icon);
+    }
+}
+
+var scaleIcons = function() {
+    var scale = 1.0;
+    var zoom = maps_api.getMap().getZoom();
+
+    if(zoom >= 4)
+        scale = 1.2;
+    if(zoom >= 7)
+        scale = 1.5;
+    if(zoom >= 10)
+        scale = 2.0;
+    if(zoom >= 12)
+        scale = 4.0;
+
+    var markers = maps_api.getMarkers();
+    Object.keys(markers).map(function(k) {
+        ms = markers[k];
+        ms.map(function(m) {
+            var icon = m.getIcon();
+            icon.scale = icon.scaleDefault * scale;
+            m.setIcon(icon);
+        });
+    });
 }
 
 var timestampToDate = function(t) {
@@ -453,7 +466,7 @@ function showInfoTo(object) {
         }
         
         var clear = function(text) {
-            return text? text: "--";
+            return (text === null || text === undefined || text === "")? "--": text;
         }
 
         var formateNumber = function(n) {
@@ -470,8 +483,22 @@ function showInfoTo(object) {
             $(".rl-map-drawer__date").text("Atualizado " + clear(timestampToDate(info.timestamp)));
             $(".rl-map-drawer__lat").text(clear(formateNumber(info.latitude)));
             $(".rl-map-drawer__lng").text(clear(formateNumber(info.longitude)));
-            $(".rl-map-drawer__alt").text(clear(formateNumber(info.altitude)) + ' ft / ' + clear(parseFloat(parseInt(info.altitude * 30.48))/100) + ' m');
-            $(".rl-map-drawer__speed").text(clear(formateNumber(info.horizontalVelocity)) + ' knots / ' + clear(parseFloat(parseInt(info.horizontalVelocity * 185.2))/100) + ' km/h');
+            $(".rl-map-drawer__alt").text(clear(parseFloat(parseInt(info.altitude * 30.48))/100) + ' m');
+            $(".rl-map-drawer__speed").text(clear(parseFloat(parseInt(info.horizontalVelocity * 185.2))/100) + ' km/h');
+            $(".rl-map-drawer__track").text(clear(formateNumber(info.groundTrackHeading)) + 'º');
+
+            var transposeAngle = function(angle) {
+                return parseFloat(angle);
+            }
+
+            setTimeout(function() {
+                $(".rl-map__aircraft-track > i").rotate({
+                    animateTo: transposeAngle(info.groundTrackHeading),
+                    duration: 1000
+                });
+            }, 500);
+
+
         } else if(dataType == DataType.COLLECTOR) {  
             maps_api.doShowMarkerInfo(
                 marker,
