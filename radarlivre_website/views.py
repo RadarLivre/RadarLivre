@@ -1,7 +1,9 @@
 # -*- coding:utf-8 -*-
 
 import time
-from django.shortcuts import render, get_object_or_404
+
+from django.http.response import HttpResponse
+from django.shortcuts import render, get_object_or_404, render_to_response
 from radarlivre_api.models import About, Software, Collector
 
 
@@ -52,9 +54,6 @@ def about(request, pk):
             'abouts': abouts
         }
     )
-
-def siteMap(request):
-    return render(request, 'website/google/sitemap.xml')
 
 def googleSearchConsole(request):
     return render(request, 'website/google/googlec501605f6d7c9fb3.html')

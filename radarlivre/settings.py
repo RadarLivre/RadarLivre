@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'radarlivre_api.apps.RadarlivreApiConfig',
     'radarlivre_website.apps.RadarlivreWebsiteConfig',
     'imagekit', 
