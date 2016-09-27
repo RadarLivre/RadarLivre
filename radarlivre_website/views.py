@@ -52,3 +52,6 @@ def about(request, pk):
             'abouts': abouts
         }
     )
+
+def googleSearchConsole(request):
+    return render(request, 'website/google/googlec501605f6d7c9fb3.html')
