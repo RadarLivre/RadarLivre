@@ -53,5 +53,8 @@ def about(request, pk):
         }
     )
 
+def siteMap(request):
+    return render(request, 'website/google/sitemap.xml')
+
 def googleSearchConsole(request):
     return render(request, 'website/google/googlec501605f6d7c9fb3.html')
