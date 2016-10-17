@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6b1702f-94dd-4edd-80e7-9b159d001fc2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/radarlivre_website/templates/website/base/rl_base.html" afterPath="$PROJECT_DIR$/radarlivre_website/templates/website/base/rl_base.html" />
-    </list>
+    <list default="true" id="e6b1702f-94dd-4edd-80e7-9b159d001fc2" name="Default" comment="" />
     <ignored path="RadarLivreWebService.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,8 +47,8 @@
       <file leaf-file-name="rl_base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/radarlivre_website/templates/website/base/rl_base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
+            <state relative-caret-position="198">
+              <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -103,7 +100,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4163" />
+    <option name="x" value="2797" />
     <option name="y" value="24" />
     <option name="width" value="1301" />
     <option name="height" value="744" />
@@ -332,7 +329,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4163" y="24" width="1301" height="744" extended-state="6" />
+    <frame x="2797" y="24" width="1301" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22535211" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -748,8 +745,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/radarlivre_website/templates/website/base/rl_base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
+        <state relative-caret-position="198">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
           <folding />
         </state>
       </provider>
