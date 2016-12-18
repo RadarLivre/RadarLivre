@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'radarlivre_api.apps.RadarlivreApiConfig',
     'radarlivre_website.apps.RadarlivreWebsiteConfig',
-    'imagekit', 
-    'django_cleanup',  
-    'crispy_forms', 
+    'imagekit',
+    'django_cleanup',
+    'crispy_forms',
     'rest_framework',
 ]
 
@@ -83,13 +83,13 @@ WSGI_APPLICATION = 'radarlivre.wsgi.application'
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(os.path.join(BASE_DIR, 'database'), 'radarlivre.db'),
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'radarlivre_v4',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(os.path.join(BASE_DIR, 'database'), 'radarlivre.db'),
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': 'radarlivre_v4',
+        #'USER': 'postgres',
+        #'PASSWORD': 'postgres',
+        #'HOST': 'localhost',
 
     }
 }
@@ -120,7 +120,7 @@ REST_FRAMEWORK = {
         'rest_framework_jsonp.renderers.JSONPRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ),
-                  
+
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     )
@@ -143,14 +143,14 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.abspath(os.path.join(BASE_DIR, 'log/radarlivre.log')), 
-            'formatter': 'verbose', 
+            'filename': os.path.abspath(os.path.join(BASE_DIR, 'log/radarlivre.log')),
+            'formatter': 'verbose',
         },
-        
+
         'console': {
-            'class': 'logging.StreamHandler', 
+            'class': 'logging.StreamHandler',
             'formatter': 'simple',
-        }, 
+        },
     },
     'loggers': {
         'radarlivre.debug': {
@@ -161,7 +161,7 @@ LOGGING = {
         'radarlivre.log': {
             'handlers': ['file', 'console'],
             'level': 'DEBUG',
-            'propagate': True, 
+            'propagate': True,
         },
     },
 }

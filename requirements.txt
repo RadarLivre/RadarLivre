@@ -1,0 +1,15 @@
+Django==1.9.4
+django-appconf==1.0.1
+django-cleanup==0.4.2
+django-crispy-forms==1.6.1
+django-filter==1.0.1
+django-imagekit==3.3
+django-rest==0.0.1
+djangorestframework==3.5.3
+djangorestframework-jsonp==1.0.2
+Markdown==2.6.7
+pilkit==1.1.13
+Pillow==3.4.2
+pkg-resources==0.0.0
+psycopg2==2.6.2
+six==1.10.0
