@@ -1,6 +1,8 @@
-/media/*
-/static/*
-/log/*
-/radarlivre_setup/venvs
+media/*
+static/*
+log/*
+venv/*
 radarlivre_api/migrations/*
 *.pyc
+teste.txt
+.idea/*
