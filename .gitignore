@@ -4,5 +4,4 @@ log/*
 venv/*
 radarlivre_api/migrations/*
 *.pyc
-teste.txt
 .idea/*
