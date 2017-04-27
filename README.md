@@ -8,9 +8,6 @@ The RadarLivre system is a mixed software-hardware solution based in the ASD-B t
 * Software for analising the collected information and detecting possible collision between the airplanes and geographical accidents
 * Website that presents the data publically.
 
-## Table of Contents
-
-
 ## Getting Started
 
 This paper will help you get a copy of the project(server-side) to run it in your local machine.
