@@ -115,12 +115,12 @@ Once you have set up your server, you can aways access it by following these ste
 
 Activate the virtual enviroment
 ```
-	source venv/bin/activate
+source venv/bin/activate
 ```
 
 With the virtual enviroment activated, run the server
 ```
-	python manage.py runserver
+python manage.py runserver
 ```
 
 Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
