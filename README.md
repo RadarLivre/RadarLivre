@@ -20,7 +20,6 @@ You need to have these installed before installing the project.
 ```
 * Python 2.7
 * SQLite database
-
 ```
 
 ### Installing
@@ -72,6 +71,7 @@ pip install -r requirements.txt
 ```
 python manage.py makemigrations
 ```
+
 * then
 
 ```
@@ -111,17 +111,18 @@ Give an example
 Once you have set up your server, you can aways access it by following these steps:
 
 Activate the virtual enviroment
+
 ```
 source venv/bin/activate
 ```
 
 With the virtual enviroment activated, run the server
+
 ```
 python manage.py runserver
 ```
 
 Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
-
 
 ## Built With
 
