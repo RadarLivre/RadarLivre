@@ -135,7 +135,7 @@ We use [SemanticVersioning](http://semver.org/) for versioning. For the versions
 
 ## Changelog
 
-You can refer to [CHANGELOG.md](https://github.com/FelipePinhoUFC/RadarLivre/README.md) for details about the development and differences between versions.
+You can refer to [CHANGELOG.md](https://github.com/FelipePinhoUFC/RadarLivre/blob/master/CHANGELOG.md) for details about the development and differences between versions.
 
 <!-- Won't be displayed
 
