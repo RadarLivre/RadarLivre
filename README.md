@@ -1,38 +1,94 @@
 # RadarLivre
 
-DESCRIPTION
+The RadarLivre system is a mixed software-hardware solution based in the ASD-B technology for monitoring the airspace. The main components are: 
+
+* ADS-B receptor
+* Software for interpreting the collected data
+* Web server that receives the data and store them in a database
+* Software for analising the collected information and detecting possible collision between the airplanes and geographical accidents
+* Website that presents the data publically.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This paper will help you get a copy of the project(server-side) to run it in your local machine.
+
+## Table of Contents
 
 ### Prerequisites
 
+This project was designed to run in ubuntu.
 You need to have these installed before installing the project.
 
 ```
-EXAMPLE
+* Python 2.7
+* SQLite database
+
 ```
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+Follow these steps to install and run the server.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+Open the terminal and install Git
 
 ```
-until finished
+sudo apt-get install git
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Clone this repository from github
 
-## Running the tests
+```
+git clone http://github.com/FelipePinhoUFC/RadarLivre.git
+```
+
+Install Virtualenv
+
+```
+sudo apt-get install python-virtualenv
+```
+
+With Virtualenv installed, use this command for creating a virtual python enviroment (with the name of venv, by default). For details, refer to [Virtualenv documentation](https://virtualenv.pypa.io/en/stable/).
+
+```
+virtualenv venv
+```
+
+Activate the virtual enviroment. Make sure you are on the project directory. 
+
+```
+source venv/bin/activate
+```
+
+If you have done it right, you should notice a "(venv)" before your username. This indicates you have activated the virtual enviroment.
+
+From now on, you need to follow the steps while the virtual enviroment is activated.
+
+Install the software dependencies listed in requirements.txt
+
+```
+pip install -r requirements.txt
+```
+
+Now, to set up our database, use 
+
+```
+python manage.py makemigrations
+```
+then
+
+```
+python manage.py migrate
+```
+
+Now you can run your server
+
+```
+python manage.py runserver
+```
+
+Congratulations! Now that you have your running server, you can access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
+
+## Running the tests TODO
 
 Explain how to run the automated tests for this system
 
@@ -54,40 +110,29 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Once you have set up your server, you can aways access it by following these steps:
 
-## Built With
+Activate the virtual enviroment
+```
+	source venv/bin/activate
+```
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+With the virtual enviroment activated, run the server
+```
+	python manage.py runserver
+```
 
-## Contributing
+Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Built With TODO
+
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/FelipePinhoUFC/RadarLivre/tags). 
+We use [SemanticVersioning](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/FelipePinhoUFC/RadarLivre/tags). 
 
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
-
-<!--
+<!-- Won't be displayed
 
 <div style="text-align:center">
   <img src="https://raw.githubusercontent.com/FelipePinhoUFC/RadarLivre/master/radarlivre_website/static/website/img/icon.ico" width="256">
