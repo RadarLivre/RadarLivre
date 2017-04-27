@@ -123,8 +123,14 @@ python manage.py runserver
 Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
 
 
-## Built With TODO
+## Built With
 
+* [Python](https://www.python.org/)
+* [Django](https://www.python.org/)
+* [Markdown](https://daringfireball.net/projects/markdown/)
+* [Pillow](https://python-pillow.org/)
+* [SQLite](https://www.sqlite.org/)
+* [Virtualenv](https://virtualenv.pypa.io/en/stable/)
 
 ## Versioning
 
