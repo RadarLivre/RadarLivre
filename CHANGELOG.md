@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Documentation to keep serve as information about the development ([link]).
 
 ### Changed
-- README.md to give information about the development and tools that were used or can be used.
+- README.md to give information about installation, development and tools that were used or can be used.
 
 ### Removed
 - Unnecessary .pyc files.

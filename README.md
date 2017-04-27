@@ -8,11 +8,12 @@ The RadarLivre system is a mixed software-hardware solution based in the ASD-B t
 * Software for analising the collected information and detecting possible collision between the airplanes and geographical accidents
 * Website that presents the data publically.
 
+## Table of Contents
+
+
 ## Getting Started
 
 This paper will help you get a copy of the project(server-side) to run it in your local machine.
-
-## Table of Contents
 
 ### Prerequisites
 
@@ -29,31 +30,31 @@ You need to have these installed before installing the project.
 
 Follow these steps to install and run the server.
 
-Open the terminal and install Git
+* Open the terminal and install Git
 
 ```
 sudo apt-get install git
 ```
 
-Clone this repository from github
+* Clone this repository from github
 
 ```
 git clone http://github.com/FelipePinhoUFC/RadarLivre.git
 ```
 
-Install Virtualenv
+* Install Virtualenv
 
 ```
 sudo apt-get install python-virtualenv
 ```
 
-With Virtualenv installed, use this command for creating a virtual python enviroment (with the name of venv, by default). For details, refer to [Virtualenv documentation](https://virtualenv.pypa.io/en/stable/).
+* With Virtualenv installed, use this command for creating a virtual python enviroment (with the name of venv, by default). For details, refer to [Virtualenv documentation](https://virtualenv.pypa.io/en/stable/).
 
 ```
 virtualenv venv
 ```
 
-Activate the virtual enviroment. Make sure you are on the project directory. 
+* Activate the virtual enviroment. Make sure you are on the project directory. 
 
 ```
 source venv/bin/activate
@@ -63,24 +64,24 @@ If you have done it right, you should notice a "(venv)" before your username. Th
 
 From now on, you need to follow the steps while the virtual enviroment is activated.
 
-Install the software dependencies listed in requirements.txt
+* Install the software dependencies listed in requirements.txt
 
 ```
 pip install -r requirements.txt
 ```
 
-Now, to set up our database, use 
+* Now, to set up our database, use 
 
 ```
 python manage.py makemigrations
 ```
-then
+* then
 
 ```
 python manage.py migrate
 ```
 
-Now you can run your server
+* Now you can run your server
 
 ```
 python manage.py runserver
@@ -130,7 +131,11 @@ Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web
 
 ## Versioning
 
-We use [SemanticVersioning](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/FelipePinhoUFC/RadarLivre/tags). 
+We use [SemanticVersioning](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/FelipePinhoUFC/RadarLivre/tags).
+
+## Changelog
+
+You can refer to [CHANGELOG.md](https://github.com/FelipePinhoUFC/RadarLivre/README.md) for details about the development and differences between versions.
 
 <!-- Won't be displayed
 
