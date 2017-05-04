@@ -32,13 +32,13 @@ Follow these steps to install, configure and run the server.
 sudo apt-get install git
 ```
 
-* Install Virtualenv
+* Install Virtualenv.
 
 ```
 sudo apt-get install python-virtualenv
 ```
 
-* Clone this repository from github where you want to have your copy installed
+* Clone this repository from github where you want to have your copy installed.
 
 ```
 git clone http://github.com/FelipePinhoUFC/RadarLivre.git
@@ -60,25 +60,25 @@ If you have done it right, you should notice a "(venv)" before your username. Th
 
 From now on, you need to follow the steps while the virtual enviroment is activated.
 
-* Install the software dependencies listed in requirements.txt
+* Install the software dependencies listed in requirements.txt.
 
 ```
 pip install -r requirements.txt
 ```
 
-* Now, to set up our database, use 
+* Now, to set up our database, use:
 
 ```
 python manage.py makemigrations
 ```
 
-* then
+* then:
 
 ```
 python manage.py migrate
 ```
 
-* Now you can run your server
+* Now you can run your server.
 
 ```
 python manage.py runserver
