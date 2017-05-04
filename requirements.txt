@@ -1,3 +1,4 @@
+appdirs==1.4.3
 Django==1.9.4
 django-appconf==1.0.1
 django-cleanup==0.4.2

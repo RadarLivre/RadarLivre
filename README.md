@@ -6,11 +6,11 @@ The RadarLivre system is a mixed software-hardware solution based in the ASD-B t
 * Software for interpreting the collected data
 * Web server that receives the data and store them in a database
 * Software for analising the collected information and detecting possible collision between the airplanes and geographical accidents
-* Website that presents the data publically.
+* Website that presents the data publicly.
 
 ## Getting Started
 
-This paper will help you get a copy of the project(server-side) to run it in your local machine.
+This paper will help you get a copy of the project(server-side) to run it in your local machine. If you are looking for the client-side for collecting the data of a ADS-B receptor, [this is the repository](https://github.com/FelipePinhoUFC/RadarLivreCollector). You need both to get the system running.
 
 ### Prerequisites
 
@@ -24,24 +24,24 @@ You need to have these installed before installing the project.
 
 ### Installing
 
-Follow these steps to install and run the server.
+Follow these steps to install, configure and run the server.
 
-* Open the terminal and install Git
+* Open the terminal and install Git (if you have already installed git and virtualenv, you may skip the first 2 steps)
 
 ```
 sudo apt-get install git
-```
-
-* Clone this repository from github
-
-```
-git clone http://github.com/FelipePinhoUFC/RadarLivre.git
 ```
 
 * Install Virtualenv
 
 ```
 sudo apt-get install python-virtualenv
+```
+
+* Clone this repository from github where you want to have your copy installed
+
+```
+git clone http://github.com/FelipePinhoUFC/RadarLivre.git
 ```
 
 * With Virtualenv installed, use this command for creating a virtual python enviroment (with the name of venv, by default). For details, refer to [Virtualenv documentation](https://virtualenv.pypa.io/en/stable/).
@@ -86,6 +86,7 @@ python manage.py runserver
 
 Congratulations! Now that you have your running server, you can access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
 
+<!--
 ## Running the tests TODO
 
 Explain how to run the automated tests for this system
@@ -105,21 +106,30 @@ Explain what these tests test and why
 ```
 Give an example
 ```
+-->
 
 ## Deployment
 
 Once you have set up your server, you can aways access it by following these steps:
 
-Activate the virtual enviroment
+* Activate the virtual enviroment
 
 ```
 source venv/bin/activate
 ```
 
-With the virtual enviroment activated, run the server
+* With the virtual enviroment activated, run the server
 
 ```
 python manage.py runserver
+```
+
+* You can stop running the server by pressing CTRL+C.
+
+* You can deactivate the virtual enviroment by using this command
+
+```
+deactivate
 ```
 
 Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
