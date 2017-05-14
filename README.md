@@ -10,7 +10,7 @@ The RadarLivre system is a mixed software-hardware solution based in the ASD-B t
 
 ## Getting Started
 
-This paper will help you get a copy of the project(server-side) to run it in your local machine. If you are looking for the client-side for collecting the data of a ADS-B receptor, [this is the repository](https://github.com/FelipePinhoUFC/RadarLivreCollector). You need both to get the system running.
+This paper will help you get a copy of the project(server-side) to run it in your local machine. If you are looking for the client-side for collecting the data of a ADS-B receptor, [this is the repository](https://github.com/RadarLivre/RadarLivreCollector). You need both to get the system running.
 
 ### Prerequisites
 
@@ -18,15 +18,28 @@ This project was designed to run in ubuntu.
 You need to have these installed before installing the project.
 
 ```
-* Python 2.7
-* SQLite database
+* Python 2.7 (in ubuntu, it's installed by default)
 ```
 
 ### Installing
 
 Follow these steps to install, configure and run the server.
 
-* Open the terminal and install Git (if you have already installed git and virtualenv, you may skip the first 2 steps)
+* Open the terminal by typing CTRL+ALT+T.
+
+* Update the list os packages of apt-get.
+
+```
+sudo apt-get update
+```
+
+* Update your installed softwares.
+
+```
+sudo apt-get upgrade
+```
+
+* Install Git (if you have already installed git and virtualenv, you may skip the first 2 steps)
 
 ```
 sudo apt-get install git
@@ -38,10 +51,16 @@ sudo apt-get install git
 sudo apt-get install python-virtualenv
 ```
 
+* Install SQLite (our database manager).
+
+```
+sudo apt-get install sqlite3 libsqlite3-dev
+```
+
 * Clone this repository from github where you want to have your copy installed.
 
 ```
-git clone http://github.com/FelipePinhoUFC/RadarLivre.git
+git clone http://github.com/RadarLivre/RadarLivre.git
 ```
 
 * With Virtualenv installed, use this command for creating a virtual python enviroment (with the name of venv, by default). For details, refer to [Virtualenv documentation](https://virtualenv.pypa.io/en/stable/).
@@ -134,6 +153,12 @@ deactivate
 
 Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
 
+## Frequent Asked Questions
+
+Q: Why am i getting an error while trying to update/upgrade my apt-get?
+A: This usually happens when you start ubuntu. The system is searching for updates. Wait a little and the update software should appear. Run the update then, follow the commands again.
+
+
 ## Built With
 
 * [Python](https://www.python.org/)
@@ -145,16 +170,16 @@ Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web
 
 ## Versioning
 
-We use [SemanticVersioning](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/FelipePinhoUFC/RadarLivre/tags).
+We use [SemanticVersioning](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/RadarLivre/RadarLivre/tags).
 
 ## Changelog
 
-You can refer to [CHANGELOG.md](https://github.com/FelipePinhoUFC/RadarLivre/blob/master/CHANGELOG.md) for details about the development and differences between versions.
+You can refer to [CHANGELOG.md](https://github.com/RadarLivre/RadarLivre/blob/master/CHANGELOG.md) for details about the development and differences between versions.
 
 <!-- Won't be displayed
 
 <div style="text-align:center">
-  <img src="https://raw.githubusercontent.com/FelipePinhoUFC/RadarLivre/master/radarlivre_website/static/website/img/icon.ico" width="256">
+  <img src="https://raw.githubusercontent.com/RadarLivre/RadarLivre/master/radarlivre_website/static/website/img/icon.ico" width="256">
 </div>
 
 # O Sistema Radar Livre
