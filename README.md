@@ -12,18 +12,21 @@ The RadarLivre system is a mixed software-hardware solution based in the ASD-B t
 
 This paper will help you get a copy of the project(server-side) to run it in your local machine. If you are looking for the client-side for collecting the data of a ADS-B receptor, [this is the repository](https://github.com/RadarLivre/RadarLivreCollector). You need both to get the system running.
 
-### Prerequisites
+## Prerequisites
 
 This project was designed to run in ubuntu.
 You need to have these installed before installing the project.
+The other dependencies are covered when installing.
 
 ```
 * Python 2.7 (in ubuntu, it's installed by default)
 ```
 
-### Installing
+## Installing
 
 Follow these steps to install, configure and run the server.
+
+### Updating apt-get
 
 * Open the terminal by typing CTRL+ALT+T.
 
@@ -39,7 +42,9 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-* Install Git (if you have already installed git and virtualenv, you may skip the first 2 steps)
+### Installing Dependencies
+
+* Install Git
 
 ```
 sudo apt-get install git
@@ -56,6 +61,8 @@ sudo apt-get install python-virtualenv
 ```
 sudo apt-get install sqlite3 libsqlite3-dev
 ```
+
+### Setting Up and Running the Server
 
 * Clone this repository from github where you want to have your copy installed.
 
@@ -155,18 +162,19 @@ Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web
 
 ## Frequent Asked Questions
 
-Q: Why am i getting an error while trying to update/upgrade my apt-get?
-A: This usually happens when you start ubuntu. The system is searching for updates. Wait a little and the update software should appear. Run the update then, follow the commands again.
+* Q: Why am i getting an error while trying to update/upgrade my apt-get?
+* A: This usually happens when you start ubuntu. The system is searching for updates. Wait a little and the update software should appear. Run the update then, follow the commands again.
 
 
 ## Built With
 
-* [Python](https://www.python.org/)
+* [Python 2.7](https://www.python.org/)
+* [SQLite](https://www.sqlite.org/)
+* [Virtualenv](https://virtualenv.pypa.io/en/stable/)
 * [Django](https://www.python.org/)
 * [Markdown](https://daringfireball.net/projects/markdown/)
 * [Pillow](https://python-pillow.org/)
-* [SQLite](https://www.sqlite.org/)
-* [Virtualenv](https://virtualenv.pypa.io/en/stable/)
+
 
 ## Versioning
 
