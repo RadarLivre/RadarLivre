@@ -64,7 +64,19 @@ sudo apt-get install sqlite3 libsqlite3-dev
 
 ### Setting Up and Running the Server
 
-* Clone this repository from github where you want to have your copy installed.
+* Create a directory where you want to install the server.
+
+```
+mkdir radarlivre
+```
+
+* Enter the directory.
+
+```
+cd radarlivre
+```
+
+* Clone this repository from github in the directory you created.
 
 ```
 git clone http://github.com/RadarLivre/RadarLivre.git
