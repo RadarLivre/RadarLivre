@@ -70,10 +70,10 @@ sudo apt-get install sqlite3 libsqlite3-dev
 mkdir radarlivre
 ```
 
-* Enter the directory you cloned.
+* Enter the directory.
 
 ```
-cd RadarLivre
+cd radarlivre
 ```
 
 * Clone this repository from github in the directory you createdd.
@@ -82,7 +82,11 @@ cd RadarLivre
 git clone http://github.com/RadarLivre/RadarLivre.git
 ```
 
-* Enter the directory you just cloned
+* Enter the directory you just cloned.
+
+```
+cd RadarLivre
+```
 
 * With Virtualenv installed, use this command for creating a virtual python enviroment (with the name of venv, by default). For details, refer to [Virtualenv documentation](https://virtualenv.pypa.io/en/stable/).
 
