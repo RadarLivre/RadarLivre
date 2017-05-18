@@ -10,7 +10,7 @@ The RadarLivre system is a mixed software-hardware solution based in the ASD-B t
 
 ## Getting Started
 
-This paper will help you get a copy of the project(server-side) to run it in your local machine. If you are looking for the client-side for collecting the data of a ADS-B receptor, [this is the repository](https://github.com/RadarLivre/RadarLivreCollector). You need both to get the system running.
+This paper will help you get a copy of the project(server-side) to run it in your local machine. If you are looking for the client-side for collecting the data of an ADS-B receptor, [this is the repository](https://github.com/RadarLivre/RadarLivreCollector). You need both to get the system running.
 
 ## Prerequisites
 
