@@ -35,14 +35,14 @@ echo "************************************************************"
 echo "| Creating Virtual Enviroment                              |"
 echo "************************************************************"
 
-virtualenv env
+virtualenv venv
 
 echo "************************************************************"
 echo "| Configuring Virtual Enviroment                           |"
 echo "************************************************************"
 
 echo "----- Activating virtual enviroment -----"
-source env/bin/activate
+source venv/bin/activate
 
 # The next steps will be executed while the virtual enviroment is activated.
 # As Django comes with Pip installed, there is no need to install it.

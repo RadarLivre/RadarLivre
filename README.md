@@ -58,11 +58,20 @@ sudo ./INSTALL.sh
 
 * If everything went right, now you can run your server.
 
+* Activate the virtual enviroment.
+
+```
+source venv/bin/activate
+```
+
+* Run the server
+
 ```
 python manage.py runserver
 ```
 
 Congratulations! Now that you have your running server, you can access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
+Make sure to read the Deployment section.
 
 <!--
 ## Running the tests TODO
@@ -90,21 +99,29 @@ Give an example
 
 Once you have set up your server, you can aways access it by following these steps:
 
-* Activate the virtual enviroment
+* Open the terminal by typing CTRL+ALT+T.
+
+* Enter the directory where the server is located.
+
+```
+cd RadarLivre
+```
+
+* Activate the virtual enviroment.
 
 ```
 source venv/bin/activate
 ```
 
-* With the virtual enviroment activated, run the server
+* With the virtual enviroment activated, run the server.
 
 ```
 python manage.py runserver
 ```
 
-* You can stop running the server by pressing CTRL+C.
+* You can stop running the server by pressing CTRL+C(in the terminal).
 
-* You can deactivate the virtual enviroment by using this command
+* You can deactivate the virtual enviroment by using this command.
 
 ```
 deactivate
