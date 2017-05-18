@@ -1,5 +1,5 @@
 log/radarlivre.log
-database/radarlivre.log
+database/radarlivre.db
 media/*
 static/*
 venv/*
