@@ -1,7 +1,5 @@
 media/*
 static/*
-database/*
-log/*
 venv/*
 radarlivre_api/migrations/*
 *.pyc

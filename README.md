@@ -19,30 +19,18 @@ You need to have these installed before installing the project.
 The other dependencies are covered when installing.
 
 ```
-* Python 2.7 (in ubuntu, it's installed by default)
+* Python 2.7 (installed by default in ubuntu)
 ```
 
 ## Installing
 
 Follow these steps to install, configure and run the server.
 
-### Updating apt-get
+```
+HINT: The following commands in these boxes should be used in your terminal.
+```
 
 * Open the terminal by typing CTRL+ALT+T.
-
-* Update the list os packages of apt-get.
-
-```
-sudo apt-get update
-```
-
-* Update your installed softwares.
-
-```
-sudo apt-get upgrade
-```
-
-### Installing Dependencies
 
 * Install Git
 
@@ -50,33 +38,7 @@ sudo apt-get upgrade
 sudo apt-get install git
 ```
 
-* Install Virtualenv.
-
-```
-sudo apt-get install python-virtualenv
-```
-
-* Install SQLite (our database manager).
-
-```
-sudo apt-get install sqlite3 libsqlite3-dev
-```
-
-### Setting Up and Running the Server
-
-* Create a directory where you want to install the server.
-
-```
-mkdir radarlivre
-```
-
-* Enter the directory.
-
-```
-cd radarlivre
-```
-
-* Clone this repository from github in the directory you createdd.
+* Clone this repository from github.
 
 ```
 git clone http://github.com/RadarLivre/RadarLivre.git
@@ -88,41 +50,13 @@ git clone http://github.com/RadarLivre/RadarLivre.git
 cd RadarLivre
 ```
 
-* With Virtualenv installed, use this command for creating a virtual python enviroment (with the name of venv, by default). For details, refer to [Virtualenv documentation](https://virtualenv.pypa.io/en/stable/).
+* Run INSTALL.sh. This file will install and configure about everything for you.
 
 ```
-virtualenv venv
+sudo ./INSTALL.sh
 ```
 
-* Activate the virtual enviroment. Make sure you are on the project directory. 
-
-```
-source venv/bin/activate
-```
-
-If you have done it right, you should notice a "(venv)" before your username. This indicates you have activated the virtual enviroment.
-
-From now on, you need to follow the steps while the virtual enviroment is activated.
-
-* Install the software dependencies listed in requirements.txt.
-
-```
-pip install -r requirements.txt
-```
-
-* Now, to set up our database, use:
-
-```
-python manage.py makemigrations
-```
-
-* then:
-
-```
-python manage.py migrate
-```
-
-* Now you can run your server.
+* If everything went right, now you can run your server.
 
 ```
 python manage.py runserver
@@ -178,7 +112,7 @@ deactivate
 
 Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
 
-## Frequent Asked Questions
+## Frequent Asked Questions(FAQ)
 
 * Q: Why am i getting an error while trying to update/upgrade my apt-get?
 * A: This usually happens when you start ubuntu. The system is searching for updates. Wait a little and the update software should appear. Run the update then, follow the commands again.
