@@ -7,6 +7,10 @@
 
 # Every step is divided in sections as the following, so it is easier to track error and program
 
+# Enter relative directory
+BASEDIR=$(dirname "$0")
+cd "$BASEDIR"
+
 echo "************************************************************"
 echo "| The installation of the RadarLivre Server has just begun.|"
 echo "| The system is going to install and configure everything  |"

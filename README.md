@@ -95,6 +95,24 @@ Give an example
 ```
 -->
 
+# Create Superuser
+
+In order to connect to the server, you need to have a superuser created at your server. If you are running a local server, follow these steps:
+
+* Open the terminal by typing CTRL+ALT+T.
+
+* Enter the RadarLivre server directory
+
+```
+cd RadarLivre
+```
+
+* Create a new by superuser by running create_superuser.sh. You will be asked to provide a username, email and password. For security reasons, your password need to be strong.
+
+```
+sudo ./create_superuser.sh
+```
+
 ## Deployment
 
 Once you have set up your server, you can aways access it by following these steps:

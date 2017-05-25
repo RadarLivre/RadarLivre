@@ -7,6 +7,10 @@
 
 # Every step is divided in sections as the following, so it is easier to track error and program
 
+# Enter relative directory
+BASEDIR=$(dirname "$0")
+cd "$BASEDIR"
+
 echo "************************************************************"
 echo "| This is going to help you create a new superuser, so you |"
 echo "| have administrator privileges for accessing the server.  |"
@@ -21,5 +25,5 @@ echo "----- Creating new superuser -----"
 echo "You will be asked to provide a username, email and password. For security reasons, your password need to be strong."
 python manage.py createsuperuser
 
-echo "----- Activating virtual enviroment -----"
-source deactivate
+echo "----- Deactivating virtual enviroment -----"
+deactivate
