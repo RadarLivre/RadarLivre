@@ -1,8 +1,10 @@
-log/radarlivre.log
-database/radarlivre.db
+
 media/*
 static/*
+temp/*
 venv/*
 radarlivre_api/migrations/*
-*.pyc
 .idea/*
+*.log
+*.db
+*.pyc
