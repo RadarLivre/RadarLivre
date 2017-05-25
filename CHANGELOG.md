@@ -9,13 +9,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - This CHANGELOG file to begin the versioning and keep the changes easy to read.
 
 ### Created
-- Documentation to keep serve as information about the development ([link]).
+- Documentation to keep serve as information about the development ([README](https://github.com/RadarLivre/RadarLivre/blob/master/README.md)).
 
 ### Changed
 - README.md to give information about installation, development and tools that were used or can be used.
 
 ### Removed
 - Unnecessary .pyc files.
+- Old installation files.
 
 ## 1.0.1 - 2016-12-18
 ### Created

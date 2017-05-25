@@ -58,20 +58,68 @@ sudo ./INSTALL.sh
 
 * If everything went right, now you can run your server.
 
-* Activate the virtual enviroment.
+* Run the server
 
 ```
-source venv/bin/activate
+sudo ./runserver.sh
+```
+
+Congratulations! Now that you have your running server, you can access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
+Make sure to read the Deployment section.
+
+## Deployment
+
+Once you have set up your server, you can aways access it by following these steps:
+
+* Open the terminal by typing CTRL+ALT+T.
+
+* Enter the directory where the server is located.
+
+```
+cd RadarLivre
 ```
 
 * Run the server
 
 ```
-python manage.py runserver
+sudo ./runserver.sh
 ```
 
-Congratulations! Now that you have your running server, you can access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
-Make sure to read the Deployment section.
+* You can stop running the server by pressing CTRL+C(in the terminal).
+
+# Create Superuser
+
+In order to connect to the server, you need to have a superuser created at your server. If you are running a local server, follow these steps:
+
+* Open the terminal by typing CTRL+ALT+T.
+
+* Enter the RadarLivre server directory
+
+```
+cd RadarLivre
+```
+
+* Create a new by superuser by running create_superuser.sh. You will be asked to provide a username, email and password. For security reasons, your password need to be strong.
+
+```
+sudo ./create_superuser.sh
+```
+
+# Insert new Collector
+
+You need to configure your collector in your server to receive data. Follow the steps below to do so.
+
+* Run your server (read Deployment section if you need details) and access it.
+
+* Access the admin page located at [127.0.0.1:8000/admin](127.0.0.1:8000/admin)(if running a local server) by providing the superuser you created.
+
+* Click +add in Collectors and provide the information needed. Make sure to link the receptor to the correct user.
+
+```
+## Frequent Asked Questions(FAQ)
+
+* Q: Why am i getting an error while trying to update/upgrade my apt-get?
+* A: This usually happens when you start ubuntu. The system is searching for updates. Wait a little and the update software should appear. Run the update then, follow the commands again.
 
 <!--
 ## Running the tests TODO
@@ -94,64 +142,6 @@ Explain what these tests test and why
 Give an example
 ```
 -->
-
-# Create Superuser
-
-In order to connect to the server, you need to have a superuser created at your server. If you are running a local server, follow these steps:
-
-* Open the terminal by typing CTRL+ALT+T.
-
-* Enter the RadarLivre server directory
-
-```
-cd RadarLivre
-```
-
-* Create a new by superuser by running create_superuser.sh. You will be asked to provide a username, email and password. For security reasons, your password need to be strong.
-
-```
-sudo ./create_superuser.sh
-```
-
-## Deployment
-
-Once you have set up your server, you can aways access it by following these steps:
-
-* Open the terminal by typing CTRL+ALT+T.
-
-* Enter the directory where the server is located.
-
-```
-cd RadarLivre
-```
-
-* Activate the virtual enviroment.
-
-```
-source venv/bin/activate
-```
-
-* With the virtual enviroment activated, run the server.
-
-```
-python manage.py runserver
-```
-
-* You can stop running the server by pressing CTRL+C(in the terminal).
-
-* You can deactivate the virtual enviroment by using this command.
-
-```
-deactivate
-```
-
-Access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
-
-## Frequent Asked Questions(FAQ)
-
-* Q: Why am i getting an error while trying to update/upgrade my apt-get?
-* A: This usually happens when you start ubuntu. The system is searching for updates. Wait a little and the update software should appear. Run the update then, follow the commands again.
-
 
 ## Built With
 
