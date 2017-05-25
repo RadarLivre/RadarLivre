@@ -116,6 +116,7 @@ You need to configure your collector in your server to receive data. Follow the 
 * Click +add in Collectors and provide the information needed. Make sure to link the receptor to the correct user.
 
 ```
+
 ## Frequent Asked Questions(FAQ)
 
 * Q: Why am i getting an error while trying to update/upgrade my apt-get?
