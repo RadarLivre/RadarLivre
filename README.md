@@ -87,7 +87,7 @@ sudo ./runserver.sh
 
 * You can stop running the server by pressing CTRL+C(in the terminal).
 
-# Create Superuser
+### Create Superuser
 
 In order to connect to the server, you need to have a superuser created at your server. If you are running a local server, follow these steps:
 
@@ -105,7 +105,7 @@ cd RadarLivre
 sudo ./create_superuser.sh
 ```
 
-# Insert new Collector
+### Insert new Collector
 
 You need to configure your collector in your server to receive data. Follow the steps below to do so.
 
