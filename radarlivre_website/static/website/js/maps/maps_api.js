@@ -264,7 +264,7 @@ var maps_api = function() {
             });
             
             _map.addListener('idle', function(){
-                if(!_isMapLoaded && onFinish)
+                if(!_isMapLoaded && typeof onFinish === 'function')
                     onFinish();
                 _isMapLoaded = true;
             });
