@@ -4,7 +4,7 @@ BASEDIR=$(dirname "$0")
 cd "$BASEDIR"
 
 echo "----- Activating virtual enviroment -----"
-source venv/bin/activate
+. 	venv/bin/activate
 
 echo "----- Running the server -----"
 python manage.py runserver
