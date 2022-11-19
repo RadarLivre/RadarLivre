@@ -27,7 +27,7 @@ logger = logging.getLogger("radarlivre.log")
 class CollectorList(ListCreateAPIView):
     queryset = Collector.objects.all()
     serializer_class = CollectorSerializer
-    filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter)
+    filter_backends = (filters.DjangoFilterBackend, MaxUpdateDelayFilter)
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     
 
@@ -64,7 +64,7 @@ class AirlineDetail(RetrieveUpdateDestroyAPIView):
 class AirportList(ListCreateAPIView):
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
-    filter_backends = (DjangoFilterBackend, MapBoundsFilter, AirportTypeZoomFilter)
+    filter_backends = (filters.DjangoFilterBackend, MapBoundsFilter, AirportTypeZoomFilter)
     filter_fields = ('code', 'name', 'country', 'state', 'city', 'latitude', 'longitude', 'type')
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     
@@ -77,7 +77,7 @@ class AirportDetail(RetrieveUpdateDestroyAPIView):
 class FlightList(ListAPIView):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
-    filter_backends = (DjangoFilterBackend, FlightFilter)
+    filter_backends = (filters.DjangoFilterBackend, FlightFilter)
     filter_fields = ('code', 'airline')
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
@@ -85,7 +85,7 @@ class FlightList(ListAPIView):
 class FlightInfoList(ListAPIView):
     queryset = FlightInfo.objects.all()
     serializer_class = FlightInfoSerializer
-    filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter, MapBoundsFilter, FlightClusteringFilter)
+    filter_backends = (filters.DjangoFilterBackend, MaxUpdateDelayFilter, MapBoundsFilter, FlightClusteringFilter)
     filter_fields = ('airline',)
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
@@ -115,7 +115,7 @@ class ADSBInfoList(APIView):
     queryset = ADSBInfo.objects.all()
     serializer_class = ADSBInfoSerializer
     filter_backends = (
-        DjangoFilterBackend
+        filters.DjangoFilterBackend
     )
     
     filter_fields = ('observation')
@@ -153,7 +153,7 @@ class ObservationList(ListCreateAPIView):
     serializer_class = ObservationSerializer
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     filter_backends = (
-        DjangoFilterBackend,
+        filters.DjangoFilterBackend,
         OrderingFilter,
         ObservationPrecisionFilter,
         ObservationFlightFilter
