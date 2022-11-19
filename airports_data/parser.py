@@ -17,7 +17,7 @@ patternDoubleQuotes = "\"\"([^\"]*)\"\""
 
 def showStatus(prefix):
     if progress == total:
-        print "\nFinish!"
+        print ("\nFinish!")
     else:
         x = int(progress * 20 / total)
 
@@ -29,8 +29,8 @@ def showStatus(prefix):
                 out += ">"
             else:
                 out += " "
-        print "\r",
-        print out + "] " + str(progress) + " of " + str(total),
+        print ("\r"),
+        print (out + "] " + str(progress) + " of " + str(total),)
 
 def getObjects(fileName):
     global progress
@@ -70,8 +70,8 @@ def getObjects(fileName):
 
             objects.append(object)
         else:
-            print len(row), ":", len(headers), ":", tmp
-            print len(row), ":", len(headers), ":", tmp2
+            print (len(row), ":", len(headers), ":", tmp)
+            print (len(row), ":", len(headers), ":", tmp2)
 
         showStatus(fileName)
 
@@ -88,7 +88,7 @@ def parseNumber(n):
         float(n)
         return n
     except ValueError:
-        print n
+        print (n)
         return 0
 
 def encode(text):
@@ -130,7 +130,7 @@ def generateAirportSQL():
     file.write(out)
     file.close()
 
-    print "SQL generated!"
+    print ("SQL generated!")
 
 def generateAirlineSQL():
     reload(sys)
@@ -163,11 +163,11 @@ def generateAirlineSQL():
     file.write(out)
     file.close()
 
-    print "SQL generated!"
+    print ("SQL generated!")
 
 timestamp = now()
 
 generateAirlineSQL()
 generateAirportSQL()
 
-print "time:", (now() - timestamp)
+print ("time:", (now() - timestamp))
