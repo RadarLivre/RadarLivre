@@ -28,8 +28,8 @@ from radarlivre_api.utils import Math
 
 logger = logging.getLogger("radarlivre.log")
 
-reload(sys)
-sys.setdefaultencoding("utf-8")
+#reload(sys)
+#sys.setdefaultencoding("utf-8")
 
 class Collector(models.Model):
 
@@ -70,7 +70,7 @@ class Flight(models.Model):
     # Flight identification
     code = CharField(max_length=16, blank=True, null=True, default=True)
 
-    airline = ForeignKey(Airline, null=True, related_name="flights")
+    airline = ForeignKey(Airline, on_delete=models.CASCADE, null=True, related_name="flights")
 
     def __unicode__(self):
         return "Flight " + str(self.code)
@@ -129,8 +129,8 @@ class ADSBInfo(models.Model):
 
 class Observation(models.Model):
 
-    flight = ForeignKey(Flight, null=True, blank=True, default=None, related_name='observations')
-    adsbInfo = OneToOneField(ADSBInfo, related_name="observation", null=True)
+    flight = ForeignKey(Flight, on_delete=models.CASCADE, null=True, blank=True, default=None, related_name='observations')
+    adsbInfo = OneToOneField(ADSBInfo, on_delete=models.CASCADE, related_name="observation", null=True)
 
     # Airplane position
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
@@ -160,8 +160,8 @@ class Observation(models.Model):
         try:
             collector = Collector.objects.get(key=info.collectorKey)
         except Exception as err:
-            print err
-            print info.collectorKey
+            print (err)
+            print (info.collectorKey)
             return None
 
         callsign = info.callsign
@@ -204,8 +204,8 @@ class Observation(models.Model):
 
 class FlightInfo(models.Model):
     # Flight identification
-    flight = OneToOneField(Flight, null=True)
-    airline = ForeignKey(Airline, null=True)
+    flight = OneToOneField(Flight, on_delete=models.CASCADE, null=True)
+    airline = ForeignKey(Airline, on_delete=models.CASCADE,  null=True)
 
     # Airplane position
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
