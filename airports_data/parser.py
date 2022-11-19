@@ -65,7 +65,7 @@ def getObjects(fileName):
                 attr = re.sub("@!COMMA!@", ",", attr)
                 attr = re.sub("'", "''", attr)
                 attr = re.sub("\"", "\"\"", attr)
-                attr = attr.replace("\N", "")
+                attr = attr.replace("\n", "")
                 object[header] = attr
 
             objects.append(object)
