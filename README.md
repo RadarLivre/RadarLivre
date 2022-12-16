@@ -19,7 +19,7 @@ You need to have these installed before installing the project.
 The other dependencies are covered when installing.
 
 ```
-* Python 2.7 (installed by default in ubuntu)
+* Python 3 (installed by default in ubuntu)
 ```
 
 ## Installing
@@ -144,7 +144,7 @@ Give an example
 
 ## Built With
 
-* [Python 2.7](https://www.python.org/)
+* [Python 3](https://www.python.org/)
 * [SQLite](https://www.sqlite.org/)
 * [Virtualenv](https://virtualenv.pypa.io/en/stable/)
 * [Django](https://www.python.org/)
