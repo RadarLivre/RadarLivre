@@ -5,6 +5,7 @@ from time import time
 
 from django.db.models.aggregates import Max
 from django.http.response import Http404
+from django.shortcuts import get_object_or_404
 from rest_framework import permissions, status
 from django_filters import rest_framework as rst_filters
 from rest_framework.filters import OrderingFilter
@@ -37,10 +38,11 @@ class CollectorDetail(APIView):
     permission_classes = (permissions.DjangoModelPermissions,)
     
     def get_object(self, key):
-        try:
-            return Collector.objects.get(key=key)
-        except Collector.DoesNotExist:
-            raise Http404
+        return get_object_or_404(Collector, key=key)
+        # try:
+        #     return Collector.objects.get(key=key)
+        # except Collector.DoesNotExist:
+        #     raise Http404
 
     def put(self, request, key, format=None):
         collector = self.get_object(key)
