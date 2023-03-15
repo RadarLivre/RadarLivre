@@ -4,7 +4,6 @@ static/*
 temp/*
 venv/*
 radarlivre_api/migrations/*
-.idea/*
 *.log
 *.db
 *.pyc
