@@ -6,6 +6,7 @@ import io
 import re
 import sys
 import numbers
+from importlib import reload
 from time import time as now
 
 total = 0
@@ -96,7 +97,6 @@ def encode(text):
 
 def generateAirportSQL():
     reload(sys)
-    sys.setdefaultencoding("utf-8")
 
     airports = getObjects("airports.csv")
     countries = getObjects("countries.csv")
@@ -134,7 +134,6 @@ def generateAirportSQL():
 
 def generateAirlineSQL():
     reload(sys)
-    sys.setdefaultencoding("utf-8")
 
     airlines = getObjects("airlines.csv")
 
