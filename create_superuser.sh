@@ -19,7 +19,7 @@ echo "| This may take several minutes. Please, be patient.       |"
 echo "************************************************************"
 
 echo "----- Activating virtual enviroment -----"
-source venv/bin/activate
+. venv/bin/activate
 
 echo "----- Creating new superuser -----"
 echo "You will be asked to provide a username, email and password. For security reasons, your password need to be strong."
