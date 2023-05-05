@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import sys
+import configparser
+
+config = configparser.ConfigParser()
+
+os.path.exists('development.ini') and config.read('development.ini')
+os.path.exists('local.ini') and config.read('local.ini')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,10 +30,9 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = 'l&4#e$r=%%@ljc0%*61w5eb(c$hg*ewxgrx!nq^8j0b)3a$na2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = eval(config['GENERAL']['DEBUG'])
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -46,23 +52,24 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 ROOT_URLCONF = 'radarlivre.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(PROJECT_DIR, 'templates') ],
+        'DIRS': [os.path.join(PROJECT_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,23 +84,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'radarlivre.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(os.path.join(BASE_DIR, 'database'), 'radarlivre.db'),
-        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        #'NAME': 'radarlivre_v4',
-        #'USER': 'postgres',
-        #'PASSWORD': 'postgres',
-        #'HOST': 'localhost',
-
+        "ENGINE": config['DATABASE']["ENGINE"],
+        "NAME": config['DATABASE']["NAME"]
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -113,7 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
@@ -125,8 +123,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     )
 }
-
-
 
 LOGGING = {
     'version': 1,
@@ -141,33 +137,29 @@ LOGGING = {
     },
     'handlers': {
         'file': {
-            'level': 'DEBUG',
+            'level': 'ERROR',
             'class': 'logging.FileHandler',
-            'filename': os.path.abspath(os.path.join(BASE_DIR, 'log/radarlivre.log')),
+            'filename': config['GENERAL']['LOG_FILE'],
             'formatter': 'verbose',
         },
-
         'console': {
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
         },
     },
     'loggers': {
-        'radarlivre.debug': {
-            'handlers': ['console'],
+        'development': {
+            'handlers': ['file', 'console'],
             'level': 'DEBUG',
             'propagate': True,
         },
-        'radarlivre.log': {
-            'handlers': ['file', 'console'],
+        'production': {
+            'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': True,
         },
     },
 }
-
-
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -182,13 +174,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'media'))

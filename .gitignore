@@ -1,10 +1,14 @@
-
 media/*
 static/*
 temp/*
+
 venv/*
-radarlivre_api/migrations/*
+env/*
+
 .idea/*
 *.log
 *.db
 *.pyc
+*.sqlite
+
+local.ini

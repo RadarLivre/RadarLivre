@@ -3,24 +3,22 @@
 import logging
 from time import time
 
-from django.db.models.aggregates import Max
 from django.http.response import Http404
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import permissions, status
-from rest_framework.filters import DjangoFilterBackend, OrderingFilter
+from rest_framework.filters import OrderingFilter
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from radarlivre_api.filters import ObservationPrecisionFilter, \
+    ObservationFlightFilter, MapBoundsFilter, \
+    MaxUpdateDelayFilter, AirportTypeZoomFilter, FlightFilter, FlightClusteringFilter
 from radarlivre_api.models import Airport, Flight, Observation, About, Notify, Collector, Airline, ADSBInfo, FlightInfo
-from radarlivre_api.models.serializers import AirportSerializer, FlightSerializer, ObservationSerializer,  \
+from radarlivre_api.serializers import AirportSerializer, FlightSerializer, ObservationSerializer, \
     AboutSerializer, NotifySerializer, CollectorSerializer, \
     AirlineSerializer, ADSBInfoSerializer, FlightInfoSerializer
 from radarlivre_api.utils import Util
-from radarlivre_api.views.filters import ObservationPrecisionFilter, \
-    ObservationFlightFilter, MapBoundsFilter, \
-    MaxUpdateDelayFilter, AirportTypeZoomFilter, FlightFilter, FlightClusteringFilter
-
-logger = logging.getLogger("radarlivre.log")
 
 
 class CollectorList(ListCreateAPIView):
@@ -28,13 +26,13 @@ class CollectorList(ListCreateAPIView):
     serializer_class = CollectorSerializer
     filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter)
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
-    
+
 
 class CollectorDetail(APIView):
     queryset = Collector.objects.all()
     serializer_class = CollectorSerializer
     permission_classes = (permissions.DjangoModelPermissions,)
-    
+
     def get_object(self, key):
         try:
             return Collector.objects.get(key=key)
@@ -53,7 +51,8 @@ class AirlineList(ListCreateAPIView):
     queryset = Airline.objects.all()
     serializer_class = AirlineSerializer
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
-    
+
+
 class AirlineDetail(RetrieveUpdateDestroyAPIView):
     queryset = Airline.objects.all()
     serializer_class = AirlineSerializer
@@ -66,7 +65,8 @@ class AirportList(ListCreateAPIView):
     filter_backends = (DjangoFilterBackend, MapBoundsFilter, AirportTypeZoomFilter)
     filter_fields = ('code', 'name', 'country', 'state', 'city', 'latitude', 'longitude', 'type')
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
-    
+
+
 class AirportDetail(RetrieveUpdateDestroyAPIView):
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
@@ -94,6 +94,7 @@ class FlightDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = FlightSerializer
     permission_classes = (permissions.IsAdminUser,)
 
+
 class FlightPropagatedTrajectoryList(APIView):
 
     def get(self, request, format=None):
@@ -106,9 +107,11 @@ class FlightPropagatedTrajectoryList(APIView):
             serializer = ObservationSerializer(obs, many=True)
             return Response(serializer.data)
         except FlightInfo.DoesNotExist as err:
-            print str(err)
+            print
+            str(err)
 
         return Response(ObservationSerializer([], many=True).data)
+
 
 class ADSBInfoList(APIView):
     queryset = ADSBInfo.objects.all()
@@ -116,7 +119,7 @@ class ADSBInfoList(APIView):
     filter_backends = (
         DjangoFilterBackend
     )
-    
+
     filter_fields = ('observation')
     ordering_fields = '__all__'
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
@@ -145,7 +148,7 @@ class ADSBInfoList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
 
 class ObservationList(ListCreateAPIView):
     queryset = Observation.objects.filter(simulated=False)
@@ -161,6 +164,7 @@ class ObservationList(ListCreateAPIView):
     filter_fields = ('flight',)
     ordering_fields = '__all__'
 
+
 class ObservationDetail(RetrieveUpdateDestroyAPIView):
     queryset = Observation.objects.filter(simulated=False)
     serializer_class = ObservationSerializer
@@ -170,21 +174,22 @@ class ObservationDetail(RetrieveUpdateDestroyAPIView):
 class AboutList(ListCreateAPIView):
     queryset = About.objects.all()
     serializer_class = AboutSerializer
-    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly, )
-    
+    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
+
+
 class AboutDetail(RetrieveUpdateDestroyAPIView):
     queryset = About.objects.all()
     serializer_class = AboutSerializer
     permission_classes = (permissions.IsAdminUser,)
 
-    
+
 class NotifyList(ListCreateAPIView):
     queryset = Notify.objects.all()
     serializer_class = NotifySerializer
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
-    
+
+
 class NotifyDetail(RetrieveUpdateDestroyAPIView):
     queryset = Notify.objects.all()
     serializer_class = NotifySerializer
     permission_classes = (permissions.IsAdminUser,)
-

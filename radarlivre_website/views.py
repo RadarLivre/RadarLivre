@@ -2,8 +2,8 @@
 
 import time
 
-from django.http.response import HttpResponse
-from django.shortcuts import render, get_object_or_404, render_to_response
+from django.shortcuts import render, get_object_or_404
+
 from radarlivre_api.models import About, Software, Collector
 
 
@@ -54,6 +54,7 @@ def about(request, pk):
             'abouts': abouts
         }
     )
+
 
 def googleSearchConsole(request):
     return render(request, 'website/google/googlec501605f6d7c9fb3.html')
