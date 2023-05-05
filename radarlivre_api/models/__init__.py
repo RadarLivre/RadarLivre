@@ -2,18 +2,13 @@
 
 from __future__ import unicode_literals
 
-from curses.ascii import NL
 import datetime
-import logging
-
+import math
+import uuid
 from time import time
 
-import sys
-
-import math
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models.aggregates import Max
 from django.db.models.fields import CharField, DecimalField, IntegerField, BigIntegerField, \
     BooleanField, TextField, DateTimeField, DateField, URLField
 from django.db.models.fields.files import ImageField, FileField
@@ -22,28 +17,21 @@ from django.db.models.fields.related import ForeignKey, \
 from imagekit.models.fields import ImageSpecField
 from pilkit.processors.resize import ResizeToFill
 
-import uuid
-
 from radarlivre_api.utils import Math
 
-logger = logging.getLogger("radarlivre.log")
-
-#reload(sys)
-#sys.setdefaultencoding("utf-8")
 
 class Collector(models.Model):
-
     key = models.UUIDField(default=uuid.uuid4, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="collectors", null=True)
-    
-    latitude  = DecimalField(max_digits=20, decimal_places=10, default=0.0)
+
+    latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     timestamp = BigIntegerField(default=0)
     timestampData = BigIntegerField(default=0)
-    
+
     def getDate(self):
         return datetime.datetime.fromtimestamp(
-            int(self.timestamp/1000)
+            int(self.timestamp / 1000)
         ).strftime('%d/%m/%Y %H:%M:%S')
 
     def getStrLatitude(self):
@@ -51,12 +39,12 @@ class Collector(models.Model):
 
     def getStrLongitude(self):
         return "%.8f" % self.longitude
-    
+
     def __unicode__(self):
         return "Active collector from " + self.user.username
 
-class Airline(models.Model):
 
+class Airline(models.Model):
     name = CharField(max_length=255, blank=True, null=True, default="")
     alias = CharField(max_length=255, blank=True, null=True, default="")
     iata = CharField(max_length=4, blank=True, null=True, default="")
@@ -70,35 +58,31 @@ class Flight(models.Model):
     # Flight identification
     code = CharField(max_length=16, blank=True, null=True, default=True)
 
-    airline = ForeignKey(Airline, on_delete=models.CASCADE, null=True, related_name="flights")
+    airline = ForeignKey(Airline, null=True, related_name="flights", on_delete=models.PROTECT)
 
     def __unicode__(self):
         return "Flight " + str(self.code)
 
 
-
-    
 class Airport(models.Model):
-    
     # Airport identification
     code = CharField(max_length=100, blank=True, default='', null=True)
     name = CharField(max_length=100, blank=True, default='', null=True)
-    
+
     # Airport location
-    country   = CharField(max_length=100, blank=True, default='', null=True)
-    state     = CharField(max_length=100, blank=True, default='', null=True)
-    city      = CharField(max_length=100, blank=True, default='', null=True)
-    latitude  = DecimalField(max_digits=20, decimal_places=10, default=0.0)
+    country = CharField(max_length=100, blank=True, default='', null=True)
+    state = CharField(max_length=100, blank=True, default='', null=True)
+    city = CharField(max_length=100, blank=True, default='', null=True)
+    latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
 
     type = CharField(max_length=100, blank=True, default='', null=True)
-    
+
     def __unicode__(self):
-        return "Airport " + self.prefix + " - " + self.name
+        return "Airport " + self.code + " - " + self.name
 
 
 class ADSBInfo(models.Model):
-
     collectorKey = models.CharField(max_length=64, blank=True, null=True, default="")
 
     modeSCode = CharField(max_length=16, blank=True, null=True, default="")
@@ -128,9 +112,9 @@ class ADSBInfo(models.Model):
 
 
 class Observation(models.Model):
-
-    flight = ForeignKey(Flight, on_delete=models.CASCADE, null=True, blank=True, default=None, related_name='observations')
-    adsbInfo = OneToOneField(ADSBInfo, on_delete=models.CASCADE, related_name="observation", null=True)
+    flight = ForeignKey(Flight, null=True, blank=True, default=None,
+                        related_name='observations', on_delete=models.PROTECT)
+    adsbInfo = OneToOneField(ADSBInfo, related_name="observation", null=True, on_delete=models.PROTECT)
 
     # Airplane position
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
@@ -154,25 +138,20 @@ class Observation(models.Model):
 
     @staticmethod
     def generateFromADSBInfo(info):
-        # If the flight no exists, will be created
-
-        collector = None
         try:
             collector = Collector.objects.get(key=info.collectorKey)
-        except Exception as err:
-            print (err)
-            print (info.collectorKey)
+        except Collector.DoesNotExist:
             return None
 
         callsign = info.callsign
         airlineICAO = callsign[:3]
-        airline = None
-        flight = None
+
         try:
             airline = Airline.objects.get(icao=airlineICAO)
         except:
-            pass
+            airline = None
 
+        # If the flight does not exist, will be created
         try:
             flight = Flight.objects.get(code=callsign)
         except Flight.DoesNotExist:
@@ -233,7 +212,7 @@ class FlightInfo(models.Model):
             info.verticalVelocity = obs.verticalVelocity
             info.horizontalVelocity = obs.horizontalVelocity
             info.groundTrackHeading = obs.groundTrackHeading
-            info.timestamp=obs.timestamp
+            info.timestamp = obs.timestamp
         except FlightInfo.DoesNotExist:
             info = FlightInfo(
                 flight=flight, airline=flight.airline,
@@ -250,7 +229,6 @@ class FlightInfo(models.Model):
 
     def generatePropagatedTrajectory(self, propCount, propInterval):
 
-
         observations = Observation.objects.filter(flight=self.flight).filter(simulated=True)
         for o in observations:
             o.delete()
@@ -266,9 +244,10 @@ class FlightInfo(models.Model):
             infoA = obs[len(obs) - 2]
             infoB = obs[len(obs) - 1]
 
-            turnRateInterval = (float(infoB.timestamp) - float(infoA.timestamp))/1000.0
+            turnRateInterval = (float(infoB.timestamp) - float(infoA.timestamp)) / 1000.0
             turnRate = 0 if turnRateInterval == 0 \
-                else propInterval * (float(infoB.groundTrackHeading) - float(infoA.groundTrackHeading))/turnRateInterval
+                else propInterval * (
+                    float(infoB.groundTrackHeading) - float(infoA.groundTrackHeading)) / turnRateInterval
             groundTrackHeading = float(infoB.groundTrackHeading) + turnRate
             distance = Math.knotsToMetres(float(infoB.horizontalVelocity)) * propInterval
             R = 6371000.0
@@ -305,71 +284,68 @@ class FlightInfo(models.Model):
         return obs[2:]
 
 
-# Used to store project informations
+# Used to store project information
 class About(models.Model):
-    
-    title    = CharField(max_length=1000, blank=True, default="")
+    title = CharField(max_length=1000, blank=True, default="")
     subtitle = CharField(max_length=1000, blank=True, default="")
-    info     = TextField(blank=True, default="")
-    
+    info = TextField(blank=True, default="")
+
     index = IntegerField(default=0)
-    
+
     externURL = URLField(verbose_name="Extern link", default="", blank=True)
-    
+
     image = ImageField(upload_to="about_images", null=True)
-    
+
     largeImage = ImageSpecField(source="image",
                                 processors=[ResizeToFill(1920, 1080)],
                                 format='JPEG',
                                 options={'quality': 75, 'progressive': True})
-    
+
     mediumImage = ImageSpecField(source="image",
                                  processors=[ResizeToFill(1280, 720)],
                                  format='JPEG',
                                  options={'quality': 75, 'progressive': True})
-    
+
     smallImage = ImageSpecField(source="image",
                                 processors=[ResizeToFill(640, 360)],
                                 format='JPEG',
                                 options={'quality': 75, 'progressive': True})
-    
+
     def getShortDescription(self):
         return str(self.title + " - " + self.subtitle[:50] + "...")
-    
+
     def toHTML(self):
-        return self.info.replace("<p", "<p class=\"rl-document__paragraph\"")\
+        return self.info.replace("<p", "<p class=\"rl-document__paragraph\"") \
             .replace("<span", "<span class=\"rl-document__title\"")
-    
+
     def __unicode__(self):
         return self.title + " - " + self.subtitle
-    
+
+
 # Send notify to all app's
 class Notify(models.Model):
-    
     title = CharField(max_length=1000, blank=True, default="")
     subtitle = CharField(max_length=1000, blank=True, default="")
     info = TextField(blank=True, default="")
 
     showDate = DateTimeField()
-    
+
     vibrate = BooleanField(default=True)
     song = BooleanField(default=False)
-    
+
     def __unicode__(self):
         return self.title + " - " + self.subtitle
 
 
 # Radar Livre Softwares
-class Software(models.Model): 
-    
+class Software(models.Model):
     title = CharField(max_length=1000, blank=True, default="")
-    
+
     versionName = CharField(max_length=1000, blank=True, default="")
     versionCode = IntegerField(default=0)
-    
+
     lastUpdate = DateField(default=0)
-    
+
     executable = FileField(
         upload_to="softwares/collector"
     )
-
