@@ -5,7 +5,6 @@
 import io
 import re
 import sys
-import numbers
 from time import time as now
 from importlib import reload
 
