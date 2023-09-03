@@ -49,12 +49,7 @@ echo "----- Activating virtual enviroment -----"
 source venv/bin/activate
 
 if [ $? -eq 0 ]; then
-    echo "************************************************************"
-    echo "| Virtual environment activated successfully               |"
-    echo "************************************************************"
-
-echo "----- Virtual environment activated -----"
-
+    echo "----- Virtual environment activated successfully -----"
 else
     echo "************************************************************"
     echo "| Error: Failed to activate virtual environment            |"
