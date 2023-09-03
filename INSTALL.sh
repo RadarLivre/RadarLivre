@@ -66,7 +66,6 @@ pip install django-appconf==1.0.5
 
 echo "----- Installing Django Cleanup -----"
 pip install django-cleanup==8.0.0
-#vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
 echo "----- Installing Django Crispy Forms -----"
 pip install django-crispy-forms==2.0

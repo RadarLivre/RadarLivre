@@ -7,6 +7,7 @@ import re
 import sys
 import numbers
 from time import time as now
+from importlib import reload
 
 total = 0
 progress = 0
@@ -96,7 +97,7 @@ def encode(text):
 
 def generateAirportSQL():
     reload(sys)
-    sys.setdefaultencoding("utf-8")
+    #sys.setdefaultencoding("utf-8")
 
     airports = getObjects("airports.csv")
     countries = getObjects("countries.csv")
