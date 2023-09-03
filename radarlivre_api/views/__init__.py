@@ -6,7 +6,10 @@ from time import time
 from django.db.models.aggregates import Max
 from django.http.response import Http404
 from rest_framework import permissions, status
-from rest_framework.filters import DjangoFilterBackend, OrderingFilter
+#from rest_framework.filters import DjangoFilterBackend, OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend, OrderingFilter
+
+from django_filters import rest_framework as filters
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -64,7 +67,7 @@ class AirportList(ListCreateAPIView):
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
     filter_backends = (DjangoFilterBackend, MapBoundsFilter, AirportTypeZoomFilter)
-    filter_fields = ('code', 'name', 'country', 'state', 'city', 'latitude', 'longitude', 'type')
+    filterset_fields = ('code', 'name', 'country', 'state', 'city', 'latitude', 'longitude', 'type')
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
     
 class AirportDetail(RetrieveUpdateDestroyAPIView):
@@ -77,7 +80,7 @@ class FlightList(ListAPIView):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
     filter_backends = (DjangoFilterBackend, FlightFilter)
-    filter_fields = ('code', 'airline')
+    filterset_fields = ('code', 'airline')
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
 
@@ -85,7 +88,7 @@ class FlightInfoList(ListAPIView):
     queryset = FlightInfo.objects.all()
     serializer_class = FlightInfoSerializer
     filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter, MapBoundsFilter, FlightClusteringFilter)
-    filter_fields = ('airline',)
+    filterset_fields = ('airline',)
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
 
@@ -117,7 +120,7 @@ class ADSBInfoList(APIView):
         DjangoFilterBackend
     )
     
-    filter_fields = ('observation')
+    filterset_fields = ('observation')
     ordering_fields = '__all__'
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
@@ -158,7 +161,7 @@ class ObservationList(ListCreateAPIView):
         ObservationFlightFilter
     )
 
-    filter_fields = ('flight',)
+    filterset_fields = ('flight',)
     ordering_fields = '__all__'
 
 class ObservationDetail(RetrieveUpdateDestroyAPIView):
