@@ -70,8 +70,7 @@ class Airline(models.Model):
 class Flight(models.Model):
     # Flight identification
     code = CharField(max_length=16, blank=True, null=True, default=True)
-
-    airline = ForeignKey(Airline, null=True, related_name="flights")
+    airline = ForeignKey(Airline, on_delete = models.PROTECT, null=True, related_name="flights")
 
     def __unicode__(self):
         return "Flight " + str(self.code)
@@ -130,8 +129,8 @@ class ADSBInfo(models.Model):
 
 class Observation(models.Model):
 
-    flight = ForeignKey(Flight, null=True, blank=True, default=None, related_name='observations')
-    adsbInfo = OneToOneField(ADSBInfo, related_name="observation", null=True)
+    flight = flight = ForeignKey(Flight, on_delete = models.PROTECT, null=True, blank=True, default=None, related_name='observations')
+    adsbInfo = OneToOneField(ADSBInfo, on_delete = models.PROTECT, related_name="observation", null=True)
 
     # Airplane position
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
@@ -205,8 +204,8 @@ class Observation(models.Model):
 
 class FlightInfo(models.Model):
     # Flight identification
-    flight = OneToOneField(Flight, null=True)
-    airline = ForeignKey(Airline, null=True)
+    flight = OneToOneField(Flight, on_delete = models.PROTECT, null=True)
+    airline = ForeignKey(Airline, on_delete = models.PROTECT, null=True)
 
     # Airplane position
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
