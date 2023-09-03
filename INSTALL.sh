@@ -80,6 +80,9 @@ pip install django-cleanup==8.0.0
 echo "----- Installing Django Crispy Forms -----"
 pip install django-crispy-forms==2.0
 
+echo "----- Installing Django Crispy Bootstrap4 -----"
+pip install crispy-bootstrap4
+
 echo "----- Installing Django Filter -----"
 pip install django-filter==23.2
 

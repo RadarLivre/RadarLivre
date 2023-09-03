@@ -7,7 +7,8 @@ from django.db.models.aggregates import Max
 from django.http.response import Http404
 from rest_framework import permissions, status
 #from rest_framework.filters import DjangoFilterBackend, OrderingFilter
-from django_filters.rest_framework import DjangoFilterBackend, OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import OrderingFilter
 
 from django_filters import rest_framework as filters
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
