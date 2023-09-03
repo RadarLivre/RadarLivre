@@ -160,8 +160,8 @@ class Observation(models.Model):
         try:
             collector = Collector.objects.get(key=info.collectorKey)
         except Exception as err:
-            print err
-            print info.collectorKey
+            print (err)
+            print (info.collectorKey)
             return None
 
         callsign = info.callsign

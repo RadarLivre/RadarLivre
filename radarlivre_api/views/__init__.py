@@ -106,7 +106,7 @@ class FlightPropagatedTrajectoryList(APIView):
             serializer = ObservationSerializer(obs, many=True)
             return Response(serializer.data)
         except FlightInfo.DoesNotExist as err:
-            print str(err)
+            print (str(err))
 
         return Response(ObservationSerializer([], many=True).data)
 

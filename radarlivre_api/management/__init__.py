@@ -1,5 +1,5 @@
 # ...
 from radarlivre_api.management.users import createUsers
-print "Executando Management..."
+print ("Executando Management...")
 
 #createUsers()
