@@ -9,6 +9,7 @@ import logging
 from time import time
 
 import sys
+from importlib import reload
 
 import math
 from django.contrib.auth.models import User
@@ -29,7 +30,7 @@ from radarlivre_api.utils import Math
 logger = logging.getLogger("radarlivre.log")
 
 reload(sys)
-sys.setdefaultencoding("utf-8")
+#sys.setdefaultencoding("utf-8")
 
 class Collector(models.Model):
 
