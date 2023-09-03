@@ -48,6 +48,21 @@ echo "************************************************************"
 echo "----- Activating virtual enviroment -----"
 source venv/bin/activate
 
+if [ $? -eq 0 ]; then
+    echo "************************************************************"
+    echo "| Virtual environment activated successfully               |"
+    echo "************************************************************"
+
+echo "----- Virtual environment activated -----"
+
+else
+    echo "************************************************************"
+    echo "| Error: Failed to activate virtual environment            |"
+    echo "| Installation aborted                                     |"
+    echo "************************************************************"
+    exit 1  # Saia do script 
+fi
+
 # The next steps will be executed while the virtual enviroment is activated.
 # As Django comes with Pip installed, there is no need to install it.
 
