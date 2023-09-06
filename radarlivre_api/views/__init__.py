@@ -121,7 +121,7 @@ class ADSBInfoList(APIView):
         DjangoFilterBackend
     )
     
-    filterset_fields = ('observation')
+    filterset_fields = ('observation',)
     ordering_fields = '__all__'
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
