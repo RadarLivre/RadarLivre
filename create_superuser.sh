@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 # The command above states wich shell is used
 
 # This file is used to set up the project installing all requirements and dependencies
@@ -23,7 +23,7 @@ source venv/bin/activate
 
 echo "----- Creating new superuser -----"
 echo "You will be asked to provide a username, email and password. For security reasons, your password need to be strong."
-python manage.py createsuperuser
+python3 manage.py createsuperuser
 
 echo "----- Deactivating virtual enviroment -----"
 deactivate
