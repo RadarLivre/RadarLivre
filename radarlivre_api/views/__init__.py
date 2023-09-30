@@ -107,8 +107,7 @@ class FlightPropagatedTrajectoryList(APIView):
             serializer = ObservationSerializer(obs, many=True)
             return Response(serializer.data)
         except FlightInfo.DoesNotExist as err:
-            print
-            str(err)
+            print(str(err))
 
         return Response(ObservationSerializer([], many=True).data)
 
@@ -116,9 +115,7 @@ class FlightPropagatedTrajectoryList(APIView):
 class ADSBInfoList(APIView):
     queryset = ADSBInfo.objects.all()
     serializer_class = ADSBInfoSerializer
-    filter_backends = (
-        DjangoFilterBackend
-    )
+    filter_backends = (DjangoFilterBackend)
 
     filter_fields = ('observation',)
     ordering_fields = '__all__'

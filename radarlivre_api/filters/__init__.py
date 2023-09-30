@@ -102,8 +102,7 @@ class FlightClusteringFilter(BaseFilterBackend):
         minAirplaneDistance = Util.parseParam(request, "min_airplane_distance", 50)
 
         if mapHeight and mapZoom:
-            print
-            "Clustering..."
+            print("Clustering...")
 
             def min(a, b):
                 return a if a < b else b;
