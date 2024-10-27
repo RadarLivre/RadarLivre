@@ -25,4 +25,5 @@ urlpatterns = [
     path(r'admin/', admin.site.urls),
     path(r'', include('radarlivre_api.urls')),
     path(r'', include('radarlivre_website.urls')),
+    path(r'', include('django_prometheus.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
