@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-'django_prometheus.middleware.PrometheusBeforeMiddleware',
+    'django_prometheus.middleware.PrometheusBeforeMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -93,8 +93,11 @@ WSGI_APPLICATION = 'radarlivre.wsgi.application'
 
 DATABASES = {
     'default': {
-        "ENGINE": config['DATABASE']["ENGINE"],
-        "NAME": config['DATABASE']["NAME"]
+        "ENGINE": config['DATABASE']['ENGINE'],
+        "NAME": config['DATABASE']['NAME'],
+        "HOST": config['DATABASE']['HOST'],
+        "USER": config['DATABASE']['USER'],
+        "PASSWORD": config['DATABASE']['PASSWORD']
     }
 }
 
