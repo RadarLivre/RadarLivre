@@ -18,13 +18,12 @@ class CollectorSimulator:
             hello_url: str,
             adsb_url: str,
             user_credentials: tuple[str, str],
-            radius_km: float = 70,
             is_airport: bool = False
     ):
         self.collector_key = collector_key
         self.lat = lat
         self.lon = lon
-        self.radius_km = radius_km
+        self.radius_km = int(random.uniform(100, 300))
         self.is_airport = is_airport
         self.hello_url = hello_url
         self.adsb_url = adsb_url
