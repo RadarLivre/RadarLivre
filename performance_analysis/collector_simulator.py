@@ -1,13 +1,25 @@
-import random
+import logging
 import math
+import random
 import threading
 import time
 import uuid
+from logging.handlers import RotatingFileHandler
 
 import requests
 
 from aircraft_simulator import AircraftSimulator
 
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="{levelname} | {asctime} | {name} | {message}",
+    style="{",
+    handlers=[
+        RotatingFileHandler("collector_simulator.log", maxBytes=5 * 1024 * 1024, backupCount=3),
+        logging.StreamHandler(),
+    ],
+)
 
 class CollectorSimulator:
     def __init__(
@@ -30,6 +42,7 @@ class CollectorSimulator:
         self.user_credentials = user_credentials
         self.angle_tracker = set()
         self.avg_interval = random.uniform(30, 300)
+        self.logger = logging.getLogger(f"Collector-{self.collector_key}")
 
     def generate_unique_angle(self):
         while True:
@@ -54,14 +67,20 @@ class CollectorSimulator:
         return start_lat, start_lon, end_lat, end_lon
 
     def send_hello(self):
-        hello_data = {"id": self.collector_key}
-        print("Sending collector hello key={id}".format(**hello_data))
-        response = requests.put(self.hello_url, auth=self.user_credentials)
-        print(response.status_code)
+        self.logger.info(f"Enviando 'hello' do coletor. key={self.collector_key}")
+        try:
+            response = requests.put(self.hello_url, auth=self.user_credentials)
+            self.logger.info(f"Resposta do 'hello': {response.status_code}")
+        except Exception as e:
+            self.logger.error(f"Erro ao enviar 'hello': {e}")
 
     def send_adsb_data(self, adsb_data):
-        response = requests.post(self.adsb_url, json=[adsb_data], auth=self.user_credentials)
-        print(f"ADSB Response: {response.status_code}, {response.text}")
+        self.logger.debug(f"Enviando dados ADS-B: {adsb_data}")
+        try:
+            response = requests.post(self.adsb_url, json=[adsb_data], auth=self.user_credentials)
+            self.logger.info(f"Resposta ADS-B: {response.status_code}, {response.text}")
+        except Exception as e:
+            self.logger.error("Erro ao enviar dados ADS-B: %s", e)
 
     def manage_aircraft(self):
         while True:
@@ -79,7 +98,7 @@ class CollectorSimulator:
             thread.start()
 
             next_interval = random.expovariate(1 / self.avg_interval)
-            print(f"Next aircraft in {next_interval:.2f} seconds")
+            self.logger.info(f"Próxima aeronave em {next_interval:.2f} segundos")
             time.sleep(next_interval)
 
     def simulate_aircraft(self, simulator: AircraftSimulator):
@@ -89,6 +108,7 @@ class CollectorSimulator:
             time.sleep(1.5)
 
     def run_collector(self):
+        self.logger.info(f"Iniciando coletor: {self.collector_key}")
         threading.Thread(target=self.manage_aircraft, daemon=True).start()
 
         while True:
