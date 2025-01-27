@@ -1,8 +1,10 @@
 #!/bin/bash
 
 collector_keys="collector_keys.csv"
-
+pid_file="simulator_pids.txt"
 exec 3< "$collector_keys"
+
+> "$pid_file"
 
 for _ in $(seq 1 "$1"); do
   IFS=, read -r key lat long aeroporto <&3
@@ -13,10 +15,8 @@ for _ in $(seq 1 "$1"); do
   fi
 
   python3 simulator_manager.py "$key" "$lat" "$long" "$aeroporto" &
-  echo "Collector $key was started with success" >> collectors_started_list.txt
-  sleep 180
+  echo $! >> "$pid_file"
+#  sleep 90
 done
 
 exec 3<&-
-
-echo "Processamento concluído."
