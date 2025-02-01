@@ -6,7 +6,7 @@ user_credentials = ("root", "tsevaoth")
 collector_key = sys.argv[1]
 lat = float(sys.argv[2])
 lon = float(sys.argv[3])
-is_airport = bool(sys.argv[4])
+is_airport = bool(int(sys.argv[4]))
 
 adsb_info_url = "http://localhost:8000/api/adsb_info/"
 collector_hello_url = f"http://localhost:8000/api/collector/{collector_key}/"
