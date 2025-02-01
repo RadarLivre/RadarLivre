@@ -3,14 +3,17 @@ FROM ubuntu:22.04
 WORKDIR /app
 COPY . .
 
+ENV TZ=America/Fortaleza
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt update \
-  && apt install -y python3-pip \
-  && apt clean
+    && apt install -y python3-pip \
+    && apt install -y tzdata \
+    && ln -sf /usr/share/zoneinfo/$TZ /etc/localtime \
+    && echo $TZ > /etc/timezone \
+    && apt clean
 
 RUN python3 -m pip install -r requirements.txt
-
-#RUN python3 manage.py migrate
-#RUN python3 manage.py collectstatic --no-input
 
 RUN chmod +x runserver.sh
 
