@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+import configparser
 import os
 import sys
-import configparser
 
 config = configparser.ConfigParser()
 
@@ -33,6 +33,10 @@ SECRET_KEY = 'l&4#e$r=%%@ljc0%*61w5eb(c$hg*ewxgrx!nq^8j0b)3a$na2'
 DEBUG = eval(config['GENERAL']['DEBUG'])
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:80',
+    'http://127.0.0.1:',
+]
 
 # Application definition
 
@@ -97,7 +101,8 @@ DATABASES = {
         "NAME": config['DATABASE']['NAME'],
         "HOST": config['DATABASE']['HOST'],
         "USER": config['DATABASE']['USER'],
-        "PASSWORD": config['DATABASE']['PASSWORD']
+        "PASSWORD": config['DATABASE']['PASSWORD'],
+        "PORT": config['DATABASE']['PORT']
     }
 }
 
@@ -136,33 +141,31 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(message)s'
+            'format': '{levelname} | {asctime} | {message}',
+            'style': '{',
         },
         'simple': {
-            'format': '%(levelname)s %(message)s'
+            'format': '{levelname} | {message}',
+            'style': '{',
         },
     },
     'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+            'level': 'INFO'
+        },
         'file': {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
             'filename': config['GENERAL']['LOG_FILE'],
             'formatter': 'verbose',
         },
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple',
-        },
     },
     'loggers': {
-        'development': {
-            'handlers': ['file', 'console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'production': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': config['GENERAL']['DJANGO_LOG_LEVEL'],
             'propagate': True,
         },
     },
