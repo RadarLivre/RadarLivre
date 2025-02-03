@@ -10,7 +10,6 @@ import requests
 
 from aircraft_simulator import AircraftSimulator
 
-
 logging.basicConfig(
     level=logging.INFO,
     format="{levelname} | {asctime} | {name} | {message}",
@@ -43,8 +42,7 @@ class CollectorSimulator:
         self.angle_tracker = set()
         self.avg_interval = random.uniform(30, 300)
         self.action_logger = logging.getLogger(f"Collector-{self.collector_key}")
-        self.create_logger = logging.getLogger("Create Collector")
-
+        
     def generate_unique_angle(self):
         while True:
             angle = random.uniform(0, 2 * math.pi)
@@ -68,20 +66,24 @@ class CollectorSimulator:
         return start_lat, start_lon, end_lat, end_lon
 
     def send_hello(self):
-        print(f"Enviando 'hello' do coletor")
+        start_time = time.time()
         try:
             response = requests.put(self.hello_url, auth=self.user_credentials)
-            print(f"Resposta do 'hello': {response.status_code}")
+            duration_ms = (time.time() - start_time) * 1000
+            self.action_logger.info(f"HELLO,{response.status_code},{duration_ms:.2f}")
         except Exception as e:
-            self.action_logger.error(f"Erro ao enviar 'hello': {e}")
+            duration_ms = (time.time() - start_time) * 1000
+            self.action_logger.error(f"HELLO,ERROR,{duration_ms:.2f},{str(e)}")
 
     def send_adsb_data(self, adsb_data):
-        self.action_logger.debug(f"Enviando dados ADS-B")
+        start_time = time.time()
         try:
             response = requests.post(self.adsb_url, json=[adsb_data], auth=self.user_credentials)
-            print(f"Resposta ADS-B: {response.status_code}, {response.text}")
+            duration_ms = (time.time() - start_time) * 1000
+            self.action_logger.info(f"ADSB,{response.status_code},{duration_ms:.2f}")
         except Exception as e:
-            self.action_logger.error(f"Erro ao enviar dados ADS-B: {e}")
+            duration_ms = (time.time() - start_time) * 1000
+            self.action_logger.error(f"ADSB,ERROR,{duration_ms:.2f},{str(e)}")
 
     def manage_aircraft(self):
         while True:
