@@ -1,4 +1,4 @@
-  {
+{
   "annotations": {
     "list": [
       {
@@ -25,7 +25,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce2z2fru6c4jkb"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -87,7 +87,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 14,
+        "h": 15,
         "w": 12,
         "x": 0,
         "y": 0
@@ -96,9 +96,11 @@
       "options": {
         "legend": {
           "calcs": [
-            "mean"
+            "mean",
+            "min",
+            "max"
           ],
-          "displayMode": "list",
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -122,7 +124,8 @@
           "fullMetaSearch": false,
           "includeNullMetadata": false,
           "instant": false,
-          "legendFormat": "__auto",
+          "interval": "",
+          "legendFormat": "Requests / second",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -134,7 +137,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce2z2fru6c4jkb"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -152,7 +155,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 14,
+        "h": 15,
         "w": 12,
         "x": 12,
         "y": 0
@@ -220,7 +223,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce2z2fru6c4jkb"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -285,7 +288,7 @@
         "h": 15,
         "w": 12,
         "x": 0,
-        "y": 14
+        "y": 15
       },
       "id": 3,
       "options": {
@@ -342,7 +345,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce2z2fru6c4jkb"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -363,7 +366,7 @@
         "h": 15,
         "w": 12,
         "x": 12,
-        "y": 14
+        "y": 15
       },
       "id": 4,
       "options": {
@@ -422,7 +425,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce2z2fru6c4jkb"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -481,7 +484,7 @@
         "h": 16,
         "w": 8,
         "x": 0,
-        "y": 29
+        "y": 30
       },
       "id": 5,
       "options": {
@@ -504,7 +507,7 @@
       "targets": [
         {
           "editorMode": "code",
-          "expr": "sum by (container) (rate(container_cpu_usage_seconds_total{instance=~\".*\",job=~\".*\",image!=\"\", service=~\".*\", container=~\"(cadvisor|grafana|postgres|prometheus|radar_livre)\"}[$__rate_interval]) ) * 100 ",
+          "expr": "sum by (container) (rate(container_cpu_usage_seconds_total{instance=~\".*\",job=~\".*\",image!=\"\", service=~\".*\", container=~\"(cadvisor|grafana|postgres|prometheus|radar_livre)\"}[$__rate_interval]) ) * 100 / scalar(sum(machine_cpu_cores))",
           "legendFormat": "{{name}}",
           "range": true,
           "refId": "A"
@@ -516,7 +519,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce2z2fru6c4jkb"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -574,7 +577,7 @@
         "h": 16,
         "w": 8,
         "x": 8,
-        "y": 29
+        "y": 30
       },
       "id": 7,
       "options": {
@@ -608,7 +611,7 @@
             "uid": "ce2z2fru6c4jkb"
           },
           "editorMode": "code",
-          "expr": "-(sum by (container) (rate(container_fs_writes_bytes_total{instance=~\".*\",job=~\".*\",image!=\"\", service=~\".*\", container=~\"(cadvisor|grafana|postgres|prometheus|radar_livre)\"}[$__rate_interval])))",
+          "expr": "(sum by (container) (rate(container_fs_writes_bytes_total{instance=~\".*\",job=~\".*\",image!=\"\", service=~\".*\", container=~\"(cadvisor|grafana|postgres|prometheus|radar_livre)\"}[$__rate_interval])))",
           "hide": false,
           "instant": false,
           "legendFormat": "write {{container}}",
@@ -622,7 +625,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "ce2z2fru6c4jkb"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -680,7 +683,7 @@
         "h": 16,
         "w": 8,
         "x": 16,
-        "y": 29
+        "y": 30
       },
       "id": 6,
       "options": {
@@ -718,16 +721,29 @@
   "schemaVersion": 40,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "text": "prometheus",
+          "value": "ce2z2fru6c4jkb"
+        },
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "",
+        "type": "datasource"
+      }
+    ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Radar Livre",
   "uid": "be5buutudbh1ca",
-  "version": 22,
+  "version": 39,
   "weekStart": ""
 }
