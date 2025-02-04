@@ -1,7 +1,7 @@
 #!/bin/bash
 
 collector_keys="collector_keys.csv"
-pid_file="simulator_pids.txt"
+pid_file="collector_pids.txt"
 exec 3< "$collector_keys"
 
 > "$pid_file"
@@ -16,7 +16,7 @@ for _ in $(seq 1 "$1"); do
 
   python3 simulator_manager.py "$key" "$lat" "$long" "$aeroporto" &
   echo $! >> "$pid_file"
-#  sleep 90
+  sleep 30
 done
 
 exec 3<&-
