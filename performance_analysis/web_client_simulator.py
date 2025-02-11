@@ -26,10 +26,10 @@ class WebClientSimulator:
         self.logger = logging.getLogger(f"WebClient-{self.client_id}")
 
         self.bounding_box = {
-            "top": 18.204756443706668,
-            "bottom": -26.06030440392178,
-            "left": -70.46312175250968,
-            "right": -32.71409831500968
+            "top": -7.60832097083014,
+            "bottom": -14.54711726532197,
+            "left": -80.2439968,
+            "right": -22.14829367500001
         }
 
     def log_request(self, endpoint: str, status: str, duration: float):
@@ -77,13 +77,13 @@ class WebClientSimulator:
         while True:
             data = self.make_request("flight_info/", {
                 **self.bounding_box,
-                "map_height": 1036,
+                "map_height": 161,
                 "map_zoom": 5,
-                "min_airplane_distance": 0
+                "min_airplane_distance": 0,
             })
 
-            if data and "results" in data and data["results"]:
-                self.selected_flight = random.choice(data["results"])["flight"]
+            if data:
+                self.selected_flight = random.choice(data)["id"]
 
             time.sleep(10)
 
@@ -100,9 +100,10 @@ class WebClientSimulator:
                     "flight": self.selected_flight,
                     "interval": ""
                 })
-            time.sleep(random.randint(5, 15))
+            time.sleep(random.randint(60, 120))
 
     def start(self):
+        self.logger.info(f"Iniciando cliente web: {self.client_id}")
         Thread(target=self.run_collector_polling).start()
         Thread(target=self.run_flight_polling).start()
         self.run_airport_request()
