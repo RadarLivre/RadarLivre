@@ -32,6 +32,8 @@ SECRET_KEY = 'l&4#e$r=%%@ljc0%*61w5eb(c$hg*ewxgrx!nq^8j0b)3a$na2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = eval(config['GENERAL']['DEBUG'])
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:80',
@@ -48,13 +50,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'django_filters',
     'radarlivre_api.apps.RadarlivreApiConfig',
     'radarlivre_website.apps.RadarlivreWebsiteConfig',
     'imagekit',
     'django_cleanup',
+    'crispy_bootstrap4',
     'crispy_forms',
     'rest_framework',
     'django_prometheus',
+    'django.contrib.gis'
 ]
 
 MIDDLEWARE = [
@@ -102,7 +107,9 @@ DATABASES = {
         "HOST": config['DATABASE']['HOST'],
         "USER": config['DATABASE']['USER'],
         "PASSWORD": config['DATABASE']['PASSWORD'],
-        "PORT": config['DATABASE']['PORT']
+        "PORT": config['DATABASE']['PORT'],
+        "CONN_MAX_AGE": 300,
+        "CONN_HEALTH_CHECKS": True
     }
 }
 
@@ -133,6 +140,10 @@ REST_FRAMEWORK = {
 
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
+    ),
+
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend'
     )
 }
 
