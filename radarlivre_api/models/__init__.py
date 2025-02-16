@@ -3,24 +3,39 @@
 from __future__ import unicode_literals
 
 import datetime
-import math
 import uuid
 from time import time
 
+import numpy as np
 from django.contrib.auth.models import User
-from django.db import models
+from django.contrib.gis.db import models as gis_models
+from django.contrib.gis.geos import Point
+from django.core.cache import cache
+from django.db import models, transaction
 from django.db.models.fields import CharField, DecimalField, IntegerField, BigIntegerField, \
     BooleanField, TextField, DateTimeField, DateField, URLField
 from django.db.models.fields.files import ImageField, FileField
-from django.db.models.fields.related import ForeignKey, \
-    OneToOneField
+from django.db.models.fields.related import ForeignKey, OneToOneField
 from imagekit.models.fields import ImageSpecField
 from pilkit.processors.resize import ResizeToFill
 
 from radarlivre_api.utils import Math
 
 
-class Collector(models.Model):
+class SpatialModelMixin:
+    def update_spatial_fields(self):
+        if self.point and (self.point.x != self.longitude or self.point.y != self.latitude):
+            self.longitude = self.point.x
+            self.latitude = self.point.y
+        elif not self.point and self.latitude and self.longitude:
+            self.point = Point(float(self.longitude), float(self.latitude))
+
+    def clean(self):
+        super().clean()
+        self.update_spatial_fields()
+
+
+class Collector(SpatialModelMixin, models.Model):
     key = models.UUIDField(default=uuid.uuid4, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="collectors", null=True)
 
@@ -28,6 +43,12 @@ class Collector(models.Model):
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     timestamp = BigIntegerField(default=0)
     timestampData = BigIntegerField(default=0)
+
+    point = gis_models.PointField(geography=True, srid=4326, null=True, blank=True, spatial_index=True)
+
+    def save(self, *args, **kwargs):
+        self.update_spatial_fields()
+        super().save(*args, **kwargs)
 
     def getDate(self):
         return datetime.datetime.fromtimestamp(
@@ -57,14 +78,13 @@ class Airline(models.Model):
 class Flight(models.Model):
     # Flight identification
     code = CharField(max_length=16, blank=True, null=True, default=True)
-
     airline = ForeignKey(Airline, null=True, related_name="flights", on_delete=models.PROTECT)
 
     def __unicode__(self):
         return "Flight " + str(self.code)
 
 
-class Airport(models.Model):
+class Airport(SpatialModelMixin, models.Model):
     # Airport identification
     code = CharField(max_length=100, blank=True, default='', null=True)
     name = CharField(max_length=100, blank=True, default='', null=True)
@@ -75,14 +95,19 @@ class Airport(models.Model):
     city = CharField(max_length=100, blank=True, default='', null=True)
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
+    point = gis_models.PointField(geography=True, srid=4326, null=True, blank=True, spatial_index=True)
 
     type = CharField(max_length=100, blank=True, default='', null=True)
+
+    def save(self, *args, **kwargs):
+        self.update_spatial_fields()
+        super().save(*args, **kwargs)
 
     def __unicode__(self):
         return "Airport " + self.code + " - " + self.name
 
 
-class ADSBInfo(models.Model):
+class ADSBInfo(SpatialModelMixin, models.Model):
     collectorKey = models.CharField(max_length=64, blank=True, null=True, default="")
 
     modeSCode = CharField(max_length=16, blank=True, null=True, default="")
@@ -92,7 +117,8 @@ class ADSBInfo(models.Model):
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     altitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
-
+    point = gis_models.PointField(geography=True, srid=4326, null=True, blank=True, spatial_index=True)
+    
     # Airplane velocity
     verticalVelocity = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     horizontalVelocity = DecimalField(max_digits=20, decimal_places=10, default=0.0)
@@ -110,9 +136,13 @@ class ADSBInfo(models.Model):
     messageDataPositionOdd = CharField(max_length=100, blank=True, default='')
     messageDataVelocity = CharField(max_length=100, blank=True, default='')
 
+    def save(self, *args, **kwargs):
+        self.update_spatial_fields()
+        super().save(*args, **kwargs)
 
-class Observation(models.Model):
-    flight = ForeignKey(Flight, null=True, blank=True, default=None,
+
+class Observation(SpatialModelMixin, models.Model):
+    flight = ForeignKey(Flight, db_index=True, null=True, blank=True, default=None,
                         related_name='observations', on_delete=models.PROTECT)
     adsbInfo = OneToOneField(ADSBInfo, related_name="observation", null=True, on_delete=models.PROTECT)
 
@@ -120,6 +150,7 @@ class Observation(models.Model):
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     altitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
+    point = gis_models.PointField(geography=True, srid=4326, null=True, blank=True, spatial_index=True)
 
     # Airplane velocity
     verticalVelocity = DecimalField(max_digits=20, decimal_places=10, default=0.0)
@@ -129,9 +160,13 @@ class Observation(models.Model):
     groundTrackHeading = DecimalField(max_digits=20, decimal_places=10, default=0.0)
 
     # Observation date time generated by server
-    timestamp = BigIntegerField(default=0)
+    timestamp = BigIntegerField(default=0, db_index=True)
 
     simulated = BooleanField(default=False)
+
+    def save(self, *args, **kwargs):
+        self.update_spatial_fields()
+        super().save(*args, **kwargs)
 
     def __unicode__(self):
         return "Observation of flight " + str(self.flight.code)
@@ -146,42 +181,57 @@ class Observation(models.Model):
         callsign = info.callsign
         airlineICAO = callsign[:3]
 
-        try:
-            airline = Airline.objects.get(icao=airlineICAO)
-        except:
-            airline = None
+        def get_airline():
+            try:
+                return Airline.objects.get(icao=airlineICAO)
+            except:
+                return None
+            
+        airline = cache.get_or_set(
+            f"airline_icao_{airlineICAO}",
+            get_airline(),
+            3600
+        )
 
-        # If the flight does not exist, will be created
-        try:
-            flight = Flight.objects.get(code=callsign)
-        except Flight.DoesNotExist:
-            flight = Flight(code=callsign, airline=airline)
-            flight.save()
+        # Bulk create/update for flight
+        flight, _ = Flight.objects.select_for_update().get_or_create(
+            code=callsign,
+            defaults={'airline': airline}
+        )
 
-        delay = info.timestampSent - info.timestamp
-        timestamp = int(time() * 1000) - delay
+        # Calculate timestamp once
+        timestamp = int(time() * 1000) - (info.timestampSent - info.timestamp)
 
-        # Set a correct longitude
+        # Update longitude in memory before saving
         if info.longitude > 180:
             info.longitude -= 360
-        info.save()
 
-        collector.timestampData = timestamp
-        collector.save()
+        # Batch updates
+        with transaction.atomic():
+            info.save()
+            
+            # Update collector timestamp in bulk
+            Collector.objects.filter(key=info.collectorKey).update(
+                timestampData=timestamp
+            )
 
-        obs = Observation(
-            flight=flight,
-            adsbInfo=info,
-            timestamp=timestamp,
-            latitude=info.latitude, longitude=info.longitude, altitude=info.altitude,
-            verticalVelocity=info.verticalVelocity, horizontalVelocity=info.horizontalVelocity,
-            groundTrackHeading=info.groundTrackHeading
-        )
-        obs.save()
+            # Create observation
+            obs = Observation(
+                flight=flight,
+                adsbInfo=info,
+                timestamp=timestamp,
+                point=info.point,
+                altitude=info.altitude,
+                verticalVelocity=info.verticalVelocity,
+                horizontalVelocity=info.horizontalVelocity,
+                groundTrackHeading=info.groundTrackHeading
+            )
+            obs.save()
+    
         return obs
 
 
-class FlightInfo(models.Model):
+class FlightInfo(SpatialModelMixin, models.Model):
     # Flight identification
     flight = OneToOneField(Flight, null=True, on_delete=models.CASCADE)
     airline = ForeignKey(Airline, null=True, on_delete=models.PROTECT)
@@ -190,6 +240,7 @@ class FlightInfo(models.Model):
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     altitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
+    point = gis_models.PointField(geography=True, srid=4326, null=True, blank=True, spatial_index=True)
 
     # Airplane velocity
     verticalVelocity = DecimalField(max_digits=20, decimal_places=10, default=0.0)
@@ -199,89 +250,131 @@ class FlightInfo(models.Model):
     groundTrackHeading = DecimalField(max_digits=20, decimal_places=10, default=0.0)
 
     # Observation date time generated by server
-    timestamp = BigIntegerField(default=0)
+    timestamp = BigIntegerField(default=0, db_index=True)
+
+    def save(self, *args, **kwargs):
+        self.update_spatial_fields()
+        super().save(*args, **kwargs)
 
     @staticmethod
     def generateFromFlight(flight, obs):
-        info = None
-        try:
-            info = FlightInfo.objects.get(flight=flight)
-            info.latitude = obs.latitude
-            info.longitude = obs.longitude
-            info.altitude = obs.altitude
-            info.verticalVelocity = obs.verticalVelocity
-            info.horizontalVelocity = obs.horizontalVelocity
-            info.groundTrackHeading = obs.groundTrackHeading
-            info.timestamp = obs.timestamp
-        except FlightInfo.DoesNotExist:
-            info = FlightInfo(
-                flight=flight, airline=flight.airline,
-                latitude=obs.latitude,
-                longitude=obs.longitude,
-                altitude=obs.altitude,
-                verticalVelocity=obs.verticalVelocity,
-                horizontalVelocity=obs.horizontalVelocity,
-                groundTrackHeading=obs.groundTrackHeading,
-                timestamp=obs.timestamp
-            )
-
-        info.save()
+        FlightInfo.objects.update_or_create(
+            flight=flight,
+            defaults={
+                'airline': flight.airline,
+                'altitude': obs.altitude,
+                'point': obs.point,
+                'latitude': obs.latitude,
+                'longitude': obs.longitude,
+                'verticalVelocity': obs.verticalVelocity,
+                'horizontalVelocity': obs.horizontalVelocity,
+                'groundTrackHeading': obs.groundTrackHeading,
+                'timestamp': obs.timestamp  
+            }
+        ) 
 
     def generatePropagatedTrajectory(self, propCount, propInterval):
+        Observation.objects.filter(
+            flight=self.flight,
+            simulated=True
+        ).delete()
 
-        observations = Observation.objects.filter(flight=self.flight).filter(simulated=True)
-        for o in observations:
-            o.delete()
+        observations = list(Observation.objects.filter(flight=self.flight)
+                            .select_related('flight')
+                            .order_by("-timestamp")[:2])
+        
+        if len(observations) < 2:
+            return []
+        
+        R = 6371000.0  # Earth radius in meters
+        propIntervalSec = propInterval / 1000.0
+        
+        obs_array = np.array([(o['latitude'], o['longitude'], o['altitude'],
+                            o['groundTrackHeading'], o['horizontalVelocity'],
+                            o['verticalVelocity'], o['timestamp']) 
+                            for o in observations], 
+                            dtype=np.float64)
+        
+        # Converter para arrays NumPy
+        timestamps = np.array([o.timestamp for o in observations], dtype=np.float64)
+        velocities = np.array([Math.knotsToMetres(o.horizontalVelocity) for o in observations], dtype=np.float64)
+        headings = np.radians([o.groundTrackHeading for o in observations])
+        lats = np.radians([o.latitude for o in observations])
+        lons = np.radians([o.longitude for o in observations])
+        alts = np.array([o.altitude for o in observations], dtype=np.float64)
+        v_velocities = np.array([o.verticalVelocity for o in observations], dtype=np.float64)
 
-        observations = Observation.objects.filter(flight=self.flight).order_by("-timestamp")[0:2]
-        obs = []
-        for o in observations:
-            obs.append(o)
-        obs.reverse()
-        propInterval /= 1000.0
-
-        for i in range(0, int(propCount)):
-            infoA = obs[len(obs) - 2]
-            infoB = obs[len(obs) - 1]
-
-            turnRateInterval = (float(infoB.timestamp) - float(infoA.timestamp)) / 1000.0
-            turnRate = 0 if turnRateInterval == 0 \
-                else propInterval * (
-                    float(infoB.groundTrackHeading) - float(infoA.groundTrackHeading)) / turnRateInterval
-            groundTrackHeading = float(infoB.groundTrackHeading) + turnRate
-            distance = Math.knotsToMetres(float(infoB.horizontalVelocity)) * propInterval
-            R = 6371000.0
-            lat1 = Math.degreesToRadians(float(infoB.latitude));
-            lng1 = Math.degreesToRadians(float(infoB.longitude));
-            bearing = Math.degreesToRadians(float(infoB.groundTrackHeading));
-
-            lat2 = Math.radiansToDegrees(
-                math.asin(math.sin(lat1) * math.cos(distance / R) +
-                          math.cos(lat1) * math.sin(distance / R) * math.cos(bearing))
+        # Cálculos vetorizados
+        dt = propInterval / 1000.0
+        n_steps = int(propCount)
+        R = 6371000.0  # Raio da Terra
+        
+        # Alocar arrays para resultados
+        new_lats = np.zeros(n_steps)
+        new_lons = np.zeros(n_steps)
+        new_alts = np.zeros(n_steps)
+        new_headings = np.zeros(n_steps)
+        
+        # Calcular taxa de variação inicial
+        time_diff = (timestamps[1] - timestamps[0]) / 1000.0
+        heading_diff = headings[1] - headings[0]
+        turn_rate = heading_diff / time_diff if time_diff != 0 else 0
+        
+        # Vetorizar cálculos principais
+        current_velocity = velocities[-1]
+        current_heading = headings[-1]
+        current_lat = lats[-1]
+        current_lon = lons[-1]
+        current_alt = alts[-1]
+        current_v_velocity = v_velocities[-1]
+        
+        # Gerar todos os passos de uma vez
+        steps = np.arange(1, n_steps + 1)
+        time_steps = dt * steps
+        
+        # Cálculo de headings
+        new_headings = current_heading + (turn_rate * time_steps)
+        
+        # Cálculo de distâncias
+        distances = current_velocity * time_steps
+        
+        # Cálculo de latitudes/longitudes
+        new_lats = np.arcsin(
+            np.sin(current_lat) * np.cos(distances/R) +
+            np.cos(current_lat) * np.sin(distances/R) * np.cos(new_headings)
+        )
+        
+        new_lons = current_lon + np.arctan2(
+            np.sin(new_headings) * np.sin(distances/R) * np.cos(current_lat),
+            np.cos(distances/R) - np.sin(current_lat) * np.sin(new_lats)
+        )
+        
+        # Conversão para graus
+        new_lats_deg = np.degrees(new_lats)
+        new_lons_deg = np.degrees(new_lons)
+        
+        # Cálculo de altitudes
+        new_alts = current_alt + (current_v_velocity * time_steps)
+        
+        # Criar objetos em lote
+        observations_to_create = [
+            Observation(
+                flight=self.flight,
+                latitude=new_lats_deg[i],
+                longitude=new_lons_deg[i],
+                altitude=new_alts[i],
+                groundTrackHeading=np.degrees(new_headings[i]),
+                verticalVelocity=self.verticalVelocity,
+                horizontalVelocity=self.horizontalVelocity,
+                timestamp=self.timestamp + int(propInterval * (i + 1)),
+                simulated=True
             )
-
-            lng2 = Math.radiansToDegrees(
-                lng1 + math.atan2(math.sin(bearing) * math.sin(distance / R) * math.cos(lat1),
-                                  math.cos(distance / R) - math.sin(lat1) * math.sin(lat2))
-            )
-
-            alt = float(infoB.altitude) + (float(infoB.verticalVelocity) * propInterval)
-
-            newObs = Observation()
-
-            newObs.flight = self.flight
-            newObs.latitude = lat2
-            newObs.longitude = lng2
-            newObs.altitude = alt
-            newObs.groundTrackHeading = groundTrackHeading
-            newObs.verticalVelocity = infoB.verticalVelocity
-            newObs.horizontalVelocity = infoB.horizontalVelocity
-            newObs.timestamp = float(infoB.timestamp) + int(propInterval * 1000)
-            newObs.simulated = True
-            obs.append(newObs)
-            newObs.save()
-
-        return obs[2:]
+            for i in range(n_steps)
+        ]
+        
+        created_obs = Observation.objects.bulk_create(observations_to_create)
+        
+        return created_obs
 
 
 # Used to store project information
