@@ -1,5 +1,5 @@
 def b112_crc(adsb_payload_11_bytes):
-    POLY = 0xFFFA0480
+    poly = 0xFFFA0480
     data = \
         (adsb_payload_11_bytes[0] << 24) | \
         (adsb_payload_11_bytes[1] << 16) | \
@@ -15,30 +15,30 @@ def b112_crc(adsb_payload_11_bytes):
         (adsb_payload_11_bytes[9] << 16) | \
         (adsb_payload_11_bytes[10] <<  8)
     result = 0x00000000
-    for i in range(0, 88):
-        if (data & 0x80000000) <> 0:
-            data = data ^ POLY
+    for _ in range(0, 88):
+        if (data & 0x80000000) != 0:
+            data = data ^ poly
         data = data << 1
-        if (data1 & 0x80000000) <> 0:
+        if (data1 & 0x80000000) != 0:
             data = data | 1
         data1 = data1 << 1
-        if (data2 & 0x80000000) <> 0:
+        if (data2 & 0x80000000) != 0:
             data1 = data1 | 1
         data2 = data2 << 1
     result = result ^ data
     return result >> 8
 
 def b56_crc(adsb_payload_4_bytes):
-    POLY = 0xFFFA0480
+    poly = 0xFFFA0480
     data = \
         (adsb_payload_4_bytes[0] << 24) | \
         (adsb_payload_4_bytes[1] << 16) | \
         (adsb_payload_4_bytes[2] <<  8) | \
         (adsb_payload_4_bytes[3] <<  0)
     result = 0x00000000
-    for i in range(0, 32):
-        if (data & 0x80000000) <> 0:
-            data = data ^ POLY
+    for _ in range(0, 32):
+        if (data & 0x80000000) != 0:
+            data = data ^ poly
         data = data << 1
     result = result ^ data
     return result >> 8

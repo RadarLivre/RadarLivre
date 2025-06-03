@@ -1,11 +1,13 @@
 services:
   db:
     container_name: postgres
-    image: postgres
+    image: postgis/postgis:15-3.3
+    command: postgres -c max_connections=200
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: radarlivre
+      POSTGRES_HOST_AUTH_METHOD: trust
       TZ: America/Fortaleza
     ports:
       - "5431:5432"
@@ -74,7 +76,20 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
 
+  sonarqube:
+    container_name: sonarqube
+    image: sonarqube:community
+    ports:
+      - "9000:9000"
+    environment:
+      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+
 volumes:
   grafana_data:
   prometheus_data:
   pg_data:
+  sonarqube_data:
+  sonarqube_extensions:

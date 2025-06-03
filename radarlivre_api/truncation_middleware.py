@@ -1,6 +1,11 @@
 import json
 
 class RequestTruncationMiddleware:
+    """Middleware para truncar casas decimais de campos específicos em requisições POST
+
+    Objetivo: Prevenir erros de precisão excessiva em campos numéricos críticos
+    Campos afetados: latitude, longitude, groundTrackHeading e horizontalVelocity"""
+
     def __init__(self, get_response):
         self.get_response = get_response
         
@@ -31,7 +36,7 @@ class RequestTruncationMiddleware:
                     json_data[0].update({'horizontalVelocity': float(new_h_velocity)})
                 
                 request._body = bytes(json.dumps(json_data), encoding='utf-8')
-            except:
+            except RuntimeError:
                 pass
         
         response = self.get_response(request)

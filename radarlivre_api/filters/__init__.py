@@ -17,7 +17,7 @@ class MaxUpdateDelayFilter(BaseFilterBackend):
         # Pega o timestamp atual em milisegundos
         now = int((time.time()) * 1000)
         # Valor padrão o intervalo: 1 min
-        max_update_delay = Util.parseParam(request, "max_update_delay", 1 * 60 * 1000)
+        max_update_delay = Util.parse_param(request, "max_update_delay", 1 * 60 * 1000)
         return queryset.filter(timestamp__gte=(now - max_update_delay))
 
 
@@ -41,7 +41,7 @@ class ObservationFlightFilter(BaseFilterBackend):
 # uma resposta menor
 class ObservationPrecisionFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
-        interval = Util.parseParam(request, "interval", 0)
+        interval = Util.parse_param(request, "interval", 0)
 
         if interval == 0:
             return queryset
@@ -60,10 +60,10 @@ class ObservationPrecisionFilter(BaseFilterBackend):
 # Pega apenas as aeronaves em um pedaço do mapa
 class MapBoundsFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
-        top_lat = Util.parseParam(request, "top", 90);
-        bootom_lat = Util.parseParam(request, "bottom", -90);
-        left_lng = Util.parseParam(request, "left", -180);
-        right_lng = Util.parseParam(request, "right", 180);
+        top_lat = Util.parse_param(request, "top", 90);
+        bootom_lat = Util.parse_param(request, "bottom", -90);
+        left_lng = Util.parse_param(request, "left", -180);
+        right_lng = Util.parse_param(request, "right", 180);
 
         return queryset.filter(
             point__within=Polygon.from_bbox((left_lng, bootom_lat, right_lng, top_lat))
@@ -73,9 +73,9 @@ class MapBoundsFilter(BaseFilterBackend):
 # Pega apenas as aeronaves em um pedaço do mapa
 class FlightClusteringFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
-        map_height = Util.parseParam(request, "map_height", None)
-        map_zoom = Util.parseParam(request, "map_zoom", None)
-        min_airplane_distance = Util.parseParam(request, "min_airplane_distance", 50)
+        map_height = Util.parse_param(request, "map_height", None)
+        map_zoom = Util.parse_param(request, "map_zoom", None)
+        min_airplane_distance = Util.parse_param(request, "min_airplane_distance", 50)
 
         if not map_height or not map_zoom:
             return queryset
@@ -103,7 +103,7 @@ class FlightClusteringFilter(BaseFilterBackend):
 class AirportTypeZoomFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
 
-        zoom = Util.parseParam(request, "zoom", 0)
+        zoom = Util.parse_param(request, "zoom", 0)
 
         if zoom <= 4:
             return queryset.none()

@@ -23,6 +23,8 @@ from radarlivre_api.utils import Util
 
 
 class CollectorList(ListCreateAPIView):
+    """Endpoint para listar/registrar coletores de dados (GET/POST)"""
+
     queryset = Collector.objects.all()
     serializer_class = CollectorSerializer
     filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter)
@@ -30,6 +32,8 @@ class CollectorList(ListCreateAPIView):
 
 
 class CollectorDetail(APIView):
+    """Detalhes de coletor específico via chave (PUT para atualizar timestamp)"""
+
     queryset = Collector.objects.all()
     serializer_class = CollectorSerializer
     permission_classes = (permissions.DjangoModelPermissions,)
@@ -41,6 +45,7 @@ class CollectorDetail(APIView):
             raise Http404
 
     def put(self, request, key, format=None):
+        # Atualiza timestamp do coletor
         Collector.objects.filter(key=key).update(
             timestamp=int(time() *1000)
         )
@@ -48,18 +53,24 @@ class CollectorDetail(APIView):
 
 
 class AirlineList(ListCreateAPIView):
+    """CRUD básico para companhias aéreas (GET lista todas, POST nova)"""
+
     queryset = Airline.objects.all()
     serializer_class = AirlineSerializer
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
 
 class AirlineDetail(RetrieveUpdateDestroyAPIView):
+    """Operações específicas por companhia (GET/PUT/DELETE individual)"""
+
     queryset = Airline.objects.all()
     serializer_class = AirlineSerializer
     permission_classes = (permissions.IsAdminUser,)
 
 
 class AirportList(ListCreateAPIView):
+    """Listagem de aeroportos com filtros geoespaciais (mapa/zoom/tipo)"""
+
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
     filter_backends = (DjangoFilterBackend, MapBoundsFilter, AirportTypeZoomFilter)
@@ -68,12 +79,16 @@ class AirportList(ListCreateAPIView):
 
 
 class AirportDetail(RetrieveUpdateDestroyAPIView):
+    """Gerenciamento individual de aeroportos (acesso admin)"""
+
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
     permission_classes = (permissions.IsAdminUser,)
 
 
 class FlightList(ListAPIView):
+    """Listagem de voos ativos com filtragem por código/companhia"""
+
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
     filter_backends = (DjangoFilterBackend, FlightFilter)
@@ -82,13 +97,15 @@ class FlightList(ListAPIView):
 
 
 class FlightInfoList(ListAPIView):
-    # queryset = FlightInfo.objects.all()
+    """Dados consolidados de voos para exibição em mapa (com clustering)"""
+
     serializer_class = FlightInfoSerializer
     filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter, MapBoundsFilter, FlightClusteringFilter)
     filterset_fields = ('airline',)
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
     def get_queryset(self):
+        # Query otimizada com seleção de relacionamentos e campos específicos
         return FlightInfo.objects.select_related(
             'airline', 
             'flight'
@@ -111,29 +128,32 @@ class FlightInfoList(ListAPIView):
 
 
 class FlightDetail(RetrieveUpdateDestroyAPIView):
+    """Operações detalhadas por voo (exclusivo para administradores)"""
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
     permission_classes = (permissions.IsAdminUser,)
 
 
 class FlightPropagatedTrajectoryList(APIView):
+    """Gera trajetória prevista para um voo específico"""
 
     def get(self, request, format=None):
-        propCount = Util.parseParam(request, "propagation_count", 60)
-        propInterval = Util.parseParam(request, "propagation_interval", 1000)
-        flight = int(Util.parseParam(request, "flight", -1))
+        # Usa parâmetros de propagação para simulação de rota futura
+        prop_count = Util.parse_param(request, "propagation_count", 60)
+        prop_interval = Util.parse_param(request, "propagation_interval", 1000)
+        flight = int(Util.parse_param(request, "flight", -1))
         try:
             info = FlightInfo.objects.get(flight=flight)
-            obs = info.generatePropagatedTrajectory(propCount, propInterval)
+            obs = info.generate_propagated_trajectory(prop_count, prop_interval)
             serializer = ObservationSerializer(obs, many=True)
             return Response(serializer.data)
-        except FlightInfo.DoesNotExist as err:
-            print(str(err))
-
-        return Response(ObservationSerializer([], many=True).data)
+        except FlightInfo.DoesNotExist:
+            return Response(ObservationSerializer([], many=True).data)
 
 
 class ADSBInfoList(APIView):
+    """Endpoint crítico para ingestão de dados brutos ADS-B"""
+
     queryset = ADSBInfo.objects.all()
     serializer_class = ADSBInfoSerializer
     filter_backends = (DjangoFilterBackend)
@@ -148,6 +168,7 @@ class ADSBInfoList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
+        # Processamento transacional: salva dados brutos + cria observações + atualiza FlightInfo
         serializer = ADSBInfoSerializer(data=request.data, many=True)
         
         if not serializer.is_valid():
@@ -157,10 +178,10 @@ class ADSBInfoList(APIView):
             with transaction.atomic():
                 infos = serializer.save()
                 for info in infos:
-                    obs = Observation.generateFromADSBInfo(info)
+                    obs = Observation.generate_from_adsb_info(info)
                     if not obs:
                         raise ValueError("Invalid observation data")
-                    FlightInfo.generateFromFlight(obs.flight, obs)
+                    FlightInfo.generate_from_flight(obs.flight, obs)
                     logging.info(f"Views: ADSBInfo received [id={info.id}, collector={info.collectorKey}]")
                     
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -171,6 +192,8 @@ class ADSBInfoList(APIView):
 
 
 class ObservationList(ListCreateAPIView):
+    """Histórico de observações de voos (filtros de precisão e voo)"""
+
     queryset = Observation.objects.filter(simulated=False)
     serializer_class = ObservationSerializer
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
@@ -186,30 +209,40 @@ class ObservationList(ListCreateAPIView):
 
 
 class ObservationDetail(RetrieveUpdateDestroyAPIView):
+    """Gerenciamento individual de observações (admin apenas)"""
+
     queryset = Observation.objects.filter(simulated=False)
     serializer_class = ObservationSerializer
     permission_classes = (permissions.IsAdminUser,)
 
 
 class AboutList(ListCreateAPIView):
+    """CRUD para conteúdos institucionais/sobre o projeto"""
+
     queryset = About.objects.all()
     serializer_class = AboutSerializer
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
 
 class AboutDetail(RetrieveUpdateDestroyAPIView):
+    """Edição detalhada de páginas institucionais"""
+
     queryset = About.objects.all()
     serializer_class = AboutSerializer
     permission_classes = (permissions.IsAdminUser,)
 
 
 class NotifyList(ListCreateAPIView):
+    """Gerenciamento de notificações push para usuários"""
+
     queryset = Notify.objects.all()
     serializer_class = NotifySerializer
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
 
 class NotifyDetail(RetrieveUpdateDestroyAPIView):
+    """Operações específicas por notificação"""
+
     queryset = Notify.objects.all()
     serializer_class = NotifySerializer
     permission_classes = (permissions.IsAdminUser,)

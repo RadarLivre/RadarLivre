@@ -12,7 +12,12 @@ from radarlivre_api.models import Airport, Flight, Observation, \
     About, Notify, Collector, Airline, ADSBInfo, FlightInfo
 
 
-class SpatialCompatibleSerializer(serializers.ModelSerializer):  
+class SpatialCompatibleSerializer(serializers.ModelSerializer):
+    """Serializador que abstrai a complexidade do campo Point (geoespacial)
+
+    Permite enviar apenas latitude/longitude como strings e cria o campo point automaticamente.
+    Mantém compatibilidade com versões antigas da API que não usavam o campo geoespacial."""
+
     def to_internal_value(self, data):
         for field in ['latitude', 'longitude']:
             if field in data and isinstance(data[field], str):
