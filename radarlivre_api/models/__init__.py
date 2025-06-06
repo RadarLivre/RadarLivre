@@ -12,8 +12,17 @@ from django.contrib.gis.db import models as gis_models
 from django.contrib.gis.geos import Point
 from django.core.cache import cache
 from django.db import models, transaction
-from django.db.models.fields import CharField, DecimalField, IntegerField, BigIntegerField, \
-    BooleanField, TextField, DateTimeField, DateField, URLField
+from django.db.models.fields import (
+    CharField,
+    DecimalField,
+    IntegerField,
+    BigIntegerField,
+    BooleanField,
+    TextField,
+    DateTimeField,
+    DateField,
+    URLField,
+)
 from django.db.models.fields.files import ImageField, FileField
 from django.db.models.fields.related import ForeignKey, OneToOneField
 from imagekit.models.fields import ImageSpecField
@@ -28,7 +37,9 @@ class SpatialModelMixin:
     def update_spatial_fields(self):
         """Sincroniza campos Point com latitude/longitude e vice-versa"""
 
-        if self.point and (self.point.x != self.longitude or self.point.y != self.latitude):
+        if self.point and (
+            self.point.x != self.longitude or self.point.y != self.latitude
+        ):
             self.longitude = self.point.x
             self.latitude = self.point.y
         elif not self.point and self.latitude and self.longitude:
@@ -43,12 +54,16 @@ class Collector(SpatialModelMixin, models.Model):
     """Coletor de dados com informações geográficas e temporais"""
 
     key = models.UUIDField(default=uuid.uuid4, unique=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="collectors", null=True)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="collectors", null=True
+    )
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     timestamp = BigIntegerField(default=0)
     timestampData = BigIntegerField(default=0)
-    point = gis_models.PointField(geography=True, srid=4326, null=True, blank=True, spatial_index=True)
+    point = gis_models.PointField(
+        geography=True, srid=4326, null=True, blank=True, spatial_index=True
+    )
 
     def save(self, *args, **kwargs):
         self.update_spatial_fields()
@@ -57,9 +72,9 @@ class Collector(SpatialModelMixin, models.Model):
     def get_date(self):
         """Converte timestamp para data legível"""
 
-        return datetime.datetime.fromtimestamp(
-            int(self.timestamp / 1000)
-        ).strftime('%d/%m/%Y %H:%M:%S')
+        return datetime.datetime.fromtimestamp(int(self.timestamp / 1000)).strftime(
+            "%d/%m/%Y %H:%M:%S"
+        )
 
     def get_str_latitude(self):
         return "%.8f" % self.latitude
@@ -88,7 +103,9 @@ class Flight(models.Model):
 
     # Identificação do voo
     code = CharField(max_length=16, blank=True, null=True, default=True)
-    airline = ForeignKey(Airline, null=True, related_name="flights", on_delete=models.PROTECT)
+    airline = ForeignKey(
+        Airline, null=True, related_name="flights", on_delete=models.PROTECT
+    )
 
     def __unicode__(self):
         return "Flight " + str(self.code)
@@ -97,15 +114,19 @@ class Flight(models.Model):
 class Airport(SpatialModelMixin, models.Model):
     """Aeroporto com informações geográficas e de localização"""
 
-    code = CharField(max_length=100, blank=True, default='', null=True)
-    name = CharField(max_length=100, blank=True, default='', null=True)
-    country = CharField(max_length=100, blank=True, default='', null=True)
-    state = CharField(max_length=100, blank=True, default='', null=True)
-    city = CharField(max_length=100, blank=True, default='', null=True)
+    code = CharField(max_length=100, blank=True, default="", null=True)
+    name = CharField(max_length=100, blank=True, default="", null=True)
+    country = CharField(max_length=100, blank=True, default="", null=True)
+    state = CharField(max_length=100, blank=True, default="", null=True)
+    city = CharField(max_length=100, blank=True, default="", null=True)
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
-    point = gis_models.PointField(geography=True, srid=4326, null=True, blank=True, spatial_index=True)
-    type = CharField(max_length=100, blank=True, default='', null=True) # Tipo: pequeno, médio ou grande porte
+    point = gis_models.PointField(
+        geography=True, srid=4326, null=True, blank=True, spatial_index=True
+    )
+    type = CharField(
+        max_length=100, blank=True, default="", null=True
+    )  # Tipo: pequeno, médio ou grande porte
 
     def save(self, *args, **kwargs):
         self.update_spatial_fields()
@@ -126,18 +147,22 @@ class ADSBInfo(SpatialModelMixin, models.Model):
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     altitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
-    point = gis_models.PointField(geography=True, srid=4326, null=True, blank=True, spatial_index=True)
+    point = gis_models.PointField(
+        geography=True, srid=4326, null=True, blank=True, spatial_index=True
+    )
     verticalVelocity = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     horizontalVelocity = DecimalField(max_digits=20, decimal_places=10, default=0.0)
-    groundTrackHeading = DecimalField(max_digits=20, decimal_places=10, default=0.0) # Ângulo da aeronave
+    groundTrackHeading = DecimalField(
+        max_digits=20, decimal_places=10, default=0.0
+    )  # Ângulo da aeronave
 
     # Informações da mensagem ADSB
     timestamp = BigIntegerField(default=0)
     timestampSent = BigIntegerField(default=0)
-    messageDataId = CharField(max_length=100, blank=True, default='')
-    messageDataPositionEven = CharField(max_length=100, blank=True, default='')
-    messageDataPositionOdd = CharField(max_length=100, blank=True, default='')
-    messageDataVelocity = CharField(max_length=100, blank=True, default='')
+    messageDataId = CharField(max_length=100, blank=True, default="")
+    messageDataPositionEven = CharField(max_length=100, blank=True, default="")
+    messageDataPositionOdd = CharField(max_length=100, blank=True, default="")
+    messageDataVelocity = CharField(max_length=100, blank=True, default="")
 
     def save(self, *args, **kwargs):
         self.update_spatial_fields()
@@ -147,18 +172,33 @@ class ADSBInfo(SpatialModelMixin, models.Model):
 class Observation(SpatialModelMixin, models.Model):
     """Observação processada de posição de aeronave"""
 
-    adsbInfo = OneToOneField(ADSBInfo, related_name="observation", null=True, on_delete=models.PROTECT)
-    flight = ForeignKey(Flight, db_index=True, null=True, blank=True, default=None,
-                        related_name='observations', on_delete=models.PROTECT)
+    adsbInfo = OneToOneField(
+        ADSBInfo, related_name="observation", null=True, on_delete=models.PROTECT
+    )
+    flight = ForeignKey(
+        Flight,
+        db_index=True,
+        null=True,
+        blank=True,
+        default=None,
+        related_name="observations",
+        on_delete=models.PROTECT,
+    )
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     altitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
-    point = gis_models.PointField(geography=True, srid=4326, null=True, blank=True, spatial_index=True)
+    point = gis_models.PointField(
+        geography=True, srid=4326, null=True, blank=True, spatial_index=True
+    )
     verticalVelocity = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     horizontalVelocity = DecimalField(max_digits=20, decimal_places=10, default=0.0)
-    groundTrackHeading = DecimalField(max_digits=20, decimal_places=10, default=0.0) # Ângulo da aeronave
+    groundTrackHeading = DecimalField(
+        max_digits=20, decimal_places=10, default=0.0
+    )  # Ângulo da aeronave
     timestamp = BigIntegerField(default=0, db_index=True)
-    simulated = BooleanField(default=False)  # Observação simulada pela trajetória propagada
+    simulated = BooleanField(
+        default=False
+    )  # Observação simulada pela trajetória propagada
 
     def save(self, *args, **kwargs):
         self.update_spatial_fields()
@@ -185,15 +225,10 @@ class Observation(SpatialModelMixin, models.Model):
             except Airline.DoesNotExist:
                 return None
 
-        airline = cache.get_or_set(
-            f"airline_icao_{airline_icao}",
-            get_airline(),
-            3600
-        )
+        airline = cache.get_or_set(f"airline_icao_{airline_icao}", get_airline(), 3600)
 
         flight, _ = Flight.objects.select_for_update().get_or_create(
-            code=callsign,
-            defaults={'airline': airline}
+            code=callsign, defaults={"airline": airline}
         )
 
         timestamp = int(time() * 1000) - (info.timestampSent - info.timestamp)
@@ -215,7 +250,7 @@ class Observation(SpatialModelMixin, models.Model):
                 altitude=info.altitude,
                 verticalVelocity=info.verticalVelocity,
                 horizontalVelocity=info.horizontalVelocity,
-                groundTrackHeading=info.groundTrackHeading
+                groundTrackHeading=info.groundTrackHeading,
             )
             obs.save()
 
@@ -230,10 +265,14 @@ class FlightInfo(SpatialModelMixin, models.Model):
     latitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     longitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     altitude = DecimalField(max_digits=20, decimal_places=10, default=0.0)
-    point = gis_models.PointField(geography=True, srid=4326, null=True, blank=True, spatial_index=True)
+    point = gis_models.PointField(
+        geography=True, srid=4326, null=True, blank=True, spatial_index=True
+    )
     verticalVelocity = DecimalField(max_digits=20, decimal_places=10, default=0.0)
     horizontalVelocity = DecimalField(max_digits=20, decimal_places=10, default=0.0)
-    groundTrackHeading = DecimalField(max_digits=20, decimal_places=10, default=0.0) # Ângulo da aeronave
+    groundTrackHeading = DecimalField(
+        max_digits=20, decimal_places=10, default=0.0
+    )  # Ângulo da aeronave
     timestamp = BigIntegerField(default=0, db_index=True)
 
     def save(self, *args, **kwargs):
@@ -247,43 +286,47 @@ class FlightInfo(SpatialModelMixin, models.Model):
         FlightInfo.objects.update_or_create(
             flight=flight,
             defaults={
-                'airline': flight.airline,
-                'altitude': obs.altitude,
-                'point': obs.point,
-                'latitude': obs.latitude,
-                'longitude': obs.longitude,
-                'verticalVelocity': obs.verticalVelocity,
-                'horizontalVelocity': obs.horizontalVelocity,
-                'groundTrackHeading': obs.groundTrackHeading,
-                'timestamp': obs.timestamp  
-            }
+                "airline": flight.airline,
+                "altitude": obs.altitude,
+                "point": obs.point,
+                "latitude": obs.latitude,
+                "longitude": obs.longitude,
+                "verticalVelocity": obs.verticalVelocity,
+                "horizontalVelocity": obs.horizontalVelocity,
+                "groundTrackHeading": obs.groundTrackHeading,
+                "timestamp": obs.timestamp,
+            },
         )
 
     def generate_propagated_trajectory(self, prop_count, prop_interval):
         """Gera trajetória propagada baseada nas últimas observações reais"""
 
         # Remove observações simuladas anteriores
-        Observation.objects.filter(
-            flight=self.flight,
-            simulated=True
-        ).delete()
+        Observation.objects.filter(flight=self.flight, simulated=True).delete()
 
         # Obtém as 2 últimas observações reais ordenadas por timestamp
-        observations = list(Observation.objects.filter(flight=self.flight)
-                            .select_related('flight')
-                            .order_by("-timestamp")[:2])
+        observations = list(
+            Observation.objects.filter(flight=self.flight)
+            .select_related("flight")
+            .order_by("-timestamp")[:2]
+        )
 
         if len(observations) < 2:
             return []
 
         # Converter para arrays NumPy
         timestamps = np.array([o.timestamp for o in observations], dtype=np.float64)
-        velocities = np.array([Math.knots_to_metres(o.horizontalVelocity) for o in observations], dtype=np.float64)
+        velocities = np.array(
+            [Math.knots_to_metres(o.horizontalVelocity) for o in observations],
+            dtype=np.float64,
+        )
         headings = np.radians([o.groundTrackHeading for o in observations])
         lats = np.radians([o.latitude for o in observations])
         lons = np.radians([o.longitude for o in observations])
         alts = np.array([o.altitude for o in observations], dtype=np.float64)
-        v_velocities = np.array([o.verticalVelocity for o in observations], dtype=np.float64)
+        v_velocities = np.array(
+            [o.verticalVelocity for o in observations], dtype=np.float64
+        )
 
         # Cálculos vetorizados
         dt = prop_interval / 1000.0
@@ -315,13 +358,13 @@ class FlightInfo(SpatialModelMixin, models.Model):
 
         # Cálculo de latitudes/longitudes
         new_lats = np.arcsin(
-            np.sin(current_lat) * np.cos(distances/r) +
-            np.cos(current_lat) * np.sin(distances/r) * np.cos(new_headings)
+            np.sin(current_lat) * np.cos(distances / r)
+            + np.cos(current_lat) * np.sin(distances / r) * np.cos(new_headings)
         )
 
         new_lons = current_lon + np.arctan2(
-            np.sin(new_headings) * np.sin(distances/r) * np.cos(current_lat),
-            np.cos(distances/r) - np.sin(current_lat) * np.sin(new_lats)
+            np.sin(new_headings) * np.sin(distances / r) * np.cos(current_lat),
+            np.cos(distances / r) - np.sin(current_lat) * np.sin(new_lats),
         )
 
         # Conversão para graus
@@ -342,7 +385,7 @@ class FlightInfo(SpatialModelMixin, models.Model):
                 verticalVelocity=self.verticalVelocity,
                 horizontalVelocity=self.horizontalVelocity,
                 timestamp=self.timestamp + int(prop_interval * (i + 1)),
-                simulated=True
+                simulated=True,
             )
             for i in range(n_steps)
         ]
@@ -361,25 +404,32 @@ class About(models.Model):
     index = IntegerField(default=0)
     externURL = URLField(verbose_name="Extern link", default="", blank=True)
     image = ImageField(upload_to="about_images", null=True)
-    largeImage = ImageSpecField(source="image",
-                                processors=[ResizeToFill(1920, 1080)],
-                                format='JPEG',
-                                options={'quality': 75, 'progressive': True})
-    mediumImage = ImageSpecField(source="image",
-                                 processors=[ResizeToFill(1280, 720)],
-                                 format='JPEG',
-                                 options={'quality': 75, 'progressive': True})
-    smallImage = ImageSpecField(source="image",
-                                processors=[ResizeToFill(640, 360)],
-                                format='JPEG',
-                                options={'quality': 75, 'progressive': True})
+    largeImage = ImageSpecField(
+        source="image",
+        processors=[ResizeToFill(1920, 1080)],
+        format="JPEG",
+        options={"quality": 75, "progressive": True},
+    )
+    mediumImage = ImageSpecField(
+        source="image",
+        processors=[ResizeToFill(1280, 720)],
+        format="JPEG",
+        options={"quality": 75, "progressive": True},
+    )
+    smallImage = ImageSpecField(
+        source="image",
+        processors=[ResizeToFill(640, 360)],
+        format="JPEG",
+        options={"quality": 75, "progressive": True},
+    )
 
     def get_short_description(self):
         return str(self.title + " - " + self.subtitle[:50] + "...")
 
     def to_html(self):
-        return self.info.replace("<p", "<p class=\"rl-document__paragraph\"") \
-            .replace("<span", "<span class=\"rl-document__title\"")
+        return self.info.replace("<p", '<p class="rl-document__paragraph"').replace(
+            "<span", '<span class="rl-document__title"'
+        )
 
     def __unicode__(self):
         return self.title + " - " + self.subtitle

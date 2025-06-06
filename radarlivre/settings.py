@@ -12,12 +12,15 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import configparser
 import os
-import sys
 
 config = configparser.ConfigParser()
 
-os.path.exists('development.ini') and config.read('development.ini')
-os.path.exists('local.ini') and config.read('local.ini')
+if os.path.exists("development.ini"):
+    config.read("development.ini")
+elif os.path.exists("development-docker.ini"):
+    config.read("development-docker.ini")
+elif os.path.exists("prod.ini"):
+    config.read("prod.ini")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,89 +30,84 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l&4#e$r=%%@ljc0%*61w5eb(c$hg*ewxgrx!nq^8j0b)3a$na2'
+SECRET_KEY = "l&4#e$r=%%@ljc0%*61w5eb(c$hg*ewxgrx!nq^8j0b)3a$na2"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = eval(config['GENERAL']['DEBUG'])
+DEBUG = eval(config["GENERAL"]["DEBUG"])
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = [
-    'http://localhost:80',
-    'http://127.0.0.1:',
-]
+# Get allowed hosts from config file
+ALLOWED_HOSTS = config["GENERAL"]["ALLOWED_HOSTS"].split(",")
+CSRF_TRUSTED_ORIGINS = config["GENERAL"]["CSRF_TRUSTED_ORIGINS"].split(",")
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sitemaps',
-    'django_filters',
-    'radarlivre_api.apps.RadarlivreApiConfig',
-    'radarlivre_website.apps.RadarlivreWebsiteConfig',
-    'imagekit',
-    'django_cleanup',
-    'crispy_bootstrap4',
-    'crispy_forms',
-    'rest_framework',
-    'django_prometheus',
-    'django.contrib.gis'
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sitemaps",
+    "django_filters",
+    "radarlivre_api.apps.RadarlivreApiConfig",
+    "radarlivre_website.apps.RadarlivreWebsiteConfig",
+    "imagekit",
+    "django_cleanup",
+    "crispy_bootstrap4",
+    "crispy_forms",
+    "rest_framework",
+    "django.contrib.gis",
 ]
 
 MIDDLEWARE = [
-    'django_prometheus.middleware.PrometheusBeforeMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'radarlivre_api.truncation_middleware.RequestTruncationMiddleware',
-    'django_prometheus.middleware.PrometheusAfterMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "radarlivre_api.truncation_middleware.RequestTruncationMiddleware",
 ]
 
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
-ROOT_URLCONF = 'radarlivre.urls'
+ROOT_URLCONF = "radarlivre.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PROJECT_DIR, 'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [os.path.join(PROJECT_DIR, "templates")],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'radarlivre.wsgi.application'
+WSGI_APPLICATION = "radarlivre.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        "ENGINE": config['DATABASE']['ENGINE'],
-        "NAME": config['DATABASE']['NAME'],
-        "HOST": config['DATABASE']['HOST'],
-        "USER": config['DATABASE']['USER'],
-        "PASSWORD": config['DATABASE']['PASSWORD'],
-        "PORT": config['DATABASE']['PORT'],
+    "default": {
+        "ENGINE": config["DATABASE"]["ENGINE"],
+        "NAME": config["DATABASE"]["NAME"],
+        "HOST": config["DATABASE"]["HOST"],
+        "USER": config["DATABASE"]["USER"],
+        "PASSWORD": config["DATABASE"]["PASSWORD"],
+        "PORT": config["DATABASE"]["PORT"],
         "CONN_MAX_AGE": 300,
-        "CONN_HEALTH_CHECKS": True
+        "CONN_HEALTH_CHECKS": True,
     }
 }
 
@@ -118,66 +116,60 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework_jsonp.renderers.JSONPRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
+    "DEFAULT_RENDERER_CLASSES": (
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework_jsonp.renderers.JSONPRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
     ),
-
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
-
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend'
-    )
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend"),
 }
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} | {asctime} | {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} | {asctime} | {message}",
+            "style": "{",
         },
-        'simple': {
-            'format': '{levelname} | {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple',
-            'level': 'INFO'
-        },
-        'file': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': config['GENERAL']['LOG_FILE'],
-            'formatter': 'verbose',
+        "simple": {
+            "format": "{levelname} | {message}",
+            "style": "{",
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': config['GENERAL']['DJANGO_LOG_LEVEL'],
-            'propagate': True,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+            "level": "INFO",
+        },
+        "file": {
+            "level": "ERROR",
+            "class": "logging.FileHandler",
+            "filename": config["GENERAL"]["LOG_FILE"],
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console", "file"],
+            "level": config["GENERAL"]["DJANGO_LOG_LEVEL"],
+            "propagate": True,
         },
     },
 }
@@ -185,9 +177,9 @@ LOGGING = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'America/Fortaleza'
+TIME_ZONE = "America/Fortaleza"
 
 USE_I18N = True
 
@@ -198,8 +190,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'media'))
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, "media"))

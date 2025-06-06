@@ -1,11 +1,19 @@
 from django.contrib import admin
-from radarlivre_api.models import About, Notify, Software, Collector, Observation, ADSBInfo
+from radarlivre_api.models import (
+    About,
+    Notify,
+    Software,
+    Collector,
+    Observation,
+    ADSBInfo,
+)
 
 
 # Register your models here.
 
+
 class CollectorAdmin(admin.ModelAdmin):
-    list_display = ('key', 'latitude', 'longitude')
+    list_display = ("key", "latitude", "longitude")
 
 
 admin.site.register(About)

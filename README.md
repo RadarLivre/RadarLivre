@@ -1,6 +1,6 @@
 # RadarLivre
 
-The RadarLivre system is a mixed software-hardware solution based in the ASD-B technology for monitoring the airspace. The main components are: 
+The RadarLivre system is a mixed software-hardware solution based in the ADS-B technology for monitoring the airspace. The main components are: 
 
 * ADS-B receptor
 * Software for interpreting the collected data
@@ -14,111 +14,210 @@ This paper will help you get a copy of the project(server-side) to run it in you
 
 ## Prerequisites
 
-This project was designed to run in ubuntu.
-You need to have these installed before installing the project.
-The other dependencies are covered when installing.
+### For Local Installation
+* Git
+* Python 3.x
+* PostgreSQL with PostGIS extension
 
+### For Docker Installation
+* Git
+* Docker
+* Docker Compose
+
+## Installation and Running
+
+### Configuration Files
+
+The system uses `.ini` files for configuration. These files should be placed in the root directory of the project.
+
+#### Local Development
+Create a `development.ini` file with the following structure:
+
+```ini
+[DATABASE]
+ENGINE = django.contrib.gis.db.backends.postgis
+NAME = radarlivre
+HOST = localhost
+USER = postgres
+PASSWORD = postgres
+PORT = 5431
+
+[GENERAL]
+DEBUG = True
+LOG_FILE = ./api.log
+DJANGO_LOG_LEVEL = ERROR
+ALLOWED_HOSTS = 0.0.0.0
+CSRF_TRUSTED_ORIGINS = http://localhost,http://127.0.0.1
 ```
-* Python 3 (installed by default in ubuntu)
+
+#### Docker Environment
+For Docker, create a `development-docker.ini` file:
+
+```ini
+[DATABASE]
+ENGINE = django.contrib.gis.db.backends.postgis
+NAME = radarlivre
+HOST = db
+USER = postgres
+PASSWORD = postgres
+PORT = 5432
+
+[GENERAL]
+DEBUG = True
+LOG_FILE = ./api.log
+DJANGO_LOG_LEVEL = ERROR
+ALLOWED_HOSTS = 0.0.0.0
+CSRF_TRUSTED_ORIGINS = http://localhost,http://127.0.0.1
 ```
 
-## Installing
+Key differences between local and Docker configurations:
+- Database host: `localhost` for local, `db` for Docker (service name)
+- Database port: `5431` for local (mapped port), `5432` for Docker (internal port)
+- Debug mode: Usually `True` for local development, `False` for Docker
 
-Follow these steps to install, configure and run the server.
 
-```
-HINT: The following commands in these boxes should be used in your terminal.
-```
+### Method 1: Local Installation
 
-* Open the terminal by typing CTRL+ALT+T.
-
-* Install Git
-
-```
-sudo apt-get install git
-```
-
-* Clone this repository from github.
-
-```
+1. Clone the repository:
+```bash
 git clone http://github.com/RadarLivre/RadarLivre.git
-```
-
-* Enter the directory you just cloned.
-
-```
 cd RadarLivre
 ```
 
-* Run INSTALL.sh. This file will install and configure about everything for you.
+2. Configure the PostgreSQL database:
+```bash
+# Connect to PostgreSQL
+psql -U postgres
 
+# Create the database
+CREATE DATABASE radarlivre;
+
+# Connect to the database
+\c radarlivre
+
+# Apply the PostGIS extension
+CREATE EXTENSION postgis;
+CREATE EXTENSION postgis_topology;
+
+# Exit psql
+\q
 ```
-sudo ./INSTALL.sh
+
+2. Run the installation script:
+```bash
+sudo ./install.sh
 ```
 
-* If everything went right, now you can run your server.
-
-* Run the server
-
-```
-sudo ./runserver.sh
+3. Start the server:
+```bash
+./runserver.sh
 ```
 
-Congratulations! Now that you have your running server, you can access it by going to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your web browser.
-Make sure to read the Deployment section.
+4. Access the system at [http://localhost:8000](http://localhost:8000)
 
-## Deployment
+### Method 2: Docker Installation
 
-Once you have set up your server, you can aways access it by following these steps:
-
-* Open the terminal by typing CTRL+ALT+T.
-
-* Enter the directory where the server is located.
-
-```
+1. Clone the repository:
+```bash
+git clone http://github.com/RadarLivre/RadarLivre.git
 cd RadarLivre
 ```
 
-* Run the server
-
-```
-sudo ./runserver.sh
-```
-
-* You can stop running the server by pressing CTRL+C(in the terminal).
-
-### Create Superuser
-
-In order to connect to the server, you need to have a superuser created at your server. If you are running a local server, follow these steps:
-
-* Open the terminal by typing CTRL+ALT+T.
-
-* Enter the RadarLivre server directory
-
-```
-cd RadarLivre
+2. Start the containers:
+```bash
+docker-compose up -d
 ```
 
-* Create a new by superuser by running create_superuser.sh. You will be asked to provide a username, email and password. For security reasons, your password need to be strong.
+3. Access the system at [http://localhost:8000](http://localhost:8000)
+
+## System Configuration
+
+### Creating Superuser
+
+To access the admin panel, you need to create a superuser:
+
+1. For local installation:
+```bash
+./create_superuser.sh
+```
+
+2. For Docker installation:
+```bash
+docker exec -it radar_livre python manage.py createsuperuser
+```
+
+### Adding a Collector
+
+To add a new collector to the system:
+
+1. For local installation:
+```bash
+./add_collector.sh <username> <latitude> <longitude>
+```
+
+2. For Docker installation:
+```bash
+docker exec -it radar_livre python manage.py createcollector <username> <latitude> <longitude>
+```
+
+Example:
+```bash
+./add_collector.sh admin -3.7319 -38.5267
+```
+
+## Development
+
+### Code Style and Quality
+
+Before committing your changes, ensure your code follows our style guidelines:
+
+1. Format your code using Black:
+```bash
+black --exclude migrations radarlivre_api
+```
+
+2. Run Ruff for linting and code quality checks:
+```bash
+ruff check --fix
+```
+
+### Commit Messages
+
+Follow the Conventional Commits specification for commit messages:
 
 ```
-sudo ./create_superuser.sh
+<type>: <description>
 ```
+Types:
+- `fix`: Bug fixes (e.g., `fix: fix button click issue`)
+- `feat`: New features (e.g., `feat: add biometric login`)
+- `chore`: Maintenance tasks (e.g., `chore: update dependencies`)
+- `ci`: Changes to CI configuration (e.g., `ci: update deploy workflow`)
+- `docs`: Documentation changes (e.g., `docs: update README instructions`)
+- `style`: Code style changes (e.g., `style: improve code comments`)
+- `refactor`: Code refactoring (e.g., `refactor: simplify user authentication flow`)
+- `test`: Adding or modifying tests (e.g., `test: add tests for login service`)
 
-### Insert new Collector
 
-You need to configure your collector in your server to receive data. Follow the steps below to do so.
+## Performance Analysis
 
-* Run your server (read Deployment section if you need details) and access it.
+For information about load testing and performance analysis, see the [README in the performance_analysis folder](performance_analysis/README.md).
 
-* Access the admin page located at [127.0.0.1:8000/admin](127.0.0.1:8000/admin)(if running a local server) by providing the superuser you created.
+## Technologies Used
 
-* Click +add in Collectors and provide the information needed. Make sure to link the receptor to the correct user.
+* [Python 3](https://www.python.org/)
+* [PostgreSQL/PostGIS](https://postgis.net/)
+* [Django](https://www.djangoproject.com/)
+* [Docker](https://www.docker.com/)
+* [Nginx](https://nginx.org/)
 
-## Frequent Asked Questions(FAQ)
+## Versioning
 
-* Q: Why am i getting an error while trying to update/upgrade my apt-get?
-* A: This usually happens when you start ubuntu. The system is searching for updates. Wait a little and the update software should appear. Run the update then, follow the commands again.
+We use [SemanticVersioning](http://semver.org/) for versioning. For available versions, see the [tags in this repository](https://github.com/RadarLivre/RadarLivre/tags).
+
+## Changelog
+
+For details about development and differences between versions, see [CHANGELOG.md](CHANGELOG.md).
 
 <!--
 ## Running the tests TODO
@@ -141,24 +240,6 @@ Explain what these tests test and why
 Give an example
 ```
 -->
-
-## Built With
-
-* [Python 3](https://www.python.org/)
-* [SQLite](https://www.sqlite.org/)
-* [Virtualenv](https://virtualenv.pypa.io/en/stable/)
-* [Django](https://www.python.org/)
-* [Markdown](https://daringfireball.net/projects/markdown/)
-* [Pillow](https://python-pillow.org/)
-
-
-## Versioning
-
-We use [SemanticVersioning](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/RadarLivre/RadarLivre/tags).
-
-## Changelog
-
-You can refer to [CHANGELOG.md](https://github.com/RadarLivre/RadarLivre/blob/master/CHANGELOG.md) for details about the development and differences between versions.
 
 <!-- Won't be displayed
 

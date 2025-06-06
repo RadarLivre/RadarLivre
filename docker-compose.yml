@@ -25,8 +25,6 @@ services:
        - ./:/app
     depends_on:
       - db
-    command:
-      - ./runserver.sh
 
   nginx:
     container_name: nginx
@@ -39,57 +37,5 @@ services:
     depends_on:
       - server
 
-  grafana:
-    container_name: grafana
-    image: grafana/grafana:latest
-    ports:
-      - "3000:3000"
-    volumes:
-      - grafana_data:/var/lib/grafana
-      - /etc/localtime:/etc/localtime:ro
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-      - TZ=America/Fortaleza
-
-  prometheus:
-    container_name: prometheus
-    image: prom/prometheus:latest
-    ports:
-      - "9090:9090"
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--web.enable-lifecycle'
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-      - prometheus_data:/prometheus
-
-  cadvisor:
-    container_name: cadvisor
-    environment:
-      TZ: America/Fortaleza
-    image: gcr.io/cadvisor/cadvisor:latest
-    ports:
-      - "8080:8080"
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-
-  sonarqube:
-    container_name: sonarqube
-    image: sonarqube:community
-    ports:
-      - "9000:9000"
-    environment:
-      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
-    volumes:
-      - sonarqube_data:/opt/sonarqube/data
-      - sonarqube_extensions:/opt/sonarqube/extensions
-
 volumes:
-  grafana_data:
-  prometheus_data:
   pg_data:
-  sonarqube_data:
-  sonarqube_extensions:

@@ -20,16 +20,17 @@ logging.basicConfig(
     ],
 )
 
+
 class CollectorSimulator:
     def __init__(
-            self,
-            collector_key: str,
-            lat: float,
-            lon: float,
-            hello_url: str,
-            adsb_url: str,
-            user_credentials: tuple[str, str],
-            is_airport: bool = False
+        self,
+        collector_key: str,
+        lat: float,
+        lon: float,
+        hello_url: str,
+        adsb_url: str,
+        user_credentials: tuple[str, str],
+        is_airport: bool = False,
     ):
         self.collector_key = collector_key
         self.lat = lat
@@ -42,7 +43,7 @@ class CollectorSimulator:
         self.angle_tracker = set()
         self.avg_interval = random.uniform(30, 300)
         self.action_logger = logging.getLogger(f"Collector-{self.collector_key}")
-        
+
     def generate_unique_angle(self):
         while True:
             angle = random.uniform(0, 2 * math.pi)
@@ -78,7 +79,9 @@ class CollectorSimulator:
     def send_adsb_data(self, adsb_data):
         start_time = time.time()
         try:
-            response = requests.post(self.adsb_url, json=[adsb_data], auth=self.user_credentials)
+            response = requests.post(
+                self.adsb_url, json=[adsb_data], auth=self.user_credentials
+            )
             duration_ms = (time.time() - start_time) * 1000
             self.action_logger.info(f"ADSB,{response.status_code},{duration_ms:.2f}")
         except Exception as e:
@@ -87,7 +90,9 @@ class CollectorSimulator:
 
     def manage_aircraft(self):
         while True:
-            start_lat, start_lon, end_lat, end_lon = self.generate_aircraft_coordinates()
+            start_lat, start_lon, end_lat, end_lon = (
+                self.generate_aircraft_coordinates()
+            )
             simulator = AircraftSimulator(
                 mode_s_code="",
                 callsign=uuid.uuid4().hex[:4].upper(),
@@ -95,7 +100,7 @@ class CollectorSimulator:
                 start_lon=start_lon,
                 end_lat=end_lat,
                 end_lon=end_lon,
-                altitude=10000
+                altitude=10000,
             )
             thread = threading.Thread(target=self.simulate_aircraft, args=(simulator,))
             thread.start()
