@@ -8,17 +8,45 @@ from django.http.response import Http404
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import permissions, status
 from rest_framework.filters import OrderingFilter
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
+from rest_framework.generics import (
+    ListCreateAPIView,
+    RetrieveUpdateDestroyAPIView,
+    ListAPIView,
+)
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from radarlivre_api.filters import ObservationPrecisionFilter, \
-    ObservationFlightFilter, MapBoundsFilter, \
-    MaxUpdateDelayFilter, AirportTypeZoomFilter, FlightFilter, FlightClusteringFilter
-from radarlivre_api.models import Airport, Flight, Observation, About, Notify, Collector, Airline, ADSBInfo, FlightInfo
-from radarlivre_api.serializers import AirportSerializer, FlightSerializer, ObservationSerializer, \
-    AboutSerializer, NotifySerializer, CollectorSerializer, \
-    AirlineSerializer, ADSBInfoSerializer, FlightInfoSerializer
+from radarlivre_api.filters import (
+    ObservationPrecisionFilter,
+    ObservationFlightFilter,
+    MapBoundsFilter,
+    MaxUpdateDelayFilter,
+    AirportTypeZoomFilter,
+    FlightFilter,
+    FlightClusteringFilter,
+)
+from radarlivre_api.models import (
+    Airport,
+    Flight,
+    Observation,
+    About,
+    Notify,
+    Collector,
+    Airline,
+    ADSBInfo,
+    FlightInfo,
+)
+from radarlivre_api.serializers import (
+    AirportSerializer,
+    FlightSerializer,
+    ObservationSerializer,
+    AboutSerializer,
+    NotifySerializer,
+    CollectorSerializer,
+    AirlineSerializer,
+    ADSBInfoSerializer,
+    FlightInfoSerializer,
+)
 from radarlivre_api.utils import Util
 
 
@@ -46,9 +74,7 @@ class CollectorDetail(APIView):
 
     def put(self, request, key, format=None):
         # Atualiza timestamp do coletor
-        Collector.objects.filter(key=key).update(
-            timestamp=int(time() *1000)
-        )
+        Collector.objects.filter(key=key).update(timestamp=int(time() * 1000))
         return Response("", status=status.HTTP_200_OK)
 
 
@@ -74,7 +100,16 @@ class AirportList(ListCreateAPIView):
     queryset = Airport.objects.all()
     serializer_class = AirportSerializer
     filter_backends = (DjangoFilterBackend, MapBoundsFilter, AirportTypeZoomFilter)
-    filterset_fields = ('code', 'name', 'country', 'state', 'city', 'latitude', 'longitude', 'type')
+    filterset_fields = (
+        "code",
+        "name",
+        "country",
+        "state",
+        "city",
+        "latitude",
+        "longitude",
+        "type",
+    )
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
 
@@ -92,7 +127,7 @@ class FlightList(ListAPIView):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
     filter_backends = (DjangoFilterBackend, FlightFilter)
-    filterset_fields = ('code', 'airline')
+    filterset_fields = ("code", "airline")
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
 
@@ -100,35 +135,41 @@ class FlightInfoList(ListAPIView):
     """Dados consolidados de voos para exibição em mapa (com clustering)"""
 
     serializer_class = FlightInfoSerializer
-    filter_backends = (DjangoFilterBackend, MaxUpdateDelayFilter, MapBoundsFilter, FlightClusteringFilter)
-    filterset_fields = ('airline',)
+    filter_backends = (
+        DjangoFilterBackend,
+        MaxUpdateDelayFilter,
+        MapBoundsFilter,
+        FlightClusteringFilter,
+    )
+    filterset_fields = ("airline",)
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
     def get_queryset(self):
         # Query otimizada com seleção de relacionamentos e campos específicos
-        return FlightInfo.objects.select_related(
-            'airline', 
-            'flight'
-        ).prefetch_related(
-            'flight__observations'
-        ).only(
-            'id',
-            'latitude',
-            'longitude',
-            'altitude',
-            'verticalVelocity',
-            'horizontalVelocity',
-            'groundTrackHeading',
-            'timestamp',
-            'flight__code',
-            'flight__airline__icao',
-            'airline__name',
-            'airline__icao'
-        ).order_by('timestamp')
+        return (
+            FlightInfo.objects.select_related("airline", "flight")
+            .prefetch_related("flight__observations")
+            .only(
+                "id",
+                "latitude",
+                "longitude",
+                "altitude",
+                "verticalVelocity",
+                "horizontalVelocity",
+                "groundTrackHeading",
+                "timestamp",
+                "flight__code",
+                "flight__airline__icao",
+                "airline__name",
+                "airline__icao",
+            )
+            .order_by("timestamp")
+        )
 
 
 class FlightDetail(RetrieveUpdateDestroyAPIView):
     """Operações detalhadas por voo (exclusivo para administradores)"""
+
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
     permission_classes = (permissions.IsAdminUser,)
@@ -156,10 +197,10 @@ class ADSBInfoList(APIView):
 
     queryset = ADSBInfo.objects.all()
     serializer_class = ADSBInfoSerializer
-    filter_backends = (DjangoFilterBackend)
+    filter_backends = DjangoFilterBackend
 
-    filterset_fields = ('observation',)
-    ordering_fields = '__all__'
+    filterset_fields = ("observation",)
+    ordering_fields = "__all__"
     permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
     def get(self, request, format=None):
@@ -170,10 +211,10 @@ class ADSBInfoList(APIView):
     def post(self, request, format=None):
         # Processamento transacional: salva dados brutos + cria observações + atualiza FlightInfo
         serializer = ADSBInfoSerializer(data=request.data, many=True)
-        
+
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-            
+
         try:
             with transaction.atomic():
                 infos = serializer.save()
@@ -182,10 +223,12 @@ class ADSBInfoList(APIView):
                     if not obs:
                         raise ValueError("Invalid observation data")
                     FlightInfo.generate_from_flight(obs.flight, obs)
-                    logging.info(f"Views: ADSBInfo received [id={info.id}, collector={info.collectorKey}]")
-                    
+                    logging.info(
+                        f"Views: ADSBInfo received [id={info.id}, collector={info.collectorKey}]"
+                    )
+
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-            
+
         except Exception as e:
             logging.error(f"Error processing ADSB info: {str(e)}")
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
@@ -201,11 +244,11 @@ class ObservationList(ListCreateAPIView):
         DjangoFilterBackend,
         OrderingFilter,
         ObservationPrecisionFilter,
-        ObservationFlightFilter
+        ObservationFlightFilter,
     )
 
-    filterset_fields = ('flight',)
-    ordering_fields = '__all__'
+    filterset_fields = ("flight",)
+    ordering_fields = "__all__"
 
 
 class ObservationDetail(RetrieveUpdateDestroyAPIView):

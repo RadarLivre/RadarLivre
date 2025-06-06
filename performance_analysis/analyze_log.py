@@ -18,7 +18,7 @@ def parse_log(log_file: str):
                 record = {
                     "endpoint": entry_parts[0],
                     "status": entry_parts[1],
-                    "duration": float(entry_parts[2])
+                    "duration": float(entry_parts[2]),
                 }
 
                 if len(entry_parts) > 3:
@@ -49,7 +49,7 @@ def generate_report(df: pd.DataFrame, endpoint_filter: str = None):
         "avg": df["duration"].mean(),
         "min": df["duration"].min(),
         "max": df["duration"].max(),
-        "std": df["duration"].std()
+        "std": df["duration"].std(),
     }
 
     n = len(df)
@@ -59,7 +59,7 @@ def generate_report(df: pd.DataFrame, endpoint_filter: str = None):
         margin_of_error = t_score * (duration_stats["std"] / np.sqrt(n))
         ci = (
             duration_stats["avg"] - margin_of_error,
-            duration_stats["avg"] + margin_of_error
+            duration_stats["avg"] + margin_of_error,
         )
     else:
         margin_of_error = ci = "N/A"
@@ -72,8 +72,14 @@ def generate_report(df: pd.DataFrame, endpoint_filter: str = None):
         "min_duration": f"{duration_stats['min']:.2f} ms" if n > 0 else "N/A",
         "max_duration": f"{duration_stats['max']:.2f} ms" if n > 0 else "N/A",
         "std_duration": f"{duration_stats['std']:.2f} ms" if n > 0 else "N/A",
-        "margin_of_error": f"{margin_of_error:.2f} ms" if isinstance(margin_of_error, float) else margin_of_error,
-        "confidence_interval": f"({ci[0]:.2f} ms, {ci[1]:.2f} ms)" if isinstance(ci, tuple) else ci
+        "margin_of_error": (
+            f"{margin_of_error:.2f} ms"
+            if isinstance(margin_of_error, float)
+            else margin_of_error
+        ),
+        "confidence_interval": (
+            f"({ci[0]:.2f} ms, {ci[1]:.2f} ms)" if isinstance(ci, tuple) else ci
+        ),
     }
 
 

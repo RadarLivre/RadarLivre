@@ -21,6 +21,8 @@ RUN apt update \
 
 RUN python3 -m pip install -r requirements.txt
 
-RUN chmod +x runserver.sh
+RUN chmod +x docker-entrypoint.sh
 
 EXPOSE 8000
+
+ENTRYPOINT ["./docker-entrypoint.sh"]

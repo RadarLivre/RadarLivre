@@ -1,11 +1,20 @@
 import math
 import uuid
 from time import time
-from random import random, uniform
-from typing import Dict, Any
+from random import uniform
+
 
 class AircraftSimulator:
-    def __init__(self, mode_s_code: str, callsign: str, start_lat: float, start_lon: float, end_lat: float, end_lon: float, altitude: float):
+    def __init__(
+        self,
+        mode_s_code: str,
+        callsign: str,
+        start_lat: float,
+        start_lon: float,
+        end_lat: float,
+        end_lon: float,
+        altitude: float,
+    ):
         self.mode_s_code = mode_s_code
         self.callsign = callsign
         self.lat = start_lat
@@ -23,8 +32,9 @@ class AircraftSimulator:
         end_lat_rad = math.radians(self.end_lat)
 
         x = math.sin(delta_lon) * math.cos(end_lat_rad)
-        y = math.cos(start_lat_rad) * math.sin(end_lat_rad) - \
-            math.sin(start_lat_rad) * math.cos(end_lat_rad) * math.cos(delta_lon)
+        y = math.cos(start_lat_rad) * math.sin(end_lat_rad) - math.sin(
+            start_lat_rad
+        ) * math.cos(end_lat_rad) * math.cos(delta_lon)
 
         azimuth = math.atan2(x, y)
         return math.degrees(azimuth) % 360
@@ -67,5 +77,5 @@ class AircraftSimulator:
             "messageDataId": message_id,
             "messageDataPositionEven": message_id[:20] + "EVEN",
             "messageDataPositionOdd": message_id[:20] + "ODD",
-            "messageDataVelocity": message_id[:20] + "VEL"
+            "messageDataVelocity": message_id[:20] + "VEL",
         }

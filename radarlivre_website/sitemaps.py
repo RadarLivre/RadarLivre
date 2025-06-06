@@ -4,10 +4,10 @@ from rest_framework.reverse import reverse
 
 class StaticViewSitemap(sitemaps.Sitemap):
     priority = 0.5
-    changefreq = 'daily'
+    changefreq = "daily"
 
     def items(self):
-        return ['page_index', 'page_contrib', 'page_about_index']
+        return ["page_index", "page_contrib", "page_about_index"]
 
     def location(self, item):
         return reverse(item)

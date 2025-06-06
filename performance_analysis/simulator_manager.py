@@ -2,7 +2,7 @@ import sys
 
 from collector_simulator import CollectorSimulator
 
-user_credentials = ("root", "tsevaoth")
+user_credentials = ("admin", "123456")
 collector_key = sys.argv[1]
 lat = float(sys.argv[2])
 lon = float(sys.argv[3])
@@ -19,6 +19,6 @@ if __name__ == "__main__":
         lat=lat,
         lon=lon,
         user_credentials=user_credentials,
-        is_airport=is_airport
+        is_airport=is_airport,
     )
     collector.run_collector()

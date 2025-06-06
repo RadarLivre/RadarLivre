@@ -7,14 +7,12 @@ django-crispy-forms==2.3
 crispy-bootstrap4==2024.10
 django-filter==23.2
 django-imagekit==4.1.0
-django-prometheus==2.3.1
 djangorestframework==3.14.0
 djangorestframework-jsonp==1.0.2
 importlib-metadata==6.6.0
 Markdown==3.4.3
 pilkit==2.0
 pillow==10.4.0
-prometheus_client==0.21.0
 psycopg2-binary==2.9.10
 pytz==2023.3
 six==1.16.0
@@ -25,3 +23,5 @@ zipp==3.15.0
 requests==2.32.3
 gunicorn==23.0.0
 numpy==2.2.2
+black==25.1.0
+ruff==0.11.13

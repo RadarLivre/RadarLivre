@@ -1,10 +1,29 @@
-# Change Log
-All notable changes to this project will be documented in this file.
+# Changelog
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 1.0.2 - [Unreleased]
+## 1.1.0 - 2024-03-19 [Unreleased]
+### Added
+- Docker support with docker-compose for easy deployment
+- Load testing suite in performance_analysis directory
+- Gunicorn as production WSGI server
+- Nginx configuration for production deployment
+- PostgreSQL/PostGIS as the main database system
+- Comprehensive documentation with UML diagrams (class, user, sequence)
+
+### Changed
+- Updated Django to latest stable version
+- Migrated from SQLite to PostgreSQL/PostGIS
+- Improved project structure and organization
+- Enhanced documentation with detailed setup instructions
+- Updated README with current technologies and build instructions
+
+### Removed
+- SQLite database configuration
+- Old installation scripts
+
+## 1.0.2 - 2017-05-25
 ### Added
 - This CHANGELOG file to begin the versioning and keep the changes easy to read.
 

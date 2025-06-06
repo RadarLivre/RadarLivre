@@ -1,5 +1,6 @@
 import math
 
+
 class Math:
     """Classe com métodos estáticos para cálculos matemáticos e conversões de unidades aeronáuticas"""
 

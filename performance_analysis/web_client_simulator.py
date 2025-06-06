@@ -29,7 +29,7 @@ class WebClientSimulator:
             "top": -7.60832097083014,
             "bottom": -14.54711726532197,
             "left": -80.2439968,
-            "right": -22.14829367500001
+            "right": -22.14829367500001,
         }
 
     def log_request(self, endpoint: str, status: str, duration: float):
@@ -41,11 +41,13 @@ class WebClientSimulator:
     def make_request(self, endpoint: str, params: dict):
         start_time = time.time()
         try:
-            params.update({
-                "format": "jsonp",
-                "callback": "_jqjsp",
-                f"_{int(time.time() * 1000)}": ""
-            })
+            params.update(
+                {
+                    "format": "jsonp",
+                    "callback": "_jqjsp",
+                    f"_{int(time.time() * 1000)}": "",
+                }
+            )
 
             response = requests.get(f"{self.base_url}/{endpoint}", params=params)
             duration = (time.time() - start_time) * 1000
@@ -64,8 +66,9 @@ class WebClientSimulator:
 
     def parse_jsonp(self, response):
         try:
-            return json.loads(response[response.index("(") + 1:-2])
-        except:
+            return json.loads(response[response.index("(") + 1 : -2])
+        except Exception as e:
+            self.logger.error(f"Error parsing JSONP: {e}")
             return None
 
     def run_collector_polling(self):
@@ -75,12 +78,15 @@ class WebClientSimulator:
 
     def run_flight_polling(self):
         while True:
-            data = self.make_request("flight_info/", {
-                **self.bounding_box,
-                "map_height": 161,
-                "map_zoom": 5,
-                "min_airplane_distance": 0,
-            })
+            data = self.make_request(
+                "flight_info/",
+                {
+                    **self.bounding_box,
+                    "map_height": 161,
+                    "map_zoom": 5,
+                    "min_airplane_distance": 0,
+                },
+            )
 
             if data:
                 self.selected_flight = random.choice(data)["id"]
@@ -88,18 +94,14 @@ class WebClientSimulator:
             time.sleep(10)
 
     def run_airport_request(self):
-        self.make_request("airport/", {
-            "zoom": 9,
-            **self.bounding_box
-        })
+        self.make_request("airport/", {"zoom": 9, **self.bounding_box})
 
     def run_observation_polling(self):
         while True:
             if self.selected_flight:
-                self.make_request("observation/", {
-                    "flight": self.selected_flight,
-                    "interval": ""
-                })
+                self.make_request(
+                    "observation/", {"flight": self.selected_flight, "interval": ""}
+                )
             time.sleep(random.randint(60, 120))
 
     def start(self):

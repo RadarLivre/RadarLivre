@@ -32,7 +32,8 @@ class ObservationFlightFilter(BaseFilterBackend):
         ).order_by("-timestamp")[:1]
 
         return queryset.filter(
-            timestamp__gte=Subquery(latest_observations.values("timestamp")) - flight_interval
+            timestamp__gte=Subquery(latest_observations.values("timestamp"))
+            - flight_interval
         )
 
 
@@ -45,12 +46,12 @@ class ObservationPrecisionFilter(BaseFilterBackend):
 
         if interval == 0:
             return queryset
-        
+
         annotated = queryset.annotate(
             row_number=Window(
                 expression=RowNumber(),
                 partition=F("flight"),
-                order_by=F("timestamp").asc()
+                order_by=F("timestamp").asc(),
             )
         )
 
@@ -60,10 +61,10 @@ class ObservationPrecisionFilter(BaseFilterBackend):
 # Pega apenas as aeronaves em um pedaço do mapa
 class MapBoundsFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
-        top_lat = Util.parse_param(request, "top", 90);
-        bootom_lat = Util.parse_param(request, "bottom", -90);
-        left_lng = Util.parse_param(request, "left", -180);
-        right_lng = Util.parse_param(request, "right", 180);
+        top_lat = Util.parse_param(request, "top", 90)
+        bootom_lat = Util.parse_param(request, "bottom", -90)
+        left_lng = Util.parse_param(request, "left", -180)
+        right_lng = Util.parse_param(request, "right", 180)
 
         return queryset.filter(
             point__within=Polygon.from_bbox((left_lng, bootom_lat, right_lng, top_lat))
@@ -79,23 +80,21 @@ class FlightClusteringFilter(BaseFilterBackend):
 
         if not map_height or not map_zoom:
             return queryset
-        
-        earth_circumference = 40075000
-        tiles = 2 ** map_zoom
 
-        meters_per_pixel =  (earth_circumference / tiles) / map_height
+        earth_circumference = 40075000
+        tiles = 2**map_zoom
+
+        meters_per_pixel = (earth_circumference / tiles) / map_height
         min_distance_meters = min_airplane_distance * meters_per_pixel
 
         # Subquery para encontrar pontos próximos
         nearby_points = queryset.model.objects.filter(
-            point__dwithin=(OuterRef('point'), Distance(m=min_distance_meters)),
-            pk__lt=OuterRef('pk')
+            point__dwithin=(OuterRef("point"), Distance(m=min_distance_meters)),
+            pk__lt=OuterRef("pk"),
         )
 
         # Filtra apenas pontos que não têm vizinhos próximos
-        return queryset.annotate(
-            has_nearby=Exists(nearby_points)
-        ).filter(
+        return queryset.annotate(has_nearby=Exists(nearby_points)).filter(
             has_nearby=False
         )
 
@@ -112,7 +111,9 @@ class AirportTypeZoomFilter(BaseFilterBackend):
         elif zoom <= 10:
             return queryset.filter(type__in=["large_airport", "medium_airport"])
         elif zoom <= 13:
-            return queryset.filter(type__in=["large_airport", "medium_airport", "small_airport"])
+            return queryset.filter(
+                type__in=["large_airport", "medium_airport", "small_airport"]
+            )
         else:
             return queryset
 
