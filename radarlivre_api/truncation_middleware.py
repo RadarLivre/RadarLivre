@@ -13,7 +13,20 @@ class RequestTruncationMiddleware:
     def __call__(self, request):
         if request.method == "POST":
             try:
-                json_data = json.loads(request.body)
+                if not request.body:
+                    return self.get_response(request)
+                    
+                try:
+                    json_data = json.loads(request.body)
+                except json.JSONDecodeError:
+                    return self.get_response(request)
+
+                if not isinstance(json_data, list) or not json_data or not isinstance(json_data[0], dict):
+                    return self.get_response(request)
+
+                required_fields = ["latitude", "longitude", "groundTrackHeading", "horizontalVelocity"]
+                if not all(field in json_data[0] for field in required_fields):
+                    return self.get_response(request)
 
                 latitude, decimal_latitude = str(json_data[0]["latitude"]).split(".")
                 longitude, decimal_longitude = str(json_data[0]["longitude"]).split(".")
@@ -45,9 +58,8 @@ class RequestTruncationMiddleware:
                     json_data[0].update({"horizontalVelocity": float(new_h_velocity)})
 
                 request._body = bytes(json.dumps(json_data), encoding="utf-8")
-            except RuntimeError:
-                pass
+            except Exception:
+                return self.get_response(request)
 
         response = self.get_response(request)
-
         return response

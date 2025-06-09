@@ -1,14 +1,14 @@
-FROM ubuntu:22.04
+FROM python:3.11-slim
 
 WORKDIR /app
-COPY . .
+COPY . /app/
+COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 ENV TZ=America/Fortaleza
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt update \
-    && apt install -y python3-pip \
-    && apt install -y tzdata \
+RUN apt-get update \
+    && apt-get install -y tzdata \
     && ln -sf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone \
     && apt-get install -y \
@@ -17,12 +17,12 @@ RUN apt update \
     libproj-dev \
     libgdal-dev \
     && rm -rf /var/lib/apt/lists/* \
-    && apt clean
+    && apt-get clean
 
-RUN python3 -m pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN chmod +x docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
 EXPOSE 8000
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]

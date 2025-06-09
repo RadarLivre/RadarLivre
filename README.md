@@ -46,7 +46,7 @@ PORT = 5431
 DEBUG = True
 LOG_FILE = ./api.log
 DJANGO_LOG_LEVEL = ERROR
-ALLOWED_HOSTS = 0.0.0.0
+ALLOWED_HOSTS = localhost,127.0.0.1
 CSRF_TRUSTED_ORIGINS = http://localhost,http://127.0.0.1
 ```
 
@@ -66,7 +66,7 @@ PORT = 5432
 DEBUG = True
 LOG_FILE = ./api.log
 DJANGO_LOG_LEVEL = ERROR
-ALLOWED_HOSTS = 0.0.0.0
+ALLOWED_HOSTS = localhost,127.0.0.1
 CSRF_TRUSTED_ORIGINS = http://localhost,http://127.0.0.1
 ```
 
