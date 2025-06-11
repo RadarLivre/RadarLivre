@@ -1,0 +1,41 @@
+services:
+  db:
+    container_name: postgres
+    image: postgis/postgis:15-3.3
+    command: postgres -c max_connections=200
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: radarlivre
+      POSTGRES_HOST_AUTH_METHOD: trust
+      TZ: America/Fortaleza
+    ports:
+      - "5431:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+
+  server:
+    container_name: radar_livre
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+       - ./:/app
+    depends_on:
+      - db
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./static:/static:ro
+    depends_on:
+      - server
+
+volumes:
+  pg_data:
