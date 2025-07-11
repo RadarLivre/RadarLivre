@@ -81,7 +81,7 @@ If you need to change these settings, modify:
 ### Cleaning Logs
 Before running new tests, clean the log files:
 ```bash
-rm -f collectors_action.log web_clients_action.log
+rm -f collectors_action.log web_clients_action.log 
 ```
 
 ### Stopping Tests
@@ -115,7 +115,16 @@ The tests generate two log files:
 
 Use the `analyze_log.py` script to analyze the test results:
 ```bash
-python analyze_log.py
+python analyze_log.py <name_of_the_log_file>
+```
+
+The script expects the name of the log file to be passed as an argument. Valid log files include:
+- `collectors_action.log`
+- `web_clients_action.log`
+
+Example:
+```bash
+python analyze_log.py collectors_action.log # Analyzes logs from collector simulators
 ```
 
 This will generate statistics about:
