@@ -113,9 +113,17 @@ The tests generate two log files:
 
 ## Analysis
 
-Use the `analyze_log.py` script to analyze the test results:
+After running a test, use the `analyze_log.py` script to analyze the test results:
 ```bash
-python analyze_log.py
+python analyze_log.py <name_of_log_file>
+```
+The script expects the name of the log file to be passed as an argument. Valid log files include:
+- `collectors_action.log`
+- `web_clients_action.log`
+
+Example:
+```bash
+python analyze_log.py colletctors_action.log # Analyzes logs from the collectors simulators
 ```
 
 This will generate statistics about:
