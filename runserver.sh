@@ -6,6 +6,12 @@ cd "$BASEDIR"
 echo "Activating virtual enviroment..."
 . .venv/bin/activate
 
+echo "Checking for pending migrations..."
+if python manage.py showmigrations | grep -q "\[ \]"; then
+    echo "Applying pending migrations..."
+    python manage.py migrate
+fi
+
 echo "Running the server..."
 python3 manage.py runserver 0.0.0.0:8000
 
