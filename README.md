@@ -58,7 +58,12 @@ sudo apt-get install python3 python3-pip python3-venv -y
 
 ## Installation and Running
 
-Note: If you’re running the server on a Virtual Machine, you’d likely need to activate post forwarding in your VM’s settings to be able to access the server from the host.
+Note: If you're running the server inside a Virtual Machine, you may need to configure **port forwarding** in your VM settings to access the server from your host machine.
+
+**Example for VirtualBox:**
+1. Select your VM → Settings → Network
+2. Advanced → Port Forwarding
+3. Add rule: Host Port `8000` → Guest Port `8000`
 
 ### Configuration Files
 
