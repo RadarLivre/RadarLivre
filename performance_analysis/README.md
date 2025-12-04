@@ -10,6 +10,16 @@ This directory contains scripts and configurations for load testing the RadarLiv
 ## Installation
 
 ```bash
+# If you don't already have Python/pip installed, install them
+sudo apt-get install python3 python3-pip -y
+
+# Navigate to the RadarLivre project root
+cd RadarLivre
+
+# Activate virtual environment
+. .venv/bin/activate
+
+# Install dependencies
 pip install requests pandas scipy numpy
 ```
 
@@ -37,9 +47,22 @@ Simulates web clients accessing the system:
 
 ## Running Tests
 
+### Before you begin
+You’ll need separate terminals. One to keep the server running, and the other to run the tests. Further more, to stop them, you’ll need to open another one.
+
 ### 1. Create Test Collectors
-First, create the test collectors in the system:
+First, **while the server is running** create the test collectors in the system:
 ```bash
+# Navigate to the root folder
+cd RadarLivre
+
+# Activate virtual environment
+. .venv/bin/activate
+
+# Navigate to the performance analysis folder
+cd performance_analysis
+
+# Run the script
 ./create_tests_collectors.sh
 ```
 
@@ -65,7 +88,7 @@ Example:
 ./run_test_web_clients.sh 50  # Simulates 50 web clients
 ```
 
-Note: The scripts will create PID files (`collector_pids.txt` and `web_clients_pids.txt`) to track the running processes.
+**Note**: The scripts will create PID files (`collector_pids.txt` and `web_clients_pids.txt`) to track the running processes.
 
 ## Managing Tests
 
@@ -74,29 +97,49 @@ The simulators are configured to connect to:
 - Base URL: `http://localhost:8000/api`
 - Default credentials: username="admin", password="123456"
 
-If you need to change these settings, modify:
+If you need to change these settings, modify using `nano`:
 - `simulator_manager.py` for collector credentials and base URL
 - `web_client_simulator.py` for the base URL
 
-### Cleaning Logs
-Before running new tests, clean the log files:
-```bash
-rm -f collectors_action.log web_clients_action.log
-```
-
 ### Stopping Tests
-To stop all running simulators, use the PID files:
+To stop all running simulators, use the PID files **in a different terminal from which they’re running**:
 
 1. Stop collector simulators:
 ```bash
+# Navigate to the root folder
+cd RadarLivre
+
+# Activate virtual environment
+. .venv/bin/activate
+
+# Navigate to the performance analysis folder
+cd performance_analysis
+
+# Stop running collector simulators
 kill $(cat collector_pids.txt)
 rm collector_pids.txt
 ```
 
 2. Stop web client simulators:
 ```bash
+# Navigate to the root folder
+cd RadarLivre
+
+# Activate virtual environment
+. .venv/bin/activate
+
+# Navigate to the performance analysis folder
+cd performance_analysis
+
+# Stop running web client simulators
 kill $(cat web_clients_pids.txt)
 rm web_clients_pids.txt
+```
+
+### Cleaning Logs
+Before running new tests, clean the log files in the performance analysis folder:
+```bash
+rm -f collectors_action.log web_clients_action.log
 ```
 
 ### Restarting Tests
