@@ -12,23 +12,57 @@ The RadarLivre system is a mixed software-hardware solution based in the ADS-B t
 
 This paper will help you get a copy of the project(server-side) to run it in your local machine. If you are looking for the client-side for collecting the data of an ADS-B receptor, [this is the repository](https://github.com/RadarLivre/RadarLivreCollector). You need both to get the system running.
 
+## Supported platforms
+
+This project has been primarily developed and tested on **Ubuntu Server**, but the Docker installation should work in any other Linux distribution.
+
+The instructions following are for **Ubuntu**. If you’re using a different Linux distribution, check your package manager documentation and make the needed adjustments to the commands.
+
 ## Prerequisites
+
+If you’re starting from scratch and don’t have any of the prerequisites installed yet, follow these steps before proceeding with the installation of the server.
+
+First, open a terminal `(Ctrl + Alt + T)` and update the available packages in your system’s repositories:
+```bash
+sudo apt-get update
+```
+Then, choose an installation method and install its required packages.
 
 ### For Local Installation
 * Git
+```bash
+sudo apt-get install git -y
+```
 * Python 3.x
+```bash
+sudo apt-get install python3 python3-pip python3-venv -y
+```
 * PostgreSQL with PostGIS extension
+```bash
+sudo apt-get install postgresql postgresql-contrib postgis -y
+```
 
 ### For Docker Installation
 * Git
-* Docker
-* Docker Compose
+```bash
+sudo apt-get install git -y
+```
+* Docker and Docker Compose
+```bash
+sudo apt-get install sudo apt-get install docker.io docker-compose -y
+```
+* Python 3.x/pip (optional, only required for [performance analysis](performance_analysis/README.md) tests)
+```bash
+sudo apt-get install python3 python3-pip python3-venv -y
+```
 
 ## Installation and Running
 
+Note: If you’re running the server on a Virtual Machine, you’d likely need to activate post forwarding in your VM’s settings to be able to access the server from the host.
+
 ### Configuration Files
 
-The system uses `.ini` files for configuration. These files should be placed in the root directory of the project.
+The system uses `.ini` files for configuration. These files should be placed in the root directory of the project **after** you already cloned it. The instructions for the cloning/setting up the server are listed further.
 
 #### Local Development
 Create a `development.ini` file with the following structure:
@@ -80,61 +114,69 @@ Key differences between local and Docker configurations:
 
 1. Clone the repository:
 ```bash
-git clone http://github.com/RadarLivre/RadarLivre.git
+git clone https://github.com/RadarLivre/RadarLivre.git
+# After cloning, enter the folder
 cd RadarLivre
 ```
 
-2. Configure the PostgreSQL database:
+2. Create the `development.ini` file:
 ```bash
-# Connect to PostgreSQL
-psql -U postgres
-
-# Create the database
-CREATE DATABASE radarlivre;
-
-# Connect to the database
-\c radarlivre
-
-# Apply the PostGIS extension
-CREATE EXTENSION postgis;
-CREATE EXTENSION postgis_topology;
-
-# Exit psql
-\q
+nano development.ini
+# Paste the structure mentioned previously for local installation,
+# then save using ^(Ctrl)O, (Enter) and exit using ^(Ctrl)X
 ```
 
-2. Run the installation script:
+3. Give permission to run all scripts:
 ```bash
-sudo ./install.sh
+chmod +x *.sh
 ```
 
-3. Start the server:
+4. Run the setup script:
+```bash
+./setup.sh
+```
+
+5. Start the server:
 ```bash
 ./runserver.sh
 ```
 
-4. Access the system at [http://localhost:8000](http://localhost:8000)
+6. Access the system at [http://localhost:8000](http://localhost:8000).
 
 ### Method 2: Docker Installation
 
 1. Clone the repository:
 ```bash
-git clone http://github.com/RadarLivre/RadarLivre.git
+git clone https://github.com/RadarLivre/RadarLivre.git
+# After cloning, enter the folder
 cd RadarLivre
 ```
 
-2. Start the containers:
+2. Create the `development-docker.ini` file:
 ```bash
-docker-compose up -d
+nano development-docker.ini
+# Paste the structure mentioned previously for Docker installation,
+# then save using ^(Ctrl)O, (Enter) and exit using ^(Ctrl)X
 ```
 
-3. Access the system at [http://localhost:8000](http://localhost:8000)
+3. Start the containers:
+```bash
+# For the first time running, use '--build'
+sudo docker-compose up -d --build
+
+# For the subsequent runs, you can remove '--build'
+```
+
+4. Access the system at [http://localhost:8000](http://localhost:8000). If you want to stop the containers, run `sudo docker-compose down`.
 
 ## System Configuration
 
 ### Creating Superuser
 
-To access the admin panel, you need to create a superuser:
+To access the admin panel, you need to create a superuser.
+Note: The default credentials, which are later used in the simulated tests in [performance analysis](performance_analysis/README.md), are:
+- Username: "admin"
+- Password: "123456"
 
 1. For local installation:
 ```bash
@@ -145,6 +187,9 @@ To access the admin panel, you need to create a superuser:
 ```bash
 docker exec -it radar_livre python manage.py createsuperuser
 ```
+
+After creating a superuser, and **while the server is running**, you can log in by accessing the Django admin panel at [http://localhost:8000/admin](http://localhost:8000/admin).
+From there, you can manage groups, users, collectors, and other system configurations.
 
 ### Adding a Collector
 
