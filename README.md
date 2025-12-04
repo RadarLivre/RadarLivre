@@ -58,7 +58,7 @@ sudo apt-get install python3 python3-pip python3-venv -y
 
 ## Installation and Running
 
-Note: If you're running the server inside a Virtual Machine, you may need to configure **port forwarding** in your VM settings to access the server from your host machine.
+**Note**: If you're running the server inside a Virtual Machine, you may need to configure **port forwarding** in your VM settings to access the server from your host machine.
 
 **Example for VirtualBox:**
 1. Select your VM → Settings → Network
@@ -179,7 +179,8 @@ sudo docker-compose up -d --build
 ### Creating Superuser
 
 To access the admin panel, you need to create a superuser.
-Note: The default credentials, which are later used in the simulated tests in [performance analysis](performance_analysis/README.md), are:
+
+**Note**: The default credentials, which are later used in the simulated tests in [performance analysis](performance_analysis/README.md), are:
 - Username: "admin"
 - Password: "123456"
 
