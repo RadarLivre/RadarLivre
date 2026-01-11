@@ -222,14 +222,24 @@ Example:
 
 Before committing your changes, ensure your code follows our style guidelines:
 
-1. Format your code using Black:
+1. Activate the virtual environment:
+```bash
+source .venv/bin/activate
+```
+
+2. Format your code using Black:
 ```bash
 black --exclude migrations radarlivre_api
 ```
 
-2. Run Ruff for linting and code quality checks:
+3. Run Ruff for linting and code quality checks:
 ```bash
 ruff check --fix
+```
+
+4. Deactivate the virtual environment:
+```bash
+deactivate
 ```
 
 ### Commit Messages
