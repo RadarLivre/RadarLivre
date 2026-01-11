@@ -15,16 +15,25 @@ class RequestTruncationMiddleware:
             try:
                 if not request.body:
                     return self.get_response(request)
-                    
+
                 try:
                     json_data = json.loads(request.body)
                 except json.JSONDecodeError:
                     return self.get_response(request)
 
-                if not isinstance(json_data, list) or not json_data or not isinstance(json_data[0], dict):
+                if (
+                    not isinstance(json_data, list)
+                    or not json_data
+                    or not isinstance(json_data[0], dict)
+                ):
                     return self.get_response(request)
 
-                required_fields = ["latitude", "longitude", "groundTrackHeading", "horizontalVelocity"]
+                required_fields = [
+                    "latitude",
+                    "longitude",
+                    "groundTrackHeading",
+                    "horizontalVelocity",
+                ]
                 if not all(field in json_data[0] for field in required_fields):
                     return self.get_response(request)
 
