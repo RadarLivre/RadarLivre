@@ -191,7 +191,7 @@ To access the admin panel, you need to create a superuser.
 
 2. For Docker installation:
 ```bash
-docker exec -it radar_livre python manage.py createsuperuser
+sudo docker exec -it radar_livre python manage.py createsuperuser
 ```
 
 After creating a superuser, and **while the server is running**, you can log in by accessing the Django admin panel at [http://localhost:8000/admin](http://localhost:8000/admin).
