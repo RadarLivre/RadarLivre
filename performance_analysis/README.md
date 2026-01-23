@@ -62,7 +62,7 @@ cd RadarLivre
 # Navigate to the performance analysis folder
 cd performance_analysis
 
-# Run the script
+# Run the script, it may take a few seconds
 ./create_tests_collectors.sh
 ```
 
