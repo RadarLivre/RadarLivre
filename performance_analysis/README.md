@@ -94,7 +94,7 @@ Example:
 
 ### Server Configuration
 The simulators are configured to connect to:
-- Base URL: `http://localhost:8000/api`
+- Base URL: `http://localhost:8000/admin/radarlivre_api/`
 - Default credentials: username="admin", password="123456"
 
 If you need to change these settings, modify using `nano`:
@@ -171,9 +171,9 @@ rm -f collectors_action.log web_clients_action.log
 
 ### Restarting Tests
 To run new tests:
-1. Stop any running tests
-2. Clean the log files
-3. Run the tests again
+1. [Stop any running tests](https://github.com/RadarLivre/RadarLivre/blob/master/performance_analysis/README.md#stopping-tests)
+2. [Clean the log files](https://github.com/RadarLivre/RadarLivre/blob/master/performance_analysis/README.md#cleaning-logs)
+3. [Run the tests again](https://github.com/RadarLivre/RadarLivre/blob/master/performance_analysis/README.md#2-run-collector-tests)
 
 ## Customization
 
