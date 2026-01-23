@@ -154,7 +154,7 @@ The script expects the name of the log file to be passed as an argument. Valid l
 
 Example:
 ```bash
-python analyze_log.py colletctors_action.log # Analyzes logs from the collectors simulators
+python analyze_log.py collectors_action.log # Analyzes logs from the collectors simulators
 ```
 
 This will generate statistics about:
