@@ -136,18 +136,6 @@ kill $(cat web_clients_pids.txt)
 rm web_clients_pids.txt
 ```
 
-### Cleaning Logs
-Before running new tests, clean the log files in the performance analysis folder:
-```bash
-rm -f collectors_action.log web_clients_action.log
-```
-
-### Restarting Tests
-To run new tests:
-1. Stop any running tests
-2. Clean the log files
-3. Run the tests again
-
 ## Logging
 
 The tests generate two log files:
@@ -174,6 +162,18 @@ This will generate statistics about:
 - Success rates
 - Error patterns
 - System performance under load
+
+### Cleaning Logs
+Before running new tests, clean the log files in the performance analysis folder:
+```bash
+rm -f collectors_action.log web_clients_action.log
+```
+
+### Restarting Tests
+To run new tests:
+1. Stop any running tests
+2. Clean the log files
+3. Run the tests again
 
 ## Customization
 
