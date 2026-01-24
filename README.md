@@ -224,7 +224,7 @@ Before committing your changes, ensure your code follows our style guidelines:
 
 1. Activate the virtual environment:
 ```bash
-source .venv/bin/activate
+. .venv/bin/activate
 ```
 
 2. Format your code using Black:
