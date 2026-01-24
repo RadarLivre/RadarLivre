@@ -38,6 +38,60 @@ sudo -u postgres psql -c "CREATE DATABASE radarlivre;" 2>/dev/null && echo "Data
 echo "Creating PostGIS extensions..."
 sudo -u postgres psql -d radarlivre -c "CREATE EXTENSION IF NOT EXISTS postgis; CREATE EXTENSION IF NOT EXISTS postgis_topology;" 2>/dev/null && echo "Extensions created" || echo "Extensions already exist or failed"
 
+# Install Apache and its required modules
+echo "Installing and configuring Apache as Reverse Proxy..."
+sudo apt install apache2 libapache2-mod-wsgi-py3 -y
+
+# Apply required modules
+sudo a2enmod proxy proxy_http rewrite headers
+
+# Configure ServerName to avoid error
+echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/servername.conf
+sudo a2enconf servername.conf
+
+# Create Apache config file
+CURRENT_DIR=$(pwd)
+cat <<'EOF' | sudo tee /etc/apache2/sites-available/radarlivre.conf
+<VirtualHost *:80>
+    ServerName localhost
+    ServerAlias 127.0.0.1
+
+	Header always set X-Proxied-By "Apache-2.4-ReverseProxy"
+
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:8000/
+    ProxyPassReverse / http://127.0.0.1:8000/
+
+    Alias /static ${CURRENT_DIR}/static
+    <Directory ${CURRENT_DIR}/static>
+        Require all granted
+    </Directory>
+
+    Alias /media ${CURRENT_DIR}/media
+    <Directory ${CURRENT_DIR}/media>
+        Require all granted
+    </Directory>
+
+    ErrorLog \${APACHE_LOG_DIR}/error.log
+    CustomLog \${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+EOF
+
+# Activate config
+sudo a2ensite radarlivre.conf
+sudo a2dissite 000-default.conf
+
+# Test config before restarting
+if sudo apache2ctl configtest; then
+    echo "Configuring was successfull! Restarting Apache..."
+    sudo systemctl restart apache2
+else
+    echo "ERROR on the Apache configuring. Check the logs."
+    exit 1
+fi
+
+echo "Apache configurated successfully!"
+
 echo "Setup completed!"
 
 # Install
