@@ -9,6 +9,7 @@ This directory contains scripts and configurations for load testing the RadarLiv
 
 ## Installation
 
+### For Local Installation
 ```bash
 # If you don't already have Python/pip installed, install them
 sudo apt-get install python3 python3-pip -y
@@ -18,6 +19,21 @@ cd RadarLivre
 
 # Activate virtual environment
 . .venv/bin/activate
+
+# Install dependencies
+pip install requests pandas scipy numpy
+```
+
+### For Docker Installation
+```bash
+# If you don't already have Python/pip installed, install them
+sudo apt-get install python3 python3-pip -y
+
+# Navigate to the RadarLivre project root
+cd RadarLivre
+
+# Enter the container
+sudo docker-compose exec server bash
 
 # Install dependencies
 pip install requests pandas scipy numpy
@@ -52,12 +68,29 @@ You’ll need separate terminals. One to keep the server running, and the other 
 
 ### 1. Create Test Collectors
 First, **while the server is running** create the test collectors in the system:
+
+#### For Local Instalation
 ```bash
 # Navigate to the root folder
 cd RadarLivre
 
 # Activate virtual environment
 . .venv/bin/activate
+
+# Navigate to the performance analysis folder
+cd performance_analysis
+
+# Run the script, it may take a few seconds
+./create_tests_collectors.sh
+```
+
+#### For Docker Instalation
+```bash
+# Navigate to the root folder
+cd RadarLivre
+
+# Enter the container
+sudo docker-compose exec server bash
 
 # Navigate to the performance analysis folder
 cd performance_analysis
@@ -104,7 +137,7 @@ If you need to change these settings, modify using `nano`:
 ### Stopping Tests
 To stop all running simulators, use the PID files **in a different terminal from which they’re running**:
 
-1. Stop collector simulators:
+#### For Local Installation
 ```bash
 # Navigate to the root folder
 cd RadarLivre
@@ -118,18 +151,26 @@ cd performance_analysis
 # Stop running collector simulators
 kill $(cat collector_pids.txt)
 rm collector_pids.txt
+
+# Stop running web client simulators
+kill $(cat web_clients_pids.txt)
+rm web_clients_pids.txt
 ```
 
-2. Stop web client simulators:
+#### For Docker Installation
 ```bash
 # Navigate to the root folder
 cd RadarLivre
 
-# Activate virtual environment
-. .venv/bin/activate
+# Enter the container
+sudo docker-compose exec server bash
 
 # Navigate to the performance analysis folder
 cd performance_analysis
+
+# Stop running collector simulators
+kill $(cat collector_pids.txt)
+rm collector_pids.txt
 
 # Stop running web client simulators
 kill $(cat web_clients_pids.txt)
