@@ -38,7 +38,7 @@ def generate_report(df: pd.DataFrame, endpoint_filter: str = None):
         df = df[df["endpoint"] == endpoint_filter]
 
     df["is_success"] = df["status"].apply(
-        lambda x: x in ["200", "True"] if isinstance(x, str) else False
+        lambda x: x in ["200", "201", "True"] if isinstance(x, str) else False
     )
 
     total = len(df)
