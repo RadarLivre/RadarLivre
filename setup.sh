@@ -51,7 +51,7 @@ sudo a2enconf servername.conf
 
 # Create Apache config file
 CURRENT_DIR=$(pwd)
-cat <<'EOF' | sudo tee /etc/apache2/sites-available/radarlivre.conf
+cat <<EOF | sudo tee /etc/apache2/sites-available/radarlivre.conf
 <VirtualHost *:80>
     ServerName localhost
     ServerAlias 127.0.0.1
