@@ -18,7 +18,8 @@ This project has been primarily developed and tested on **Ubuntu Server**, but t
 
 The instructions following are for **Ubuntu Server**. If you’re using a different operating system, check your package manager documentation and make the needed adjustments to the commands.
 
-### Virtual Machine Configuration (Oracle VirtualBox)
+## Virtual Machine Configuration (Oracle VirtualBox)
+
 #### Port Forwarding
 If you plan on running the server inside a Virtual Machine, you'll need to configure **port forwarding** in your VM settings to access the server from your host machine.
 
@@ -34,7 +35,8 @@ If you plan on running the server inside a Virtual Machine, you'll need to confi
 
 **Note**: When accessing the system from the browser on your host machine, use [http://localhost:8001](http://localhost:8001).
 
-### Working with Multiple Terminals (No GUI)
+## Working with Multiple Terminals (No GUI)
+
 During development and testing, you'll often need **multiple terminal sessions** simultaneously. For example:
 - One terminal running the Django server
 - Another for creating superusers or adding collectors  
