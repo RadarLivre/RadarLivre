@@ -6,23 +6,47 @@ The RadarLivre system is a mixed software-hardware solution based in the ADS-B t
 * Software for interpreting the collected data
 * Web server that receives the data and store them in a database
 * Software for analising the collected information and detecting possible collision between the airplanes and geographical accidents
-* Website that presents the data publicly.
+* Website that presents the data publicly
 
 ## Getting Started
 
 This paper will help you get a copy of the project(server-side) to run it in your local machine. If you are looking for the client-side for collecting the data of an ADS-B receptor, [this is the repository](https://github.com/RadarLivre/RadarLivreCollector). You need both to get the system running.
 
-## Supported platforms
+## Supported Platforms
 
-This project has been primarily developed and tested on **Ubuntu Server**, but the Docker installation should work in any other Linux distribution.
+This project has been primarily developed and tested on **Ubuntu Server**, but the Docker installation should work in any other operating system.
 
-The instructions following are for **Ubuntu**. If you’re using a different Linux distribution, check your package manager documentation and make the needed adjustments to the commands.
+The instructions following are for **Ubuntu Server**. If you’re using a different operating system, check your package manager documentation and make the needed adjustments to the commands.
+
+### Virtual Machine Configuration (Oracle VirtualBox)
+#### Port Forwarding
+If you plan on running the server inside a Virtual Machine, you'll need to configure **port forwarding** in your VM settings to access the server from your host machine.
+
+**Example for VirtualBox:**
+1. Select your **turned off** VM → Settings → Expert
+2. Network → Adapter 1 (should be attached to NAT) → Port Forwarding
+3. Add a new rule, where: Protocol `TCP` ; Host Port `8001` ; Guest IP `10.0.2.15` ; Guest Port `8000`
+
+**Important:**
+- **Host Port**: Choose any available port on your host machine (example being 8001)
+- **Guest IP**: **Must be `10.0.2.15`** (fixed IP for NAT mode in VirtualBox)
+- **Guest Port**: Always `8000` (where Django runs)
+
+**Note**: When accessing the system from the browser on your host machine, use [http://localhost:8001](http://localhost:8001).
+
+### Working with Multiple Terminals (No GUI)
+During development and testing, you'll often need **multiple terminal sessions** simultaneously. For example:
+- One terminal running the Django server
+- Another for creating superusers or adding collectors  
+- Additional terminals for running performance analysis tests
+
+Since Ubuntu Server doesn't have a graphical interface, you can switch between **6 independent terminals** using `Alt + F1` through `Alt + F6`.
 
 ## Prerequisites
 
 If you’re starting from scratch and don’t have any of the prerequisites installed yet, follow these steps before proceeding with the installation of the server.
 
-First, open a terminal `(Ctrl + Alt + T)` and update the available packages in your system’s repositories:
+First, update the available packages in your system’s repositories:
 ```bash
 sudo apt-get update
 ```
@@ -55,15 +79,6 @@ sudo apt-get install sudo apt-get install docker.io docker-compose -y
 ```bash
 sudo apt-get install python3 python3-pip python3-venv -y
 ```
-
-## Installation and Running
-
-**Note**: If you're running the server inside a Virtual Machine, you may need to configure **port forwarding** in your VM settings to access the server from your host machine.
-
-**Example for VirtualBox:**
-1. Select your VM → Settings → Network
-2. Advanced → Port Forwarding
-3. Add rule: Host Port `8000` → Guest Port `8000`
 
 ### Configuration Files
 
@@ -270,7 +285,7 @@ For information about load testing and performance analysis, see the [README in 
 * [PostgreSQL/PostGIS](https://postgis.net/)
 * [Django](https://www.djangoproject.com/)
 * [Docker](https://www.docker.com/)
-* [Nginx](https://nginx.org/)
+* [Apache](https://httpd.apache.org/)
 
 ## Versioning
 
