@@ -67,7 +67,7 @@ Simulates web clients accessing the system:
 You’ll need separate terminals. One to keep the server running, and the other to run the tests. Further more, to stop them, you’ll need to open another one.
 
 ### 1. Create Test Collectors
-First, **while the server is running** create the test collectors in the system:
+First, **while the server is running** and **you've already created a superuser**, create the test collectors in the system:
 
 #### For Local Instalation
 ```bash
