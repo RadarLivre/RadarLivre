@@ -75,7 +75,7 @@ sudo apt-get install git -y
 ```
 * Docker and Docker Compose
 ```bash
-sudo apt-get install sudo apt-get install docker.io docker-compose -y
+sudo apt-get install docker.io docker-compose -y
 ```
 * Python 3.x/pip (optional, only required for [performance analysis](performance_analysis/README.md) tests)
 ```bash
