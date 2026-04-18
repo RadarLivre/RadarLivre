@@ -84,11 +84,29 @@ sudo apt-get install python3 python3-pip python3-venv -y
 
 ### Configuration Files
 
-The system uses `.ini` files for configuration. These files should be placed in the root directory of the project **after** you already cloned it. The instructions for the cloning/setting up the server are listed further.
+The system uses `.ini` files for configuration. These files should be placed in the root directory of the project **after** you already cloned it. The instructions for cloning/setting up the server and the content for each of these files are listed further.
 
-#### Local Development
-Create a `development.ini` file with the following structure:
+Key differences between local and Docker configurations:
+- Database host: `localhost` for local, `db` for Docker (service name)
+- Database port: `5431` for local (mapped port), `5432` for Docker (internal port)
+- Debug mode: Usually `True` for local development, `False` for Docker
 
+### Method 1: Local Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/RadarLivre/RadarLivre.git
+# After cloning, enter the folder
+cd RadarLivre
+```
+
+2. Create the `development.ini` file using `nano`:
+```bash
+nano development.ini
+# This will open the nano file editor
+```
+
+3. Paste the following structure:
 ```ini
 [DATABASE]
 ENGINE = django.contrib.gis.db.backends.postgis
@@ -106,9 +124,44 @@ ALLOWED_HOSTS = localhost,127.0.0.1
 CSRF_TRUSTED_ORIGINS = http://localhost,http://127.0.0.1
 ```
 
-#### Docker Environment
-For Docker, create a `development-docker.ini` file:
+4. Save the file:
+```bash
+# Press ^(Ctrl) + O, then (Enter) and exit using ^(Ctrl) + X
+```
 
+5. Give permission to run all scripts:
+```bash
+chmod +x *.sh
+```
+
+6. Run the setup script:
+```bash
+./setup.sh
+```
+
+7. Start the server:
+```bash
+./runserver.sh
+```
+
+8. Access the system at [http://localhost:8000](http://localhost:8000).
+
+### Method 2: Docker Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/RadarLivre/RadarLivre.git
+# After cloning, enter the folder
+cd RadarLivre
+```
+
+2. Create the `development-docker.ini` file using `nano`:
+```bash
+nano development-docker.ini
+# This will open the nano file editor
+```
+
+3. Paste the following structure:
 ```ini
 [DATABASE]
 ENGINE = django.contrib.gis.db.backends.postgis
@@ -126,62 +179,12 @@ ALLOWED_HOSTS = localhost,127.0.0.1
 CSRF_TRUSTED_ORIGINS = http://localhost,http://127.0.0.1
 ```
 
-Key differences between local and Docker configurations:
-- Database host: `localhost` for local, `db` for Docker (service name)
-- Database port: `5431` for local (mapped port), `5432` for Docker (internal port)
-- Debug mode: Usually `True` for local development, `False` for Docker
-
-
-### Method 1: Local Installation
-
-1. Clone the repository:
+4. Save the file:
 ```bash
-git clone https://github.com/RadarLivre/RadarLivre.git
-# After cloning, enter the folder
-cd RadarLivre
+# Press ^(Ctrl) + O, then (Enter) and exit using ^(Ctrl) + X
 ```
 
-2. Create the `development.ini` file:
-```bash
-nano development.ini
-# Paste the structure mentioned previously for local installation,
-# then save using ^(Ctrl)O, (Enter) and exit using ^(Ctrl)X
-```
-
-3. Give permission to run all scripts:
-```bash
-chmod +x *.sh
-```
-
-4. Run the setup script:
-```bash
-./setup.sh
-```
-
-5. Start the server:
-```bash
-./runserver.sh
-```
-
-6. Access the system at [http://localhost:8000](http://localhost:8000).
-
-### Method 2: Docker Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/RadarLivre/RadarLivre.git
-# After cloning, enter the folder
-cd RadarLivre
-```
-
-2. Create the `development-docker.ini` file:
-```bash
-nano development-docker.ini
-# Paste the structure mentioned previously for Docker installation,
-# then save using ^(Ctrl)O, (Enter) and exit using ^(Ctrl)X
-```
-
-3. Start the containers:
+5. Start the containers:
 ```bash
 # For the first time running, use '--build'
 sudo docker-compose up -d --build
@@ -189,7 +192,7 @@ sudo docker-compose up -d --build
 # For the subsequent runs, you can remove '--build'
 ```
 
-4. Access the system at [http://localhost:8000](http://localhost:8000). If you want to stop the containers, run `sudo docker-compose down`.
+6. Access the system at [http://localhost:8000](http://localhost:8000). If you want to stop the containers, run `sudo docker-compose down`.
 
 ## System Configuration
 
@@ -275,7 +278,6 @@ Types:
 - `style`: Code style changes (e.g., `style: improve code comments`)
 - `refactor`: Code refactoring (e.g., `refactor: simplify user authentication flow`)
 - `test`: Adding or modifying tests (e.g., `test: add tests for login service`)
-
 
 ## Performance Analysis
 
