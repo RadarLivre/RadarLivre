@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# Install PostGIS system package
-echo "Installing PostGIS..."
-sudo apt-get install -y postgresql-16-postgis-3 2>/dev/null || echo "PostGIS installation failed or already installed"
+# Install additional packages required to run on Ubuntu Server 26.04
+sudo apt-get install libpq-dev libjpeg-dev
 
 # Configure PostgreSQL
 echo "Configuring PostgreSQL..."
@@ -24,7 +23,7 @@ fi
 # Start PostgreSQL
 echo "Starting PostgreSQL..."
 sudo service postgresql start
-sleep 3  # Give it time to start
+sleep 3
 
 # Configure PostgreSQL password
 echo "Setting PostgreSQL password..."
@@ -32,11 +31,11 @@ sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';" 2>/dev/null 
 
 # Create database
 echo "Creating database..."
-sudo -u postgres psql -c "CREATE DATABASE radarlivre;" 2>/dev/null && echo "Database created" || echo "Database already exists"
+sudo -u postgres psql -p 5431 -c "CREATE DATABASE radarlivre;" 2>/dev/null && echo "Database created" || echo "Database already exists"
 
 # Create extensions
 echo "Creating PostGIS extensions..."
-sudo -u postgres psql -d radarlivre -c "CREATE EXTENSION IF NOT EXISTS postgis; CREATE EXTENSION IF NOT EXISTS postgis_topology;" 2>/dev/null && echo "Extensions created" || echo "Extensions already exist or failed"
+sudo -u postgres psql -p 5431 -d radarlivre -c "CREATE EXTENSION IF NOT EXISTS postgis; CREATE EXTENSION IF NOT EXISTS postgis_topology;" 2>/dev/null && echo "Extensions created" || echo "Extensions already exist or failed"
 
 # Install Apache and its required modules
 echo "Installing and configuring Apache as Reverse Proxy..."
