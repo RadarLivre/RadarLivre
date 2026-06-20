@@ -16,9 +16,9 @@ This paper will help you get a copy of the project (server-side) to run it in yo
 
 ## Supported Platforms
 
-This project has been primarily developed and tested on **Ubuntu Server**, but the Docker installation should work in any other operating system.
+This project has been primarily developed and tested on **Ubuntu Server 26.04 LTS**, but the Docker installation should work in any other operating system.
 
-The instructions following are for **Ubuntu Server**. If you’re using a different operating system, check your package manager documentation and make the needed adjustments to the commands.
+The instructions following are for **Ubuntu Server 26.04 LTS**. If you’re using a different operating system, check your package manager documentation and make the needed adjustments to the commands.
 
 ## Virtual Machine Configuration (Oracle VirtualBox)
 
@@ -64,7 +64,7 @@ sudo apt-get install git -y
 ```
 * Python 3.x
 ```bash
-sudo apt-get install python3 python3-pip python3-venv -y
+sudo apt-get install python3 python3-pip python3-venv python3-dev -y
 ```
 * PostgreSQL with PostGIS extension
 ```bash
