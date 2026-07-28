@@ -57,10 +57,6 @@ cat <<EOF | sudo tee /etc/apache2/sites-available/radarlivre.conf
 
 	Header always set X-Proxied-By "Apache-2.4-ReverseProxy"
 
-    ProxyPreserveHost On
-    ProxyPass / http://127.0.0.1:8000/
-    ProxyPassReverse / http://127.0.0.1:8000/
-
     Alias /static ${CURRENT_DIR}/static
     <Directory ${CURRENT_DIR}/static>
         Require all granted
@@ -71,10 +67,23 @@ cat <<EOF | sudo tee /etc/apache2/sites-available/radarlivre.conf
         Require all granted
     </Directory>
 
+    ProxyPass /static/ !
+    ProxyPass /media/ !
+
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:8000/
+    ProxyPassReverse / http://127.0.0.1:8000/
+
     ErrorLog \${APACHE_LOG_DIR}/error.log
     CustomLog \${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 EOF
+
+# Adjust permissions so that Apache can read static files
+echo "Adjusting permissions for Apache..."
+sudo chown -R www-data:www-data ${CURRENT_DIR}/static
+sudo chmod -R 755 ${CURRENT_DIR}/static
+sudo chmod 755 ${CURRENT_DIR}
 
 # Activate config
 sudo a2ensite radarlivre.conf
