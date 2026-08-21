@@ -3,7 +3,21 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 1.1.0 - 2024-03-19 [Unreleased]
+## 1.2.0 - 2026-08-21
+### Added
+- Setup script for automated environment configuration
+- Apache HTTP Server support (replacing Nginx)
+- Portuguese translation of README
+- Automatic migration check before server startup
+
+### Changed
+- Migrated to Ubuntu 26.04 LTS support
+- Updated all dependencies to latest stable versions
+- Replaced Nginx with Apache
+- Enhanced documentation with detailed setup instructions
+- Updated README with current technologies and build instructions
+
+## 1.1.0 - 2024-03-19
 ### Added
 - Docker support with docker-compose for easy deployment
 - Load testing suite in performance_analysis directory
