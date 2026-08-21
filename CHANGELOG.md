@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Automatic migration check before server startup
 
 ### Changed
-- Migrated to Ubuntu 26.04 LTS support
+- Migrated to Ubuntu Server 26.04 LTS
 - Updated all dependencies to latest stable versions
 - Replaced Nginx with Apache
 - Enhanced documentation with detailed setup instructions
